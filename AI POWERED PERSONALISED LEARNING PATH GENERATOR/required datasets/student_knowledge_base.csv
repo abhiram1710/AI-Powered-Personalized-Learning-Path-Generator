@@ -1,0 +1,3601 @@
+Student_ID,Job_Profession,Dominant_Intelligence,Average_Intelligence_Score,Average_Performance,Performance_Category
+S1,Astronomer,Naturalist,13.62,2.38,Excellent
+S2,Astronomer,Naturalist,13.75,2.38,Excellent
+S3,Astronomer,Naturalist,13.88,2.38,Excellent
+S4,Astronomer,Spatial_Visualization,14.62,2.38,Excellent
+S5,Astronomer,Spatial_Visualization,14.88,2.38,Excellent
+S6,Astronomer,Intrapersonal,14.25,2.38,Excellent
+S7,Astronomer,Intrapersonal,13.88,2.38,Excellent
+S8,Astronomer,Intrapersonal,14.0,2.38,Excellent
+S9,Astronomer,Spatial_Visualization,14.0,2.38,Excellent
+S10,Astronomer,Spatial_Visualization,14.5,2.38,Excellent
+S11,Astronomer,Intrapersonal,14.38,2.38,Excellent
+S12,Astronomer,Intrapersonal,14.5,2.38,Excellent
+S13,Astronomer,Intrapersonal,14.5,2.38,Excellent
+S14,Astronomer,Spatial_Visualization,15.0,2.38,Excellent
+S15,Astronomer,Spatial_Visualization,14.75,2.38,Excellent
+S16,Astronomer,Intrapersonal,14.38,2.38,Excellent
+S17,Astronomer,Intrapersonal,14.0,2.38,Excellent
+S18,Astronomer,Intrapersonal,14.25,2.38,Excellent
+S19,Astronomer,Intrapersonal,14.38,2.38,Excellent
+S20,Astronomer,Intrapersonal,15.0,2.38,Excellent
+S21,Astronomer,Intrapersonal,14.88,2.38,Excellent
+S22,Astronomer,Logical_Mathematical,14.25,2.38,Excellent
+S23,Astronomer,Spatial_Visualization,14.75,2.38,Excellent
+S24,Astronomer,Spatial_Visualization,15.12,2.38,Excellent
+S25,Astronomer,Naturalist,14.25,2.38,Excellent
+S26,Astronomer,Naturalist,14.5,2.38,Excellent
+S27,Astronomer,Naturalist,14.62,2.38,Excellent
+S28,Astronomer,Naturalist,14.75,2.38,Excellent
+S29,Astronomer,Naturalist,14.5,2.38,Excellent
+S30,Astronomer,Naturalist,14.38,2.38,Excellent
+S31,Astronomer,Naturalist,14.88,2.38,Excellent
+S32,Astronomer,Spatial_Visualization,15.5,2.38,Excellent
+S33,Astronomer,Naturalist,14.88,2.38,Excellent
+S34,Astronomer,Naturalist,14.88,2.38,Excellent
+S35,Astronomer,Naturalist,14.5,2.38,Excellent
+S36,Astronomer,Naturalist,14.38,2.38,Excellent
+S37,Astronomer,Logical_Mathematical,14.12,2.38,Excellent
+S38,Astronomer,Logical_Mathematical,14.75,2.38,Excellent
+S39,Astronomer,Logical_Mathematical,14.38,2.38,Excellent
+S40,Astronomer,Logical_Mathematical,14.5,2.38,Excellent
+S41,Astronomer,Logical_Mathematical,13.75,2.38,Excellent
+S42,Astronomer,Logical_Mathematical,14.12,2.38,Excellent
+S43,Astronomer,Logical_Mathematical,14.25,2.38,Excellent
+S44,Astronomer,Logical_Mathematical,14.12,2.38,Excellent
+S45,Astronomer,Logical_Mathematical,13.75,2.38,Excellent
+S46,Astronomer,Logical_Mathematical,14.0,2.38,Excellent
+S47,Astronomer,Logical_Mathematical,13.88,2.38,Excellent
+S48,Astronomer,Logical_Mathematical,14.5,2.38,Excellent
+S49,Astronomer,Logical_Mathematical,13.88,2.38,Excellent
+S50,Astronomer,Logical_Mathematical,14.25,2.38,Excellent
+S51,Geologist,Naturalist,13.25,2.12,Good
+S52,Geologist,Naturalist,13.12,2.12,Good
+S53,Geologist,Naturalist,13.25,2.12,Good
+S54,Geologist,Naturalist,14.0,2.12,Good
+S55,Geologist,Bodily,13.88,2.12,Good
+S56,Geologist,Naturalist,13.5,2.12,Good
+S57,Geologist,Naturalist,13.0,2.12,Good
+S58,Geologist,Naturalist,13.38,2.12,Good
+S59,Geologist,Naturalist,13.25,2.12,Good
+S60,Geologist,Naturalist,13.62,2.12,Good
+S61,Geologist,Naturalist,13.88,2.12,Good
+S62,Geologist,Naturalist,13.0,2.12,Good
+S63,Geologist,Naturalist,13.25,2.12,Good
+S64,Geologist,Bodily,12.88,2.12,Good
+S65,Geologist,Naturalist,13.0,2.12,Good
+S66,Geologist,Naturalist,13.25,2.12,Good
+S67,Geologist,Naturalist,13.12,2.12,Good
+S68,Geologist,Naturalist,12.75,2.12,Good
+S69,Geologist,Naturalist,12.88,2.12,Good
+S70,Geologist,Naturalist,12.75,2.12,Good
+S71,Geologist,Naturalist,12.62,2.12,Good
+S72,Geologist,Bodily,13.5,2.12,Good
+S73,Geologist,Bodily,13.12,2.12,Good
+S74,Geologist,Logical_Mathematical,13.25,2.12,Good
+S75,Geologist,Logical_Mathematical,12.5,2.12,Good
+S76,Geologist,Bodily,12.62,2.12,Good
+S77,Geologist,Logical_Mathematical,13.0,2.12,Good
+S78,Geologist,Logical_Mathematical,13.38,2.12,Good
+S79,Geologist,Logical_Mathematical,13.25,2.12,Good
+S80,Geologist,Logical_Mathematical,12.62,2.12,Good
+S81,Geologist,Bodily,12.88,2.12,Good
+S82,Geologist,Bodily,13.0,2.12,Good
+S83,Geologist,Logical_Mathematical,12.88,2.12,Good
+S84,Geologist,Logical_Mathematical,12.75,2.12,Good
+S85,Geologist,Bodily,13.12,2.12,Good
+S86,Geologist,Logical_Mathematical,13.0,2.12,Good
+S87,Geologist,Logical_Mathematical,13.25,2.12,Good
+S88,Geologist,Logical_Mathematical,12.88,2.12,Good
+S89,Geologist,Logical_Mathematical,12.75,2.12,Good
+S90,Geologist,Bodily,13.88,2.12,Good
+S91,Geologist,Bodily,13.5,2.12,Good
+S92,Geologist,Logical_Mathematical,13.38,2.12,Good
+S93,Geologist,Logical_Mathematical,13.12,2.12,Good
+S94,Geologist,Logical_Mathematical,13.25,2.12,Good
+S95,Geologist,Logical_Mathematical,13.12,2.12,Good
+S96,Geologist,Logical_Mathematical,13.25,2.12,Good
+S97,Geologist,Logical_Mathematical,13.12,2.12,Good
+S98,Geologist,Bodily,13.88,2.12,Good
+S99,Geologist,Bodily,13.75,2.12,Good
+S100,Geologist,Logical_Mathematical,13.0,2.12,Good
+S101,Marine Biologist,Logical_Mathematical,11.62,1.88,Average
+S102,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S103,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S104,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S105,Marine Biologist,Logical_Mathematical,12.88,1.88,Average
+S106,Marine Biologist,Logical_Mathematical,12.5,1.88,Average
+S107,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S108,Marine Biologist,Logical_Mathematical,11.88,1.88,Average
+S109,Marine Biologist,Logical_Mathematical,12.12,1.88,Average
+S110,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S111,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S112,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S113,Marine Biologist,Logical_Mathematical,12.12,1.88,Average
+S114,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S115,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S116,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S117,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S118,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S119,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S120,Marine Biologist,Logical_Mathematical,11.88,1.88,Average
+S121,Marine Biologist,Logical_Mathematical,11.5,1.88,Average
+S122,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S123,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S124,Marine Biologist,Logical_Mathematical,11.88,1.88,Average
+S125,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S126,Marine Biologist,Logical_Mathematical,11.38,1.88,Average
+S127,Marine Biologist,Logical_Mathematical,11.5,1.88,Average
+S128,Marine Biologist,Logical_Mathematical,11.88,1.88,Average
+S129,Marine Biologist,Logical_Mathematical,11.38,1.88,Average
+S130,Marine Biologist,Logical_Mathematical,11.38,1.88,Average
+S131,Marine Biologist,Logical_Mathematical,11.62,1.88,Average
+S132,Marine Biologist,Logical_Mathematical,12.12,1.88,Average
+S133,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S134,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S135,Marine Biologist,Logical_Mathematical,11.38,1.88,Average
+S136,Marine Biologist,Logical_Mathematical,11.5,1.88,Average
+S137,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S138,Marine Biologist,Logical_Mathematical,12.62,1.88,Average
+S139,Marine Biologist,Logical_Mathematical,12.25,1.88,Average
+S140,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S141,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S142,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S143,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S144,Marine Biologist,Logical_Mathematical,12.0,1.88,Average
+S145,Marine Biologist,Logical_Mathematical,12.38,1.88,Average
+S146,Marine Biologist,Logical_Mathematical,11.75,1.88,Average
+S147,Marine Biologist,Naturalist,12.0,1.88,Average
+S148,Marine Biologist,Naturalist,11.38,1.88,Average
+S149,Marine Biologist,Naturalist,11.5,1.88,Average
+S150,Marine Biologist,Naturalist,12.0,1.88,Average
+S151,Veterinarian,Intrapersonal,12.38,2.12,Good
+S152,Veterinarian,Interpersonal,13.88,2.12,Good
+S153,Veterinarian,Intrapersonal,13.88,2.12,Good
+S154,Veterinarian,Interpersonal,13.5,2.12,Good
+S155,Veterinarian,Intrapersonal,12.5,2.12,Good
+S156,Veterinarian,Intrapersonal,13.0,2.12,Good
+S157,Veterinarian,Intrapersonal,13.38,2.12,Good
+S158,Veterinarian,Interpersonal,13.0,2.12,Good
+S159,Veterinarian,Intrapersonal,13.38,2.12,Good
+S160,Veterinarian,Interpersonal,13.38,2.12,Good
+S161,Veterinarian,Intrapersonal,13.25,2.12,Good
+S162,Veterinarian,Intrapersonal,12.88,2.12,Good
+S163,Veterinarian,Intrapersonal,13.0,2.12,Good
+S164,Veterinarian,Interpersonal,13.25,2.12,Good
+S165,Veterinarian,Interpersonal,13.12,2.12,Good
+S166,Veterinarian,Interpersonal,13.12,2.12,Good
+S167,Veterinarian,Intrapersonal,13.12,2.12,Good
+S168,Veterinarian,Intrapersonal,12.88,2.12,Good
+S169,Veterinarian,Intrapersonal,12.62,2.12,Good
+S170,Veterinarian,Interpersonal,13.5,2.12,Good
+S171,Veterinarian,Interpersonal,12.75,2.12,Good
+S172,Veterinarian,Interpersonal,13.25,2.12,Good
+S173,Veterinarian,Intrapersonal,12.75,2.12,Good
+S174,Veterinarian,Intrapersonal,13.0,2.12,Good
+S175,Veterinarian,Intrapersonal,12.75,2.12,Good
+S176,Veterinarian,Interpersonal,13.38,2.12,Good
+S177,Veterinarian,Interpersonal,13.12,2.12,Good
+S178,Veterinarian,Interpersonal,12.62,2.12,Good
+S179,Veterinarian,Intrapersonal,13.25,2.12,Good
+S180,Veterinarian,Intrapersonal,12.5,2.12,Good
+S181,Veterinarian,Intrapersonal,13.25,2.12,Good
+S182,Veterinarian,Interpersonal,13.38,2.12,Good
+S183,Veterinarian,Interpersonal,13.0,2.12,Good
+S184,Veterinarian,Interpersonal,13.0,2.12,Good
+S185,Veterinarian,Intrapersonal,12.5,2.12,Good
+S186,Veterinarian,Intrapersonal,13.12,2.12,Good
+S187,Veterinarian,Intrapersonal,13.0,2.12,Good
+S188,Veterinarian,Interpersonal,13.75,2.12,Good
+S189,Veterinarian,Interpersonal,12.88,2.12,Good
+S190,Veterinarian,Interpersonal,13.25,2.12,Good
+S191,Veterinarian,Naturalist,13.12,2.12,Good
+S192,Veterinarian,Naturalist,12.75,2.12,Good
+S193,Veterinarian,Naturalist,13.25,2.12,Good
+S194,Veterinarian,Interpersonal,13.5,2.12,Good
+S195,Veterinarian,Naturalist,13.12,2.12,Good
+S196,Veterinarian,Interpersonal,13.62,2.12,Good
+S197,Veterinarian,Naturalist,12.75,2.12,Good
+S198,Veterinarian,Naturalist,12.88,2.12,Good
+S199,Veterinarian,Naturalist,12.88,2.12,Good
+S200,Veterinarian,Naturalist,13.0,2.12,Good
+S201,Nature photographer,Naturalist,12.25,2.0,Good
+S202,Nature photographer,Bodily,12.5,2.0,Good
+S203,Nature photographer,Naturalist,12.75,2.0,Good
+S204,Nature photographer,Bodily,12.38,2.0,Good
+S205,Nature photographer,Naturalist,12.62,2.0,Good
+S206,Nature photographer,Intrapersonal,11.88,2.0,Good
+S207,Nature photographer,Naturalist,12.5,2.0,Good
+S208,Nature photographer,Bodily,12.75,2.0,Good
+S209,Nature photographer,Naturalist,13.0,2.0,Good
+S210,Nature photographer,Bodily,13.12,2.0,Good
+S211,Nature photographer,Naturalist,12.25,2.0,Good
+S212,Nature photographer,Intrapersonal,11.88,2.0,Good
+S213,Nature photographer,Naturalist,12.38,2.0,Good
+S214,Nature photographer,Bodily,12.38,2.0,Good
+S215,Nature photographer,Naturalist,12.25,2.0,Good
+S216,Nature photographer,Bodily,11.88,2.0,Good
+S217,Nature photographer,Naturalist,12.38,2.0,Good
+S218,Nature photographer,Intrapersonal,11.75,2.0,Good
+S219,Nature photographer,Naturalist,12.38,2.0,Good
+S220,Nature photographer,Bodily,12.75,2.0,Good
+S221,Nature photographer,Naturalist,12.38,2.0,Good
+S222,Nature photographer,Bodily,12.12,2.0,Good
+S223,Nature photographer,Intrapersonal,11.75,2.0,Good
+S224,Nature photographer,Intrapersonal,11.5,2.0,Good
+S225,Nature photographer,Intrapersonal,12.0,2.0,Good
+S226,Nature photographer,Bodily,12.62,2.0,Good
+S227,Nature photographer,Intrapersonal,11.62,2.0,Good
+S228,Nature photographer,Naturalist,12.62,2.0,Good
+S229,Nature photographer,Intrapersonal,12.12,2.0,Good
+S230,Nature photographer,Intrapersonal,12.25,2.0,Good
+S231,Nature photographer,Intrapersonal,12.5,2.0,Good
+S232,Nature photographer,Bodily,13.12,2.0,Good
+S233,Nature photographer,Intrapersonal,12.25,2.0,Good
+S234,Nature photographer,Bodily,12.12,2.0,Good
+S235,Nature photographer,Intrapersonal,11.62,2.0,Good
+S236,Nature photographer,Intrapersonal,12.0,2.0,Good
+S237,Nature photographer,Naturalist,12.75,2.0,Good
+S238,Nature photographer,Intrapersonal,12.25,2.0,Good
+S239,Nature photographer,Bodily,13.5,2.0,Good
+S240,Nature photographer,Bodily,12.5,2.0,Good
+S241,Nature photographer,Bodily,13.0,2.0,Good
+S242,Nature photographer,Intrapersonal,12.12,2.0,Good
+S243,Nature photographer,Naturalist,12.25,2.0,Good
+S244,Nature photographer,Naturalist,12.62,2.0,Good
+S245,Nature photographer,Bodily,13.0,2.0,Good
+S246,Nature photographer,Bodily,12.88,2.0,Good
+S247,Nature photographer,Bodily,12.75,2.0,Good
+S248,Nature photographer,Intrapersonal,12.25,2.0,Good
+S249,Nature photographer,Intrapersonal,12.25,2.0,Good
+S250,Nature photographer,Bodily,13.25,2.0,Good
+S251,Recording engineer,Musical,11.88,2.0,Good
+S252,Recording engineer,Musical,11.38,2.0,Good
+S253,Recording engineer,Musical,11.62,2.0,Good
+S254,Recording engineer,Musical,12.12,2.0,Good
+S255,Recording engineer,Musical,12.5,2.0,Good
+S256,Recording engineer,Musical,12.5,2.0,Good
+S257,Recording engineer,Interpersonal,11.12,2.0,Good
+S258,Recording engineer,Interpersonal,11.12,2.0,Good
+S259,Recording engineer,Musical,11.75,2.0,Good
+S260,Recording engineer,Musical,12.25,2.0,Good
+S261,Recording engineer,Musical,12.38,2.0,Good
+S262,Recording engineer,Interpersonal,12.38,2.0,Good
+S263,Recording engineer,Musical,12.88,2.0,Good
+S264,Recording engineer,Interpersonal,12.12,2.0,Good
+S265,Recording engineer,Interpersonal,12.25,2.0,Good
+S266,Recording engineer,Musical,13.12,2.0,Good
+S267,Recording engineer,Interpersonal,12.25,2.0,Good
+S268,Recording engineer,Interpersonal,12.5,2.0,Good
+S269,Recording engineer,Musical,12.75,2.0,Good
+S270,Recording engineer,Interpersonal,12.12,2.0,Good
+S271,Recording engineer,Interpersonal,12.5,2.0,Good
+S272,Recording engineer,Interpersonal,11.88,2.0,Good
+S273,Recording engineer,Interpersonal,11.5,2.0,Good
+S274,Recording engineer,Musical,12.75,2.0,Good
+S275,Recording engineer,Musical,13.12,2.0,Good
+S276,Recording engineer,Interpersonal,12.88,2.0,Good
+S277,Recording engineer,Interpersonal,12.38,2.0,Good
+S278,Recording engineer,Interpersonal,12.75,2.0,Good
+S279,Recording engineer,Interpersonal,12.25,2.0,Good
+S280,Recording engineer,Musical,13.0,2.0,Good
+S281,Recording engineer,Interpersonal,12.62,2.0,Good
+S282,Recording engineer,Interpersonal,12.75,2.0,Good
+S283,Recording engineer,Interpersonal,12.38,2.0,Good
+S284,Recording engineer,Interpersonal,12.12,2.0,Good
+S285,Recording engineer,Interpersonal,12.5,2.0,Good
+S286,Recording engineer,Interpersonal,12.88,2.0,Good
+S287,Recording engineer,Interpersonal,13.12,2.0,Good
+S288,Recording engineer,Interpersonal,13.5,2.0,Good
+S289,Recording engineer,Musical,12.62,2.0,Good
+S290,Recording engineer,Interpersonal,11.88,2.0,Good
+S291,Recording engineer,Interpersonal,12.0,2.0,Good
+S292,Recording engineer,Interpersonal,12.62,2.0,Good
+S293,Recording engineer,Interpersonal,13.75,2.0,Good
+S294,Recording engineer,Logical_Mathematical,13.62,2.0,Good
+S295,Recording engineer,Interpersonal,12.62,2.0,Good
+S296,Recording engineer,Musical,12.62,2.0,Good
+S297,Recording engineer,Musical,13.75,2.0,Good
+S298,Recording engineer,Musical,12.88,2.0,Good
+S299,Recording engineer,Interpersonal,12.12,2.0,Good
+S300,Recording engineer,Interpersonal,13.12,2.0,Good
+S301,Audiologist,Linguistic,12.5,2.12,Good
+S302,Audiologist,Logical_Mathematical,12.25,2.12,Good
+S303,Audiologist,Interpersonal,13.12,2.12,Good
+S304,Audiologist,Interpersonal,14.25,2.12,Good
+S305,Audiologist,Linguistic,13.5,2.12,Good
+S306,Audiologist,Linguistic,12.25,2.12,Good
+S307,Audiologist,Linguistic,12.62,2.12,Good
+S308,Audiologist,Interpersonal,13.5,2.12,Good
+S309,Audiologist,Interpersonal,12.75,2.12,Good
+S310,Audiologist,Linguistic,13.5,2.12,Good
+S311,Audiologist,Linguistic,13.5,2.12,Good
+S312,Audiologist,Linguistic,12.75,2.12,Good
+S313,Audiologist,Interpersonal,12.75,2.12,Good
+S314,Audiologist,Interpersonal,13.25,2.12,Good
+S315,Audiologist,Logical_Mathematical,12.75,2.12,Good
+S316,Audiologist,Linguistic,13.62,2.12,Good
+S317,Audiologist,Linguistic,13.12,2.12,Good
+S318,Audiologist,Interpersonal,12.75,2.12,Good
+S319,Audiologist,Interpersonal,13.38,2.12,Good
+S320,Audiologist,Linguistic,13.0,2.12,Good
+S321,Audiologist,Logical_Mathematical,12.25,2.12,Good
+S322,Audiologist,Logical_Mathematical,13.12,2.12,Good
+S323,Audiologist,Logical_Mathematical,14.25,2.12,Good
+S324,Audiologist,Linguistic,13.25,2.12,Good
+S325,Audiologist,Linguistic,12.38,2.12,Good
+S326,Audiologist,Linguistic,13.0,2.12,Good
+S327,Audiologist,Logical_Mathematical,13.38,2.12,Good
+S328,Audiologist,Logical_Mathematical,14.0,2.12,Good
+S329,Audiologist,Logical_Mathematical,13.25,2.12,Good
+S330,Audiologist,Logical_Mathematical,13.88,2.12,Good
+S331,Audiologist,Linguistic,13.62,2.12,Good
+S332,Audiologist,Logical_Mathematical,13.5,2.12,Good
+S333,Audiologist,Logical_Mathematical,13.25,2.12,Good
+S334,Audiologist,Logical_Mathematical,13.38,2.12,Good
+S335,Audiologist,Logical_Mathematical,13.5,2.12,Good
+S336,Audiologist,Logical_Mathematical,14.0,2.12,Good
+S337,Audiologist,Linguistic,13.88,2.12,Good
+S338,Audiologist,Logical_Mathematical,13.25,2.12,Good
+S339,Audiologist,Logical_Mathematical,13.62,2.12,Good
+S340,Audiologist,Logical_Mathematical,13.75,2.12,Good
+S341,Audiologist,Logical_Mathematical,13.88,2.12,Good
+S342,Audiologist,Logical_Mathematical,13.5,2.12,Good
+S343,Audiologist,Logical_Mathematical,13.38,2.12,Good
+S344,Audiologist,Linguistic,13.75,2.12,Good
+S345,Audiologist,Logical_Mathematical,13.38,2.12,Good
+S346,Audiologist,Logical_Mathematical,13.75,2.12,Good
+S347,Audiologist,Logical_Mathematical,13.38,2.12,Good
+S348,Audiologist,Logical_Mathematical,13.5,2.12,Good
+S349,Audiologist,Logical_Mathematical,13.88,2.12,Good
+S350,Audiologist,Linguistic,14.0,2.12,Good
+S351,Sound editor,Musical,12.62,2.12,Good
+S352,Sound editor,Naturalist,12.38,2.12,Good
+S353,Sound editor,Naturalist,13.25,2.12,Good
+S354,Sound editor,Logical_Mathematical,13.5,2.12,Good
+S355,Sound editor,Musical,14.12,2.12,Good
+S356,Sound editor,Musical,14.12,2.12,Good
+S357,Sound editor,Naturalist,12.75,2.12,Good
+S358,Sound editor,Naturalist,13.0,2.12,Good
+S359,Sound editor,Logical_Mathematical,12.62,2.12,Good
+S360,Sound editor,Logical_Mathematical,12.62,2.12,Good
+S361,Sound editor,Logical_Mathematical,12.62,2.12,Good
+S362,Sound editor,Logical_Mathematical,12.88,2.12,Good
+S363,Sound editor,Naturalist,12.75,2.12,Good
+S364,Sound editor,Naturalist,13.12,2.12,Good
+S365,Sound editor,Naturalist,13.5,2.12,Good
+S366,Sound editor,Musical,13.88,2.12,Good
+S367,Sound editor,Musical,13.5,2.12,Good
+S368,Sound editor,Musical,13.75,2.12,Good
+S369,Sound editor,Naturalist,12.12,2.12,Good
+S370,Sound editor,Naturalist,12.12,2.12,Good
+S371,Sound editor,Naturalist,12.5,2.12,Good
+S372,Sound editor,Naturalist,12.75,2.12,Good
+S373,Sound editor,Naturalist,13.25,2.12,Good
+S374,Sound editor,Logical_Mathematical,13.38,2.12,Good
+S375,Sound editor,Logical_Mathematical,13.5,2.12,Good
+S376,Sound editor,Logical_Mathematical,14.25,2.12,Good
+S377,Sound editor,Musical,13.62,2.12,Good
+S378,Sound editor,Musical,14.0,2.12,Good
+S379,Sound editor,Logical_Mathematical,12.62,2.12,Good
+S380,Sound editor,Logical_Mathematical,12.75,2.12,Good
+S381,Sound editor,Logical_Mathematical,13.88,2.12,Good
+S382,Sound editor,Logical_Mathematical,13.62,2.12,Good
+S383,Sound editor,Naturalist,13.75,2.12,Good
+S384,Sound editor,Musical,13.88,2.12,Good
+S385,Sound editor,Logical_Mathematical,13.62,2.12,Good
+S386,Sound editor,Logical_Mathematical,13.75,2.12,Good
+S387,Sound editor,Naturalist,13.5,2.12,Good
+S388,Sound editor,Naturalist,13.62,2.12,Good
+S389,Sound editor,Musical,13.75,2.12,Good
+S390,Sound editor,Logical_Mathematical,13.62,2.12,Good
+S391,Sound editor,Naturalist,13.0,2.12,Good
+S392,Sound editor,Naturalist,13.25,2.12,Good
+S393,Sound editor,Naturalist,13.88,2.12,Good
+S394,Sound editor,Musical,13.25,2.12,Good
+S395,Sound editor,Musical,13.88,2.12,Good
+S396,Sound editor,Logical_Mathematical,13.88,2.12,Good
+S397,Sound editor,Naturalist,13.62,2.12,Good
+S398,Sound editor,Naturalist,13.88,2.12,Good
+S399,Sound editor,Musical,14.0,2.12,Good
+S400,Sound editor,Logical_Mathematical,12.88,2.12,Good
+S401,Music teacher,Musical,12.88,2.12,Good
+S402,Music teacher,Interpersonal,13.25,2.12,Good
+S403,Music teacher,Interpersonal,13.62,2.12,Good
+S404,Music teacher,Musical,13.25,2.12,Good
+S405,Music teacher,Musical,14.0,2.12,Good
+S406,Music teacher,Linguistic,14.62,2.12,Good
+S407,Music teacher,Interpersonal,12.75,2.12,Good
+S408,Music teacher,Interpersonal,12.75,2.12,Good
+S409,Music teacher,Musical,12.88,2.12,Good
+S410,Music teacher,Musical,13.75,2.12,Good
+S411,Music teacher,Linguistic,14.0,2.12,Good
+S412,Music teacher,Linguistic,14.38,2.12,Good
+S413,Music teacher,Musical,13.5,2.12,Good
+S414,Music teacher,Musical,13.25,2.12,Good
+S415,Music teacher,Interpersonal,12.88,2.12,Good
+S416,Music teacher,Interpersonal,13.12,2.12,Good
+S417,Music teacher,Linguistic,13.88,2.12,Good
+S418,Music teacher,Linguistic,14.75,2.12,Good
+S419,Music teacher,Interpersonal,12.62,2.12,Good
+S420,Music teacher,Interpersonal,13.0,2.12,Good
+S421,Music teacher,Linguistic,13.88,2.12,Good
+S422,Music teacher,Linguistic,14.5,2.12,Good
+S423,Music teacher,Interpersonal,13.38,2.12,Good
+S424,Music teacher,Interpersonal,12.62,2.12,Good
+S425,Music teacher,Musical,12.62,2.12,Good
+S426,Music teacher,Musical,13.38,2.12,Good
+S427,Music teacher,Interpersonal,13.25,2.12,Good
+S428,Music teacher,Interpersonal,13.75,2.12,Good
+S429,Music teacher,Interpersonal,13.88,2.12,Good
+S430,Music teacher,Linguistic,14.38,2.12,Good
+S431,Music teacher,Musical,13.25,2.12,Good
+S432,Music teacher,Linguistic,13.38,2.12,Good
+S433,Music teacher,Musical,13.62,2.12,Good
+S434,Music teacher,Interpersonal,13.38,2.12,Good
+S435,Music teacher,Linguistic,13.62,2.12,Good
+S436,Music teacher,Linguistic,13.88,2.12,Good
+S437,Music teacher,Musical,13.75,2.12,Good
+S438,Music teacher,Linguistic,14.25,2.12,Good
+S439,Music teacher,Interpersonal,12.88,2.12,Good
+S440,Music teacher,Interpersonal,12.88,2.12,Good
+S441,Music teacher,Linguistic,13.5,2.12,Good
+S442,Music teacher,Linguistic,13.88,2.12,Good
+S443,Music teacher,Linguistic,13.88,2.12,Good
+S444,Music teacher,Linguistic,13.25,2.12,Good
+S445,Music teacher,Interpersonal,13.38,2.12,Good
+S446,Music teacher,Musical,13.88,2.12,Good
+S447,Music teacher,Linguistic,14.0,2.12,Good
+S448,Music teacher,Linguistic,13.62,2.12,Good
+S449,Music teacher,Interpersonal,12.62,2.12,Good
+S450,Music teacher,Musical,13.0,2.12,Good
+S451,Actuary,Intrapersonal,13.38,2.25,Good
+S452,Actuary,Musical,13.88,2.25,Good
+S453,Actuary,Musical,14.38,2.25,Good
+S454,Actuary,Intrapersonal,14.88,2.25,Good
+S455,Actuary,Logical_Mathematical,14.0,2.25,Good
+S456,Actuary,Logical_Mathematical,14.88,2.25,Good
+S457,Actuary,Musical,13.25,2.25,Good
+S458,Actuary,Musical,14.5,2.25,Good
+S459,Actuary,Intrapersonal,14.0,2.25,Good
+S460,Actuary,Logical_Mathematical,14.38,2.25,Good
+S461,Actuary,Logical_Mathematical,14.25,2.25,Good
+S462,Actuary,Musical,15.0,2.25,Good
+S463,Actuary,Interpersonal,13.38,2.25,Good
+S464,Actuary,Intrapersonal,14.12,2.25,Good
+S465,Actuary,Musical,13.75,2.25,Good
+S466,Actuary,Musical,14.62,2.25,Good
+S467,Actuary,Logical_Mathematical,14.12,2.25,Good
+S468,Actuary,Logical_Mathematical,15.38,2.25,Good
+S469,Actuary,Intrapersonal,13.5,2.25,Good
+S470,Actuary,Musical,14.0,2.25,Good
+S471,Actuary,Musical,13.62,2.25,Good
+S472,Actuary,Logical_Mathematical,14.12,2.25,Good
+S473,Actuary,Logical_Mathematical,14.62,2.25,Good
+S474,Actuary,Intrapersonal,15.25,2.25,Good
+S475,Actuary,Musical,12.5,2.25,Good
+S476,Actuary,Musical,14.0,2.25,Good
+S477,Actuary,Musical,14.0,2.25,Good
+S478,Actuary,Musical,14.38,2.25,Good
+S479,Actuary,Intrapersonal,14.12,2.25,Good
+S480,Actuary,Logical_Mathematical,14.88,2.25,Good
+S481,Actuary,Logical_Mathematical,13.38,2.25,Good
+S482,Actuary,Musical,14.0,2.25,Good
+S483,Actuary,Musical,13.88,2.25,Good
+S484,Actuary,Intrapersonal,14.38,2.25,Good
+S485,Actuary,Logical_Mathematical,13.88,2.25,Good
+S486,Actuary,Logical_Mathematical,15.25,2.25,Good
+S487,Actuary,Logical_Mathematical,13.25,2.25,Good
+S488,Actuary,Musical,13.88,2.25,Good
+S489,Actuary,Musical,14.25,2.25,Good
+S490,Actuary,Interpersonal,15.12,2.25,Good
+S491,Actuary,Intrapersonal,13.75,2.25,Good
+S492,Actuary,Intrapersonal,13.62,2.25,Good
+S493,Actuary,Musical,13.75,2.25,Good
+S494,Actuary,Musical,14.88,2.25,Good
+S495,Actuary,Interpersonal,14.5,2.25,Good
+S496,Actuary,Musical,14.12,2.25,Good
+S497,Actuary,Interpersonal,14.25,2.25,Good
+S498,Actuary,Musical,14.12,2.25,Good
+S499,Actuary,Logical_Mathematical,13.62,2.25,Good
+S500,Actuary,Logical_Mathematical,13.88,2.25,Good
+S501,Chartered Accountant,Interpersonal,11.38,1.88,Average
+S502,Chartered Accountant,Interpersonal,11.25,1.88,Average
+S503,Chartered Accountant,Logical_Mathematical,11.75,1.88,Average
+S504,Chartered Accountant,Logical_Mathematical,11.38,1.88,Average
+S505,Chartered Accountant,Logical_Mathematical,12.5,1.88,Average
+S506,Chartered Accountant,Logical_Mathematical,12.12,1.88,Average
+S507,Chartered Accountant,Interpersonal,11.0,1.88,Average
+S508,Chartered Accountant,Interpersonal,11.62,1.88,Average
+S509,Chartered Accountant,Logical_Mathematical,11.88,1.88,Average
+S510,Chartered Accountant,Logical_Mathematical,11.5,1.88,Average
+S511,Chartered Accountant,Logical_Mathematical,12.0,1.88,Average
+S512,Chartered Accountant,Logical_Mathematical,12.62,1.88,Average
+S513,Chartered Accountant,Interpersonal,10.62,1.88,Average
+S514,Chartered Accountant,Interpersonal,11.25,1.88,Average
+S515,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S516,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S517,Chartered Accountant,Logical_Mathematical,12.25,1.88,Average
+S518,Chartered Accountant,Logical_Mathematical,12.12,1.88,Average
+S519,Chartered Accountant,Interpersonal,11.5,1.88,Average
+S520,Chartered Accountant,Interpersonal,11.38,1.88,Average
+S521,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S522,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S523,Chartered Accountant,Logical_Mathematical,12.25,1.88,Average
+S524,Chartered Accountant,Logical_Mathematical,12.62,1.88,Average
+S525,Chartered Accountant,Interpersonal,10.88,1.88,Average
+S526,Chartered Accountant,Interpersonal,11.38,1.88,Average
+S527,Chartered Accountant,Logical_Mathematical,11.5,1.88,Average
+S528,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S529,Chartered Accountant,Logical_Mathematical,11.88,1.88,Average
+S530,Chartered Accountant,Logical_Mathematical,12.38,1.88,Average
+S531,Chartered Accountant,Interpersonal,11.12,1.88,Average
+S532,Chartered Accountant,Interpersonal,11.12,1.88,Average
+S533,Chartered Accountant,Logical_Mathematical,11.88,1.88,Average
+S534,Chartered Accountant,Logical_Mathematical,11.12,1.88,Average
+S535,Chartered Accountant,Logical_Mathematical,12.12,1.88,Average
+S536,Chartered Accountant,Logical_Mathematical,12.25,1.88,Average
+S537,Chartered Accountant,Interpersonal,11.0,1.88,Average
+S538,Chartered Accountant,Interpersonal,11.38,1.88,Average
+S539,Chartered Accountant,Logical_Mathematical,11.38,1.88,Average
+S540,Chartered Accountant,Logical_Mathematical,11.75,1.88,Average
+S541,Chartered Accountant,Logical_Mathematical,11.88,1.88,Average
+S542,Chartered Accountant,Logical_Mathematical,11.62,1.88,Average
+S543,Chartered Accountant,Interpersonal,11.12,1.88,Average
+S544,Chartered Accountant,Interpersonal,11.5,1.88,Average
+S545,Chartered Accountant,Logical_Mathematical,11.75,1.88,Average
+S546,Chartered Accountant,Logical_Mathematical,11.38,1.88,Average
+S547,Chartered Accountant,Logical_Mathematical,12.38,1.88,Average
+S548,Chartered Accountant,Logical_Mathematical,11.75,1.88,Average
+S549,Chartered Accountant,Logical_Mathematical,11.75,1.88,Average
+S550,Chartered Accountant,Logical_Mathematical,12.0,1.88,Average
+S551,Computer analyst,Intrapersonal,11.5,2.0,Good
+S552,Computer analyst,Linguistic,11.0,2.0,Good
+S553,Computer analyst,Linguistic,11.5,2.0,Good
+S554,Computer analyst,Linguistic,11.62,2.0,Good
+S555,Computer analyst,Linguistic,12.38,2.0,Good
+S556,Computer analyst,Linguistic,12.25,2.0,Good
+S557,Computer analyst,Intrapersonal,11.75,2.0,Good
+S558,Computer analyst,Linguistic,11.0,2.0,Good
+S559,Computer analyst,Linguistic,11.5,2.0,Good
+S560,Computer analyst,Linguistic,11.75,2.0,Good
+S561,Computer analyst,Linguistic,12.25,2.0,Good
+S562,Computer analyst,Linguistic,12.88,2.0,Good
+S563,Computer analyst,Intrapersonal,11.38,2.0,Good
+S564,Computer analyst,Linguistic,10.88,2.0,Good
+S565,Computer analyst,Linguistic,11.75,2.0,Good
+S566,Computer analyst,Linguistic,12.12,2.0,Good
+S567,Computer analyst,Linguistic,12.5,2.0,Good
+S568,Computer analyst,Linguistic,12.12,2.0,Good
+S569,Computer analyst,Intrapersonal,12.0,2.0,Good
+S570,Computer analyst,Linguistic,11.25,2.0,Good
+S571,Computer analyst,Linguistic,11.62,2.0,Good
+S572,Computer analyst,Linguistic,11.5,2.0,Good
+S573,Computer analyst,Linguistic,12.75,2.0,Good
+S574,Computer analyst,Linguistic,13.0,2.0,Good
+S575,Computer analyst,Intrapersonal,11.38,2.0,Good
+S576,Computer analyst,Linguistic,10.88,2.0,Good
+S577,Computer analyst,Linguistic,11.88,2.0,Good
+S578,Computer analyst,Linguistic,12.12,2.0,Good
+S579,Computer analyst,Linguistic,12.38,2.0,Good
+S580,Computer analyst,Linguistic,12.88,2.0,Good
+S581,Computer analyst,Logical_Mathematical,13.12,2.0,Good
+S582,Computer analyst,Linguistic,10.88,2.0,Good
+S583,Computer analyst,Linguistic,11.62,2.0,Good
+S584,Computer analyst,Linguistic,11.88,2.0,Good
+S585,Computer analyst,Linguistic,12.75,2.0,Good
+S586,Computer analyst,Linguistic,12.88,2.0,Good
+S587,Computer analyst,Logical_Mathematical,12.75,2.0,Good
+S588,Computer analyst,Linguistic,11.12,2.0,Good
+S589,Computer analyst,Linguistic,11.62,2.0,Good
+S590,Computer analyst,Linguistic,12.25,2.0,Good
+S591,Computer analyst,Linguistic,12.5,2.0,Good
+S592,Computer analyst,Linguistic,13.12,2.0,Good
+S593,Computer analyst,Logical_Mathematical,13.0,2.0,Good
+S594,Computer analyst,Linguistic,11.12,2.0,Good
+S595,Computer analyst,Linguistic,12.0,2.0,Good
+S596,Computer analyst,Linguistic,12.0,2.0,Good
+S597,Computer analyst,Linguistic,13.0,2.0,Good
+S598,Computer analyst,Linguistic,13.0,2.0,Good
+S599,Computer analyst,Logical_Mathematical,13.38,2.0,Good
+S600,Computer analyst,Linguistic,12.75,2.0,Good
+S601,Computer programmer,Linguistic,11.12,1.75,Average
+S602,Computer programmer,Linguistic,10.75,1.75,Average
+S603,Computer programmer,Linguistic,11.25,1.75,Average
+S604,Computer programmer,Logical_Mathematical,10.88,1.75,Average
+S605,Computer programmer,Logical_Mathematical,11.25,1.75,Average
+S606,Computer programmer,Linguistic,11.5,1.75,Average
+S607,Computer programmer,Linguistic,11.12,1.75,Average
+S608,Computer programmer,Linguistic,10.62,1.75,Average
+S609,Computer programmer,Linguistic,11.0,1.75,Average
+S610,Computer programmer,Linguistic,11.25,1.75,Average
+S611,Computer programmer,Linguistic,11.5,1.75,Average
+S612,Computer programmer,Logical_Mathematical,11.75,1.75,Average
+S613,Computer programmer,Linguistic,10.88,1.75,Average
+S614,Computer programmer,Logical_Mathematical,10.12,1.75,Average
+S615,Computer programmer,Linguistic,11.25,1.75,Average
+S616,Computer programmer,Linguistic,10.75,1.75,Average
+S617,Computer programmer,Logical_Mathematical,11.25,1.75,Average
+S618,Computer programmer,Logical_Mathematical,11.38,1.75,Average
+S619,Computer programmer,Linguistic,11.12,1.75,Average
+S620,Computer programmer,Linguistic,11.0,1.75,Average
+S621,Computer programmer,Linguistic,10.88,1.75,Average
+S622,Computer programmer,Logical_Mathematical,10.5,1.75,Average
+S623,Computer programmer,Logical_Mathematical,10.88,1.75,Average
+S624,Computer programmer,Linguistic,11.75,1.75,Average
+S625,Computer programmer,Linguistic,11.38,1.75,Average
+S626,Computer programmer,Linguistic,10.25,1.75,Average
+S627,Computer programmer,Linguistic,10.62,1.75,Average
+S628,Computer programmer,Logical_Mathematical,10.38,1.75,Average
+S629,Computer programmer,Logical_Mathematical,11.0,1.75,Average
+S630,Computer programmer,Logical_Mathematical,12.0,1.75,Average
+S631,Computer programmer,Linguistic,10.5,1.75,Average
+S632,Computer programmer,Linguistic,10.0,1.75,Average
+S633,Computer programmer,Logical_Mathematical,10.38,1.75,Average
+S634,Computer programmer,Logical_Mathematical,10.5,1.75,Average
+S635,Computer programmer,Linguistic,11.62,1.75,Average
+S636,Computer programmer,Logical_Mathematical,11.12,1.75,Average
+S637,Computer programmer,Linguistic,10.5,1.75,Average
+S638,Computer programmer,Linguistic,10.12,1.75,Average
+S639,Computer programmer,Logical_Mathematical,10.75,1.75,Average
+S640,Computer programmer,Linguistic,11.25,1.75,Average
+S641,Computer programmer,Logical_Mathematical,11.12,1.75,Average
+S642,Computer programmer,Logical_Mathematical,11.25,1.75,Average
+S643,Computer programmer,Linguistic,10.88,1.75,Average
+S644,Computer programmer,Logical_Mathematical,10.38,1.75,Average
+S645,Computer programmer,Linguistic,11.38,1.75,Average
+S646,Computer programmer,Linguistic,10.38,1.75,Average
+S647,Computer programmer,Logical_Mathematical,10.88,1.75,Average
+S648,Computer programmer,Logical_Mathematical,11.12,1.75,Average
+S649,Computer programmer,Logical_Mathematical,10.75,1.75,Average
+S650,Computer programmer,Linguistic,11.88,1.75,Average
+S651,Database designer,Logical_Mathematical,10.75,1.75,Average
+S652,Database designer,Interpersonal,10.88,1.75,Average
+S653,Database designer,Interpersonal,11.25,1.75,Average
+S654,Database designer,Interpersonal,11.75,1.75,Average
+S655,Database designer,Logical_Mathematical,11.38,1.75,Average
+S656,Database designer,Logical_Mathematical,11.75,1.75,Average
+S657,Database designer,Logical_Mathematical,11.12,1.75,Average
+S658,Database designer,Logical_Mathematical,11.12,1.75,Average
+S659,Database designer,Logical_Mathematical,11.5,1.75,Average
+S660,Database designer,Logical_Mathematical,12.12,1.75,Average
+S661,Database designer,Logical_Mathematical,12.5,1.75,Average
+S662,Database designer,Logical_Mathematical,12.0,1.75,Average
+S663,Database designer,Interpersonal,11.0,1.75,Average
+S664,Database designer,Interpersonal,11.0,1.75,Average
+S665,Database designer,Logical_Mathematical,11.12,1.75,Average
+S666,Database designer,Logical_Mathematical,10.75,1.75,Average
+S667,Database designer,Logical_Mathematical,11.12,1.75,Average
+S668,Database designer,Interpersonal,11.5,1.75,Average
+S669,Database designer,Logical_Mathematical,10.38,1.75,Average
+S670,Database designer,Logical_Mathematical,10.75,1.75,Average
+S671,Database designer,Logical_Mathematical,10.88,1.75,Average
+S672,Database designer,Logical_Mathematical,10.88,1.75,Average
+S673,Database designer,Logical_Mathematical,11.25,1.75,Average
+S674,Database designer,Logical_Mathematical,11.25,1.75,Average
+S675,Database designer,Interpersonal,10.38,1.75,Average
+S676,Database designer,Logical_Mathematical,9.88,1.75,Average
+S677,Database designer,Interpersonal,10.88,1.75,Average
+S678,Database designer,Logical_Mathematical,11.0,1.75,Average
+S679,Database designer,Logical_Mathematical,11.25,1.75,Average
+S680,Database designer,Logical_Mathematical,11.88,1.75,Average
+S681,Database designer,Logical_Mathematical,11.5,1.75,Average
+S682,Database designer,Logical_Mathematical,11.75,1.75,Average
+S683,Database designer,Interpersonal,12.12,1.75,Average
+S684,Database designer,Logical_Mathematical,11.62,1.75,Average
+S685,Database designer,Logical_Mathematical,12.12,1.75,Average
+S686,Database designer,Logical_Mathematical,12.12,1.75,Average
+S687,Database designer,Interpersonal,10.88,1.75,Average
+S688,Database designer,Logical_Mathematical,10.25,1.75,Average
+S689,Database designer,Logical_Mathematical,10.38,1.75,Average
+S690,Database designer,Interpersonal,10.88,1.75,Average
+S691,Database designer,Interpersonal,11.5,1.75,Average
+S692,Database designer,Logical_Mathematical,11.12,1.75,Average
+S693,Database designer,Logical_Mathematical,10.75,1.75,Average
+S694,Database designer,Logical_Mathematical,10.5,1.75,Average
+S695,Database designer,Logical_Mathematical,10.88,1.75,Average
+S696,Database designer,Logical_Mathematical,10.88,1.75,Average
+S697,Database designer,Logical_Mathematical,11.88,1.75,Average
+S698,Database designer,Logical_Mathematical,11.38,1.75,Average
+S699,Database designer,Interpersonal,11.0,1.75,Average
+S700,Database designer,Logical_Mathematical,10.75,1.75,Average
+S701,Economist,Interpersonal,11.75,2.0,Good
+S702,Economist,Interpersonal,11.75,2.0,Good
+S703,Economist,Interpersonal,11.88,2.0,Good
+S704,Economist,Intrapersonal,11.38,2.0,Good
+S705,Economist,Intrapersonal,12.12,2.0,Good
+S706,Economist,Interpersonal,11.62,2.0,Good
+S707,Economist,Interpersonal,11.5,2.0,Good
+S708,Economist,Interpersonal,12.0,2.0,Good
+S709,Economist,Intrapersonal,11.5,2.0,Good
+S710,Economist,Intrapersonal,12.12,2.0,Good
+S711,Economist,Interpersonal,11.88,2.0,Good
+S712,Economist,Interpersonal,12.25,2.0,Good
+S713,Economist,Interpersonal,11.25,2.0,Good
+S714,Economist,Intrapersonal,11.38,2.0,Good
+S715,Economist,Intrapersonal,12.62,2.0,Good
+S716,Economist,Logical_Mathematical,11.5,2.0,Good
+S717,Economist,Interpersonal,11.88,2.0,Good
+S718,Economist,Interpersonal,12.25,2.0,Good
+S719,Economist,Logical_Mathematical,11.5,2.0,Good
+S720,Economist,Logical_Mathematical,12.5,2.0,Good
+S721,Economist,Interpersonal,11.88,2.0,Good
+S722,Economist,Interpersonal,11.62,2.0,Good
+S723,Economist,Interpersonal,11.88,2.0,Good
+S724,Economist,Intrapersonal,12.38,2.0,Good
+S725,Economist,Logical_Mathematical,11.62,2.0,Good
+S726,Economist,Logical_Mathematical,11.5,2.0,Good
+S727,Economist,Interpersonal,12.5,2.0,Good
+S728,Economist,Interpersonal,12.25,2.0,Good
+S729,Economist,Intrapersonal,11.62,2.0,Good
+S730,Economist,Interpersonal,12.12,2.0,Good
+S731,Economist,Logical_Mathematical,11.62,2.0,Good
+S732,Economist,Interpersonal,12.25,2.0,Good
+S733,Economist,Interpersonal,12.12,2.0,Good
+S734,Economist,Intrapersonal,11.75,2.0,Good
+S735,Economist,Logical_Mathematical,12.12,2.0,Good
+S736,Economist,Logical_Mathematical,12.12,2.0,Good
+S737,Economist,Interpersonal,11.5,2.0,Good
+S738,Economist,Interpersonal,11.88,2.0,Good
+S739,Economist,Intrapersonal,12.12,2.0,Good
+S740,Economist,Interpersonal,12.0,2.0,Good
+S741,Economist,Logical_Mathematical,11.88,2.0,Good
+S742,Economist,Interpersonal,12.38,2.0,Good
+S743,Economist,Interpersonal,11.88,2.0,Good
+S744,Economist,Intrapersonal,12.38,2.0,Good
+S745,Economist,Interpersonal,12.0,2.0,Good
+S746,Economist,Logical_Mathematical,11.25,2.0,Good
+S747,Economist,Interpersonal,12.12,2.0,Good
+S748,Economist,Interpersonal,12.75,2.0,Good
+S749,Economist,Intrapersonal,12.0,2.0,Good
+S750,Economist,Logical_Mathematical,12.75,2.0,Good
+S751,Librarian,Logical_Mathematical,12.5,2.12,Good
+S752,Librarian,Bodily,12.75,2.12,Good
+S753,Librarian,Bodily,12.5,2.12,Good
+S754,Librarian,Logical_Mathematical,12.5,2.12,Good
+S755,Librarian,Bodily,12.62,2.12,Good
+S756,Librarian,Logical_Mathematical,12.88,2.12,Good
+S757,Librarian,Bodily,13.0,2.12,Good
+S758,Librarian,Bodily,12.5,2.12,Good
+S759,Librarian,Logical_Mathematical,12.25,2.12,Good
+S760,Librarian,Bodily,13.5,2.12,Good
+S761,Librarian,Logical_Mathematical,13.62,2.12,Good
+S762,Librarian,Bodily,13.12,2.12,Good
+S763,Librarian,Bodily,12.5,2.12,Good
+S764,Librarian,Logical_Mathematical,11.88,2.12,Good
+S765,Librarian,Bodily,12.25,2.12,Good
+S766,Librarian,Logical_Mathematical,13.25,2.12,Good
+S767,Librarian,Bodily,13.88,2.12,Good
+S768,Librarian,Bodily,12.62,2.12,Good
+S769,Librarian,Logical_Mathematical,12.25,2.12,Good
+S770,Librarian,Bodily,12.25,2.12,Good
+S771,Librarian,Logical_Mathematical,13.0,2.12,Good
+S772,Librarian,Bodily,13.88,2.12,Good
+S773,Librarian,Bodily,13.62,2.12,Good
+S774,Librarian,Logical_Mathematical,13.38,2.12,Good
+S775,Librarian,Bodily,13.25,2.12,Good
+S776,Librarian,Logical_Mathematical,13.38,2.12,Good
+S777,Librarian,Bodily,13.5,2.12,Good
+S778,Librarian,Bodily,12.88,2.12,Good
+S779,Librarian,Logical_Mathematical,13.12,2.12,Good
+S780,Librarian,Bodily,13.12,2.12,Good
+S781,Librarian,Logical_Mathematical,13.75,2.12,Good
+S782,Librarian,Bodily,13.75,2.12,Good
+S783,Librarian,Bodily,13.12,2.12,Good
+S784,Librarian,Logical_Mathematical,12.88,2.12,Good
+S785,Librarian,Bodily,13.12,2.12,Good
+S786,Librarian,Logical_Mathematical,13.5,2.12,Good
+S787,Librarian,Bodily,14.0,2.12,Good
+S788,Librarian,Bodily,12.88,2.12,Good
+S789,Librarian,Logical_Mathematical,12.38,2.12,Good
+S790,Librarian,Bodily,12.5,2.12,Good
+S791,Librarian,Logical_Mathematical,13.25,2.12,Good
+S792,Librarian,Bodily,13.62,2.12,Good
+S793,Librarian,Bodily,13.25,2.12,Good
+S794,Librarian,Intrapersonal,12.38,2.12,Good
+S795,Librarian,Intrapersonal,12.88,2.12,Good
+S796,Librarian,Logical_Mathematical,13.75,2.12,Good
+S797,Librarian,Bodily,14.12,2.12,Good
+S798,Librarian,Bodily,13.25,2.12,Good
+S799,Librarian,Intrapersonal,12.5,2.12,Good
+S800,Librarian,Intrapersonal,12.5,2.12,Good
+S801,Engineer,Spatial_Visualization,12.0,2.0,Good
+S802,Engineer,Spatial_Visualization,11.25,2.0,Good
+S803,Engineer,Spatial_Visualization,11.88,2.0,Good
+S804,Engineer,Logical_Mathematical,12.25,2.0,Good
+S805,Engineer,Logical_Mathematical,12.88,2.0,Good
+S806,Engineer,Intrapersonal,12.5,2.0,Good
+S807,Engineer,Intrapersonal,12.5,2.0,Good
+S808,Engineer,Intrapersonal,12.25,2.0,Good
+S809,Engineer,Spatial_Visualization,11.88,2.0,Good
+S810,Engineer,Spatial_Visualization,12.5,2.0,Good
+S811,Engineer,Spatial_Visualization,12.25,2.0,Good
+S812,Engineer,Spatial_Visualization,11.62,2.0,Good
+S813,Engineer,Intrapersonal,12.62,2.0,Good
+S814,Engineer,Logical_Mathematical,12.62,2.0,Good
+S815,Engineer,Intrapersonal,12.88,2.0,Good
+S816,Engineer,Intrapersonal,13.12,2.0,Good
+S817,Engineer,Intrapersonal,13.12,2.0,Good
+S818,Engineer,Intrapersonal,13.12,2.0,Good
+S819,Engineer,Intrapersonal,13.0,2.0,Good
+S820,Engineer,Spatial_Visualization,12.62,2.0,Good
+S821,Engineer,Spatial_Visualization,12.5,2.0,Good
+S822,Engineer,Logical_Mathematical,12.75,2.0,Good
+S823,Engineer,Logical_Mathematical,12.0,2.0,Good
+S824,Engineer,Intrapersonal,12.75,2.0,Good
+S825,Engineer,Intrapersonal,13.25,2.0,Good
+S826,Engineer,Spatial_Visualization,13.25,2.0,Good
+S827,Engineer,Spatial_Visualization,12.25,2.0,Good
+S828,Engineer,Spatial_Visualization,13.0,2.0,Good
+S829,Engineer,Spatial_Visualization,12.25,2.0,Good
+S830,Engineer,Spatial_Visualization,12.25,2.0,Good
+S831,Engineer,Spatial_Visualization,13.38,2.0,Good
+S832,Engineer,Logical_Mathematical,13.25,2.0,Good
+S833,Engineer,Spatial_Visualization,13.38,2.0,Good
+S834,Engineer,Spatial_Visualization,13.75,2.0,Good
+S835,Engineer,Spatial_Visualization,12.38,2.0,Good
+S836,Engineer,Spatial_Visualization,12.38,2.0,Good
+S837,Engineer,Spatial_Visualization,13.12,2.0,Good
+S838,Engineer,Spatial_Visualization,13.12,2.0,Good
+S839,Engineer,Spatial_Visualization,12.88,2.0,Good
+S840,Engineer,Spatial_Visualization,13.25,2.0,Good
+S841,Engineer,Logical_Mathematical,12.38,2.0,Good
+S842,Engineer,Spatial_Visualization,13.12,2.0,Good
+S843,Engineer,Spatial_Visualization,13.12,2.0,Good
+S844,Engineer,Intrapersonal,12.88,2.0,Good
+S845,Engineer,Intrapersonal,13.12,2.0,Good
+S846,Engineer,Intrapersonal,13.0,2.0,Good
+S847,Engineer,Intrapersonal,12.38,2.0,Good
+S848,Engineer,Intrapersonal,13.25,2.0,Good
+S849,Engineer,Intrapersonal,12.88,2.0,Good
+S850,Engineer,Intrapersonal,12.75,2.0,Good
+S851,Lawyer,Linguistic,12.88,2.12,Good
+S852,Lawyer,Linguistic,12.75,2.12,Good
+S853,Lawyer,Logical_Mathematical,12.5,2.12,Good
+S854,Lawyer,Logical_Mathematical,12.5,2.12,Good
+S855,Lawyer,Logical_Mathematical,12.25,2.12,Good
+S856,Lawyer,Logical_Mathematical,12.38,2.12,Good
+S857,Lawyer,Linguistic,13.38,2.12,Good
+S858,Lawyer,Linguistic,13.38,2.12,Good
+S859,Lawyer,Logical_Mathematical,12.5,2.12,Good
+S860,Lawyer,Logical_Mathematical,12.25,2.12,Good
+S861,Lawyer,Logical_Mathematical,12.0,2.12,Good
+S862,Lawyer,Logical_Mathematical,12.12,2.12,Good
+S863,Lawyer,Linguistic,13.25,2.12,Good
+S864,Lawyer,Linguistic,13.38,2.12,Good
+S865,Lawyer,Logical_Mathematical,12.62,2.12,Good
+S866,Lawyer,Logical_Mathematical,12.88,2.12,Good
+S867,Lawyer,Logical_Mathematical,12.62,2.12,Good
+S868,Lawyer,Logical_Mathematical,12.0,2.12,Good
+S869,Lawyer,Linguistic,13.12,2.12,Good
+S870,Lawyer,Linguistic,13.0,2.12,Good
+S871,Lawyer,Logical_Mathematical,12.75,2.12,Good
+S872,Lawyer,Logical_Mathematical,12.75,2.12,Good
+S873,Lawyer,Logical_Mathematical,12.38,2.12,Good
+S874,Lawyer,Logical_Mathematical,12.12,2.12,Good
+S875,Lawyer,Linguistic,13.12,2.12,Good
+S876,Lawyer,Linguistic,13.12,2.12,Good
+S877,Lawyer,Logical_Mathematical,13.0,2.12,Good
+S878,Lawyer,Logical_Mathematical,13.0,2.12,Good
+S879,Lawyer,Logical_Mathematical,12.0,2.12,Good
+S880,Lawyer,Logical_Mathematical,12.38,2.12,Good
+S881,Lawyer,Linguistic,13.25,2.12,Good
+S882,Lawyer,Linguistic,13.25,2.12,Good
+S883,Lawyer,Logical_Mathematical,12.88,2.12,Good
+S884,Lawyer,Logical_Mathematical,12.5,2.12,Good
+S885,Lawyer,Logical_Mathematical,12.25,2.12,Good
+S886,Lawyer,Logical_Mathematical,12.38,2.12,Good
+S887,Lawyer,Linguistic,13.38,2.12,Good
+S888,Lawyer,Linguistic,13.38,2.12,Good
+S889,Lawyer,Logical_Mathematical,12.62,2.12,Good
+S890,Lawyer,Logical_Mathematical,13.12,2.12,Good
+S891,Lawyer,Logical_Mathematical,12.88,2.12,Good
+S892,Lawyer,Logical_Mathematical,13.0,2.12,Good
+S893,Lawyer,Linguistic,13.25,2.12,Good
+S894,Lawyer,Linguistic,13.25,2.12,Good
+S895,Lawyer,Logical_Mathematical,13.38,2.12,Good
+S896,Lawyer,Logical_Mathematical,13.38,2.12,Good
+S897,Lawyer,Logical_Mathematical,13.12,2.12,Good
+S898,Lawyer,Logical_Mathematical,13.25,2.12,Good
+S899,Lawyer,Logical_Mathematical,13.5,2.12,Good
+S900,Lawyer,Logical_Mathematical,13.0,2.12,Good
+S901,Pharmacist,Interpersonal,12.88,2.12,Good
+S902,Pharmacist,Interpersonal,12.88,2.12,Good
+S903,Pharmacist,Bodily,13.62,2.12,Good
+S904,Pharmacist,Bodily,13.38,2.12,Good
+S905,Pharmacist,Interpersonal,13.62,2.12,Good
+S906,Pharmacist,Interpersonal,13.12,2.12,Good
+S907,Pharmacist,Interpersonal,12.88,2.12,Good
+S908,Pharmacist,Interpersonal,12.62,2.12,Good
+S909,Pharmacist,Bodily,13.62,2.12,Good
+S910,Pharmacist,Bodily,13.5,2.12,Good
+S911,Pharmacist,Interpersonal,13.62,2.12,Good
+S912,Pharmacist,Naturalist,13.38,2.12,Good
+S913,Pharmacist,Interpersonal,13.25,2.12,Good
+S914,Pharmacist,Interpersonal,13.12,2.12,Good
+S915,Pharmacist,Bodily,13.62,2.12,Good
+S916,Pharmacist,Bodily,12.88,2.12,Good
+S917,Pharmacist,Interpersonal,12.62,2.12,Good
+S918,Pharmacist,Interpersonal,12.88,2.12,Good
+S919,Pharmacist,Interpersonal,13.12,2.12,Good
+S920,Pharmacist,Interpersonal,13.75,2.12,Good
+S921,Pharmacist,Bodily,14.12,2.12,Good
+S922,Pharmacist,Naturalist,13.12,2.12,Good
+S923,Pharmacist,Interpersonal,13.5,2.12,Good
+S924,Pharmacist,Interpersonal,13.38,2.12,Good
+S925,Pharmacist,Interpersonal,13.62,2.12,Good
+S926,Pharmacist,Interpersonal,12.38,2.12,Good
+S927,Pharmacist,Bodily,13.25,2.12,Good
+S928,Pharmacist,Bodily,12.88,2.12,Good
+S929,Pharmacist,Interpersonal,13.25,2.12,Good
+S930,Pharmacist,Interpersonal,13.12,2.12,Good
+S931,Pharmacist,Interpersonal,12.5,2.12,Good
+S932,Pharmacist,Interpersonal,12.75,2.12,Good
+S933,Pharmacist,Bodily,13.88,2.12,Good
+S934,Pharmacist,Naturalist,14.0,2.12,Good
+S935,Pharmacist,Interpersonal,13.75,2.12,Good
+S936,Pharmacist,Interpersonal,12.75,2.12,Good
+S937,Pharmacist,Interpersonal,12.62,2.12,Good
+S938,Pharmacist,Interpersonal,12.75,2.12,Good
+S939,Pharmacist,Bodily,13.5,2.12,Good
+S940,Pharmacist,Bodily,13.25,2.12,Good
+S941,Pharmacist,Interpersonal,13.12,2.12,Good
+S942,Pharmacist,Interpersonal,13.25,2.12,Good
+S943,Pharmacist,Interpersonal,13.5,2.12,Good
+S944,Pharmacist,Naturalist,13.38,2.12,Good
+S945,Pharmacist,Bodily,13.75,2.12,Good
+S946,Pharmacist,Bodily,13.25,2.12,Good
+S947,Pharmacist,Interpersonal,13.75,2.12,Good
+S948,Pharmacist,Interpersonal,13.38,2.12,Good
+S949,Pharmacist,Bodily,14.12,2.12,Good
+S950,Pharmacist,Interpersonal,13.38,2.12,Good
+S951,Physician,Logical_Mathematical,12.88,2.12,Good
+S952,Physician,Logical_Mathematical,13.25,2.12,Good
+S953,Physician,Interpersonal,13.88,2.12,Good
+S954,Physician,Interpersonal,13.75,2.12,Good
+S955,Physician,Interpersonal,13.5,2.12,Good
+S956,Physician,Interpersonal,12.25,2.12,Good
+S957,Physician,Logical_Mathematical,13.75,2.12,Good
+S958,Physician,Logical_Mathematical,13.62,2.12,Good
+S959,Physician,Interpersonal,13.75,2.12,Good
+S960,Physician,Interpersonal,13.62,2.12,Good
+S961,Physician,Interpersonal,12.88,2.12,Good
+S962,Physician,Interpersonal,12.62,2.12,Good
+S963,Physician,Logical_Mathematical,13.38,2.12,Good
+S964,Physician,Logical_Mathematical,13.25,2.12,Good
+S965,Physician,Interpersonal,13.5,2.12,Good
+S966,Physician,Interpersonal,12.75,2.12,Good
+S967,Physician,Interpersonal,12.88,2.12,Good
+S968,Physician,Interpersonal,13.25,2.12,Good
+S969,Physician,Logical_Mathematical,14.12,2.12,Good
+S970,Physician,Logical_Mathematical,14.0,2.12,Good
+S971,Physician,Interpersonal,12.75,2.12,Good
+S972,Physician,Interpersonal,12.88,2.12,Good
+S973,Physician,Interpersonal,13.0,2.12,Good
+S974,Physician,Interpersonal,12.5,2.12,Good
+S975,Physician,Logical_Mathematical,13.25,2.12,Good
+S976,Physician,Logical_Mathematical,12.88,2.12,Good
+S977,Physician,Interpersonal,13.5,2.12,Good
+S978,Physician,Interpersonal,12.88,2.12,Good
+S979,Physician,Interpersonal,13.0,2.12,Good
+S980,Physician,Interpersonal,13.38,2.12,Good
+S981,Physician,Logical_Mathematical,14.12,2.12,Good
+S982,Physician,Logical_Mathematical,12.88,2.12,Good
+S983,Physician,Interpersonal,12.62,2.12,Good
+S984,Physician,Interpersonal,12.88,2.12,Good
+S985,Physician,Interpersonal,13.38,2.12,Good
+S986,Physician,Interpersonal,12.5,2.12,Good
+S987,Physician,Logical_Mathematical,12.75,2.12,Good
+S988,Physician,Logical_Mathematical,13.0,2.12,Good
+S989,Physician,Interpersonal,13.38,2.12,Good
+S990,Physician,Interpersonal,13.12,2.12,Good
+S991,Physician,Interpersonal,12.12,2.12,Good
+S992,Physician,Interpersonal,12.12,2.12,Good
+S993,Physician,Logical_Mathematical,13.38,2.12,Good
+S994,Physician,Logical_Mathematical,13.25,2.12,Good
+S995,Physician,Interpersonal,13.38,2.12,Good
+S996,Physician,Interpersonal,12.75,2.12,Good
+S997,Physician,Interpersonal,13.12,2.12,Good
+S998,Physician,Interpersonal,13.0,2.12,Good
+S999,Physician,Logical_Mathematical,12.5,2.12,Good
+S1000,Physician,Logical_Mathematical,13.25,2.12,Good
+S1001,Physicist,Logical_Mathematical,12.75,2.12,Good
+S1002,Physicist,Musical,12.88,2.12,Good
+S1003,Physicist,Musical,12.5,2.12,Good
+S1004,Physicist,Musical,12.75,2.12,Good
+S1005,Physicist,Musical,12.25,2.12,Good
+S1006,Physicist,Musical,13.38,2.12,Good
+S1007,Physicist,Musical,12.62,2.12,Good
+S1008,Physicist,Musical,12.5,2.12,Good
+S1009,Physicist,Musical,12.0,2.12,Good
+S1010,Physicist,Musical,13.0,2.12,Good
+S1011,Physicist,Intrapersonal,12.75,2.12,Good
+S1012,Physicist,Intrapersonal,13.12,2.12,Good
+S1013,Physicist,Intrapersonal,12.38,2.12,Good
+S1014,Physicist,Musical,13.12,2.12,Good
+S1015,Physicist,Logical_Mathematical,13.0,2.12,Good
+S1016,Physicist,Intrapersonal,12.88,2.12,Good
+S1017,Physicist,Intrapersonal,12.62,2.12,Good
+S1018,Physicist,Musical,12.88,2.12,Good
+S1019,Physicist,Logical_Mathematical,12.88,2.12,Good
+S1020,Physicist,Logical_Mathematical,12.88,2.12,Good
+S1021,Physicist,Intrapersonal,12.25,2.12,Good
+S1022,Physicist,Musical,12.88,2.12,Good
+S1023,Physicist,Logical_Mathematical,13.75,2.12,Good
+S1024,Physicist,Logical_Mathematical,13.62,2.12,Good
+S1025,Physicist,Logical_Mathematical,12.62,2.12,Good
+S1026,Physicist,Musical,13.38,2.12,Good
+S1027,Physicist,Musical,12.88,2.12,Good
+S1028,Physicist,Logical_Mathematical,13.62,2.12,Good
+S1029,Physicist,Logical_Mathematical,13.0,2.12,Good
+S1030,Physicist,Musical,13.5,2.12,Good
+S1031,Physicist,Intrapersonal,13.12,2.12,Good
+S1032,Physicist,Intrapersonal,12.88,2.12,Good
+S1033,Physicist,Logical_Mathematical,13.25,2.12,Good
+S1034,Physicist,Musical,13.75,2.12,Good
+S1035,Physicist,Musical,13.38,2.12,Good
+S1036,Physicist,Intrapersonal,13.0,2.12,Good
+S1037,Physicist,Intrapersonal,12.88,2.12,Good
+S1038,Physicist,Logical_Mathematical,14.0,2.12,Good
+S1039,Physicist,Logical_Mathematical,13.88,2.12,Good
+S1040,Physicist,Logical_Mathematical,13.5,2.12,Good
+S1041,Physicist,Intrapersonal,13.0,2.12,Good
+S1042,Physicist,Musical,13.38,2.12,Good
+S1043,Physicist,Musical,12.88,2.12,Good
+S1044,Physicist,Logical_Mathematical,13.38,2.12,Good
+S1045,Physicist,Logical_Mathematical,13.0,2.12,Good
+S1046,Physicist,Musical,13.62,2.12,Good
+S1047,Physicist,Logical_Mathematical,14.0,2.12,Good
+S1048,Physicist,Logical_Mathematical,13.0,2.12,Good
+S1049,Physicist,Logical_Mathematical,13.25,2.12,Good
+S1050,Physicist,Musical,13.5,2.12,Good
+S1051,Mathematician,Spatial_Visualization,10.75,1.75,Average
+S1052,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1053,Mathematician,Spatial_Visualization,10.75,1.75,Average
+S1054,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1055,Mathematician,Spatial_Visualization,11.88,1.75,Average
+S1056,Mathematician,Spatial_Visualization,11.62,1.75,Average
+S1057,Mathematician,Spatial_Visualization,11.0,1.75,Average
+S1058,Mathematician,Spatial_Visualization,10.25,1.75,Average
+S1059,Mathematician,Spatial_Visualization,11.12,1.75,Average
+S1060,Mathematician,Spatial_Visualization,11.0,1.75,Average
+S1061,Mathematician,Spatial_Visualization,11.25,1.75,Average
+S1062,Mathematician,Spatial_Visualization,11.5,1.75,Average
+S1063,Mathematician,Spatial_Visualization,11.0,1.75,Average
+S1064,Mathematician,Spatial_Visualization,11.25,1.75,Average
+S1065,Mathematician,Spatial_Visualization,10.75,1.75,Average
+S1066,Mathematician,Spatial_Visualization,10.75,1.75,Average
+S1067,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1068,Mathematician,Logical_Mathematical,11.25,1.75,Average
+S1069,Mathematician,Logical_Mathematical,11.38,1.75,Average
+S1070,Mathematician,Logical_Mathematical,10.75,1.75,Average
+S1071,Mathematician,Logical_Mathematical,11.38,1.75,Average
+S1072,Mathematician,Logical_Mathematical,11.25,1.75,Average
+S1073,Mathematician,Logical_Mathematical,11.25,1.75,Average
+S1074,Mathematician,Logical_Mathematical,11.88,1.75,Average
+S1075,Mathematician,Spatial_Visualization,11.12,1.75,Average
+S1076,Mathematician,Spatial_Visualization,11.38,1.75,Average
+S1077,Mathematician,Spatial_Visualization,11.62,1.75,Average
+S1078,Mathematician,Spatial_Visualization,11.38,1.75,Average
+S1079,Mathematician,Spatial_Visualization,11.62,1.75,Average
+S1080,Mathematician,Spatial_Visualization,11.5,1.75,Average
+S1081,Mathematician,Spatial_Visualization,10.5,1.75,Average
+S1082,Mathematician,Spatial_Visualization,11.0,1.75,Average
+S1083,Mathematician,Spatial_Visualization,10.75,1.75,Average
+S1084,Mathematician,Spatial_Visualization,11.5,1.75,Average
+S1085,Mathematician,Spatial_Visualization,11.75,1.75,Average
+S1086,Mathematician,Spatial_Visualization,11.25,1.75,Average
+S1087,Mathematician,Spatial_Visualization,11.5,1.75,Average
+S1088,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1089,Mathematician,Spatial_Visualization,11.12,1.75,Average
+S1090,Mathematician,Spatial_Visualization,11.88,1.75,Average
+S1091,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1092,Mathematician,Spatial_Visualization,11.75,1.75,Average
+S1093,Mathematician,Spatial_Visualization,11.38,1.75,Average
+S1094,Mathematician,Spatial_Visualization,12.38,1.75,Average
+S1095,Mathematician,Spatial_Visualization,11.38,1.75,Average
+S1096,Mathematician,Spatial_Visualization,11.0,1.75,Average
+S1097,Mathematician,Spatial_Visualization,11.38,1.75,Average
+S1098,Mathematician,Spatial_Visualization,11.75,1.75,Average
+S1099,Mathematician,Spatial_Visualization,11.25,1.75,Average
+S1100,Mathematician,Spatial_Visualization,10.88,1.75,Average
+S1101,Leader,Interpersonal,12.12,2.0,Good
+S1102,Leader,Interpersonal,12.38,2.0,Good
+S1103,Leader,Interpersonal,12.0,2.0,Good
+S1104,Leader,Intrapersonal,12.0,2.0,Good
+S1105,Leader,Intrapersonal,12.38,2.0,Good
+S1106,Leader,Intrapersonal,12.12,2.0,Good
+S1107,Leader,Interpersonal,12.0,2.0,Good
+S1108,Leader,Interpersonal,11.38,2.0,Good
+S1109,Leader,Intrapersonal,11.62,2.0,Good
+S1110,Leader,Intrapersonal,11.75,2.0,Good
+S1111,Leader,Intrapersonal,12.25,2.0,Good
+S1112,Leader,Interpersonal,12.75,2.0,Good
+S1113,Leader,Intrapersonal,12.25,2.0,Good
+S1114,Leader,Intrapersonal,12.25,2.0,Good
+S1115,Leader,Intrapersonal,12.12,2.0,Good
+S1116,Leader,Logical_Mathematical,11.88,2.0,Good
+S1117,Leader,Logical_Mathematical,13.0,2.0,Good
+S1118,Leader,Logical_Mathematical,13.0,2.0,Good
+S1119,Leader,Logical_Mathematical,12.5,2.0,Good
+S1120,Leader,Logical_Mathematical,12.88,2.0,Good
+S1121,Leader,Intrapersonal,11.88,2.0,Good
+S1122,Leader,Interpersonal,12.5,2.0,Good
+S1123,Leader,Intrapersonal,12.75,2.0,Good
+S1124,Leader,Intrapersonal,12.38,2.0,Good
+S1125,Leader,Intrapersonal,11.88,2.0,Good
+S1126,Leader,Intrapersonal,12.25,2.0,Good
+S1127,Leader,Interpersonal,13.12,2.0,Good
+S1128,Leader,Intrapersonal,12.12,2.0,Good
+S1129,Leader,Logical_Mathematical,12.88,2.0,Good
+S1130,Leader,Logical_Mathematical,12.75,2.0,Good
+S1131,Leader,Logical_Mathematical,12.12,2.0,Good
+S1132,Leader,Interpersonal,12.25,2.0,Good
+S1133,Leader,Logical_Mathematical,12.0,2.0,Good
+S1134,Leader,Logical_Mathematical,12.5,2.0,Good
+S1135,Leader,Intrapersonal,12.75,2.0,Good
+S1136,Leader,Intrapersonal,11.62,2.0,Good
+S1137,Leader,Interpersonal,12.0,2.0,Good
+S1138,Leader,Interpersonal,12.38,2.0,Good
+S1139,Leader,Interpersonal,12.25,2.0,Good
+S1140,Leader,Intrapersonal,12.12,2.0,Good
+S1141,Leader,Intrapersonal,11.38,2.0,Good
+S1142,Leader,Logical_Mathematical,12.12,2.0,Good
+S1143,Leader,Logical_Mathematical,12.12,2.0,Good
+S1144,Leader,Logical_Mathematical,12.62,2.0,Good
+S1145,Leader,Logical_Mathematical,12.75,2.0,Good
+S1146,Leader,Logical_Mathematical,11.88,2.0,Good
+S1147,Leader,Logical_Mathematical,13.38,2.0,Good
+S1148,Leader,Logical_Mathematical,13.25,2.0,Good
+S1149,Leader,Logical_Mathematical,12.62,2.0,Good
+S1150,Leader,Logical_Mathematical,12.88,2.0,Good
+S1151,Manager,Spatial_Visualization,12.75,2.25,Good
+S1152,Manager,Spatial_Visualization,13.25,2.25,Good
+S1153,Manager,Spatial_Visualization,13.5,2.25,Good
+S1154,Manager,Logical_Mathematical,13.5,2.25,Good
+S1155,Manager,Logical_Mathematical,14.38,2.25,Good
+S1156,Manager,Logical_Mathematical,13.88,2.25,Good
+S1157,Manager,Logical_Mathematical,13.88,2.25,Good
+S1158,Manager,Logical_Mathematical,13.38,2.25,Good
+S1159,Manager,Logical_Mathematical,13.12,2.25,Good
+S1160,Manager,Spatial_Visualization,12.88,2.25,Good
+S1161,Manager,Spatial_Visualization,13.38,2.25,Good
+S1162,Manager,Spatial_Visualization,13.62,2.25,Good
+S1163,Manager,Intrapersonal,13.62,2.25,Good
+S1164,Manager,Intrapersonal,13.12,2.25,Good
+S1165,Manager,Logical_Mathematical,12.88,2.25,Good
+S1166,Manager,Logical_Mathematical,12.5,2.25,Good
+S1167,Manager,Logical_Mathematical,13.88,2.25,Good
+S1168,Manager,Logical_Mathematical,13.5,2.25,Good
+S1169,Manager,Logical_Mathematical,13.25,2.25,Good
+S1170,Manager,Logical_Mathematical,12.88,2.25,Good
+S1171,Manager,Logical_Mathematical,13.25,2.25,Good
+S1172,Manager,Spatial_Visualization,14.0,2.25,Good
+S1173,Manager,Spatial_Visualization,13.75,2.25,Good
+S1174,Manager,Spatial_Visualization,13.0,2.25,Good
+S1175,Manager,Intrapersonal,12.0,2.25,Good
+S1176,Manager,Intrapersonal,12.5,2.25,Good
+S1177,Manager,Spatial_Visualization,13.5,2.25,Good
+S1178,Manager,Logical_Mathematical,13.25,2.25,Good
+S1179,Manager,Logical_Mathematical,13.88,2.25,Good
+S1180,Manager,Logical_Mathematical,13.62,2.25,Good
+S1181,Manager,Logical_Mathematical,13.12,2.25,Good
+S1182,Manager,Logical_Mathematical,13.62,2.25,Good
+S1183,Manager,Logical_Mathematical,13.5,2.25,Good
+S1184,Manager,Logical_Mathematical,13.12,2.25,Good
+S1185,Manager,Logical_Mathematical,12.62,2.25,Good
+S1186,Manager,Logical_Mathematical,12.62,2.25,Good
+S1187,Manager,Spatial_Visualization,13.5,2.25,Good
+S1188,Manager,Spatial_Visualization,13.62,2.25,Good
+S1189,Manager,Logical_Mathematical,13.12,2.25,Good
+S1190,Manager,Logical_Mathematical,12.5,2.25,Good
+S1191,Manager,Logical_Mathematical,13.12,2.25,Good
+S1192,Manager,Logical_Mathematical,13.38,2.25,Good
+S1193,Manager,Logical_Mathematical,13.62,2.25,Good
+S1194,Manager,Logical_Mathematical,13.5,2.25,Good
+S1195,Manager,Logical_Mathematical,13.62,2.25,Good
+S1196,Manager,Interpersonal,13.88,2.25,Good
+S1197,Manager,Interpersonal,13.0,2.25,Good
+S1198,Manager,Spatial_Visualization,12.62,2.25,Good
+S1199,Manager,Logical_Mathematical,13.88,2.25,Good
+S1200,Manager,Logical_Mathematical,13.88,2.25,Good
+S1201,Politician,Interpersonal,11.88,2.0,Good
+S1202,Politician,Logical_Mathematical,11.88,2.0,Good
+S1203,Politician,Logical_Mathematical,12.0,2.0,Good
+S1204,Politician,Logical_Mathematical,11.88,2.0,Good
+S1205,Politician,Logical_Mathematical,12.25,2.0,Good
+S1206,Politician,Logical_Mathematical,12.12,2.0,Good
+S1207,Politician,Logical_Mathematical,12.38,2.0,Good
+S1208,Politician,Logical_Mathematical,12.38,2.0,Good
+S1209,Politician,Logical_Mathematical,12.12,2.0,Good
+S1210,Politician,Logical_Mathematical,12.12,2.0,Good
+S1211,Politician,Logical_Mathematical,12.75,2.0,Good
+S1212,Politician,Logical_Mathematical,13.25,2.0,Good
+S1213,Politician,Logical_Mathematical,12.25,2.0,Good
+S1214,Politician,Logical_Mathematical,11.75,2.0,Good
+S1215,Politician,Logical_Mathematical,12.12,2.0,Good
+S1216,Politician,Logical_Mathematical,12.12,2.0,Good
+S1217,Politician,Logical_Mathematical,13.0,2.0,Good
+S1218,Politician,Logical_Mathematical,12.12,2.0,Good
+S1219,Politician,Logical_Mathematical,11.88,2.0,Good
+S1220,Politician,Logical_Mathematical,11.88,2.0,Good
+S1221,Politician,Logical_Mathematical,11.88,2.0,Good
+S1222,Politician,Logical_Mathematical,12.62,2.0,Good
+S1223,Politician,Logical_Mathematical,13.12,2.0,Good
+S1224,Politician,Logical_Mathematical,13.0,2.0,Good
+S1225,Politician,Logical_Mathematical,11.88,2.0,Good
+S1226,Politician,Logical_Mathematical,12.0,2.0,Good
+S1227,Politician,Logical_Mathematical,12.12,2.0,Good
+S1228,Politician,Logical_Mathematical,12.25,2.0,Good
+S1229,Politician,Logical_Mathematical,12.62,2.0,Good
+S1230,Politician,Logical_Mathematical,12.5,2.0,Good
+S1231,Politician,Logical_Mathematical,12.12,2.0,Good
+S1232,Politician,Logical_Mathematical,12.62,2.0,Good
+S1233,Politician,Logical_Mathematical,12.5,2.0,Good
+S1234,Politician,Logical_Mathematical,12.5,2.0,Good
+S1235,Politician,Logical_Mathematical,13.12,2.0,Good
+S1236,Politician,Logical_Mathematical,13.0,2.0,Good
+S1237,Politician,Logical_Mathematical,12.0,2.0,Good
+S1238,Politician,Logical_Mathematical,12.5,2.0,Good
+S1239,Politician,Logical_Mathematical,12.0,2.0,Good
+S1240,Politician,Logical_Mathematical,12.12,2.0,Good
+S1241,Politician,Logical_Mathematical,12.12,2.0,Good
+S1242,Politician,Logical_Mathematical,12.75,2.0,Good
+S1243,Politician,Logical_Mathematical,12.12,2.0,Good
+S1244,Politician,Intrapersonal,12.62,2.0,Good
+S1245,Politician,Logical_Mathematical,12.62,2.0,Good
+S1246,Politician,Logical_Mathematical,12.62,2.0,Good
+S1247,Politician,Logical_Mathematical,13.12,2.0,Good
+S1248,Politician,Logical_Mathematical,12.5,2.0,Good
+S1249,Politician,Intrapersonal,12.62,2.0,Good
+S1250,Politician,Logical_Mathematical,12.25,2.0,Good
+S1251,Social Worker,Bodily,12.25,2.0,Good
+S1252,Social Worker,Bodily,12.38,2.0,Good
+S1253,Social Worker,Bodily,12.5,2.0,Good
+S1254,Social Worker,Bodily,12.62,2.0,Good
+S1255,Social Worker,Bodily,12.88,2.0,Good
+S1256,Social Worker,Bodily,12.38,2.0,Good
+S1257,Social Worker,Bodily,12.62,2.0,Good
+S1258,Social Worker,Bodily,12.75,2.0,Good
+S1259,Social Worker,Bodily,12.88,2.0,Good
+S1260,Social Worker,Bodily,12.25,2.0,Good
+S1261,Social Worker,Bodily,12.25,2.0,Good
+S1262,Social Worker,Bodily,12.25,2.0,Good
+S1263,Social Worker,Bodily,12.38,2.0,Good
+S1264,Social Worker,Bodily,12.62,2.0,Good
+S1265,Social Worker,Bodily,13.12,2.0,Good
+S1266,Social Worker,Bodily,13.38,2.0,Good
+S1267,Social Worker,Bodily,12.88,2.0,Good
+S1268,Social Worker,Bodily,13.25,2.0,Good
+S1269,Social Worker,Bodily,12.75,2.0,Good
+S1270,Social Worker,Bodily,12.75,2.0,Good
+S1271,Social Worker,Bodily,12.88,2.0,Good
+S1272,Social Worker,Bodily,12.38,2.0,Good
+S1273,Social Worker,Bodily,13.0,2.0,Good
+S1274,Social Worker,Bodily,13.25,2.0,Good
+S1275,Social Worker,Bodily,12.5,2.0,Good
+S1276,Social Worker,Bodily,13.0,2.0,Good
+S1277,Social Worker,Bodily,12.5,2.0,Good
+S1278,Social Worker,Bodily,12.75,2.0,Good
+S1279,Social Worker,Bodily,12.0,2.0,Good
+S1280,Social Worker,Bodily,12.38,2.0,Good
+S1281,Social Worker,Bodily,12.62,2.0,Good
+S1282,Social Worker,Bodily,12.62,2.0,Good
+S1283,Social Worker,Bodily,12.5,2.0,Good
+S1284,Social Worker,Bodily,13.0,2.0,Good
+S1285,Social Worker,Bodily,13.25,2.0,Good
+S1286,Social Worker,Bodily,12.75,2.0,Good
+S1287,Social Worker,Bodily,12.62,2.0,Good
+S1288,Social Worker,Bodily,12.88,2.0,Good
+S1289,Social Worker,Bodily,12.88,2.0,Good
+S1290,Social Worker,Bodily,12.75,2.0,Good
+S1291,Social Worker,Bodily,12.88,2.0,Good
+S1292,Social Worker,Bodily,13.0,2.0,Good
+S1293,Social Worker,Bodily,12.75,2.0,Good
+S1294,Social Worker,Intrapersonal,12.75,2.0,Good
+S1295,Social Worker,Intrapersonal,12.5,2.0,Good
+S1296,Social Worker,Intrapersonal,12.75,2.0,Good
+S1297,Social Worker,Interpersonal,12.62,2.0,Good
+S1298,Social Worker,Interpersonal,12.88,2.0,Good
+S1299,Social Worker,Interpersonal,12.62,2.0,Good
+S1300,Social Worker,Interpersonal,13.0,2.0,Good
+S1301,Receptionist,Interpersonal,13.0,2.12,Good
+S1302,Receptionist,Interpersonal,12.62,2.12,Good
+S1303,Receptionist,Interpersonal,12.12,2.12,Good
+S1304,Receptionist,Interpersonal,12.38,2.12,Good
+S1305,Receptionist,Linguistic,13.0,2.12,Good
+S1306,Receptionist,Interpersonal,12.38,2.12,Good
+S1307,Receptionist,Interpersonal,12.5,2.12,Good
+S1308,Receptionist,Interpersonal,13.12,2.12,Good
+S1309,Receptionist,Interpersonal,13.12,2.12,Good
+S1310,Receptionist,Interpersonal,12.5,2.12,Good
+S1311,Receptionist,Interpersonal,12.12,2.12,Good
+S1312,Receptionist,Interpersonal,12.88,2.12,Good
+S1313,Receptionist,Linguistic,12.62,2.12,Good
+S1314,Receptionist,Interpersonal,12.38,2.12,Good
+S1315,Receptionist,Interpersonal,12.38,2.12,Good
+S1316,Receptionist,Interpersonal,13.12,2.12,Good
+S1317,Receptionist,Interpersonal,13.0,2.12,Good
+S1318,Receptionist,Interpersonal,12.38,2.12,Good
+S1319,Receptionist,Interpersonal,12.75,2.12,Good
+S1320,Receptionist,Linguistic,12.88,2.12,Good
+S1321,Receptionist,Linguistic,13.0,2.12,Good
+S1322,Receptionist,Interpersonal,12.38,2.12,Good
+S1323,Receptionist,Interpersonal,12.5,2.12,Good
+S1324,Receptionist,Linguistic,12.88,2.12,Good
+S1325,Receptionist,Linguistic,12.88,2.12,Good
+S1326,Receptionist,Musical,13.0,2.12,Good
+S1327,Receptionist,Interpersonal,12.25,2.12,Good
+S1328,Receptionist,Linguistic,13.12,2.12,Good
+S1329,Receptionist,Linguistic,13.62,2.12,Good
+S1330,Receptionist,Interpersonal,13.12,2.12,Good
+S1331,Receptionist,Interpersonal,12.62,2.12,Good
+S1332,Receptionist,Interpersonal,13.12,2.12,Good
+S1333,Receptionist,Interpersonal,13.62,2.12,Good
+S1334,Receptionist,Interpersonal,13.12,2.12,Good
+S1335,Receptionist,Interpersonal,13.25,2.12,Good
+S1336,Receptionist,Interpersonal,13.5,2.12,Good
+S1337,Receptionist,Linguistic,13.88,2.12,Good
+S1338,Receptionist,Interpersonal,13.0,2.12,Good
+S1339,Receptionist,Interpersonal,12.62,2.12,Good
+S1340,Receptionist,Interpersonal,13.38,2.12,Good
+S1341,Receptionist,Interpersonal,13.25,2.12,Good
+S1342,Receptionist,Interpersonal,13.12,2.12,Good
+S1343,Receptionist,Interpersonal,13.12,2.12,Good
+S1344,Receptionist,Interpersonal,13.62,2.12,Good
+S1345,Receptionist,Linguistic,13.38,2.12,Good
+S1346,Receptionist,Interpersonal,12.62,2.12,Good
+S1347,Receptionist,Interpersonal,13.0,2.12,Good
+S1348,Receptionist,Interpersonal,13.38,2.12,Good
+S1349,Receptionist,Interpersonal,13.5,2.12,Good
+S1350,Receptionist,Interpersonal,13.5,2.12,Good
+S1351,Sales Representative,Linguistic,11.38,2.0,Good
+S1352,Sales Representative,Logical_Mathematical,12.25,2.0,Good
+S1353,Sales Representative,Logical_Mathematical,11.62,2.0,Good
+S1354,Sales Representative,Interpersonal,11.12,2.0,Good
+S1355,Sales Representative,Logical_Mathematical,11.5,2.0,Good
+S1356,Sales Representative,Linguistic,12.5,2.0,Good
+S1357,Sales Representative,Linguistic,11.5,2.0,Good
+S1358,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1359,Sales Representative,Logical_Mathematical,11.38,2.0,Good
+S1360,Sales Representative,Interpersonal,11.5,2.0,Good
+S1361,Sales Representative,Logical_Mathematical,11.88,2.0,Good
+S1362,Sales Representative,Linguistic,11.75,2.0,Good
+S1363,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1364,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1365,Sales Representative,Interpersonal,11.5,2.0,Good
+S1366,Sales Representative,Logical_Mathematical,11.62,2.0,Good
+S1367,Sales Representative,Linguistic,12.25,2.0,Good
+S1368,Sales Representative,Logical_Mathematical,12.62,2.0,Good
+S1369,Sales Representative,Linguistic,11.88,2.0,Good
+S1370,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1371,Sales Representative,Logical_Mathematical,11.88,2.0,Good
+S1372,Sales Representative,Interpersonal,11.5,2.0,Good
+S1373,Sales Representative,Logical_Mathematical,12.25,2.0,Good
+S1374,Sales Representative,Logical_Mathematical,12.12,2.0,Good
+S1375,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1376,Sales Representative,Interpersonal,11.38,2.0,Good
+S1377,Sales Representative,Logical_Mathematical,12.25,2.0,Good
+S1378,Sales Representative,Linguistic,12.12,2.0,Good
+S1379,Sales Representative,Linguistic,11.75,2.0,Good
+S1380,Sales Representative,Logical_Mathematical,12.5,2.0,Good
+S1381,Sales Representative,Logical_Mathematical,12.5,2.0,Good
+S1382,Sales Representative,Logical_Mathematical,12.0,2.0,Good
+S1383,Sales Representative,Interpersonal,11.5,2.0,Good
+S1384,Sales Representative,Logical_Mathematical,12.62,2.0,Good
+S1385,Sales Representative,Linguistic,12.12,2.0,Good
+S1386,Sales Representative,Interpersonal,11.75,2.0,Good
+S1387,Sales Representative,Interpersonal,11.62,2.0,Good
+S1388,Sales Representative,Interpersonal,12.0,2.0,Good
+S1389,Sales Representative,Linguistic,12.25,2.0,Good
+S1390,Sales Representative,Linguistic,12.5,2.0,Good
+S1391,Sales Representative,Linguistic,11.75,2.0,Good
+S1392,Sales Representative,Logical_Mathematical,12.75,2.0,Good
+S1393,Sales Representative,Logical_Mathematical,12.38,2.0,Good
+S1394,Sales Representative,Logical_Mathematical,11.62,2.0,Good
+S1395,Sales Representative,Interpersonal,11.75,2.0,Good
+S1396,Sales Representative,Linguistic,11.75,2.0,Good
+S1397,Sales Representative,Logical_Mathematical,12.5,2.0,Good
+S1398,Sales Representative,Linguistic,12.5,2.0,Good
+S1399,Sales Representative,Linguistic,12.62,2.0,Good
+S1400,Sales Representative,Interpersonal,11.75,2.0,Good
+S1401,Counselor,Interpersonal,12.75,2.12,Good
+S1402,Counselor,Logical_Mathematical,12.38,2.12,Good
+S1403,Counselor,Logical_Mathematical,12.5,2.12,Good
+S1404,Counselor,Intrapersonal,13.12,2.12,Good
+S1405,Counselor,Interpersonal,12.62,2.12,Good
+S1406,Counselor,Interpersonal,12.25,2.12,Good
+S1407,Counselor,Interpersonal,12.62,2.12,Good
+S1408,Counselor,Intrapersonal,12.75,2.12,Good
+S1409,Counselor,Logical_Mathematical,12.62,2.12,Good
+S1410,Counselor,Logical_Mathematical,13.12,2.12,Good
+S1411,Counselor,Interpersonal,12.88,2.12,Good
+S1412,Counselor,Interpersonal,12.75,2.12,Good
+S1413,Counselor,Interpersonal,13.0,2.12,Good
+S1414,Counselor,Logical_Mathematical,12.25,2.12,Good
+S1415,Counselor,Logical_Mathematical,12.62,2.12,Good
+S1416,Counselor,Logical_Mathematical,13.25,2.12,Good
+S1417,Counselor,Interpersonal,12.5,2.12,Good
+S1418,Counselor,Interpersonal,12.25,2.12,Good
+S1419,Counselor,Interpersonal,12.62,2.12,Good
+S1420,Counselor,Interpersonal,13.62,2.12,Good
+S1421,Counselor,Logical_Mathematical,12.88,2.12,Good
+S1422,Counselor,Logical_Mathematical,12.75,2.12,Good
+S1423,Counselor,Intrapersonal,12.75,2.12,Good
+S1424,Counselor,Interpersonal,13.0,2.12,Good
+S1425,Counselor,Logical_Mathematical,12.75,2.12,Good
+S1426,Counselor,Interpersonal,12.75,2.12,Good
+S1427,Counselor,Interpersonal,13.38,2.12,Good
+S1428,Counselor,Intrapersonal,13.88,2.12,Good
+S1429,Counselor,Logical_Mathematical,13.38,2.12,Good
+S1430,Counselor,Logical_Mathematical,14.25,2.12,Good
+S1431,Counselor,Logical_Mathematical,13.62,2.12,Good
+S1432,Counselor,Logical_Mathematical,14.25,2.12,Good
+S1433,Counselor,Logical_Mathematical,13.88,2.12,Good
+S1434,Counselor,Intrapersonal,13.5,2.12,Good
+S1435,Counselor,Intrapersonal,13.0,2.12,Good
+S1436,Counselor,Logical_Mathematical,12.38,2.12,Good
+S1437,Counselor,Logical_Mathematical,13.12,2.12,Good
+S1438,Counselor,Logical_Mathematical,13.0,2.12,Good
+S1439,Counselor,Logical_Mathematical,13.62,2.12,Good
+S1440,Counselor,Interpersonal,12.38,2.12,Good
+S1441,Counselor,Intrapersonal,12.5,2.12,Good
+S1442,Counselor,Intrapersonal,12.62,2.12,Good
+S1443,Counselor,Intrapersonal,13.25,2.12,Good
+S1444,Counselor,Logical_Mathematical,13.12,2.12,Good
+S1445,Counselor,Logical_Mathematical,13.38,2.12,Good
+S1446,Counselor,Interpersonal,12.88,2.12,Good
+S1447,Counselor,Logical_Mathematical,12.12,2.12,Good
+S1448,Counselor,Logical_Mathematical,12.5,2.12,Good
+S1449,Counselor,Logical_Mathematical,13.25,2.12,Good
+S1450,Counselor,Logical_Mathematical,13.75,2.12,Good
+S1451,Athlete,Bodily,13.0,2.12,Good
+S1452,Athlete,Interpersonal,12.38,2.12,Good
+S1453,Athlete,Interpersonal,13.38,2.12,Good
+S1454,Athlete,Interpersonal,13.12,2.12,Good
+S1455,Athlete,Intrapersonal,13.0,2.12,Good
+S1456,Athlete,Bodily,13.62,2.12,Good
+S1457,Athlete,Bodily,12.88,2.12,Good
+S1458,Athlete,Interpersonal,12.75,2.12,Good
+S1459,Athlete,Bodily,13.0,2.12,Good
+S1460,Athlete,Bodily,12.88,2.12,Good
+S1461,Athlete,Interpersonal,13.62,2.12,Good
+S1462,Athlete,Interpersonal,13.12,2.12,Good
+S1463,Athlete,Interpersonal,12.88,2.12,Good
+S1464,Athlete,Interpersonal,12.75,2.12,Good
+S1465,Athlete,Bodily,13.12,2.12,Good
+S1466,Athlete,Bodily,13.0,2.12,Good
+S1467,Athlete,Interpersonal,13.0,2.12,Good
+S1468,Athlete,Bodily,12.75,2.12,Good
+S1469,Athlete,Intrapersonal,13.25,2.12,Good
+S1470,Athlete,Bodily,12.5,2.12,Good
+S1471,Athlete,Intrapersonal,12.12,2.12,Good
+S1472,Athlete,Intrapersonal,12.0,2.12,Good
+S1473,Athlete,Bodily,12.38,2.12,Good
+S1474,Athlete,Bodily,12.75,2.12,Good
+S1475,Athlete,Intrapersonal,12.75,2.12,Good
+S1476,Athlete,Bodily,13.5,2.12,Good
+S1477,Athlete,Bodily,12.62,2.12,Good
+S1478,Athlete,Bodily,12.25,2.12,Good
+S1479,Athlete,Bodily,12.5,2.12,Good
+S1480,Athlete,Intrapersonal,12.12,2.12,Good
+S1481,Athlete,Bodily,12.5,2.12,Good
+S1482,Athlete,Bodily,13.38,2.12,Good
+S1483,Athlete,Bodily,13.38,2.12,Good
+S1484,Athlete,Interpersonal,12.88,2.12,Good
+S1485,Athlete,Intrapersonal,12.75,2.12,Good
+S1486,Athlete,Bodily,13.75,2.12,Good
+S1487,Athlete,Bodily,13.38,2.12,Good
+S1488,Athlete,Bodily,13.0,2.12,Good
+S1489,Athlete,Bodily,13.0,2.12,Good
+S1490,Athlete,Intrapersonal,13.62,2.12,Good
+S1491,Athlete,Bodily,12.75,2.12,Good
+S1492,Athlete,Bodily,13.5,2.12,Good
+S1493,Athlete,Intrapersonal,12.88,2.12,Good
+S1494,Athlete,Intrapersonal,12.62,2.12,Good
+S1495,Athlete,Intrapersonal,13.25,2.12,Good
+S1496,Athlete,Bodily,13.62,2.12,Good
+S1497,Athlete,Bodily,13.62,2.12,Good
+S1498,Athlete,Bodily,13.62,2.12,Good
+S1499,Athlete,Bodily,12.62,2.12,Good
+S1500,Athlete,Interpersonal,12.75,2.12,Good
+S1501,Dancer,Musical,10.75,2.12,Good
+S1502,Dancer,Musical,10.62,2.12,Good
+S1503,Dancer,Musical,10.88,2.12,Good
+S1504,Dancer,Bodily,11.12,2.12,Good
+S1505,Dancer,Bodily,11.5,2.12,Good
+S1506,Dancer,Bodily,11.5,2.12,Good
+S1507,Dancer,Musical,14.12,2.12,Good
+S1508,Dancer,Musical,13.75,2.12,Good
+S1509,Dancer,Musical,13.38,2.12,Good
+S1510,Dancer,Bodily,13.38,2.12,Good
+S1511,Dancer,Bodily,13.0,2.12,Good
+S1512,Dancer,Bodily,11.62,2.12,Good
+S1513,Dancer,Musical,13.12,2.12,Good
+S1514,Dancer,Musical,13.5,2.12,Good
+S1515,Dancer,Musical,13.62,2.12,Good
+S1516,Dancer,Musical,13.25,2.12,Good
+S1517,Dancer,Bodily,12.88,2.12,Good
+S1518,Dancer,Bodily,13.12,2.12,Good
+S1519,Dancer,Musical,13.88,2.12,Good
+S1520,Dancer,Musical,13.75,2.12,Good
+S1521,Dancer,Musical,13.88,2.12,Good
+S1522,Dancer,Musical,13.12,2.12,Good
+S1523,Dancer,Bodily,12.62,2.12,Good
+S1524,Dancer,Bodily,12.12,2.12,Good
+S1525,Dancer,Musical,12.88,2.12,Good
+S1526,Dancer,Musical,13.0,2.12,Good
+S1527,Dancer,Musical,13.25,2.12,Good
+S1528,Dancer,Musical,13.12,2.12,Good
+S1529,Dancer,Interpersonal,13.12,2.12,Good
+S1530,Dancer,Interpersonal,12.75,2.12,Good
+S1531,Dancer,Musical,13.25,2.12,Good
+S1532,Dancer,Musical,13.5,2.12,Good
+S1533,Dancer,Musical,13.12,2.12,Good
+S1534,Dancer,Musical,12.88,2.12,Good
+S1535,Dancer,Musical,11.88,2.12,Good
+S1536,Dancer,Bodily,11.5,2.12,Good
+S1537,Dancer,Musical,12.38,2.12,Good
+S1538,Dancer,Musical,12.75,2.12,Good
+S1539,Dancer,Musical,12.88,2.12,Good
+S1540,Dancer,Musical,12.25,2.12,Good
+S1541,Dancer,Musical,12.12,2.12,Good
+S1542,Dancer,Bodily,12.38,2.12,Good
+S1543,Dancer,Musical,13.12,2.12,Good
+S1544,Dancer,Musical,13.12,2.12,Good
+S1545,Dancer,Musical,11.88,2.12,Good
+S1546,Dancer,Musical,12.5,2.12,Good
+S1547,Dancer,Musical,12.12,2.12,Good
+S1548,Dancer,Interpersonal,11.75,2.12,Good
+S1549,Dancer,Musical,12.75,2.12,Good
+S1550,Dancer,Musical,12.5,2.12,Good
+S1551,Mechanic,Bodily,11.5,1.88,Average
+S1552,Mechanic,Bodily,11.5,1.88,Average
+S1553,Mechanic,Logical_Mathematical,11.75,1.88,Average
+S1554,Mechanic,Bodily,11.75,1.88,Average
+S1555,Mechanic,Bodily,12.25,1.88,Average
+S1556,Mechanic,Logical_Mathematical,12.0,1.88,Average
+S1557,Mechanic,Logical_Mathematical,11.88,1.88,Average
+S1558,Mechanic,Bodily,12.12,1.88,Average
+S1559,Mechanic,Bodily,12.25,1.88,Average
+S1560,Mechanic,Bodily,12.12,1.88,Average
+S1561,Mechanic,Bodily,11.88,1.88,Average
+S1562,Mechanic,Logical_Mathematical,11.38,1.88,Average
+S1563,Mechanic,Bodily,11.5,1.88,Average
+S1564,Mechanic,Bodily,12.0,1.88,Average
+S1565,Mechanic,Logical_Mathematical,11.75,1.88,Average
+S1566,Mechanic,Bodily,12.0,1.88,Average
+S1567,Mechanic,Bodily,12.25,1.88,Average
+S1568,Mechanic,Bodily,12.62,1.88,Average
+S1569,Mechanic,Bodily,12.75,1.88,Average
+S1570,Mechanic,Bodily,12.38,1.88,Average
+S1571,Mechanic,Bodily,12.12,1.88,Average
+S1572,Mechanic,Bodily,12.0,1.88,Average
+S1573,Mechanic,Bodily,12.12,1.88,Average
+S1574,Mechanic,Logical_Mathematical,11.62,1.88,Average
+S1575,Mechanic,Bodily,11.75,1.88,Average
+S1576,Mechanic,Bodily,12.12,1.88,Average
+S1577,Mechanic,Bodily,12.62,1.88,Average
+S1578,Mechanic,Bodily,12.5,1.88,Average
+S1579,Mechanic,Bodily,12.5,1.88,Average
+S1580,Mechanic,Bodily,12.75,1.88,Average
+S1581,Mechanic,Bodily,12.12,1.88,Average
+S1582,Mechanic,Bodily,12.5,1.88,Average
+S1583,Mechanic,Bodily,11.75,1.88,Average
+S1584,Mechanic,Bodily,12.0,1.88,Average
+S1585,Mechanic,Bodily,11.0,1.88,Average
+S1586,Mechanic,Bodily,11.12,1.88,Average
+S1587,Mechanic,Bodily,11.25,1.88,Average
+S1588,Mechanic,Bodily,11.75,1.88,Average
+S1589,Mechanic,Bodily,11.25,1.88,Average
+S1590,Mechanic,Bodily,11.75,1.88,Average
+S1591,Mechanic,Bodily,11.62,1.88,Average
+S1592,Mechanic,Bodily,11.88,1.88,Average
+S1593,Mechanic,Bodily,11.12,1.88,Average
+S1594,Mechanic,Bodily,11.25,1.88,Average
+S1595,Mechanic,Bodily,11.0,1.88,Average
+S1596,Mechanic,Bodily,11.88,1.88,Average
+S1597,Mechanic,Bodily,11.12,1.88,Average
+S1598,Mechanic,Bodily,11.25,1.88,Average
+S1599,Mechanic,Bodily,11.12,1.88,Average
+S1600,Mechanic,Bodily,11.25,1.88,Average
+S1601,Actor / Actress,Linguistic,13.0,2.25,Good
+S1602,Actor / Actress,Linguistic,13.12,2.25,Good
+S1603,Actor / Actress,Linguistic,12.75,2.25,Good
+S1604,Actor / Actress,Bodily,13.38,2.25,Good
+S1605,Actor / Actress,Bodily,14.0,2.25,Good
+S1606,Actor / Actress,Interpersonal,13.0,2.25,Good
+S1607,Actor / Actress,Linguistic,13.5,2.25,Good
+S1608,Actor / Actress,Interpersonal,13.88,2.25,Good
+S1609,Actor / Actress,Linguistic,12.88,2.25,Good
+S1610,Actor / Actress,Bodily,13.12,2.25,Good
+S1611,Actor / Actress,Linguistic,13.12,2.25,Good
+S1612,Actor / Actress,Linguistic,13.38,2.25,Good
+S1613,Actor / Actress,Linguistic,13.5,2.25,Good
+S1614,Actor / Actress,Linguistic,13.5,2.25,Good
+S1615,Actor / Actress,Interpersonal,13.25,2.25,Good
+S1616,Actor / Actress,Interpersonal,12.62,2.25,Good
+S1617,Actor / Actress,Linguistic,13.25,2.25,Good
+S1618,Actor / Actress,Linguistic,14.0,2.25,Good
+S1619,Actor / Actress,Bodily,14.0,2.25,Good
+S1620,Actor / Actress,Interpersonal,14.25,2.25,Good
+S1621,Actor / Actress,Linguistic,13.0,2.25,Good
+S1622,Actor / Actress,Linguistic,13.62,2.25,Good
+S1623,Actor / Actress,Linguistic,12.75,2.25,Good
+S1624,Actor / Actress,Linguistic,13.38,2.25,Good
+S1625,Actor / Actress,Interpersonal,12.88,2.25,Good
+S1626,Actor / Actress,Bodily,13.12,2.25,Good
+S1627,Actor / Actress,Linguistic,14.0,2.25,Good
+S1628,Actor / Actress,Linguistic,14.12,2.25,Good
+S1629,Actor / Actress,Interpersonal,13.75,2.25,Good
+S1630,Actor / Actress,Interpersonal,14.0,2.25,Good
+S1631,Actor / Actress,Linguistic,13.62,2.25,Good
+S1632,Actor / Actress,Interpersonal,13.75,2.25,Good
+S1633,Actor / Actress,Linguistic,13.0,2.25,Good
+S1634,Actor / Actress,Intrapersonal,13.5,2.25,Good
+S1635,Actor / Actress,Intrapersonal,13.62,2.25,Good
+S1636,Actor / Actress,Bodily,13.75,2.25,Good
+S1637,Actor / Actress,Linguistic,13.62,2.25,Good
+S1638,Actor / Actress,Linguistic,13.88,2.25,Good
+S1639,Actor / Actress,Intrapersonal,13.62,2.25,Good
+S1640,Actor / Actress,Intrapersonal,14.0,2.25,Good
+S1641,Actor / Actress,Linguistic,13.5,2.25,Good
+S1642,Actor / Actress,Linguistic,14.38,2.25,Good
+S1643,Actor / Actress,Bodily,14.5,2.25,Good
+S1644,Actor / Actress,Interpersonal,14.25,2.25,Good
+S1645,Actor / Actress,Intrapersonal,13.12,2.25,Good
+S1646,Actor / Actress,Intrapersonal,13.0,2.25,Good
+S1647,Actor / Actress,Linguistic,13.62,2.25,Good
+S1648,Actor / Actress,Intrapersonal,13.88,2.25,Good
+S1649,Actor / Actress,Intrapersonal,13.62,2.25,Good
+S1650,Actor / Actress,Bodily,13.75,2.25,Good
+S1651,Physical Therapist,Naturalist,10.88,1.75,Average
+S1652,Physical Therapist,Naturalist,10.75,1.75,Average
+S1653,Physical Therapist,Naturalist,10.88,1.75,Average
+S1654,Physical Therapist,Naturalist,10.75,1.75,Average
+S1655,Physical Therapist,Bodily,11.0,1.75,Average
+S1656,Physical Therapist,Naturalist,11.0,1.75,Average
+S1657,Physical Therapist,Bodily,10.75,1.75,Average
+S1658,Physical Therapist,Bodily,11.5,1.75,Average
+S1659,Physical Therapist,Naturalist,10.88,1.75,Average
+S1660,Physical Therapist,Bodily,11.25,1.75,Average
+S1661,Physical Therapist,Naturalist,11.38,1.75,Average
+S1662,Physical Therapist,Naturalist,11.62,1.75,Average
+S1663,Physical Therapist,Naturalist,10.75,1.75,Average
+S1664,Physical Therapist,Bodily,11.62,1.75,Average
+S1665,Physical Therapist,Naturalist,11.12,1.75,Average
+S1666,Physical Therapist,Naturalist,11.88,1.75,Average
+S1667,Physical Therapist,Bodily,11.25,1.75,Average
+S1668,Physical Therapist,Naturalist,11.38,1.75,Average
+S1669,Physical Therapist,Bodily,11.25,1.75,Average
+S1670,Physical Therapist,Naturalist,11.62,1.75,Average
+S1671,Physical Therapist,Naturalist,11.25,1.75,Average
+S1672,Physical Therapist,Naturalist,10.62,1.75,Average
+S1673,Physical Therapist,Bodily,11.12,1.75,Average
+S1674,Physical Therapist,Naturalist,11.38,1.75,Average
+S1675,Physical Therapist,Bodily,11.0,1.75,Average
+S1676,Physical Therapist,Bodily,11.62,1.75,Average
+S1677,Physical Therapist,Naturalist,11.0,1.75,Average
+S1678,Physical Therapist,Naturalist,11.62,1.75,Average
+S1679,Physical Therapist,Bodily,11.12,1.75,Average
+S1680,Physical Therapist,Naturalist,11.38,1.75,Average
+S1681,Physical Therapist,Naturalist,11.38,1.75,Average
+S1682,Physical Therapist,Naturalist,11.5,1.75,Average
+S1683,Physical Therapist,Bodily,11.75,1.75,Average
+S1684,Physical Therapist,Naturalist,11.12,1.75,Average
+S1685,Physical Therapist,Bodily,11.0,1.75,Average
+S1686,Physical Therapist,Bodily,12.0,1.75,Average
+S1687,Physical Therapist,Naturalist,10.88,1.75,Average
+S1688,Physical Therapist,Naturalist,11.38,1.75,Average
+S1689,Physical Therapist,Bodily,11.25,1.75,Average
+S1690,Physical Therapist,Naturalist,11.5,1.75,Average
+S1691,Physical Therapist,Naturalist,11.0,1.75,Average
+S1692,Physical Therapist,Naturalist,10.62,1.75,Average
+S1693,Physical Therapist,Bodily,11.62,1.75,Average
+S1694,Physical Therapist,Naturalist,12.0,1.75,Average
+S1695,Physical Therapist,Bodily,11.38,1.75,Average
+S1696,Physical Therapist,Bodily,12.0,1.75,Average
+S1697,Physical Therapist,Naturalist,11.38,1.75,Average
+S1698,Physical Therapist,Naturalist,12.12,1.75,Average
+S1699,Physical Therapist,Bodily,12.38,1.75,Average
+S1700,Physical Therapist,Naturalist,11.0,1.75,Average
+S1701,Editor,Musical,12.38,2.0,Good
+S1702,Editor,Musical,12.88,2.0,Good
+S1703,Editor,Logical_Mathematical,12.62,2.0,Good
+S1704,Editor,Logical_Mathematical,11.88,2.0,Good
+S1705,Editor,Musical,12.88,2.0,Good
+S1706,Editor,Musical,13.38,2.0,Good
+S1707,Editor,Musical,12.62,2.0,Good
+S1708,Editor,Musical,12.5,2.0,Good
+S1709,Editor,Musical,12.5,2.0,Good
+S1710,Editor,Logical_Mathematical,12.5,2.0,Good
+S1711,Editor,Logical_Mathematical,12.38,2.0,Good
+S1712,Editor,Musical,13.75,2.0,Good
+S1713,Editor,Musical,12.5,2.0,Good
+S1714,Editor,Musical,12.88,2.0,Good
+S1715,Editor,Musical,12.62,2.0,Good
+S1716,Editor,Intrapersonal,13.5,2.0,Good
+S1717,Editor,Intrapersonal,13.0,2.0,Good
+S1718,Editor,Logical_Mathematical,12.75,2.0,Good
+S1719,Editor,Musical,12.62,2.0,Good
+S1720,Editor,Musical,12.75,2.0,Good
+S1721,Editor,Musical,12.88,2.0,Good
+S1722,Editor,Musical,12.62,2.0,Good
+S1723,Editor,Logical_Mathematical,12.62,2.0,Good
+S1724,Editor,Logical_Mathematical,11.75,2.0,Good
+S1725,Editor,Musical,12.62,2.0,Good
+S1726,Editor,Musical,13.25,2.0,Good
+S1727,Editor,Musical,12.88,2.0,Good
+S1728,Editor,Logical_Mathematical,13.25,2.0,Good
+S1729,Editor,Logical_Mathematical,12.12,2.0,Good
+S1730,Editor,Logical_Mathematical,12.12,2.0,Good
+S1731,Editor,Musical,13.12,2.0,Good
+S1732,Editor,Musical,13.25,2.0,Good
+S1733,Editor,Musical,12.75,2.0,Good
+S1734,Editor,Logical_Mathematical,12.62,2.0,Good
+S1735,Editor,Logical_Mathematical,12.38,2.0,Good
+S1736,Editor,Intrapersonal,12.75,2.0,Good
+S1737,Editor,Musical,12.88,2.0,Good
+S1738,Editor,Musical,13.38,2.0,Good
+S1739,Editor,Musical,12.12,2.0,Good
+S1740,Editor,Musical,12.75,2.0,Good
+S1741,Editor,Intrapersonal,12.75,2.0,Good
+S1742,Editor,Logical_Mathematical,11.88,2.0,Good
+S1743,Editor,Musical,12.12,2.0,Good
+S1744,Editor,Musical,12.25,2.0,Good
+S1745,Editor,Musical,12.5,2.0,Good
+S1746,Editor,Intrapersonal,12.75,2.0,Good
+S1747,Editor,Logical_Mathematical,13.0,2.0,Good
+S1748,Editor,Logical_Mathematical,12.75,2.0,Good
+S1749,Editor,Logical_Mathematical,12.25,2.0,Good
+S1750,Editor,Musical,12.25,2.0,Good
+S1751,Historian,Intrapersonal,12.88,2.12,Good
+S1752,Historian,Intrapersonal,12.5,2.12,Good
+S1753,Historian,Logical_Mathematical,13.25,2.12,Good
+S1754,Historian,Logical_Mathematical,12.75,2.12,Good
+S1755,Historian,Logical_Mathematical,13.38,2.12,Good
+S1756,Historian,Logical_Mathematical,12.88,2.12,Good
+S1757,Historian,Logical_Mathematical,12.5,2.12,Good
+S1758,Historian,Logical_Mathematical,13.12,2.12,Good
+S1759,Historian,Intrapersonal,12.25,2.12,Good
+S1760,Historian,Intrapersonal,13.25,2.12,Good
+S1761,Historian,Intrapersonal,12.38,2.12,Good
+S1762,Historian,Intrapersonal,13.12,2.12,Good
+S1763,Historian,Intrapersonal,12.75,2.12,Good
+S1764,Historian,Logical_Mathematical,13.25,2.12,Good
+S1765,Historian,Logical_Mathematical,12.38,2.12,Good
+S1766,Historian,Intrapersonal,12.75,2.12,Good
+S1767,Historian,Intrapersonal,12.88,2.12,Good
+S1768,Historian,Logical_Mathematical,13.38,2.12,Good
+S1769,Historian,Logical_Mathematical,13.5,2.12,Good
+S1770,Historian,Logical_Mathematical,13.12,2.12,Good
+S1771,Historian,Naturalist,12.88,2.12,Good
+S1772,Historian,Naturalist,12.5,2.12,Good
+S1773,Historian,Intrapersonal,12.75,2.12,Good
+S1774,Historian,Intrapersonal,13.5,2.12,Good
+S1775,Historian,Intrapersonal,12.75,2.12,Good
+S1776,Historian,Intrapersonal,13.0,2.12,Good
+S1777,Historian,Logical_Mathematical,11.88,2.12,Good
+S1778,Historian,Logical_Mathematical,13.25,2.12,Good
+S1779,Historian,Logical_Mathematical,13.75,2.12,Good
+S1780,Historian,Intrapersonal,13.62,2.12,Good
+S1781,Historian,Logical_Mathematical,14.0,2.12,Good
+S1782,Historian,Logical_Mathematical,13.62,2.12,Good
+S1783,Historian,Naturalist,11.88,2.12,Good
+S1784,Historian,Naturalist,12.38,2.12,Good
+S1785,Historian,Intrapersonal,12.38,2.12,Good
+S1786,Historian,Intrapersonal,13.38,2.12,Good
+S1787,Historian,Intrapersonal,12.38,2.12,Good
+S1788,Historian,Intrapersonal,13.25,2.12,Good
+S1789,Historian,Logical_Mathematical,12.75,2.12,Good
+S1790,Historian,Logical_Mathematical,12.75,2.12,Good
+S1791,Historian,Logical_Mathematical,13.75,2.12,Good
+S1792,Historian,Intrapersonal,14.0,2.12,Good
+S1793,Historian,Logical_Mathematical,13.12,2.12,Good
+S1794,Historian,Logical_Mathematical,13.25,2.12,Good
+S1795,Historian,Logical_Mathematical,12.12,2.12,Good
+S1796,Historian,Naturalist,12.62,2.12,Good
+S1797,Historian,Intrapersonal,12.62,2.12,Good
+S1798,Historian,Intrapersonal,13.75,2.12,Good
+S1799,Historian,Intrapersonal,12.75,2.12,Good
+S1800,Historian,Intrapersonal,12.38,2.12,Good
+S1801,Journalist,Linguistic,12.38,2.12,Good
+S1802,Journalist,Linguistic,13.12,2.12,Good
+S1803,Journalist,Logical_Mathematical,12.88,2.12,Good
+S1804,Journalist,Logical_Mathematical,12.25,2.12,Good
+S1805,Journalist,Linguistic,13.25,2.12,Good
+S1806,Journalist,Linguistic,12.88,2.12,Good
+S1807,Journalist,Linguistic,12.38,2.12,Good
+S1808,Journalist,Linguistic,12.5,2.12,Good
+S1809,Journalist,Linguistic,12.75,2.12,Good
+S1810,Journalist,Logical_Mathematical,12.5,2.12,Good
+S1811,Journalist,Logical_Mathematical,12.12,2.12,Good
+S1812,Journalist,Linguistic,13.25,2.12,Good
+S1813,Journalist,Linguistic,13.5,2.12,Good
+S1814,Journalist,Linguistic,12.75,2.12,Good
+S1815,Journalist,Linguistic,12.75,2.12,Good
+S1816,Journalist,Linguistic,12.75,2.12,Good
+S1817,Journalist,Logical_Mathematical,12.5,2.12,Good
+S1818,Journalist,Logical_Mathematical,12.62,2.12,Good
+S1819,Journalist,Linguistic,12.5,2.12,Good
+S1820,Journalist,Linguistic,13.25,2.12,Good
+S1821,Journalist,Linguistic,12.62,2.12,Good
+S1822,Journalist,Linguistic,13.0,2.12,Good
+S1823,Journalist,Logical_Mathematical,13.25,2.12,Good
+S1824,Journalist,Logical_Mathematical,12.62,2.12,Good
+S1825,Journalist,Linguistic,12.75,2.12,Good
+S1826,Journalist,Linguistic,13.75,2.12,Good
+S1827,Journalist,Linguistic,12.75,2.12,Good
+S1828,Journalist,Logical_Mathematical,12.88,2.12,Good
+S1829,Journalist,Logical_Mathematical,12.75,2.12,Good
+S1830,Journalist,Logical_Mathematical,12.75,2.12,Good
+S1831,Journalist,Linguistic,13.5,2.12,Good
+S1832,Journalist,Linguistic,13.12,2.12,Good
+S1833,Journalist,Linguistic,13.38,2.12,Good
+S1834,Journalist,Logical_Mathematical,14.0,2.12,Good
+S1835,Journalist,Logical_Mathematical,13.38,2.12,Good
+S1836,Journalist,Logical_Mathematical,12.75,2.12,Good
+S1837,Journalist,Linguistic,13.5,2.12,Good
+S1838,Journalist,Linguistic,14.25,2.12,Good
+S1839,Journalist,Linguistic,14.5,2.12,Good
+S1840,Journalist,Linguistic,13.38,2.12,Good
+S1841,Journalist,Interpersonal,13.5,2.12,Good
+S1842,Journalist,Interpersonal,13.0,2.12,Good
+S1843,Journalist,Linguistic,13.5,2.12,Good
+S1844,Journalist,Linguistic,13.25,2.12,Good
+S1845,Journalist,Linguistic,13.38,2.12,Good
+S1846,Journalist,Linguistic,13.25,2.12,Good
+S1847,Journalist,Interpersonal,12.62,2.12,Good
+S1848,Journalist,Interpersonal,12.75,2.12,Good
+S1849,Journalist,Linguistic,13.5,2.12,Good
+S1850,Journalist,Linguistic,13.5,2.12,Good
+S1851,Language Teacher,Interpersonal,12.38,2.12,Good
+S1852,Language Teacher,Interpersonal,12.75,2.12,Good
+S1853,Language Teacher,Linguistic,13.12,2.12,Good
+S1854,Language Teacher,Intrapersonal,12.62,2.12,Good
+S1855,Language Teacher,Intrapersonal,12.38,2.12,Good
+S1856,Language Teacher,Linguistic,12.75,2.12,Good
+S1857,Language Teacher,Interpersonal,12.88,2.12,Good
+S1858,Language Teacher,Interpersonal,12.75,2.12,Good
+S1859,Language Teacher,Linguistic,12.75,2.12,Good
+S1860,Language Teacher,Interpersonal,12.25,2.12,Good
+S1861,Language Teacher,Intrapersonal,12.12,2.12,Good
+S1862,Language Teacher,Linguistic,12.38,2.12,Good
+S1863,Language Teacher,Linguistic,12.62,2.12,Good
+S1864,Language Teacher,Interpersonal,12.25,2.12,Good
+S1865,Language Teacher,Interpersonal,12.88,2.12,Good
+S1866,Language Teacher,Linguistic,12.5,2.12,Good
+S1867,Language Teacher,Intrapersonal,12.25,2.12,Good
+S1868,Language Teacher,Intrapersonal,12.38,2.12,Good
+S1869,Language Teacher,Linguistic,13.5,2.12,Good
+S1870,Language Teacher,Linguistic,13.25,2.12,Good
+S1871,Language Teacher,Interpersonal,13.25,2.12,Good
+S1872,Language Teacher,Interpersonal,13.12,2.12,Good
+S1873,Language Teacher,Linguistic,13.12,2.12,Good
+S1874,Language Teacher,Interpersonal,12.25,2.12,Good
+S1875,Language Teacher,Interpersonal,13.62,2.12,Good
+S1876,Language Teacher,Linguistic,13.25,2.12,Good
+S1877,Language Teacher,Linguistic,12.88,2.12,Good
+S1878,Language Teacher,Intrapersonal,12.25,2.12,Good
+S1879,Language Teacher,Intrapersonal,12.75,2.12,Good
+S1880,Language Teacher,Linguistic,13.62,2.12,Good
+S1881,Language Teacher,Interpersonal,12.88,2.12,Good
+S1882,Language Teacher,Interpersonal,12.25,2.12,Good
+S1883,Language Teacher,Linguistic,13.38,2.12,Good
+S1884,Language Teacher,Linguistic,13.5,2.12,Good
+S1885,Language Teacher,Intrapersonal,12.38,2.12,Good
+S1886,Language Teacher,Interpersonal,13.62,2.12,Good
+S1887,Language Teacher,Interpersonal,14.12,2.12,Good
+S1888,Language Teacher,Interpersonal,13.12,2.12,Good
+S1889,Language Teacher,Interpersonal,12.88,2.12,Good
+S1890,Language Teacher,Linguistic,13.38,2.12,Good
+S1891,Language Teacher,Intrapersonal,13.0,2.12,Good
+S1892,Language Teacher,Interpersonal,13.0,2.12,Good
+S1893,Language Teacher,Interpersonal,13.38,2.12,Good
+S1894,Language Teacher,Interpersonal,13.5,2.12,Good
+S1895,Language Teacher,Linguistic,13.88,2.12,Good
+S1896,Language Teacher,Interpersonal,13.0,2.12,Good
+S1897,Language Teacher,Interpersonal,13.38,2.12,Good
+S1898,Language Teacher,Linguistic,13.88,2.12,Good
+S1899,Language Teacher,Linguistic,12.88,2.12,Good
+S1900,Language Teacher,Intrapersonal,12.75,2.12,Good
+S1901,Poet,Musical,13.12,2.12,Good
+S1902,Poet,Musical,13.25,2.12,Good
+S1903,Poet,Musical,13.5,2.12,Good
+S1904,Poet,Musical,12.75,2.12,Good
+S1905,Poet,Musical,14.0,2.12,Good
+S1906,Poet,Musical,13.25,2.12,Good
+S1907,Poet,Musical,13.0,2.12,Good
+S1908,Poet,Musical,13.0,2.12,Good
+S1909,Poet,Musical,13.12,2.12,Good
+S1910,Poet,Musical,14.12,2.12,Good
+S1911,Poet,Musical,12.75,2.12,Good
+S1912,Poet,Musical,12.75,2.12,Good
+S1913,Poet,Musical,14.0,2.12,Good
+S1914,Poet,Musical,13.0,2.12,Good
+S1915,Poet,Musical,13.25,2.12,Good
+S1916,Poet,Linguistic,13.88,2.12,Good
+S1917,Poet,Linguistic,13.38,2.12,Good
+S1918,Poet,Linguistic,13.0,2.12,Good
+S1919,Poet,Linguistic,13.38,2.12,Good
+S1920,Poet,Musical,13.25,2.12,Good
+S1921,Poet,Musical,13.0,2.12,Good
+S1922,Poet,Musical,13.0,2.12,Good
+S1923,Poet,Linguistic,13.5,2.12,Good
+S1924,Poet,Musical,13.25,2.12,Good
+S1925,Poet,Linguistic,14.0,2.12,Good
+S1926,Poet,Linguistic,12.88,2.12,Good
+S1927,Poet,Linguistic,13.38,2.12,Good
+S1928,Poet,Linguistic,13.62,2.12,Good
+S1929,Poet,Linguistic,12.75,2.12,Good
+S1930,Poet,Linguistic,13.0,2.12,Good
+S1931,Poet,Musical,13.0,2.12,Good
+S1932,Poet,Musical,13.0,2.12,Good
+S1933,Poet,Musical,12.88,2.12,Good
+S1934,Poet,Linguistic,13.12,2.12,Good
+S1935,Poet,Musical,13.75,2.12,Good
+S1936,Poet,Musical,12.62,2.12,Good
+S1937,Poet,Musical,12.75,2.12,Good
+S1938,Poet,Linguistic,13.5,2.12,Good
+S1939,Poet,Linguistic,13.25,2.12,Good
+S1940,Poet,Intrapersonal,13.0,2.12,Good
+S1941,Poet,Linguistic,13.5,2.12,Good
+S1942,Poet,Linguistic,12.88,2.12,Good
+S1943,Poet,Musical,12.75,2.12,Good
+S1944,Poet,Musical,12.62,2.12,Good
+S1945,Poet,Musical,12.0,2.12,Good
+S1946,Poet,Linguistic,13.12,2.12,Good
+S1947,Poet,Linguistic,12.38,2.12,Good
+S1948,Poet,Intrapersonal,13.0,2.12,Good
+S1949,Poet,Musical,13.0,2.12,Good
+S1950,Poet,Musical,12.38,2.12,Good
+S1951,Broadcaster,Bodily,12.88,2.12,Good
+S1952,Broadcaster,Bodily,12.75,2.12,Good
+S1953,Broadcaster,Linguistic,13.62,2.12,Good
+S1954,Broadcaster,Linguistic,13.88,2.12,Good
+S1955,Broadcaster,Interpersonal,13.25,2.12,Good
+S1956,Broadcaster,Bodily,13.0,2.12,Good
+S1957,Broadcaster,Bodily,12.75,2.12,Good
+S1958,Broadcaster,Bodily,12.88,2.12,Good
+S1959,Broadcaster,Bodily,13.25,2.12,Good
+S1960,Broadcaster,Bodily,12.88,2.12,Good
+S1961,Broadcaster,Interpersonal,13.62,2.12,Good
+S1962,Broadcaster,Linguistic,13.12,2.12,Good
+S1963,Broadcaster,Linguistic,13.12,2.12,Good
+S1964,Broadcaster,Bodily,13.25,2.12,Good
+S1965,Broadcaster,Bodily,12.75,2.12,Good
+S1966,Broadcaster,Bodily,12.75,2.12,Good
+S1967,Broadcaster,Interpersonal,12.88,2.12,Good
+S1968,Broadcaster,Bodily,13.12,2.12,Good
+S1969,Broadcaster,Linguistic,13.62,2.12,Good
+S1970,Broadcaster,Linguistic,12.38,2.12,Good
+S1971,Broadcaster,Linguistic,12.75,2.12,Good
+S1972,Broadcaster,Interpersonal,12.75,2.12,Good
+S1973,Broadcaster,Interpersonal,12.88,2.12,Good
+S1974,Broadcaster,Interpersonal,13.38,2.12,Good
+S1975,Broadcaster,Linguistic,12.5,2.12,Good
+S1976,Broadcaster,Linguistic,12.75,2.12,Good
+S1977,Broadcaster,Linguistic,12.5,2.12,Good
+S1978,Broadcaster,Linguistic,13.62,2.12,Good
+S1979,Broadcaster,Linguistic,13.25,2.12,Good
+S1980,Broadcaster,Linguistic,13.0,2.12,Good
+S1981,Broadcaster,Linguistic,12.88,2.12,Good
+S1982,Broadcaster,Interpersonal,12.62,2.12,Good
+S1983,Broadcaster,Interpersonal,13.62,2.12,Good
+S1984,Broadcaster,Linguistic,13.12,2.12,Good
+S1985,Broadcaster,Linguistic,13.25,2.12,Good
+S1986,Broadcaster,Linguistic,12.88,2.12,Good
+S1987,Broadcaster,Linguistic,12.75,2.12,Good
+S1988,Broadcaster,Interpersonal,13.88,2.12,Good
+S1989,Broadcaster,Linguistic,12.88,2.12,Good
+S1990,Broadcaster,Interpersonal,13.12,2.12,Good
+S1991,Broadcaster,Bodily,12.38,2.12,Good
+S1992,Broadcaster,Linguistic,12.62,2.12,Good
+S1993,Broadcaster,Interpersonal,13.88,2.12,Good
+S1994,Broadcaster,Interpersonal,13.62,2.12,Good
+S1995,Broadcaster,Linguistic,13.5,2.12,Good
+S1996,Broadcaster,Linguistic,13.12,2.12,Good
+S1997,Broadcaster,Linguistic,12.5,2.12,Good
+S1998,Broadcaster,Linguistic,13.88,2.12,Good
+S1999,Broadcaster,Interpersonal,13.12,2.12,Good
+S2000,Broadcaster,Interpersonal,12.88,2.12,Good
+S2001,Artist,Musical,12.75,2.12,Good
+S2002,Artist,Musical,12.62,2.12,Good
+S2003,Artist,Musical,12.88,2.12,Good
+S2004,Artist,Naturalist,11.88,2.12,Good
+S2005,Artist,Naturalist,12.75,2.12,Good
+S2006,Artist,Musical,13.0,2.12,Good
+S2007,Artist,Musical,12.88,2.12,Good
+S2008,Artist,Musical,12.75,2.12,Good
+S2009,Artist,Musical,12.88,2.12,Good
+S2010,Artist,Naturalist,13.0,2.12,Good
+S2011,Artist,Naturalist,12.5,2.12,Good
+S2012,Artist,Musical,12.25,2.12,Good
+S2013,Artist,Musical,13.12,2.12,Good
+S2014,Artist,Musical,13.12,2.12,Good
+S2015,Artist,Naturalist,12.75,2.12,Good
+S2016,Artist,Musical,12.5,2.12,Good
+S2017,Artist,Musical,12.62,2.12,Good
+S2018,Artist,Musical,13.12,2.12,Good
+S2019,Artist,Naturalist,13.12,2.12,Good
+S2020,Artist,Naturalist,13.12,2.12,Good
+S2021,Artist,Musical,13.38,2.12,Good
+S2022,Artist,Musical,12.62,2.12,Good
+S2023,Artist,Musical,12.75,2.12,Good
+S2024,Artist,Naturalist,13.5,2.12,Good
+S2025,Artist,Naturalist,13.62,2.12,Good
+S2026,Artist,Musical,13.5,2.12,Good
+S2027,Artist,Intrapersonal,12.75,2.12,Good
+S2028,Artist,Musical,12.5,2.12,Good
+S2029,Artist,Naturalist,13.5,2.12,Good
+S2030,Artist,Musical,14.12,2.12,Good
+S2031,Artist,Naturalist,13.25,2.12,Good
+S2032,Artist,Musical,13.25,2.12,Good
+S2033,Artist,Musical,12.75,2.12,Good
+S2034,Artist,Musical,12.5,2.12,Good
+S2035,Artist,Naturalist,13.12,2.12,Good
+S2036,Artist,Naturalist,14.0,2.12,Good
+S2037,Artist,Musical,13.25,2.12,Good
+S2038,Artist,Musical,13.88,2.12,Good
+S2039,Artist,Intrapersonal,13.0,2.12,Good
+S2040,Artist,Naturalist,13.12,2.12,Good
+S2041,Artist,Naturalist,13.25,2.12,Good
+S2042,Artist,Musical,13.38,2.12,Good
+S2043,Artist,Intrapersonal,12.38,2.12,Good
+S2044,Artist,Intrapersonal,13.12,2.12,Good
+S2045,Artist,Naturalist,13.62,2.12,Good
+S2046,Artist,Musical,13.75,2.12,Good
+S2047,Artist,Intrapersonal,13.62,2.12,Good
+S2048,Artist,Intrapersonal,14.0,2.12,Good
+S2049,Artist,Intrapersonal,14.0,2.12,Good
+S2050,Artist,Intrapersonal,13.62,2.12,Good
+S2051,Graphic Designer,Logical_Mathematical,11.75,1.88,Average
+S2052,Graphic Designer,Spatial_Visualization,11.88,1.88,Average
+S2053,Graphic Designer,Spatial_Visualization,12.0,1.88,Average
+S2054,Graphic Designer,Spatial_Visualization,11.5,1.88,Average
+S2055,Graphic Designer,Spatial_Visualization,11.88,1.88,Average
+S2056,Graphic Designer,Spatial_Visualization,12.0,1.88,Average
+S2057,Graphic Designer,Logical_Mathematical,12.12,1.88,Average
+S2058,Graphic Designer,Spatial_Visualization,12.25,1.88,Average
+S2059,Graphic Designer,Spatial_Visualization,12.62,1.88,Average
+S2060,Graphic Designer,Spatial_Visualization,11.25,1.88,Average
+S2061,Graphic Designer,Spatial_Visualization,11.5,1.88,Average
+S2062,Graphic Designer,Spatial_Visualization,11.62,1.88,Average
+S2063,Graphic Designer,Logical_Mathematical,11.5,1.88,Average
+S2064,Graphic Designer,Logical_Mathematical,11.75,1.88,Average
+S2065,Graphic Designer,Spatial_Visualization,11.88,1.88,Average
+S2066,Graphic Designer,Spatial_Visualization,11.62,1.88,Average
+S2067,Graphic Designer,Spatial_Visualization,11.5,1.88,Average
+S2068,Graphic Designer,Spatial_Visualization,11.75,1.88,Average
+S2069,Graphic Designer,Logical_Mathematical,11.62,1.88,Average
+S2070,Graphic Designer,Logical_Mathematical,12.12,1.88,Average
+S2071,Graphic Designer,Spatial_Visualization,12.25,1.88,Average
+S2072,Graphic Designer,Spatial_Visualization,11.62,1.88,Average
+S2073,Graphic Designer,Spatial_Visualization,11.62,1.88,Average
+S2074,Graphic Designer,Spatial_Visualization,11.88,1.88,Average
+S2075,Graphic Designer,Logical_Mathematical,12.5,1.88,Average
+S2076,Graphic Designer,Logical_Mathematical,12.38,1.88,Average
+S2077,Graphic Designer,Logical_Mathematical,11.88,1.88,Average
+S2078,Graphic Designer,Spatial_Visualization,10.5,1.88,Average
+S2079,Graphic Designer,Spatial_Visualization,11.0,1.88,Average
+S2080,Graphic Designer,Spatial_Visualization,11.38,1.88,Average
+S2081,Graphic Designer,Logical_Mathematical,12.38,1.88,Average
+S2082,Graphic Designer,Logical_Mathematical,11.75,1.88,Average
+S2083,Graphic Designer,Logical_Mathematical,11.0,1.88,Average
+S2084,Graphic Designer,Logical_Mathematical,11.12,1.88,Average
+S2085,Graphic Designer,Logical_Mathematical,11.62,1.88,Average
+S2086,Graphic Designer,Logical_Mathematical,12.12,1.88,Average
+S2087,Graphic Designer,Logical_Mathematical,11.75,1.88,Average
+S2088,Graphic Designer,Logical_Mathematical,11.38,1.88,Average
+S2089,Graphic Designer,Logical_Mathematical,11.25,1.88,Average
+S2090,Graphic Designer,Logical_Mathematical,11.38,1.88,Average
+S2091,Graphic Designer,Logical_Mathematical,11.88,1.88,Average
+S2092,Graphic Designer,Logical_Mathematical,11.5,1.88,Average
+S2093,Graphic Designer,Logical_Mathematical,12.12,1.88,Average
+S2094,Graphic Designer,Logical_Mathematical,12.12,1.88,Average
+S2095,Graphic Designer,Spatial_Visualization,12.5,1.88,Average
+S2096,Graphic Designer,Spatial_Visualization,11.75,1.88,Average
+S2097,Graphic Designer,Spatial_Visualization,11.88,1.88,Average
+S2098,Graphic Designer,Spatial_Visualization,11.62,1.88,Average
+S2099,Graphic Designer,Spatial_Visualization,12.12,1.88,Average
+S2100,Graphic Designer,Spatial_Visualization,12.38,1.88,Average
+S2101,Fashion Designer,Interpersonal,11.62,2.0,Good
+S2102,Fashion Designer,Interpersonal,11.75,2.0,Good
+S2103,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2104,Fashion Designer,Interpersonal,11.75,2.0,Good
+S2105,Fashion Designer,Interpersonal,12.38,2.0,Good
+S2106,Fashion Designer,Interpersonal,12.38,2.0,Good
+S2107,Fashion Designer,Interpersonal,11.5,2.0,Good
+S2108,Fashion Designer,Interpersonal,11.38,2.0,Good
+S2109,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2110,Fashion Designer,Interpersonal,11.75,2.0,Good
+S2111,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2112,Fashion Designer,Interpersonal,12.5,2.0,Good
+S2113,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2114,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2115,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2116,Fashion Designer,Interpersonal,11.62,2.0,Good
+S2117,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2118,Fashion Designer,Interpersonal,12.5,2.0,Good
+S2119,Fashion Designer,Interpersonal,11.88,2.0,Good
+S2120,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2121,Fashion Designer,Interpersonal,12.75,2.0,Good
+S2122,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2123,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2124,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2125,Fashion Designer,Interpersonal,12.38,2.0,Good
+S2126,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2127,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2128,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2129,Fashion Designer,Interpersonal,12.75,2.0,Good
+S2130,Fashion Designer,Interpersonal,12.75,2.0,Good
+S2131,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2132,Fashion Designer,Interpersonal,11.88,2.0,Good
+S2133,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2134,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2135,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2136,Fashion Designer,Interpersonal,12.5,2.0,Good
+S2137,Fashion Designer,Interpersonal,12.62,2.0,Good
+S2138,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2139,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2140,Fashion Designer,Interpersonal,11.62,2.0,Good
+S2141,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2142,Fashion Designer,Interpersonal,12.38,2.0,Good
+S2143,Fashion Designer,Interpersonal,12.12,2.0,Good
+S2144,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2145,Fashion Designer,Interpersonal,12.38,2.0,Good
+S2146,Fashion Designer,Interpersonal,12.0,2.0,Good
+S2147,Fashion Designer,Interpersonal,12.25,2.0,Good
+S2148,Fashion Designer,Interpersonal,11.88,2.0,Good
+S2149,Fashion Designer,Interpersonal,11.62,2.0,Good
+S2150,Fashion Designer,Interpersonal,11.62,2.0,Good
+S2151,Interior Decorator,Logical_Mathematical,12.75,2.12,Good
+S2152,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2153,Interior Decorator,Logical_Mathematical,13.0,2.12,Good
+S2154,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2155,Interior Decorator,Interpersonal,13.0,2.12,Good
+S2156,Interior Decorator,Interpersonal,12.38,2.12,Good
+S2157,Interior Decorator,Logical_Mathematical,13.0,2.12,Good
+S2158,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2159,Interior Decorator,Logical_Mathematical,12.62,2.12,Good
+S2160,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2161,Interior Decorator,Interpersonal,12.62,2.12,Good
+S2162,Interior Decorator,Interpersonal,12.38,2.12,Good
+S2163,Interior Decorator,Logical_Mathematical,13.12,2.12,Good
+S2164,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2165,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2166,Interior Decorator,Interpersonal,12.25,2.12,Good
+S2167,Interior Decorator,Interpersonal,12.12,2.12,Good
+S2168,Interior Decorator,Interpersonal,12.25,2.12,Good
+S2169,Interior Decorator,Logical_Mathematical,12.88,2.12,Good
+S2170,Interior Decorator,Logical_Mathematical,13.12,2.12,Good
+S2171,Interior Decorator,Logical_Mathematical,12.62,2.12,Good
+S2172,Interior Decorator,Interpersonal,12.38,2.12,Good
+S2173,Interior Decorator,Interpersonal,12.5,2.12,Good
+S2174,Interior Decorator,Interpersonal,12.12,2.12,Good
+S2175,Interior Decorator,Logical_Mathematical,13.0,2.12,Good
+S2176,Interior Decorator,Logical_Mathematical,12.62,2.12,Good
+S2177,Interior Decorator,Logical_Mathematical,12.38,2.12,Good
+S2178,Interior Decorator,Logical_Mathematical,12.5,2.12,Good
+S2179,Interior Decorator,Logical_Mathematical,12.25,2.12,Good
+S2180,Interior Decorator,Logical_Mathematical,12.25,2.12,Good
+S2181,Interior Decorator,Logical_Mathematical,12.38,2.12,Good
+S2182,Interior Decorator,Logical_Mathematical,12.25,2.12,Good
+S2183,Interior Decorator,Logical_Mathematical,12.62,2.12,Good
+S2184,Interior Decorator,Spatial_Visualization,12.5,2.12,Good
+S2185,Interior Decorator,Spatial_Visualization,12.75,2.12,Good
+S2186,Interior Decorator,Interpersonal,12.88,2.12,Good
+S2187,Interior Decorator,Logical_Mathematical,13.62,2.12,Good
+S2188,Interior Decorator,Logical_Mathematical,13.5,2.12,Good
+S2189,Interior Decorator,Interpersonal,13.12,2.12,Good
+S2190,Interior Decorator,Interpersonal,13.12,2.12,Good
+S2191,Interior Decorator,Interpersonal,12.62,2.12,Good
+S2192,Interior Decorator,Interpersonal,12.75,2.12,Good
+S2193,Interior Decorator,Logical_Mathematical,13.62,2.12,Good
+S2194,Interior Decorator,Logical_Mathematical,13.5,2.12,Good
+S2195,Interior Decorator,Interpersonal,13.62,2.12,Good
+S2196,Interior Decorator,Spatial_Visualization,13.12,2.12,Good
+S2197,Interior Decorator,Spatial_Visualization,13.0,2.12,Good
+S2198,Interior Decorator,Spatial_Visualization,12.88,2.12,Good
+S2199,Interior Decorator,Spatial_Visualization,13.12,2.12,Good
+S2200,Interior Decorator,Spatial_Visualization,13.5,2.12,Good
+S2201,Pilot,Naturalist,12.38,2.0,Good
+S2202,Pilot,Logical_Mathematical,12.38,2.0,Good
+S2203,Pilot,Logical_Mathematical,12.5,2.0,Good
+S2204,Pilot,Logical_Mathematical,12.38,2.0,Good
+S2205,Pilot,Naturalist,13.12,2.0,Good
+S2206,Pilot,Logical_Mathematical,12.25,2.0,Good
+S2207,Pilot,Logical_Mathematical,11.88,2.0,Good
+S2208,Pilot,Logical_Mathematical,11.75,2.0,Good
+S2209,Pilot,Naturalist,12.38,2.0,Good
+S2210,Pilot,Logical_Mathematical,12.62,2.0,Good
+S2211,Pilot,Logical_Mathematical,12.25,2.0,Good
+S2212,Pilot,Logical_Mathematical,12.25,2.0,Good
+S2213,Pilot,Naturalist,12.88,2.0,Good
+S2214,Pilot,Logical_Mathematical,12.75,2.0,Good
+S2215,Pilot,Logical_Mathematical,12.62,2.0,Good
+S2216,Pilot,Logical_Mathematical,12.25,2.0,Good
+S2217,Pilot,Naturalist,13.0,2.0,Good
+S2218,Pilot,Logical_Mathematical,12.88,2.0,Good
+S2219,Pilot,Logical_Mathematical,12.62,2.0,Good
+S2220,Pilot,Logical_Mathematical,12.5,2.0,Good
+S2221,Pilot,Naturalist,12.5,2.0,Good
+S2222,Pilot,Naturalist,12.75,2.0,Good
+S2223,Pilot,Bodily,12.38,2.0,Good
+S2224,Pilot,Bodily,11.88,2.0,Good
+S2225,Pilot,Naturalist,12.5,2.0,Good
+S2226,Pilot,Naturalist,12.25,2.0,Good
+S2227,Pilot,Bodily,12.75,2.0,Good
+S2228,Pilot,Bodily,12.62,2.0,Good
+S2229,Pilot,Naturalist,13.0,2.0,Good
+S2230,Pilot,Naturalist,13.0,2.0,Good
+S2231,Pilot,Naturalist,12.38,2.0,Good
+S2232,Pilot,Logical_Mathematical,12.25,2.0,Good
+S2233,Pilot,Naturalist,12.75,2.0,Good
+S2234,Pilot,Naturalist,12.38,2.0,Good
+S2235,Pilot,Naturalist,12.38,2.0,Good
+S2236,Pilot,Naturalist,11.75,2.0,Good
+S2237,Pilot,Naturalist,12.5,2.0,Good
+S2238,Pilot,Naturalist,12.38,2.0,Good
+S2239,Pilot,Naturalist,12.0,2.0,Good
+S2240,Pilot,Naturalist,12.12,2.0,Good
+S2241,Pilot,Naturalist,11.75,2.0,Good
+S2242,Pilot,Naturalist,11.88,2.0,Good
+S2243,Pilot,Bodily,11.75,2.0,Good
+S2244,Pilot,Bodily,11.62,2.0,Good
+S2245,Pilot,Naturalist,11.88,2.0,Good
+S2246,Pilot,Naturalist,11.25,2.0,Good
+S2247,Pilot,Bodily,11.38,2.0,Good
+S2248,Pilot,Bodily,11.38,2.0,Good
+S2249,Pilot,Bodily,11.38,2.0,Good
+S2250,Pilot,Naturalist,11.5,2.0,Good
+S2251,Psychologist,Logical_Mathematical,13.25,2.12,Good
+S2252,Psychologist,Logical_Mathematical,12.88,2.12,Good
+S2253,Psychologist,Logical_Mathematical,13.62,2.12,Good
+S2254,Psychologist,Logical_Mathematical,13.25,2.12,Good
+S2255,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2256,Psychologist,Logical_Mathematical,12.25,2.12,Good
+S2257,Psychologist,Interpersonal,12.88,2.12,Good
+S2258,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2259,Psychologist,Logical_Mathematical,13.0,2.12,Good
+S2260,Psychologist,Interpersonal,13.5,2.12,Good
+S2261,Psychologist,Interpersonal,12.75,2.12,Good
+S2262,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2263,Psychologist,Logical_Mathematical,13.0,2.12,Good
+S2264,Psychologist,Logical_Mathematical,13.25,2.12,Good
+S2265,Psychologist,Logical_Mathematical,13.25,2.12,Good
+S2266,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2267,Psychologist,Interpersonal,13.0,2.12,Good
+S2268,Psychologist,Logical_Mathematical,12.75,2.12,Good
+S2269,Psychologist,Intrapersonal,13.25,2.12,Good
+S2270,Psychologist,Logical_Mathematical,12.25,2.12,Good
+S2271,Psychologist,Interpersonal,13.25,2.12,Good
+S2272,Psychologist,Logical_Mathematical,13.25,2.12,Good
+S2273,Psychologist,Logical_Mathematical,12.88,2.12,Good
+S2274,Psychologist,Interpersonal,13.0,2.12,Good
+S2275,Psychologist,Logical_Mathematical,13.62,2.12,Good
+S2276,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2277,Psychologist,Logical_Mathematical,13.12,2.12,Good
+S2278,Psychologist,Interpersonal,13.5,2.12,Good
+S2279,Psychologist,Logical_Mathematical,12.38,2.12,Good
+S2280,Psychologist,Intrapersonal,13.12,2.12,Good
+S2281,Psychologist,Interpersonal,13.62,2.12,Good
+S2282,Psychologist,Logical_Mathematical,13.5,2.12,Good
+S2283,Psychologist,Logical_Mathematical,13.5,2.12,Good
+S2284,Psychologist,Intrapersonal,12.88,2.12,Good
+S2285,Psychologist,Logical_Mathematical,14.0,2.12,Good
+S2286,Psychologist,Logical_Mathematical,13.38,2.12,Good
+S2287,Psychologist,Intrapersonal,13.12,2.12,Good
+S2288,Psychologist,Interpersonal,13.75,2.12,Good
+S2289,Psychologist,Intrapersonal,13.38,2.12,Good
+S2290,Psychologist,Intrapersonal,13.25,2.12,Good
+S2291,Psychologist,Logical_Mathematical,13.0,2.12,Good
+S2292,Psychologist,Interpersonal,13.62,2.12,Good
+S2293,Psychologist,Intrapersonal,14.25,2.12,Good
+S2294,Psychologist,Intrapersonal,13.62,2.12,Good
+S2295,Psychologist,Logical_Mathematical,14.38,2.12,Good
+S2296,Psychologist,Logical_Mathematical,14.12,2.12,Good
+S2297,Psychologist,Logical_Mathematical,13.75,2.12,Good
+S2298,Psychologist,Logical_Mathematical,13.75,2.12,Good
+S2299,Psychologist,Interpersonal,14.0,2.12,Good
+S2300,Psychologist,Logical_Mathematical,12.88,2.12,Good
+S2301,Philosopher,Logical_Mathematical,12.38,2.0,Good
+S2302,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2303,Philosopher,Logical_Mathematical,12.12,2.0,Good
+S2304,Philosopher,Logical_Mathematical,11.75,2.0,Good
+S2305,Philosopher,Interpersonal,11.88,2.0,Good
+S2306,Philosopher,Interpersonal,11.5,2.0,Good
+S2307,Philosopher,Logical_Mathematical,12.88,2.0,Good
+S2308,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2309,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2310,Philosopher,Interpersonal,12.25,2.0,Good
+S2311,Philosopher,Interpersonal,12.12,2.0,Good
+S2312,Philosopher,Interpersonal,11.62,2.0,Good
+S2313,Philosopher,Logical_Mathematical,12.62,2.0,Good
+S2314,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2315,Philosopher,Logical_Mathematical,12.12,2.0,Good
+S2316,Philosopher,Interpersonal,12.38,2.0,Good
+S2317,Philosopher,Interpersonal,12.38,2.0,Good
+S2318,Philosopher,Interpersonal,11.75,2.0,Good
+S2319,Philosopher,Logical_Mathematical,12.62,2.0,Good
+S2320,Philosopher,Logical_Mathematical,12.5,2.0,Good
+S2321,Philosopher,Interpersonal,12.25,2.0,Good
+S2322,Philosopher,Interpersonal,12.25,2.0,Good
+S2323,Philosopher,Interpersonal,11.88,2.0,Good
+S2324,Philosopher,Interpersonal,11.88,2.0,Good
+S2325,Philosopher,Logical_Mathematical,13.62,2.0,Good
+S2326,Philosopher,Logical_Mathematical,12.88,2.0,Good
+S2327,Philosopher,Logical_Mathematical,13.0,2.0,Good
+S2328,Philosopher,Logical_Mathematical,12.75,2.0,Good
+S2329,Philosopher,Interpersonal,12.5,2.0,Good
+S2330,Philosopher,Interpersonal,11.88,2.0,Good
+S2331,Philosopher,Logical_Mathematical,13.12,2.0,Good
+S2332,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2333,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2334,Philosopher,Logical_Mathematical,12.0,2.0,Good
+S2335,Philosopher,Interpersonal,12.25,2.0,Good
+S2336,Philosopher,Interpersonal,11.88,2.0,Good
+S2337,Philosopher,Logical_Mathematical,13.0,2.0,Good
+S2338,Philosopher,Interpersonal,12.62,2.0,Good
+S2339,Philosopher,Interpersonal,12.38,2.0,Good
+S2340,Philosopher,Interpersonal,12.25,2.0,Good
+S2341,Philosopher,Interpersonal,12.0,2.0,Good
+S2342,Philosopher,Logical_Mathematical,12.25,2.0,Good
+S2343,Philosopher,Logical_Mathematical,13.75,2.0,Good
+S2344,Philosopher,Logical_Mathematical,13.25,2.0,Good
+S2345,Philosopher,Logical_Mathematical,13.0,2.0,Good
+S2346,Philosopher,Interpersonal,13.38,2.0,Good
+S2347,Philosopher,Interpersonal,12.75,2.0,Good
+S2348,Philosopher,Interpersonal,12.38,2.0,Good
+S2349,Philosopher,Logical_Mathematical,12.88,2.0,Good
+S2350,Philosopher,Logical_Mathematical,12.0,2.0,Good
+S2351,Writer,Logical_Mathematical,13.25,2.12,Good
+S2352,Writer,Linguistic,13.12,2.12,Good
+S2353,Writer,Linguistic,12.88,2.12,Good
+S2354,Writer,Linguistic,12.5,2.12,Good
+S2355,Writer,Linguistic,12.75,2.12,Good
+S2356,Writer,Linguistic,12.38,2.12,Good
+S2357,Writer,Logical_Mathematical,13.25,2.12,Good
+S2358,Writer,Logical_Mathematical,12.88,2.12,Good
+S2359,Writer,Linguistic,12.88,2.12,Good
+S2360,Writer,Linguistic,12.75,2.12,Good
+S2361,Writer,Linguistic,12.5,2.12,Good
+S2362,Writer,Linguistic,12.12,2.12,Good
+S2363,Writer,Linguistic,13.5,2.12,Good
+S2364,Writer,Linguistic,13.12,2.12,Good
+S2365,Writer,Linguistic,12.88,2.12,Good
+S2366,Writer,Linguistic,12.5,2.12,Good
+S2367,Writer,Linguistic,12.5,2.12,Good
+S2368,Writer,Linguistic,12.38,2.12,Good
+S2369,Writer,Logical_Mathematical,13.25,2.12,Good
+S2370,Writer,Logical_Mathematical,12.88,2.12,Good
+S2371,Writer,Linguistic,13.12,2.12,Good
+S2372,Writer,Linguistic,13.5,2.12,Good
+S2373,Writer,Linguistic,13.25,2.12,Good
+S2374,Writer,Linguistic,13.0,2.12,Good
+S2375,Writer,Logical_Mathematical,14.25,2.12,Good
+S2376,Writer,Linguistic,14.0,2.12,Good
+S2377,Writer,Linguistic,13.88,2.12,Good
+S2378,Writer,Linguistic,13.5,2.12,Good
+S2379,Writer,Linguistic,13.25,2.12,Good
+S2380,Writer,Linguistic,13.38,2.12,Good
+S2381,Writer,Logical_Mathematical,14.25,2.12,Good
+S2382,Writer,Logical_Mathematical,13.88,2.12,Good
+S2383,Writer,Logical_Mathematical,13.62,2.12,Good
+S2384,Writer,Logical_Mathematical,13.12,2.12,Good
+S2385,Writer,Logical_Mathematical,13.0,2.12,Good
+S2386,Writer,Linguistic,12.75,2.12,Good
+S2387,Writer,Logical_Mathematical,14.25,2.12,Good
+S2388,Writer,Logical_Mathematical,13.5,2.12,Good
+S2389,Writer,Logical_Mathematical,13.25,2.12,Good
+S2390,Writer,Linguistic,13.38,2.12,Good
+S2391,Writer,Linguistic,13.12,2.12,Good
+S2392,Writer,Linguistic,13.12,2.12,Good
+S2393,Writer,Logical_Mathematical,14.0,2.12,Good
+S2394,Writer,Logical_Mathematical,13.62,2.12,Good
+S2395,Writer,Logical_Mathematical,13.5,2.12,Good
+S2396,Writer,Logical_Mathematical,13.25,2.12,Good
+S2397,Writer,Linguistic,13.12,2.12,Good
+S2398,Writer,Linguistic,12.88,2.12,Good
+S2399,Writer,Logical_Mathematical,13.25,2.12,Good
+S2400,Writer,Linguistic,12.75,2.12,Good
+S2401,Criminologist,Logical_Mathematical,13.12,2.12,Good
+S2402,Criminologist,Logical_Mathematical,12.88,2.12,Good
+S2403,Criminologist,Logical_Mathematical,13.5,2.12,Good
+S2404,Criminologist,Logical_Mathematical,13.62,2.12,Good
+S2405,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2406,Criminologist,Interpersonal,12.12,2.12,Good
+S2407,Criminologist,Logical_Mathematical,13.5,2.12,Good
+S2408,Criminologist,Logical_Mathematical,13.38,2.12,Good
+S2409,Criminologist,Logical_Mathematical,13.5,2.12,Good
+S2410,Criminologist,Interpersonal,13.38,2.12,Good
+S2411,Criminologist,Interpersonal,12.75,2.12,Good
+S2412,Criminologist,Interpersonal,12.75,2.12,Good
+S2413,Criminologist,Logical_Mathematical,13.38,2.12,Good
+S2414,Criminologist,Logical_Mathematical,13.0,2.12,Good
+S2415,Criminologist,Logical_Mathematical,13.25,2.12,Good
+S2416,Criminologist,Interpersonal,12.88,2.12,Good
+S2417,Criminologist,Interpersonal,13.0,2.12,Good
+S2418,Criminologist,Interpersonal,12.75,2.12,Good
+S2419,Criminologist,Logical_Mathematical,14.0,2.12,Good
+S2420,Criminologist,Logical_Mathematical,13.75,2.12,Good
+S2421,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2422,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2423,Criminologist,Interpersonal,12.75,2.12,Good
+S2424,Criminologist,Interpersonal,12.75,2.12,Good
+S2425,Criminologist,Logical_Mathematical,14.5,2.12,Good
+S2426,Criminologist,Logical_Mathematical,14.0,2.12,Good
+S2427,Criminologist,Interpersonal,13.12,2.12,Good
+S2428,Criminologist,Interpersonal,13.12,2.12,Good
+S2429,Criminologist,Interpersonal,13.38,2.12,Good
+S2430,Criminologist,Interpersonal,13.0,2.12,Good
+S2431,Criminologist,Logical_Mathematical,14.38,2.12,Good
+S2432,Criminologist,Logical_Mathematical,13.25,2.12,Good
+S2433,Criminologist,Logical_Mathematical,13.75,2.12,Good
+S2434,Criminologist,Logical_Mathematical,12.88,2.12,Good
+S2435,Criminologist,Logical_Mathematical,12.12,2.12,Good
+S2436,Criminologist,Interpersonal,13.12,2.12,Good
+S2437,Criminologist,Logical_Mathematical,14.62,2.12,Good
+S2438,Criminologist,Logical_Mathematical,12.88,2.12,Good
+S2439,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2440,Criminologist,Logical_Mathematical,13.0,2.12,Good
+S2441,Criminologist,Logical_Mathematical,13.12,2.12,Good
+S2442,Criminologist,Logical_Mathematical,12.62,2.12,Good
+S2443,Criminologist,Logical_Mathematical,13.25,2.12,Good
+S2444,Criminologist,Logical_Mathematical,13.38,2.12,Good
+S2445,Criminologist,Logical_Mathematical,13.5,2.12,Good
+S2446,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2447,Criminologist,Logical_Mathematical,12.62,2.12,Good
+S2448,Criminologist,Interpersonal,13.0,2.12,Good
+S2449,Criminologist,Interpersonal,13.5,2.12,Good
+S2450,Criminologist,Logical_Mathematical,12.75,2.12,Good
+S2451,Company secretary,Linguistic,13.88,2.25,Good
+S2452,Company secretary,Linguistic,13.25,2.25,Good
+S2453,Company secretary,Linguistic,13.12,2.25,Good
+S2454,Company secretary,Logical_Mathematical,13.5,2.25,Good
+S2455,Company secretary,Intrapersonal,13.5,2.25,Good
+S2456,Company secretary,Intrapersonal,13.12,2.25,Good
+S2457,Company secretary,Linguistic,14.0,2.25,Good
+S2458,Company secretary,Linguistic,13.62,2.25,Good
+S2459,Company secretary,Linguistic,13.38,2.25,Good
+S2460,Company secretary,Linguistic,12.88,2.25,Good
+S2461,Company secretary,Linguistic,12.62,2.25,Good
+S2462,Company secretary,Logical_Mathematical,13.12,2.25,Good
+S2463,Company secretary,Linguistic,14.38,2.25,Good
+S2464,Company secretary,Linguistic,13.88,2.25,Good
+S2465,Company secretary,Linguistic,13.38,2.25,Good
+S2466,Company secretary,Linguistic,13.12,2.25,Good
+S2467,Company secretary,Logical_Mathematical,13.12,2.25,Good
+S2468,Company secretary,Intrapersonal,12.5,2.25,Good
+S2469,Company secretary,Linguistic,13.38,2.25,Good
+S2470,Company secretary,Logical_Mathematical,13.75,2.25,Good
+S2471,Company secretary,Intrapersonal,14.25,2.25,Good
+S2472,Company secretary,Intrapersonal,13.88,2.25,Good
+S2473,Company secretary,Intrapersonal,13.25,2.25,Good
+S2474,Company secretary,Intrapersonal,13.0,2.25,Good
+S2475,Company secretary,Linguistic,14.25,2.25,Good
+S2476,Company secretary,Linguistic,13.75,2.25,Good
+S2477,Company secretary,Linguistic,13.25,2.25,Good
+S2478,Company secretary,Logical_Mathematical,13.75,2.25,Good
+S2479,Company secretary,Intrapersonal,14.25,2.25,Good
+S2480,Company secretary,Intrapersonal,13.38,2.25,Good
+S2481,Company secretary,Linguistic,14.25,2.25,Good
+S2482,Company secretary,Linguistic,13.88,2.25,Good
+S2483,Company secretary,Linguistic,13.88,2.25,Good
+S2484,Company secretary,Linguistic,13.5,2.25,Good
+S2485,Company secretary,Linguistic,12.88,2.25,Good
+S2486,Company secretary,Logical_Mathematical,13.25,2.25,Good
+S2487,Company secretary,Linguistic,15.0,2.25,Good
+S2488,Company secretary,Linguistic,14.12,2.25,Good
+S2489,Company secretary,Linguistic,13.62,2.25,Good
+S2490,Company secretary,Linguistic,13.38,2.25,Good
+S2491,Company secretary,Logical_Mathematical,13.38,2.25,Good
+S2492,Company secretary,Intrapersonal,13.12,2.25,Good
+S2493,Company secretary,Linguistic,14.0,2.25,Good
+S2494,Company secretary,Logical_Mathematical,14.38,2.25,Good
+S2495,Company secretary,Intrapersonal,14.88,2.25,Good
+S2496,Company secretary,Intrapersonal,14.25,2.25,Good
+S2497,Company secretary,Intrapersonal,13.62,2.25,Good
+S2498,Company secretary,Intrapersonal,13.25,2.25,Good
+S2499,Company secretary,Linguistic,13.75,2.25,Good
+S2500,Company secretary,Intrapersonal,13.25,2.25,Good
+S2501,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2502,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2503,Marketing,Linguistic,12.88,2.0,Good
+S2504,Marketing,Linguistic,12.75,2.0,Good
+S2505,Marketing,Linguistic,12.38,2.0,Good
+S2506,Marketing,Interpersonal,11.88,2.0,Good
+S2507,Marketing,Interpersonal,13.0,2.0,Good
+S2508,Marketing,Linguistic,12.75,2.0,Good
+S2509,Marketing,Linguistic,12.88,2.0,Good
+S2510,Marketing,Linguistic,13.0,2.0,Good
+S2511,Marketing,Logical_Mathematical,12.38,2.0,Good
+S2512,Marketing,Logical_Mathematical,11.88,2.0,Good
+S2513,Marketing,Linguistic,12.0,2.0,Good
+S2514,Marketing,Linguistic,12.0,2.0,Good
+S2515,Marketing,Linguistic,13.0,2.0,Good
+S2516,Marketing,Logical_Mathematical,12.12,2.0,Good
+S2517,Marketing,Logical_Mathematical,12.38,2.0,Good
+S2518,Marketing,Logical_Mathematical,12.75,2.0,Good
+S2519,Marketing,Linguistic,12.88,2.0,Good
+S2520,Marketing,Linguistic,12.38,2.0,Good
+S2521,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2522,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2523,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2524,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2525,Marketing,Linguistic,12.12,2.0,Good
+S2526,Marketing,Interpersonal,11.88,2.0,Good
+S2527,Marketing,Linguistic,12.88,2.0,Good
+S2528,Marketing,Linguistic,13.12,2.0,Good
+S2529,Marketing,Linguistic,12.88,2.0,Good
+S2530,Marketing,Linguistic,13.12,2.0,Good
+S2531,Marketing,Linguistic,13.75,2.0,Good
+S2532,Marketing,Linguistic,13.0,2.0,Good
+S2533,Marketing,Linguistic,12.75,2.0,Good
+S2534,Marketing,Linguistic,12.25,2.0,Good
+S2535,Marketing,Linguistic,11.75,2.0,Good
+S2536,Marketing,Linguistic,11.0,2.0,Good
+S2537,Marketing,Linguistic,11.75,2.0,Good
+S2538,Marketing,Linguistic,11.75,2.0,Good
+S2539,Marketing,Linguistic,12.5,2.0,Good
+S2540,Marketing,Logical_Mathematical,12.5,2.0,Good
+S2541,Marketing,Logical_Mathematical,12.0,2.0,Good
+S2542,Marketing,Logical_Mathematical,12.0,2.0,Good
+S2543,Marketing,Linguistic,13.75,2.0,Good
+S2544,Marketing,Linguistic,13.25,2.0,Good
+S2545,Marketing,Interpersonal,13.12,2.0,Good
+S2546,Marketing,Interpersonal,12.62,2.0,Good
+S2547,Marketing,Interpersonal,12.12,2.0,Good
+S2548,Marketing,Interpersonal,11.62,2.0,Good
+S2549,Marketing,Logical_Mathematical,12.12,2.0,Good
+S2550,Marketing,Interpersonal,12.62,2.0,Good
+S2551,Logistics manager,Logical_Mathematical,12.12,1.88,Average
+S2552,Logistics manager,Logical_Mathematical,12.38,1.88,Average
+S2553,Logistics manager,Logical_Mathematical,12.0,1.88,Average
+S2554,Logistics manager,Logical_Mathematical,11.38,1.88,Average
+S2555,Logistics manager,Logical_Mathematical,11.38,1.88,Average
+S2556,Logistics manager,Logical_Mathematical,12.62,1.88,Average
+S2557,Logistics manager,Interpersonal,11.88,1.88,Average
+S2558,Logistics manager,Intrapersonal,12.12,1.88,Average
+S2559,Logistics manager,Logical_Mathematical,12.25,1.88,Average
+S2560,Logistics manager,Logical_Mathematical,11.62,1.88,Average
+S2561,Logistics manager,Logical_Mathematical,11.38,1.88,Average
+S2562,Logistics manager,Logical_Mathematical,11.5,1.88,Average
+S2563,Logistics manager,Interpersonal,11.62,1.88,Average
+S2564,Logistics manager,Interpersonal,11.38,1.88,Average
+S2565,Logistics manager,Logical_Mathematical,12.25,1.88,Average
+S2566,Logistics manager,Intrapersonal,11.38,1.88,Average
+S2567,Logistics manager,Intrapersonal,11.25,1.88,Average
+S2568,Logistics manager,Logical_Mathematical,12.75,1.88,Average
+S2569,Logistics manager,Logical_Mathematical,12.12,1.88,Average
+S2570,Logistics manager,Logical_Mathematical,12.88,1.88,Average
+S2571,Logistics manager,Interpersonal,12.38,1.88,Average
+S2572,Logistics manager,Interpersonal,11.75,1.88,Average
+S2573,Logistics manager,Interpersonal,11.62,1.88,Average
+S2574,Logistics manager,Logical_Mathematical,12.0,1.88,Average
+S2575,Logistics manager,Interpersonal,11.0,1.88,Average
+S2576,Logistics manager,Intrapersonal,11.62,1.88,Average
+S2577,Logistics manager,Logical_Mathematical,12.0,1.88,Average
+S2578,Logistics manager,Logical_Mathematical,12.25,1.88,Average
+S2579,Logistics manager,Interpersonal,12.25,1.88,Average
+S2580,Logistics manager,Interpersonal,12.62,1.88,Average
+S2581,Logistics manager,Interpersonal,12.0,1.88,Average
+S2582,Logistics manager,Intrapersonal,12.5,1.88,Average
+S2583,Logistics manager,Logical_Mathematical,12.38,1.88,Average
+S2584,Logistics manager,Intrapersonal,11.25,1.88,Average
+S2585,Logistics manager,Intrapersonal,10.88,1.88,Average
+S2586,Logistics manager,Logical_Mathematical,12.12,1.88,Average
+S2587,Logistics manager,Logical_Mathematical,11.25,1.88,Average
+S2588,Logistics manager,Logical_Mathematical,11.5,1.88,Average
+S2589,Logistics manager,Intrapersonal,11.38,1.88,Average
+S2590,Logistics manager,Interpersonal,11.5,1.88,Average
+S2591,Logistics manager,Interpersonal,11.5,1.88,Average
+S2592,Logistics manager,Logical_Mathematical,12.12,1.88,Average
+S2593,Logistics manager,Logical_Mathematical,11.25,1.88,Average
+S2594,Logistics manager,Intrapersonal,11.62,1.88,Average
+S2595,Logistics manager,Logical_Mathematical,12.25,1.88,Average
+S2596,Logistics manager,Interpersonal,11.25,1.88,Average
+S2597,Logistics manager,Logical_Mathematical,11.38,1.88,Average
+S2598,Logistics manager,Logical_Mathematical,11.38,1.88,Average
+S2599,Logistics manager,Intrapersonal,11.75,1.88,Average
+S2600,Logistics manager,Logical_Mathematical,12.25,1.88,Average
+S2601,Research analyst,Logical_Mathematical,11.75,2.0,Good
+S2602,Research analyst,Logical_Mathematical,12.12,2.0,Good
+S2603,Research analyst,Logical_Mathematical,12.38,2.0,Good
+S2604,Research analyst,Logical_Mathematical,12.75,2.0,Good
+S2605,Research analyst,Logical_Mathematical,12.25,2.0,Good
+S2606,Research analyst,Logical_Mathematical,12.62,2.0,Good
+S2607,Research analyst,Logical_Mathematical,12.38,2.0,Good
+S2608,Research analyst,Logical_Mathematical,12.62,2.0,Good
+S2609,Research analyst,Logical_Mathematical,11.88,2.0,Good
+S2610,Research analyst,Logical_Mathematical,12.25,2.0,Good
+S2611,Research analyst,Logical_Mathematical,12.5,2.0,Good
+S2612,Research analyst,Logical_Mathematical,12.88,2.0,Good
+S2613,Research analyst,Logical_Mathematical,11.75,2.0,Good
+S2614,Research analyst,Logical_Mathematical,12.0,2.0,Good
+S2615,Research analyst,Logical_Mathematical,12.62,2.0,Good
+S2616,Research analyst,Logical_Mathematical,13.0,2.0,Good
+S2617,Research analyst,Logical_Mathematical,12.12,2.0,Good
+S2618,Research analyst,Logical_Mathematical,12.62,2.0,Good
+S2619,Research analyst,Logical_Mathematical,12.0,2.0,Good
+S2620,Research analyst,Logical_Mathematical,12.38,2.0,Good
+S2621,Research analyst,Logical_Mathematical,12.12,2.0,Good
+S2622,Research analyst,Linguistic,12.62,2.0,Good
+S2623,Research analyst,Linguistic,12.62,2.0,Good
+S2624,Research analyst,Linguistic,13.0,2.0,Good
+S2625,Research analyst,Linguistic,11.75,2.0,Good
+S2626,Research analyst,Linguistic,12.12,2.0,Good
+S2627,Research analyst,Linguistic,12.12,2.0,Good
+S2628,Research analyst,Linguistic,12.5,2.0,Good
+S2629,Research analyst,Linguistic,12.38,2.0,Good
+S2630,Research analyst,Linguistic,12.75,2.0,Good
+S2631,Research analyst,Linguistic,12.25,2.0,Good
+S2632,Research analyst,Linguistic,12.5,2.0,Good
+S2633,Research analyst,Linguistic,12.0,2.0,Good
+S2634,Research analyst,Linguistic,12.38,2.0,Good
+S2635,Research analyst,Linguistic,12.25,2.0,Good
+S2636,Research analyst,Linguistic,12.75,2.0,Good
+S2637,Research analyst,Linguistic,11.62,2.0,Good
+S2638,Research analyst,Linguistic,12.0,2.0,Good
+S2639,Research analyst,Linguistic,12.38,2.0,Good
+S2640,Research analyst,Linguistic,12.75,2.0,Good
+S2641,Research analyst,Linguistic,12.5,2.0,Good
+S2642,Research analyst,Linguistic,12.88,2.0,Good
+S2643,Research analyst,Linguistic,12.38,2.0,Good
+S2644,Research analyst,Linguistic,12.88,2.0,Good
+S2645,Research analyst,Linguistic,12.62,2.0,Good
+S2646,Research analyst,Linguistic,12.88,2.0,Good
+S2647,Research analyst,Linguistic,13.12,2.0,Good
+S2648,Research analyst,Linguistic,13.75,2.0,Good
+S2649,Research analyst,Linguistic,13.25,2.0,Good
+S2650,Research analyst,Linguistic,13.25,2.0,Good
+S2651,Business manager,Linguistic,14.38,2.25,Good
+S2652,Business manager,Logical_Mathematical,14.38,2.25,Good
+S2653,Business manager,Logical_Mathematical,14.12,2.25,Good
+S2654,Business manager,Logical_Mathematical,14.0,2.25,Good
+S2655,Business manager,Logical_Mathematical,13.88,2.25,Good
+S2656,Business manager,Logical_Mathematical,13.38,2.25,Good
+S2657,Business manager,Linguistic,14.88,2.25,Good
+S2658,Business manager,Logical_Mathematical,14.25,2.25,Good
+S2659,Business manager,Logical_Mathematical,14.0,2.25,Good
+S2660,Business manager,Logical_Mathematical,13.75,2.25,Good
+S2661,Business manager,Logical_Mathematical,13.5,2.25,Good
+S2662,Business manager,Logical_Mathematical,13.5,2.25,Good
+S2663,Business manager,Linguistic,14.62,2.25,Good
+S2664,Business manager,Linguistic,14.62,2.25,Good
+S2665,Business manager,Logical_Mathematical,13.88,2.25,Good
+S2666,Business manager,Logical_Mathematical,13.62,2.25,Good
+S2667,Business manager,Logical_Mathematical,13.38,2.25,Good
+S2668,Business manager,Interpersonal,13.12,2.25,Good
+S2669,Business manager,Linguistic,14.5,2.25,Good
+S2670,Business manager,Linguistic,14.25,2.25,Good
+S2671,Business manager,Interpersonal,14.38,2.25,Good
+S2672,Business manager,Interpersonal,13.62,2.25,Good
+S2673,Business manager,Interpersonal,13.38,2.25,Good
+S2674,Business manager,Interpersonal,12.88,2.25,Good
+S2675,Business manager,Linguistic,14.12,2.25,Good
+S2676,Business manager,Linguistic,14.12,2.25,Good
+S2677,Business manager,Linguistic,13.5,2.25,Good
+S2678,Business manager,Linguistic,13.5,2.25,Good
+S2679,Business manager,Linguistic,12.88,2.25,Good
+S2680,Business manager,Logical_Mathematical,12.5,2.25,Good
+S2681,Business manager,Linguistic,13.5,2.25,Good
+S2682,Business manager,Linguistic,13.12,2.25,Good
+S2683,Business manager,Linguistic,13.0,2.25,Good
+S2684,Business manager,Linguistic,12.75,2.25,Good
+S2685,Business manager,Intrapersonal,13.5,2.25,Good
+S2686,Business manager,Intrapersonal,12.88,2.25,Good
+S2687,Business manager,Linguistic,14.25,2.25,Good
+S2688,Business manager,Intrapersonal,13.75,2.25,Good
+S2689,Business manager,Intrapersonal,13.38,2.25,Good
+S2690,Business manager,Intrapersonal,13.12,2.25,Good
+S2691,Business manager,Intrapersonal,12.75,2.25,Good
+S2692,Business manager,Intrapersonal,13.0,2.25,Good
+S2693,Business manager,Linguistic,14.0,2.25,Good
+S2694,Business manager,Linguistic,14.38,2.25,Good
+S2695,Business manager,Linguistic,14.0,2.25,Good
+S2696,Business manager,Interpersonal,13.62,2.25,Good
+S2697,Business manager,Interpersonal,13.38,2.25,Good
+S2698,Business manager,Interpersonal,12.88,2.25,Good
+S2699,Business manager,Linguistic,14.38,2.25,Good
+S2700,Business manager,Linguistic,14.38,2.25,Good
+S2701,Internal auditor,Logical_Mathematical,12.88,2.0,Good
+S2702,Internal auditor,Logical_Mathematical,12.25,2.0,Good
+S2703,Internal auditor,Interpersonal,12.5,2.0,Good
+S2704,Internal auditor,Intrapersonal,12.38,2.0,Good
+S2705,Internal auditor,Interpersonal,12.5,2.0,Good
+S2706,Internal auditor,Logical_Mathematical,12.5,2.0,Good
+S2707,Internal auditor,Interpersonal,12.5,2.0,Good
+S2708,Internal auditor,Intrapersonal,12.25,2.0,Good
+S2709,Internal auditor,Interpersonal,12.38,2.0,Good
+S2710,Internal auditor,Logical_Mathematical,12.62,2.0,Good
+S2711,Internal auditor,Interpersonal,12.62,2.0,Good
+S2712,Internal auditor,Intrapersonal,11.88,2.0,Good
+S2713,Internal auditor,Interpersonal,13.25,2.0,Good
+S2714,Internal auditor,Logical_Mathematical,12.75,2.0,Good
+S2715,Internal auditor,Interpersonal,13.0,2.0,Good
+S2716,Internal auditor,Intrapersonal,12.25,2.0,Good
+S2717,Internal auditor,Interpersonal,12.5,2.0,Good
+S2718,Internal auditor,Logical_Mathematical,12.88,2.0,Good
+S2719,Internal auditor,Interpersonal,13.62,2.0,Good
+S2720,Internal auditor,Intrapersonal,13.5,2.0,Good
+S2721,Internal auditor,Interpersonal,12.62,2.0,Good
+S2722,Internal auditor,Logical_Mathematical,12.62,2.0,Good
+S2723,Internal auditor,Interpersonal,12.75,2.0,Good
+S2724,Internal auditor,Intrapersonal,12.5,2.0,Good
+S2725,Internal auditor,Interpersonal,13.62,2.0,Good
+S2726,Internal auditor,Logical_Mathematical,13.38,2.0,Good
+S2727,Internal auditor,Interpersonal,13.5,2.0,Good
+S2728,Internal auditor,Intrapersonal,13.0,2.0,Good
+S2729,Internal auditor,Interpersonal,13.0,2.0,Good
+S2730,Internal auditor,Logical_Mathematical,13.25,2.0,Good
+S2731,Internal auditor,Interpersonal,13.5,2.0,Good
+S2732,Internal auditor,Intrapersonal,13.25,2.0,Good
+S2733,Internal auditor,Interpersonal,13.38,2.0,Good
+S2734,Internal auditor,Logical_Mathematical,13.88,2.0,Good
+S2735,Internal auditor,Interpersonal,13.0,2.0,Good
+S2736,Internal auditor,Intrapersonal,12.25,2.0,Good
+S2737,Internal auditor,Interpersonal,13.0,2.0,Good
+S2738,Internal auditor,Logical_Mathematical,13.38,2.0,Good
+S2739,Internal auditor,Interpersonal,13.38,2.0,Good
+S2740,Internal auditor,Intrapersonal,13.0,2.0,Good
+S2741,Internal auditor,Interpersonal,13.12,2.0,Good
+S2742,Internal auditor,Logical_Mathematical,12.5,2.0,Good
+S2743,Internal auditor,Interpersonal,13.12,2.0,Good
+S2744,Internal auditor,Intrapersonal,12.88,2.0,Good
+S2745,Internal auditor,Interpersonal,13.25,2.0,Good
+S2746,Internal auditor,Intrapersonal,13.0,2.0,Good
+S2747,Internal auditor,Logical_Mathematical,12.88,2.0,Good
+S2748,Internal auditor,Logical_Mathematical,12.38,2.0,Good
+S2749,Internal auditor,Intrapersonal,12.75,2.0,Good
+S2750,Internal auditor,Intrapersonal,13.62,2.0,Good
+S2751,Chief financial officer,Interpersonal,12.5,2.0,Good
+S2752,Chief financial officer,Intrapersonal,12.5,2.0,Good
+S2753,Chief financial officer,Interpersonal,12.5,2.0,Good
+S2754,Chief financial officer,Interpersonal,12.0,2.0,Good
+S2755,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2756,Chief financial officer,Interpersonal,12.12,2.0,Good
+S2757,Chief financial officer,Interpersonal,12.5,2.0,Good
+S2758,Chief financial officer,Interpersonal,12.12,2.0,Good
+S2759,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2760,Chief financial officer,Interpersonal,12.38,2.0,Good
+S2761,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2762,Chief financial officer,Interpersonal,12.12,2.0,Good
+S2763,Chief financial officer,Interpersonal,12.38,2.0,Good
+S2764,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2765,Chief financial officer,Interpersonal,12.38,2.0,Good
+S2766,Chief financial officer,Interpersonal,12.5,2.0,Good
+S2767,Chief financial officer,Logical_Mathematical,12.62,2.0,Good
+S2768,Chief financial officer,Logical_Mathematical,12.38,2.0,Good
+S2769,Chief financial officer,Interpersonal,12.38,2.0,Good
+S2770,Chief financial officer,Interpersonal,12.0,2.0,Good
+S2771,Chief financial officer,Interpersonal,12.0,2.0,Good
+S2772,Chief financial officer,Interpersonal,12.12,2.0,Good
+S2773,Chief financial officer,Interpersonal,12.0,2.0,Good
+S2774,Chief financial officer,Interpersonal,11.88,2.0,Good
+S2775,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2776,Chief financial officer,Interpersonal,11.88,2.0,Good
+S2777,Chief financial officer,Interpersonal,12.12,2.0,Good
+S2778,Chief financial officer,Interpersonal,12.25,2.0,Good
+S2779,Chief financial officer,Logical_Mathematical,12.62,2.0,Good
+S2780,Chief financial officer,Logical_Mathematical,12.75,2.0,Good
+S2781,Chief financial officer,Logical_Mathematical,13.12,2.0,Good
+S2782,Chief financial officer,Logical_Mathematical,12.75,2.0,Good
+S2783,Chief financial officer,Logical_Mathematical,12.88,2.0,Good
+S2784,Chief financial officer,Logical_Mathematical,13.0,2.0,Good
+S2785,Chief financial officer,Logical_Mathematical,13.0,2.0,Good
+S2786,Chief financial officer,Logical_Mathematical,12.88,2.0,Good
+S2787,Chief financial officer,Logical_Mathematical,13.0,2.0,Good
+S2788,Chief financial officer,Logical_Mathematical,13.0,2.0,Good
+S2789,Chief financial officer,Logical_Mathematical,13.25,2.0,Good
+S2790,Chief financial officer,Logical_Mathematical,13.38,2.0,Good
+S2791,Chief financial officer,Logical_Mathematical,12.38,2.0,Good
+S2792,Chief financial officer,Logical_Mathematical,12.75,2.0,Good
+S2793,Chief financial officer,Logical_Mathematical,13.12,2.0,Good
+S2794,Chief financial officer,Logical_Mathematical,12.75,2.0,Good
+S2795,Chief financial officer,Logical_Mathematical,12.38,2.0,Good
+S2796,Chief financial officer,Logical_Mathematical,13.0,2.0,Good
+S2797,Chief financial officer,Intrapersonal,13.12,2.0,Good
+S2798,Chief financial officer,Intrapersonal,12.62,2.0,Good
+S2799,Chief financial officer,Intrapersonal,12.25,2.0,Good
+S2800,Chief financial officer,Intrapersonal,12.62,2.0,Good
+S2801,Business Analyst,Logical_Mathematical,12.88,2.0,Good
+S2802,Business Analyst,Logical_Mathematical,12.88,2.0,Good
+S2803,Business Analyst,Logical_Mathematical,12.88,2.0,Good
+S2804,Business Analyst,Logical_Mathematical,12.5,2.0,Good
+S2805,Business Analyst,Logical_Mathematical,12.62,2.0,Good
+S2806,Business Analyst,Logical_Mathematical,12.88,2.0,Good
+S2807,Business Analyst,Logical_Mathematical,12.88,2.0,Good
+S2808,Business Analyst,Logical_Mathematical,12.38,2.0,Good
+S2809,Business Analyst,Logical_Mathematical,12.62,2.0,Good
+S2810,Business Analyst,Logical_Mathematical,12.5,2.0,Good
+S2811,Business Analyst,Logical_Mathematical,12.38,2.0,Good
+S2812,Business Analyst,Logical_Mathematical,12.0,2.0,Good
+S2813,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2814,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2815,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2816,Business Analyst,Interpersonal,12.38,2.0,Good
+S2817,Business Analyst,Logical_Mathematical,12.62,2.0,Good
+S2818,Business Analyst,Logical_Mathematical,12.12,2.0,Good
+S2819,Business Analyst,Logical_Mathematical,11.88,2.0,Good
+S2820,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2821,Business Analyst,Interpersonal,12.75,2.0,Good
+S2822,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2823,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2824,Business Analyst,Logical_Mathematical,12.12,2.0,Good
+S2825,Business Analyst,Interpersonal,12.25,2.0,Good
+S2826,Business Analyst,Interpersonal,12.12,2.0,Good
+S2827,Business Analyst,Interpersonal,12.38,2.0,Good
+S2828,Business Analyst,Logical_Mathematical,12.25,2.0,Good
+S2829,Business Analyst,Logical_Mathematical,12.12,2.0,Good
+S2830,Business Analyst,Interpersonal,12.38,2.0,Good
+S2831,Business Analyst,Interpersonal,12.62,2.0,Good
+S2832,Business Analyst,Interpersonal,12.12,2.0,Good
+S2833,Business Analyst,Logical_Mathematical,12.12,2.0,Good
+S2834,Business Analyst,Logical_Mathematical,12.12,2.0,Good
+S2835,Business Analyst,Interpersonal,12.5,2.0,Good
+S2836,Business Analyst,Interpersonal,12.12,2.0,Good
+S2837,Business Analyst,Interpersonal,12.12,2.0,Good
+S2838,Business Analyst,Interpersonal,12.38,2.0,Good
+S2839,Business Analyst,Logical_Mathematical,12.0,2.0,Good
+S2840,Business Analyst,Interpersonal,12.0,2.0,Good
+S2841,Business Analyst,Interpersonal,11.75,2.0,Good
+S2842,Business Analyst,Interpersonal,12.12,2.0,Good
+S2843,Business Analyst,Interpersonal,11.75,2.0,Good
+S2844,Business Analyst,Logical_Mathematical,11.62,2.0,Good
+S2845,Business Analyst,Interpersonal,11.75,2.0,Good
+S2846,Business Analyst,Interpersonal,12.0,2.0,Good
+S2847,Business Analyst,Interpersonal,11.5,2.0,Good
+S2848,Business Analyst,Interpersonal,11.5,2.0,Good
+S2849,Business Analyst,Interpersonal,11.5,2.0,Good
+S2850,Business Analyst,Interpersonal,11.5,2.0,Good
+S2851,Banking,Logical_Mathematical,10.25,1.75,Average
+S2852,Banking,Logical_Mathematical,10.38,1.75,Average
+S2853,Banking,Logical_Mathematical,10.5,1.75,Average
+S2854,Banking,Logical_Mathematical,10.0,1.75,Average
+S2855,Banking,Logical_Mathematical,10.38,1.75,Average
+S2856,Banking,Logical_Mathematical,10.5,1.75,Average
+S2857,Banking,Logical_Mathematical,10.25,1.75,Average
+S2858,Banking,Logical_Mathematical,10.12,1.75,Average
+S2859,Banking,Logical_Mathematical,10.5,1.75,Average
+S2860,Banking,Logical_Mathematical,10.25,1.75,Average
+S2861,Banking,Logical_Mathematical,10.38,1.75,Average
+S2862,Banking,Logical_Mathematical,10.25,1.75,Average
+S2863,Banking,Logical_Mathematical,10.5,1.75,Average
+S2864,Banking,Logical_Mathematical,10.5,1.75,Average
+S2865,Banking,Logical_Mathematical,10.62,1.75,Average
+S2866,Banking,Logical_Mathematical,10.12,1.75,Average
+S2867,Banking,Logical_Mathematical,10.5,1.75,Average
+S2868,Banking,Logical_Mathematical,10.62,1.75,Average
+S2869,Banking,Logical_Mathematical,10.38,1.75,Average
+S2870,Banking,Logical_Mathematical,10.25,1.75,Average
+S2871,Banking,Logical_Mathematical,10.62,1.75,Average
+S2872,Banking,Logical_Mathematical,10.25,1.75,Average
+S2873,Banking,Logical_Mathematical,10.38,1.75,Average
+S2874,Banking,Logical_Mathematical,10.25,1.75,Average
+S2875,Banking,Logical_Mathematical,10.12,1.75,Average
+S2876,Banking,Logical_Mathematical,10.25,1.75,Average
+S2877,Banking,Logical_Mathematical,10.38,1.75,Average
+S2878,Banking,Logical_Mathematical,9.88,1.75,Average
+S2879,Banking,Logical_Mathematical,10.25,1.75,Average
+S2880,Banking,Logical_Mathematical,10.38,1.75,Average
+S2881,Banking,Logical_Mathematical,10.12,1.75,Average
+S2882,Banking,Logical_Mathematical,10.0,1.75,Average
+S2883,Banking,Logical_Mathematical,10.38,1.75,Average
+S2884,Banking,Logical_Mathematical,10.12,1.75,Average
+S2885,Banking,Logical_Mathematical,10.0,1.75,Average
+S2886,Banking,Logical_Mathematical,9.88,1.75,Average
+S2887,Banking,Logical_Mathematical,9.88,1.75,Average
+S2888,Banking,Logical_Mathematical,10.0,1.75,Average
+S2889,Banking,Logical_Mathematical,10.12,1.75,Average
+S2890,Banking,Logical_Mathematical,9.62,1.75,Average
+S2891,Banking,Logical_Mathematical,10.0,1.75,Average
+S2892,Banking,Logical_Mathematical,10.62,1.75,Average
+S2893,Banking,Logical_Mathematical,10.38,1.75,Average
+S2894,Banking,Logical_Mathematical,10.25,1.75,Average
+S2895,Banking,Logical_Mathematical,10.5,1.75,Average
+S2896,Banking,Logical_Mathematical,10.25,1.75,Average
+S2897,Banking,Logical_Mathematical,10.38,1.75,Average
+S2898,Banking,Logical_Mathematical,10.25,1.75,Average
+S2899,Banking,Logical_Mathematical,10.12,1.75,Average
+S2900,Banking,Logical_Mathematical,10.5,1.75,Average
+S2901,Stock Broker,Logical_Mathematical,12.0,1.88,Average
+S2902,Stock Broker,Interpersonal,11.88,1.88,Average
+S2903,Stock Broker,Logical_Mathematical,12.0,1.88,Average
+S2904,Stock Broker,Interpersonal,11.88,1.88,Average
+S2905,Stock Broker,Logical_Mathematical,12.25,1.88,Average
+S2906,Stock Broker,Interpersonal,12.12,1.88,Average
+S2907,Stock Broker,Logical_Mathematical,12.25,1.88,Average
+S2908,Stock Broker,Interpersonal,12.62,1.88,Average
+S2909,Stock Broker,Logical_Mathematical,12.38,1.88,Average
+S2910,Stock Broker,Interpersonal,12.12,1.88,Average
+S2911,Stock Broker,Logical_Mathematical,11.75,1.88,Average
+S2912,Stock Broker,Logical_Mathematical,11.75,1.88,Average
+S2913,Stock Broker,Logical_Mathematical,11.5,1.88,Average
+S2914,Stock Broker,Logical_Mathematical,11.25,1.88,Average
+S2915,Stock Broker,Logical_Mathematical,12.0,1.88,Average
+S2916,Stock Broker,Logical_Mathematical,11.88,1.88,Average
+S2917,Stock Broker,Logical_Mathematical,11.5,1.88,Average
+S2918,Stock Broker,Logical_Mathematical,11.38,1.88,Average
+S2919,Stock Broker,Logical_Mathematical,12.25,1.88,Average
+S2920,Stock Broker,Logical_Mathematical,12.12,1.88,Average
+S2921,Stock Broker,Logical_Mathematical,11.12,1.88,Average
+S2922,Stock Broker,Intrapersonal,11.88,1.88,Average
+S2923,Stock Broker,Logical_Mathematical,12.25,1.88,Average
+S2924,Stock Broker,Intrapersonal,11.75,1.88,Average
+S2925,Stock Broker,Logical_Mathematical,11.62,1.88,Average
+S2926,Stock Broker,Intrapersonal,12.12,1.88,Average
+S2927,Stock Broker,Logical_Mathematical,12.25,1.88,Average
+S2928,Stock Broker,Intrapersonal,12.0,1.88,Average
+S2929,Stock Broker,Logical_Mathematical,11.75,1.88,Average
+S2930,Stock Broker,Intrapersonal,12.25,1.88,Average
+S2931,Stock Broker,Logical_Mathematical,11.88,1.88,Average
+S2932,Stock Broker,Intrapersonal,11.62,1.88,Average
+S2933,Stock Broker,Logical_Mathematical,11.38,1.88,Average
+S2934,Stock Broker,Intrapersonal,11.5,1.88,Average
+S2935,Stock Broker,Intrapersonal,11.88,1.88,Average
+S2936,Stock Broker,Intrapersonal,12.38,1.88,Average
+S2937,Stock Broker,Intrapersonal,12.12,1.88,Average
+S2938,Stock Broker,Intrapersonal,11.88,1.88,Average
+S2939,Stock Broker,Intrapersonal,12.12,1.88,Average
+S2940,Stock Broker,Intrapersonal,12.62,1.88,Average
+S2941,Stock Broker,Intrapersonal,11.75,1.88,Average
+S2942,Stock Broker,Intrapersonal,11.75,1.88,Average
+S2943,Stock Broker,Intrapersonal,12.0,1.88,Average
+S2944,Stock Broker,Intrapersonal,11.75,1.88,Average
+S2945,Stock Broker,Intrapersonal,11.5,1.88,Average
+S2946,Stock Broker,Intrapersonal,12.0,1.88,Average
+S2947,Stock Broker,Intrapersonal,12.25,1.88,Average
+S2948,Stock Broker,Intrapersonal,12.0,1.88,Average
+S2949,Stock Broker,Intrapersonal,12.0,1.88,Average
+S2950,Stock Broker,Intrapersonal,11.62,1.88,Average
+S2951,Financial Advisor,Linguistic,13.25,2.25,Good
+S2952,Financial Advisor,Linguistic,13.5,2.25,Good
+S2953,Financial Advisor,Interpersonal,13.5,2.25,Good
+S2954,Financial Advisor,Interpersonal,13.62,2.25,Good
+S2955,Financial Advisor,Interpersonal,13.25,2.25,Good
+S2956,Financial Advisor,Linguistic,14.12,2.25,Good
+S2957,Financial Advisor,Interpersonal,12.75,2.25,Good
+S2958,Financial Advisor,Interpersonal,13.0,2.25,Good
+S2959,Financial Advisor,Linguistic,13.12,2.25,Good
+S2960,Financial Advisor,Linguistic,13.38,2.25,Good
+S2961,Financial Advisor,Linguistic,13.38,2.25,Good
+S2962,Financial Advisor,Linguistic,14.12,2.25,Good
+S2963,Financial Advisor,Linguistic,13.62,2.25,Good
+S2964,Financial Advisor,Linguistic,13.38,2.25,Good
+S2965,Financial Advisor,Interpersonal,13.38,2.25,Good
+S2966,Financial Advisor,Interpersonal,13.5,2.25,Good
+S2967,Financial Advisor,Interpersonal,13.0,2.25,Good
+S2968,Financial Advisor,Linguistic,14.12,2.25,Good
+S2969,Financial Advisor,Intrapersonal,12.62,2.25,Good
+S2970,Financial Advisor,Intrapersonal,12.75,2.25,Good
+S2971,Financial Advisor,Interpersonal,13.12,2.25,Good
+S2972,Financial Advisor,Linguistic,13.25,2.25,Good
+S2973,Financial Advisor,Linguistic,13.12,2.25,Good
+S2974,Financial Advisor,Linguistic,14.12,2.25,Good
+S2975,Financial Advisor,Linguistic,13.62,2.25,Good
+S2976,Financial Advisor,Interpersonal,13.75,2.25,Good
+S2977,Financial Advisor,Interpersonal,13.25,2.25,Good
+S2978,Financial Advisor,Interpersonal,13.12,2.25,Good
+S2979,Financial Advisor,Interpersonal,12.5,2.25,Good
+S2980,Financial Advisor,Linguistic,13.62,2.25,Good
+S2981,Financial Advisor,Intrapersonal,12.5,2.25,Good
+S2982,Financial Advisor,Interpersonal,13.25,2.25,Good
+S2983,Financial Advisor,Interpersonal,13.38,2.25,Good
+S2984,Financial Advisor,Interpersonal,13.62,2.25,Good
+S2985,Financial Advisor,Linguistic,13.0,2.25,Good
+S2986,Financial Advisor,Linguistic,14.38,2.25,Good
+S2987,Financial Advisor,Linguistic,13.88,2.25,Good
+S2988,Financial Advisor,Linguistic,13.88,2.25,Good
+S2989,Financial Advisor,Logical_Mathematical,13.62,2.25,Good
+S2990,Financial Advisor,Logical_Mathematical,13.5,2.25,Good
+S2991,Financial Advisor,Logical_Mathematical,12.75,2.25,Good
+S2992,Financial Advisor,Linguistic,14.0,2.25,Good
+S2993,Financial Advisor,Logical_Mathematical,13.12,2.25,Good
+S2994,Financial Advisor,Interpersonal,13.5,2.25,Good
+S2995,Financial Advisor,Logical_Mathematical,13.5,2.25,Good
+S2996,Financial Advisor,Interpersonal,14.12,2.25,Good
+S2997,Financial Advisor,Linguistic,13.75,2.25,Good
+S2998,Financial Advisor,Linguistic,14.5,2.25,Good
+S2999,Financial Advisor,Logical_Mathematical,14.12,2.25,Good
+S3000,Financial Advisor,Linguistic,13.12,2.25,Good
+S3001,Consultant,Logical_Mathematical,11.25,1.88,Average
+S3002,Consultant,Intrapersonal,11.12,1.88,Average
+S3003,Consultant,Intrapersonal,11.25,1.88,Average
+S3004,Consultant,Logical_Mathematical,11.5,1.88,Average
+S3005,Consultant,Interpersonal,11.12,1.88,Average
+S3006,Consultant,Logical_Mathematical,11.0,1.88,Average
+S3007,Consultant,Intrapersonal,10.62,1.88,Average
+S3008,Consultant,Intrapersonal,11.88,1.88,Average
+S3009,Consultant,Interpersonal,11.88,1.88,Average
+S3010,Consultant,Interpersonal,11.5,1.88,Average
+S3011,Consultant,Logical_Mathematical,11.5,1.88,Average
+S3012,Consultant,Logical_Mathematical,11.5,1.88,Average
+S3013,Consultant,Intrapersonal,11.88,1.88,Average
+S3014,Consultant,Logical_Mathematical,12.75,1.88,Average
+S3015,Consultant,Interpersonal,12.62,1.88,Average
+S3016,Consultant,Logical_Mathematical,11.62,1.88,Average
+S3017,Consultant,Logical_Mathematical,11.0,1.88,Average
+S3018,Consultant,Logical_Mathematical,11.88,1.88,Average
+S3019,Consultant,Intrapersonal,12.25,1.88,Average
+S3020,Consultant,Interpersonal,12.25,1.88,Average
+S3021,Consultant,Logical_Mathematical,12.5,1.88,Average
+S3022,Consultant,Intrapersonal,10.5,1.88,Average
+S3023,Consultant,Logical_Mathematical,11.25,1.88,Average
+S3024,Consultant,Interpersonal,10.88,1.88,Average
+S3025,Consultant,Interpersonal,11.5,1.88,Average
+S3026,Consultant,Intrapersonal,11.5,1.88,Average
+S3027,Consultant,Logical_Mathematical,11.0,1.88,Average
+S3028,Consultant,Logical_Mathematical,11.25,1.88,Average
+S3029,Consultant,Interpersonal,11.0,1.88,Average
+S3030,Consultant,Logical_Mathematical,11.88,1.88,Average
+S3031,Consultant,Intrapersonal,11.75,1.88,Average
+S3032,Consultant,Intrapersonal,11.12,1.88,Average
+S3033,Consultant,Intrapersonal,12.25,1.88,Average
+S3034,Consultant,Interpersonal,11.62,1.88,Average
+S3035,Consultant,Interpersonal,11.88,1.88,Average
+S3036,Consultant,Interpersonal,11.5,1.88,Average
+S3037,Consultant,Logical_Mathematical,12.5,1.88,Average
+S3038,Consultant,Logical_Mathematical,12.75,1.88,Average
+S3039,Consultant,Logical_Mathematical,12.38,1.88,Average
+S3040,Consultant,Interpersonal,11.88,1.88,Average
+S3041,Consultant,Interpersonal,11.62,1.88,Average
+S3042,Consultant,Logical_Mathematical,11.12,1.88,Average
+S3043,Consultant,Intrapersonal,12.38,1.88,Average
+S3044,Consultant,Logical_Mathematical,13.0,1.88,Average
+S3045,Consultant,Interpersonal,12.38,1.88,Average
+S3046,Consultant,Logical_Mathematical,11.5,1.88,Average
+S3047,Consultant,Logical_Mathematical,11.38,1.88,Average
+S3048,Consultant,Interpersonal,12.0,1.88,Average
+S3049,Consultant,Interpersonal,12.38,1.88,Average
+S3050,Consultant,Interpersonal,11.38,1.88,Average
+S3051,Archeologist,Naturalist,11.75,2.0,Good
+S3052,Archeologist,Naturalist,12.38,2.0,Good
+S3053,Archeologist,Intrapersonal,13.12,2.0,Good
+S3054,Archeologist,Intrapersonal,12.25,2.0,Good
+S3055,Archeologist,Naturalist,12.12,2.0,Good
+S3056,Archeologist,Naturalist,12.5,2.0,Good
+S3057,Archeologist,Naturalist,12.5,2.0,Good
+S3058,Archeologist,Intrapersonal,12.38,2.0,Good
+S3059,Archeologist,Intrapersonal,12.88,2.0,Good
+S3060,Archeologist,Intrapersonal,11.62,2.0,Good
+S3061,Archeologist,Naturalist,12.25,2.0,Good
+S3062,Archeologist,Naturalist,12.38,2.0,Good
+S3063,Archeologist,Naturalist,12.88,2.0,Good
+S3064,Archeologist,Intrapersonal,12.62,2.0,Good
+S3065,Archeologist,Intrapersonal,13.25,2.0,Good
+S3066,Archeologist,Intrapersonal,12.12,2.0,Good
+S3067,Archeologist,Naturalist,12.75,2.0,Good
+S3068,Archeologist,Naturalist,12.5,2.0,Good
+S3069,Archeologist,Intrapersonal,13.5,2.0,Good
+S3070,Archeologist,Naturalist,12.5,2.0,Good
+S3071,Archeologist,Naturalist,12.88,2.0,Good
+S3072,Archeologist,Intrapersonal,12.0,2.0,Good
+S3073,Archeologist,Intrapersonal,12.5,2.0,Good
+S3074,Archeologist,Naturalist,12.12,2.0,Good
+S3075,Archeologist,Intrapersonal,12.75,2.0,Good
+S3076,Archeologist,Naturalist,12.12,2.0,Good
+S3077,Archeologist,Naturalist,13.25,2.0,Good
+S3078,Archeologist,Intrapersonal,12.88,2.0,Good
+S3079,Archeologist,Intrapersonal,13.25,2.0,Good
+S3080,Archeologist,Naturalist,12.62,2.0,Good
+S3081,Archeologist,Intrapersonal,12.75,2.0,Good
+S3082,Archeologist,Naturalist,11.38,2.0,Good
+S3083,Archeologist,Naturalist,11.75,2.0,Good
+S3084,Archeologist,Intrapersonal,11.62,2.0,Good
+S3085,Archeologist,Intrapersonal,12.62,2.0,Good
+S3086,Archeologist,Naturalist,12.62,2.0,Good
+S3087,Archeologist,Naturalist,12.62,2.0,Good
+S3088,Archeologist,Naturalist,11.88,2.0,Good
+S3089,Archeologist,Intrapersonal,12.0,2.0,Good
+S3090,Archeologist,Intrapersonal,12.25,2.0,Good
+S3091,Archeologist,Intrapersonal,12.12,2.0,Good
+S3092,Archeologist,Naturalist,12.25,2.0,Good
+S3093,Archeologist,Naturalist,12.25,2.0,Good
+S3094,Archeologist,Naturalist,12.88,2.0,Good
+S3095,Archeologist,Intrapersonal,12.62,2.0,Good
+S3096,Archeologist,Intrapersonal,12.38,2.0,Good
+S3097,Archeologist,Naturalist,12.0,2.0,Good
+S3098,Archeologist,Intrapersonal,12.5,2.0,Good
+S3099,Archeologist,Naturalist,12.12,2.0,Good
+S3100,Archeologist,Naturalist,11.62,2.0,Good
+S3101,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,12.25,2.12,Good
+S3102,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.25,2.12,Good
+S3103,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,14.0,2.12,Good
+S3104,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.0,2.12,Good
+S3105,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,12.75,2.12,Good
+S3106,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.38,2.12,Good
+S3107,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.0,2.12,Good
+S3108,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.38,2.12,Good
+S3109,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.75,2.12,Good
+S3110,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,14.0,2.12,Good
+S3111,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,14.0,2.12,Good
+S3112,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.0,2.12,Good
+S3113,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.62,2.12,Good
+S3114,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,14.12,2.12,Good
+S3115,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,14.38,2.12,Good
+S3116,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.25,2.12,Good
+S3117,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.75,2.12,Good
+S3118,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.75,2.12,Good
+S3119,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,14.5,2.12,Good
+S3120,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.62,2.12,Good
+S3121,Pre Primary Teacher (2020 NEP and Mental Health),Interpersonal,13.38,2.12,Good
+S3122,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.62,2.12,Good
+S3123,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,14.25,2.12,Good
+S3124,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.38,2.12,Good
+S3125,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.88,2.12,Good
+S3126,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.62,2.12,Good
+S3127,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,14.25,2.12,Good
+S3128,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.88,2.12,Good
+S3129,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.5,2.12,Good
+S3130,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.88,2.12,Good
+S3131,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.75,2.12,Good
+S3132,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.88,2.12,Good
+S3133,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.88,2.12,Good
+S3134,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.88,2.12,Good
+S3135,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.25,2.12,Good
+S3136,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.25,2.12,Good
+S3137,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.75,2.12,Good
+S3138,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.88,2.12,Good
+S3139,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,13.0,2.12,Good
+S3140,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.12,2.12,Good
+S3141,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.62,2.12,Good
+S3142,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.0,2.12,Good
+S3143,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,13.12,2.12,Good
+S3144,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.62,2.12,Good
+S3145,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.25,2.12,Good
+S3146,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.25,2.12,Good
+S3147,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.62,2.12,Good
+S3148,Pre Primary Teacher (2020 NEP and Mental Health),Linguistic,12.75,2.12,Good
+S3149,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,12.75,2.12,Good
+S3150,Pre Primary Teacher (2020 NEP and Mental Health),Bodily,11.88,2.12,Good
+S3151,Primary Teacher,Linguistic,12.5,2.12,Good
+S3152,Primary Teacher,Linguistic,12.62,2.12,Good
+S3153,Primary Teacher,Musical,12.75,2.12,Good
+S3154,Primary Teacher,Musical,12.75,2.12,Good
+S3155,Primary Teacher,Bodily,12.75,2.12,Good
+S3156,Primary Teacher,Musical,12.75,2.12,Good
+S3157,Primary Teacher,Linguistic,12.38,2.12,Good
+S3158,Primary Teacher,Musical,12.62,2.12,Good
+S3159,Primary Teacher,Musical,12.75,2.12,Good
+S3160,Primary Teacher,Musical,13.0,2.12,Good
+S3161,Primary Teacher,Linguistic,12.88,2.12,Good
+S3162,Primary Teacher,Linguistic,13.12,2.12,Good
+S3163,Primary Teacher,Musical,13.0,2.12,Good
+S3164,Primary Teacher,Musical,13.0,2.12,Good
+S3165,Primary Teacher,Bodily,13.38,2.12,Good
+S3166,Primary Teacher,Musical,12.62,2.12,Good
+S3167,Primary Teacher,Linguistic,13.0,2.12,Good
+S3168,Primary Teacher,Musical,13.12,2.12,Good
+S3169,Primary Teacher,Musical,13.5,2.12,Good
+S3170,Primary Teacher,Musical,13.38,2.12,Good
+S3171,Primary Teacher,Linguistic,13.38,2.12,Good
+S3172,Primary Teacher,Linguistic,13.75,2.12,Good
+S3173,Primary Teacher,Linguistic,13.12,2.12,Good
+S3174,Primary Teacher,Bodily,13.62,2.12,Good
+S3175,Primary Teacher,Musical,13.75,2.12,Good
+S3176,Primary Teacher,Musical,14.0,2.12,Good
+S3177,Primary Teacher,Linguistic,13.5,2.12,Good
+S3178,Primary Teacher,Musical,13.88,2.12,Good
+S3179,Primary Teacher,Musical,14.12,2.12,Good
+S3180,Primary Teacher,Musical,13.5,2.12,Good
+S3181,Primary Teacher,Linguistic,13.88,2.12,Good
+S3182,Primary Teacher,Linguistic,12.75,2.12,Good
+S3183,Primary Teacher,Linguistic,12.88,2.12,Good
+S3184,Primary Teacher,Musical,13.0,2.12,Good
+S3185,Primary Teacher,Bodily,13.12,2.12,Good
+S3186,Primary Teacher,Musical,13.12,2.12,Good
+S3187,Primary Teacher,Linguistic,13.12,2.12,Good
+S3188,Primary Teacher,Musical,12.88,2.12,Good
+S3189,Primary Teacher,Musical,13.62,2.12,Good
+S3190,Primary Teacher,Bodily,12.88,2.12,Good
+S3191,Primary Teacher,Linguistic,13.0,2.12,Good
+S3192,Primary Teacher,Linguistic,12.62,2.12,Good
+S3193,Primary Teacher,Musical,13.12,2.12,Good
+S3194,Primary Teacher,Musical,13.38,2.12,Good
+S3195,Primary Teacher,Musical,12.62,2.12,Good
+S3196,Primary Teacher,Musical,13.75,2.12,Good
+S3197,Primary Teacher,Musical,13.62,2.12,Good
+S3198,Primary Teacher,Musical,13.38,2.12,Good
+S3199,Primary Teacher,Musical,13.25,2.12,Good
+S3200,Primary Teacher,Musical,13.0,2.12,Good
+S3201,"Middle, Higher School Teacher and Professors",Intrapersonal,12.62,2.12,Good
+S3202,"Middle, Higher School Teacher and Professors",Intrapersonal,12.38,2.12,Good
+S3203,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.38,2.12,Good
+S3204,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.75,2.12,Good
+S3205,"Middle, Higher School Teacher and Professors",Interpersonal,13.25,2.12,Good
+S3206,"Middle, Higher School Teacher and Professors",Interpersonal,14.12,2.12,Good
+S3207,"Middle, Higher School Teacher and Professors",Logical_Mathematical,11.75,2.12,Good
+S3208,"Middle, Higher School Teacher and Professors",Interpersonal,12.5,2.12,Good
+S3209,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.0,2.12,Good
+S3210,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.12,2.12,Good
+S3211,"Middle, Higher School Teacher and Professors",Interpersonal,13.5,2.12,Good
+S3212,"Middle, Higher School Teacher and Professors",Interpersonal,14.0,2.12,Good
+S3213,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.62,2.12,Good
+S3214,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.62,2.12,Good
+S3215,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.62,2.12,Good
+S3216,"Middle, Higher School Teacher and Professors",Interpersonal,13.12,2.12,Good
+S3217,"Middle, Higher School Teacher and Professors",Intrapersonal,13.75,2.12,Good
+S3218,"Middle, Higher School Teacher and Professors",Interpersonal,13.5,2.12,Good
+S3219,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.25,2.12,Good
+S3220,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.25,2.12,Good
+S3221,"Middle, Higher School Teacher and Professors",Intrapersonal,13.38,2.12,Good
+S3222,"Middle, Higher School Teacher and Professors",Intrapersonal,12.88,2.12,Good
+S3223,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.75,2.12,Good
+S3224,"Middle, Higher School Teacher and Professors",Interpersonal,14.5,2.12,Good
+S3225,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.88,2.12,Good
+S3226,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.5,2.12,Good
+S3227,"Middle, Higher School Teacher and Professors",Interpersonal,12.75,2.12,Good
+S3228,"Middle, Higher School Teacher and Professors",Intrapersonal,12.88,2.12,Good
+S3229,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.25,2.12,Good
+S3230,"Middle, Higher School Teacher and Professors",Interpersonal,13.62,2.12,Good
+S3231,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.75,2.12,Good
+S3232,"Middle, Higher School Teacher and Professors",Intrapersonal,12.75,2.12,Good
+S3233,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.62,2.12,Good
+S3234,"Middle, Higher School Teacher and Professors",Intrapersonal,13.62,2.12,Good
+S3235,"Middle, Higher School Teacher and Professors",Interpersonal,13.75,2.12,Good
+S3236,"Middle, Higher School Teacher and Professors",Interpersonal,14.25,2.12,Good
+S3237,"Middle, Higher School Teacher and Professors",Intrapersonal,12.75,2.12,Good
+S3238,"Middle, Higher School Teacher and Professors",Interpersonal,12.5,2.12,Good
+S3239,"Middle, Higher School Teacher and Professors",Intrapersonal,14.0,2.12,Good
+S3240,"Middle, Higher School Teacher and Professors",Logical_Mathematical,12.62,2.12,Good
+S3241,"Middle, Higher School Teacher and Professors",Interpersonal,13.25,2.12,Good
+S3242,"Middle, Higher School Teacher and Professors",Interpersonal,13.88,2.12,Good
+S3243,"Middle, Higher School Teacher and Professors",Intrapersonal,12.5,2.12,Good
+S3244,"Middle, Higher School Teacher and Professors",Intrapersonal,13.0,2.12,Good
+S3245,"Middle, Higher School Teacher and Professors",Interpersonal,13.25,2.12,Good
+S3246,"Middle, Higher School Teacher and Professors",Logical_Mathematical,13.75,2.12,Good
+S3247,"Middle, Higher School Teacher and Professors",Intrapersonal,13.75,2.12,Good
+S3248,"Middle, Higher School Teacher and Professors",Interpersonal,13.62,2.12,Good
+S3249,"Middle, Higher School Teacher and Professors",Interpersonal,12.75,2.12,Good
+S3250,"Middle, Higher School Teacher and Professors",Interpersonal,13.12,2.12,Good
+S3251,Anthropologist,Intrapersonal,11.75,2.0,Good
+S3252,Anthropologist,Logical_Mathematical,12.5,2.0,Good
+S3253,Anthropologist,Logical_Mathematical,13.38,2.0,Good
+S3254,Anthropologist,Spatial_Visualization,12.38,2.0,Good
+S3255,Anthropologist,Spatial_Visualization,12.75,2.0,Good
+S3256,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3257,Anthropologist,Logical_Mathematical,12.12,2.0,Good
+S3258,Anthropologist,Logical_Mathematical,12.75,2.0,Good
+S3259,Anthropologist,Logical_Mathematical,13.0,2.0,Good
+S3260,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3261,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3262,Anthropologist,Spatial_Visualization,12.38,2.0,Good
+S3263,Anthropologist,Logical_Mathematical,12.75,2.0,Good
+S3264,Anthropologist,Logical_Mathematical,12.62,2.0,Good
+S3265,Anthropologist,Logical_Mathematical,13.25,2.0,Good
+S3266,Anthropologist,Spatial_Visualization,12.0,2.0,Good
+S3267,Anthropologist,Spatial_Visualization,12.25,2.0,Good
+S3268,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3269,Anthropologist,Intrapersonal,11.88,2.0,Good
+S3270,Anthropologist,Logical_Mathematical,11.88,2.0,Good
+S3271,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3272,Anthropologist,Intrapersonal,12.38,2.0,Good
+S3273,Anthropologist,Logical_Mathematical,12.88,2.0,Good
+S3274,Anthropologist,Logical_Mathematical,13.38,2.0,Good
+S3275,Anthropologist,Logical_Mathematical,11.88,2.0,Good
+S3276,Anthropologist,Logical_Mathematical,11.25,2.0,Good
+S3277,Anthropologist,Intrapersonal,12.12,2.0,Good
+S3278,Anthropologist,Spatial_Visualization,12.12,2.0,Good
+S3279,Anthropologist,Intrapersonal,12.62,2.0,Good
+S3280,Anthropologist,Spatial_Visualization,12.0,2.0,Good
+S3281,Anthropologist,Logical_Mathematical,11.5,2.0,Good
+S3282,Anthropologist,Logical_Mathematical,13.25,2.0,Good
+S3283,Anthropologist,Logical_Mathematical,13.5,2.0,Good
+S3284,Anthropologist,Spatial_Visualization,12.12,2.0,Good
+S3285,Anthropologist,Spatial_Visualization,12.25,2.0,Good
+S3286,Anthropologist,Spatial_Visualization,12.62,2.0,Good
+S3287,Anthropologist,Logical_Mathematical,13.0,2.0,Good
+S3288,Anthropologist,Intrapersonal,12.38,2.0,Good
+S3289,Anthropologist,Intrapersonal,12.5,2.0,Good
+S3290,Anthropologist,Intrapersonal,12.5,2.0,Good
+S3291,Anthropologist,Spatial_Visualization,12.75,2.0,Good
+S3292,Anthropologist,Spatial_Visualization,13.12,2.0,Good
+S3293,Anthropologist,Logical_Mathematical,13.25,2.0,Good
+S3294,Anthropologist,Logical_Mathematical,12.62,2.0,Good
+S3295,Anthropologist,Intrapersonal,13.12,2.0,Good
+S3296,Anthropologist,Spatial_Visualization,11.88,2.0,Good
+S3297,Anthropologist,Spatial_Visualization,12.38,2.0,Good
+S3298,Anthropologist,Intrapersonal,12.5,2.0,Good
+S3299,Anthropologist,Logical_Mathematical,13.12,2.0,Good
+S3300,Anthropologist,Spatial_Visualization,13.88,2.0,Good
+S3301,Medical,Interpersonal,11.88,2.0,Good
+S3302,Medical,Interpersonal,12.62,2.0,Good
+S3303,Medical,Interpersonal,12.5,2.0,Good
+S3304,Medical,Naturalist,12.0,2.0,Good
+S3305,Medical,Naturalist,11.88,2.0,Good
+S3306,Medical,Naturalist,12.62,2.0,Good
+S3307,Medical,Interpersonal,12.5,2.0,Good
+S3308,Medical,Interpersonal,12.38,2.0,Good
+S3309,Medical,Interpersonal,12.75,2.0,Good
+S3310,Medical,Naturalist,12.62,2.0,Good
+S3311,Medical,Naturalist,12.25,2.0,Good
+S3312,Medical,Naturalist,12.5,2.0,Good
+S3313,Medical,Interpersonal,12.25,2.0,Good
+S3314,Medical,Interpersonal,12.38,2.0,Good
+S3315,Medical,Interpersonal,13.0,2.0,Good
+S3316,Medical,Naturalist,12.38,2.0,Good
+S3317,Medical,Naturalist,12.25,2.0,Good
+S3318,Medical,Naturalist,13.0,2.0,Good
+S3319,Medical,Interpersonal,12.38,2.0,Good
+S3320,Medical,Interpersonal,12.88,2.0,Good
+S3321,Medical,Naturalist,12.75,2.0,Good
+S3322,Medical,Naturalist,12.62,2.0,Good
+S3323,Medical,Naturalist,12.88,2.0,Good
+S3324,Medical,Naturalist,13.0,2.0,Good
+S3325,Medical,Interpersonal,12.88,2.0,Good
+S3326,Medical,Interpersonal,12.38,2.0,Good
+S3327,Medical,Interpersonal,12.62,2.0,Good
+S3328,Medical,Naturalist,12.75,2.0,Good
+S3329,Medical,Naturalist,12.88,2.0,Good
+S3330,Medical,Naturalist,13.25,2.0,Good
+S3331,Medical,Interpersonal,12.5,2.0,Good
+S3332,Medical,Interpersonal,13.25,2.0,Good
+S3333,Medical,Interpersonal,12.75,2.0,Good
+S3334,Medical,Interpersonal,13.0,2.0,Good
+S3335,Medical,Naturalist,12.12,2.0,Good
+S3336,Medical,Naturalist,12.5,2.0,Good
+S3337,Medical,Interpersonal,11.75,2.0,Good
+S3338,Medical,Interpersonal,11.62,2.0,Good
+S3339,Medical,Interpersonal,12.25,2.0,Good
+S3340,Medical,Interpersonal,12.25,2.0,Good
+S3341,Medical,Interpersonal,12.25,2.0,Good
+S3342,Medical,Interpersonal,12.75,2.0,Good
+S3343,Medical,Interpersonal,11.88,2.0,Good
+S3344,Medical,Interpersonal,12.0,2.0,Good
+S3345,Medical,Interpersonal,12.38,2.0,Good
+S3346,Medical,Interpersonal,12.38,2.0,Good
+S3347,Medical,Naturalist,11.88,2.0,Good
+S3348,Medical,Naturalist,12.62,2.0,Good
+S3349,Medical,Naturalist,12.5,2.0,Good
+S3350,Medical,Naturalist,12.62,2.0,Good
+S3351,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.0,2.12,Good
+S3352,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.0,2.12,Good
+S3353,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,13.12,2.12,Good
+S3354,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.75,2.12,Good
+S3355,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.62,2.12,Good
+S3356,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.75,2.12,Good
+S3357,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.12,2.12,Good
+S3358,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.25,2.12,Good
+S3359,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.62,2.12,Good
+S3360,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.5,2.12,Good
+S3361,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.88,2.12,Good
+S3362,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.25,2.12,Good
+S3363,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.88,2.12,Good
+S3364,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.75,2.12,Good
+S3365,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.12,2.12,Good
+S3366,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.5,2.12,Good
+S3367,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.12,2.12,Good
+S3368,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.75,2.12,Good
+S3369,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.5,2.12,Good
+S3370,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.0,2.12,Good
+S3371,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.88,2.12,Good
+S3372,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.75,2.12,Good
+S3373,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.25,2.12,Good
+S3374,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.75,2.12,Good
+S3375,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.0,2.12,Good
+S3376,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.75,2.12,Good
+S3377,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.88,2.12,Good
+S3378,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.25,2.12,Good
+S3379,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.38,2.12,Good
+S3380,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.25,2.12,Good
+S3381,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.5,2.12,Good
+S3382,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.62,2.12,Good
+S3383,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.0,2.12,Good
+S3384,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.12,2.12,Good
+S3385,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,13.0,2.12,Good
+S3386,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,13.25,2.12,Good
+S3387,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.62,2.12,Good
+S3388,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.75,2.12,Good
+S3389,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.0,2.12,Good
+S3390,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.5,2.12,Good
+S3391,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.25,2.12,Good
+S3392,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.88,2.12,Good
+S3393,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,13.12,2.12,Good
+S3394,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.88,2.12,Good
+S3395,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Bodily,12.38,2.12,Good
+S3396,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.25,2.12,Good
+S3397,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,13.62,2.12,Good
+S3398,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Interpersonal,12.75,2.12,Good
+S3399,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.25,2.12,Good
+S3400,"Para Medical (physiotherapy, occupational theropy, audio and speech language theropy, nursing)",Linguistic,12.5,2.12,Good
+S3401,Militry,Bodily,12.5,2.12,Good
+S3402,Militry,Bodily,12.62,2.12,Good
+S3403,Militry,Logical_Mathematical,13.75,2.12,Good
+S3404,Militry,Interpersonal,13.62,2.12,Good
+S3405,Militry,Logical_Mathematical,12.62,2.12,Good
+S3406,Militry,Interpersonal,12.38,2.12,Good
+S3407,Militry,Bodily,13.25,2.12,Good
+S3408,Militry,Bodily,13.12,2.12,Good
+S3409,Militry,Logical_Mathematical,13.0,2.12,Good
+S3410,Militry,Logical_Mathematical,12.62,2.12,Good
+S3411,Militry,Interpersonal,13.0,2.12,Good
+S3412,Militry,Logical_Mathematical,12.5,2.12,Good
+S3413,Militry,Bodily,13.25,2.12,Good
+S3414,Militry,Interpersonal,13.12,2.12,Good
+S3415,Militry,Logical_Mathematical,13.25,2.12,Good
+S3416,Militry,Logical_Mathematical,12.75,2.12,Good
+S3417,Militry,Logical_Mathematical,12.5,2.12,Good
+S3418,Militry,Interpersonal,13.12,2.12,Good
+S3419,Militry,Bodily,12.75,2.12,Good
+S3420,Militry,Bodily,12.25,2.12,Good
+S3421,Militry,Logical_Mathematical,14.0,2.12,Good
+S3422,Militry,Logical_Mathematical,13.38,2.12,Good
+S3423,Militry,Logical_Mathematical,12.75,2.12,Good
+S3424,Militry,Interpersonal,12.62,2.12,Good
+S3425,Militry,Bodily,13.38,2.12,Good
+S3426,Militry,Bodily,12.12,2.12,Good
+S3427,Militry,Logical_Mathematical,12.75,2.12,Good
+S3428,Militry,Interpersonal,13.62,2.12,Good
+S3429,Militry,Interpersonal,13.62,2.12,Good
+S3430,Militry,Logical_Mathematical,12.5,2.12,Good
+S3431,Militry,Bodily,12.88,2.12,Good
+S3432,Militry,Interpersonal,12.38,2.12,Good
+S3433,Militry,Logical_Mathematical,12.88,2.12,Good
+S3434,Militry,Logical_Mathematical,13.5,2.12,Good
+S3435,Militry,Interpersonal,12.88,2.12,Good
+S3436,Militry,Interpersonal,12.62,2.12,Good
+S3437,Militry,Bodily,12.88,2.12,Good
+S3438,Militry,Bodily,13.12,2.12,Good
+S3439,Militry,Logical_Mathematical,13.62,2.12,Good
+S3440,Militry,Logical_Mathematical,12.62,2.12,Good
+S3441,Militry,Logical_Mathematical,12.75,2.12,Good
+S3442,Militry,Interpersonal,12.62,2.12,Good
+S3443,Militry,Bodily,12.88,2.12,Good
+S3444,Militry,Bodily,12.88,2.12,Good
+S3445,Militry,Logical_Mathematical,13.5,2.12,Good
+S3446,Militry,Interpersonal,13.5,2.12,Good
+S3447,Militry,Logical_Mathematical,12.88,2.12,Good
+S3448,Militry,Interpersonal,12.25,2.12,Good
+S3449,Militry,Interpersonal,13.12,2.12,Good
+S3450,Militry,Interpersonal,12.12,2.12,Good
+S3451,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.12,2.12,Good
+S3452,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3453,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.88,2.12,Good
+S3454,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.0,2.12,Good
+S3455,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.75,2.12,Good
+S3456,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.38,2.12,Good
+S3457,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3458,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.25,2.12,Good
+S3459,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.5,2.12,Good
+S3460,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.25,2.12,Good
+S3461,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,13.5,2.12,Good
+S3462,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,13.0,2.12,Good
+S3463,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.25,2.12,Good
+S3464,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.38,2.12,Good
+S3465,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3466,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.25,2.12,Good
+S3467,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3468,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.25,2.12,Good
+S3469,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,11.88,2.12,Good
+S3470,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.62,2.12,Good
+S3471,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,13.0,2.12,Good
+S3472,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.75,2.12,Good
+S3473,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.62,2.12,Good
+S3474,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.75,2.12,Good
+S3475,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,13.12,2.12,Good
+S3476,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,13.25,2.12,Good
+S3477,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.12,2.12,Good
+S3478,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,11.62,2.12,Good
+S3479,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.75,2.12,Good
+S3480,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.0,2.12,Good
+S3481,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,13.62,2.12,Good
+S3482,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,13.38,2.12,Good
+S3483,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.62,2.12,Good
+S3484,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.12,2.12,Good
+S3485,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.88,2.12,Good
+S3486,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.0,2.12,Good
+S3487,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.0,2.12,Good
+S3488,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3489,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.38,2.12,Good
+S3490,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.75,2.12,Good
+S3491,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.25,2.12,Good
+S3492,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.25,2.12,Good
+S3493,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Logical_Mathematical,12.12,2.12,Good
+S3494,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,13.0,2.12,Good
+S3495,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.75,2.12,Good
+S3496,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Bodily,12.38,2.12,Good
+S3497,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,13.88,2.12,Good
+S3498,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,13.0,2.12,Good
+S3499,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.62,2.12,Good
+S3500,Para Militry (https://en.wikipedia.org/wiki/Paramilitary_forces_of_India),Interpersonal,12.88,2.12,Good
+S3501,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.12,2.12,Good
+S3502,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.62,2.12,Good
+S3503,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.38,2.12,Good
+S3504,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,12.75,2.12,Good
+S3505,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,12.38,2.12,Good
+S3506,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.38,2.12,Good
+S3507,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.38,2.12,Good
+S3508,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.12,2.12,Good
+S3509,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.5,2.12,Good
+S3510,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.75,2.12,Good
+S3511,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.75,2.12,Good
+S3512,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,12.88,2.12,Good
+S3513,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.5,2.12,Good
+S3514,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.38,2.12,Good
+S3515,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.12,2.12,Good
+S3516,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.5,2.12,Good
+S3517,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.88,2.12,Good
+S3518,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.25,2.12,Good
+S3519,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.0,2.12,Good
+S3520,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,14.12,2.12,Good
+S3521,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.38,2.12,Good
+S3522,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,12.75,2.12,Good
+S3523,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.12,2.12,Good
+S3524,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,12.88,2.12,Good
+S3525,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.75,2.12,Good
+S3526,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.62,2.12,Good
+S3527,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.88,2.12,Good
+S3528,"Police Force (Spies, CBI officials, CID, Detectives)",Interpersonal,13.38,2.12,Good
+S3529,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.62,2.12,Good
+S3530,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.62,2.12,Good
+S3531,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.88,2.12,Good
+S3532,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,13.12,2.12,Good
+S3533,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,12.38,2.12,Good
+S3534,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,12.62,2.12,Good
+S3535,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.5,2.12,Good
+S3536,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.38,2.12,Good
+S3537,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,12.75,2.12,Good
+S3538,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,12.75,2.12,Good
+S3539,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.62,2.12,Good
+S3540,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,11.75,2.12,Good
+S3541,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.5,2.12,Good
+S3542,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,11.88,2.12,Good
+S3543,"Police Force (Spies, CBI officials, CID, Detectives)",Logical_Mathematical,12.38,2.12,Good
+S3544,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.12,2.12,Good
+S3545,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,13.12,2.12,Good
+S3546,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.5,2.12,Good
+S3547,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.12,2.12,Good
+S3548,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.62,2.12,Good
+S3549,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.38,2.12,Good
+S3550,"Police Force (Spies, CBI officials, CID, Detectives)",Bodily,12.75,2.12,Good
+S3551,Technician,Bodily,11.62,2.0,Good
+S3552,Technician,Bodily,11.88,2.0,Good
+S3553,Technician,Bodily,11.88,2.0,Good
+S3554,Technician,Bodily,12.5,2.0,Good
+S3555,Technician,Bodily,13.0,2.0,Good
+S3556,Technician,Bodily,12.62,2.0,Good
+S3557,Technician,Bodily,12.12,2.0,Good
+S3558,Technician,Bodily,12.75,2.0,Good
+S3559,Technician,Bodily,12.75,2.0,Good
+S3560,Technician,Bodily,13.0,2.0,Good
+S3561,Technician,Bodily,11.75,2.0,Good
+S3562,Technician,Bodily,12.38,2.0,Good
+S3563,Technician,Bodily,12.12,2.0,Good
+S3564,Technician,Bodily,12.38,2.0,Good
+S3565,Technician,Interpersonal,12.12,2.0,Good
+S3566,Technician,Bodily,12.12,2.0,Good
+S3567,Technician,Interpersonal,12.12,2.0,Good
+S3568,Technician,Interpersonal,12.62,2.0,Good
+S3569,Technician,Interpersonal,12.5,2.0,Good
+S3570,Technician,Interpersonal,13.0,2.0,Good
+S3571,Technician,Bodily,11.25,2.0,Good
+S3572,Technician,Bodily,11.75,2.0,Good
+S3573,Technician,Bodily,12.12,2.0,Good
+S3574,Technician,Bodily,12.62,2.0,Good
+S3575,Technician,Interpersonal,11.88,2.0,Good
+S3576,Technician,Bodily,11.75,2.0,Good
+S3577,Technician,Bodily,11.88,2.0,Good
+S3578,Technician,Bodily,12.38,2.0,Good
+S3579,Technician,Interpersonal,12.38,2.0,Good
+S3580,Technician,Interpersonal,12.88,2.0,Good
+S3581,Technician,Bodily,11.5,2.0,Good
+S3582,Technician,Bodily,12.0,2.0,Good
+S3583,Technician,Interpersonal,11.62,2.0,Good
+S3584,Technician,Interpersonal,12.12,2.0,Good
+S3585,Technician,Interpersonal,12.5,2.0,Good
+S3586,Technician,Bodily,12.38,2.0,Good
+S3587,Technician,Interpersonal,11.62,2.0,Good
+S3588,Technician,Interpersonal,12.12,2.0,Good
+S3589,Technician,Interpersonal,12.25,2.0,Good
+S3590,Technician,Interpersonal,12.75,2.0,Good
+S3591,Technician,Bodily,11.88,2.0,Good
+S3592,Technician,Interpersonal,11.88,2.0,Good
+S3593,Technician,Interpersonal,11.75,2.0,Good
+S3594,Technician,Interpersonal,12.25,2.0,Good
+S3595,Technician,Interpersonal,12.62,2.0,Good
+S3596,Technician,Bodily,12.0,2.0,Good
+S3597,Technician,Bodily,12.38,2.0,Good
+S3598,Technician,Bodily,12.88,2.0,Good
+S3599,Technician,Bodily,12.75,2.0,Good
+S3600,Technician,Interpersonal,13.38,2.0,Good
