@@ -1,0 +1,94 @@
+WEB DEVELOPMENT LEARNING GUIDE
+
+Web Development is the process of creating websites and web
+applications that run on the internet or a local network.
+
+PREREQUISITES:
+
+Basic programming and problem-solving knowledge are helpful.
+Students should understand basic computer and internet concepts.
+
+IMPORTANT TOPICS:
+
+1. HTML
+2. CSS
+3. JavaScript
+4. Responsive Design
+5. Frontend Development
+6. Backend Development
+7. APIs
+8. Databases
+9. Authentication
+10. Deployment
+
+HTML:
+
+HTML is used to create the structure of a web page.
+It defines elements such as headings, paragraphs, forms,
+buttons, images and links.
+
+CSS:
+
+CSS is used to style web pages. It controls colors, fonts,
+spacing, layouts and responsive design.
+
+JAVASCRIPT:
+
+JavaScript adds interactivity and dynamic behavior to web pages.
+It can be used to handle user actions, validate forms and
+communicate with backend APIs.
+
+FRONTEND DEVELOPMENT:
+
+Frontend development focuses on the part of an application
+that users see and interact with. HTML, CSS and JavaScript
+are fundamental frontend technologies.
+
+Popular frontend frameworks include React, Angular and Vue.
+
+BACKEND DEVELOPMENT:
+
+Backend development handles server-side logic, databases,
+authentication and APIs.
+
+Popular backend technologies include Flask, Django,
+Node.js and Spring Boot.
+
+DATABASES:
+
+Web applications commonly use databases to store information.
+Examples include MySQL, PostgreSQL, MongoDB and SQLite.
+
+APIs:
+
+An API allows different software applications to communicate
+with each other. REST APIs are commonly used in web applications.
+
+AUTHENTICATION:
+
+Authentication verifies the identity of a user. Common methods
+include username and password authentication and token-based
+authentication.
+
+LEARNING PATH:
+
+Students should first learn HTML and CSS.
+Then they should learn JavaScript and responsive design.
+After learning frontend fundamentals, they can learn a framework
+such as React.
+Students who want full-stack development should then learn
+backend development, APIs and databases.
+Finally, they should learn deployment and cloud platforms.
+
+PROJECT IDEAS:
+
+Beginner projects include portfolio websites, landing pages and
+to-do applications.
+Advanced projects include e-commerce websites, dashboards,
+social media applications and full-stack applications.
+
+CAREER CONNECTION:
+
+Web development is useful for careers such as Frontend Developer,
+Backend Developer, Full Stack Developer and Web Application
+Developer.

@@ -1,0 +1,56 @@
+PYTHON LEARNING GUIDE
+
+Python is a high-level, interpreted programming language used in
+software development, automation, data science, machine learning,
+artificial intelligence and web development.
+
+PREREQUISITES:
+No advanced programming knowledge is required. Basic computer
+knowledge and logical thinking are helpful.
+
+BEGINNER TOPICS:
+1. Variables and data types
+2. Numbers and strings
+3. Operators
+4. Conditional statements
+5. For and while loops
+6. Lists and tuples
+7. Dictionaries and sets
+8. Functions
+9. File handling
+10. Exception handling
+
+INTERMEDIATE TOPICS:
+1. Object-oriented programming
+2. Classes and objects
+3. Inheritance
+4. Modules and packages
+5. Virtual environments
+6. Working with APIs
+7. Database connectivity
+
+IMPORTANT PYTHON LIBRARIES:
+NumPy is mainly used for numerical computing.
+Pandas is used for data manipulation and analysis.
+Matplotlib is used for data visualization.
+Scikit-learn is used for machine learning.
+TensorFlow and PyTorch are used for deep learning.
+
+LEARNING PATH:
+A beginner should first learn Python fundamentals.
+After Python basics, students interested in data science or AI
+can learn NumPy and Pandas.
+After that they can learn statistics and machine learning.
+Students interested in web development can learn HTML, CSS,
+JavaScript and then a Python web framework such as Flask.
+
+PROJECT IDEAS:
+Beginner projects include a calculator, quiz application,
+to-do application and simple file management application.
+Intermediate projects include a data analysis application,
+Flask web application or API-based application.
+
+CAREER CONNECTION:
+Python is useful for careers such as software developer,
+data analyst, data scientist, machine learning engineer,
+AI engineer and backend developer.

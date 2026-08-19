@@ -1,0 +1,65 @@
+MACHINE LEARNING LEARNING GUIDE
+
+Machine Learning is a branch of Artificial Intelligence that
+allows computers to learn patterns from data and make predictions
+or decisions without being explicitly programmed for every case.
+
+PREREQUISITES:
+Students should know basic Python programming, mathematics and
+basic statistics before starting Machine Learning.
+
+IMPORTANT TOPICS:
+1. Supervised Learning
+2. Unsupervised Learning
+3. Regression
+4. Classification
+5. Clustering
+6. Feature Engineering
+7. Model Evaluation
+8. Cross Validation
+9. Hyperparameter Tuning
+10. Model Deployment
+
+SUPERVISED LEARNING:
+In supervised learning, the model learns from data that contains
+input features and known output labels.
+
+Common algorithms include:
+Linear Regression, Logistic Regression, Decision Trees,
+Random Forest, Support Vector Machine and K-Nearest Neighbors.
+
+UNSUPERVISED LEARNING:
+In unsupervised learning, the data does not contain predefined
+output labels. The algorithm tries to discover patterns or groups.
+
+Common algorithms include:
+K-Means Clustering, Hierarchical Clustering and PCA.
+
+MODEL EVALUATION:
+Classification models can be evaluated using accuracy, precision,
+recall, F1-score and confusion matrix.
+
+Regression models can be evaluated using MAE, MSE, RMSE and R-squared.
+
+IMPORTANT LIBRARIES:
+NumPy is used for numerical operations.
+Pandas is used for data processing.
+Matplotlib and Seaborn are used for visualization.
+Scikit-learn provides many machine learning algorithms and tools.
+
+LEARNING PATH:
+Students should first learn Python, NumPy and Pandas.
+Then they should learn statistics and data preprocessing.
+After that they can learn supervised and unsupervised learning.
+Finally, they can learn model evaluation, tuning and deployment.
+
+PROJECT IDEAS:
+Beginner projects include house price prediction and student
+performance prediction.
+Intermediate projects include customer churn prediction,
+sentiment analysis and recommendation systems.
+
+CAREER CONNECTION:
+Machine Learning knowledge is useful for careers such as
+Machine Learning Engineer, Data Scientist, AI Engineer and
+Data Analyst.

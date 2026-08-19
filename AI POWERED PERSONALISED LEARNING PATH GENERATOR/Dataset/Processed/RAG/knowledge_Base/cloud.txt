@@ -1,0 +1,91 @@
+CLOUD COMPUTING LEARNING GUIDE
+
+Cloud Computing is the delivery of computing resources such as
+servers, storage, databases, networking and software over the
+internet.
+
+PREREQUISITES:
+
+Basic computer networking and operating system concepts are
+helpful. Basic programming knowledge is also useful.
+
+IMPORTANT TOPICS:
+
+1. Cloud Computing Fundamentals
+2. Virtualization
+3. Cloud Service Models
+4. Cloud Deployment Models
+5. Cloud Storage
+6. Cloud Networking
+7. Databases
+8. Security
+9. Containers
+10. Cloud Deployment
+
+SERVICE MODELS:
+
+IaaS provides virtual machines, storage and networking resources.
+
+PaaS provides a platform for developing and deploying applications
+without managing the underlying infrastructure.
+
+SaaS provides software applications through the internet.
+
+DEPLOYMENT MODELS:
+
+Public Cloud resources are provided over the internet and shared
+among multiple customers.
+
+Private Cloud is dedicated to a particular organization.
+
+Hybrid Cloud combines public and private cloud environments.
+
+IMPORTANT CLOUD PLATFORMS:
+
+Amazon Web Services (AWS), Microsoft Azure and Google Cloud
+Platform (GCP) are major cloud computing platforms.
+
+AWS:
+
+AWS provides services for computing, storage, databases,
+networking, security and application deployment.
+
+Important AWS services include EC2, S3, RDS, Lambda and VPC.
+
+LINUX:
+
+Linux knowledge is useful for cloud computing because many cloud
+servers run Linux operating systems.
+
+DOCKER:
+
+Docker is a containerization platform that packages an application
+and its dependencies together so that it can run consistently
+across different environments.
+
+CLOUD SECURITY:
+
+Cloud security involves protecting applications, data, identities
+and infrastructure from unauthorized access and attacks.
+
+LEARNING PATH:
+
+Students should first understand networking, operating systems
+and basic cloud concepts.
+Then they should learn virtualization and cloud service models.
+After that they can learn one major cloud platform such as AWS.
+Students can then learn Linux, Docker, databases, networking and
+cloud security.
+Finally, they can learn cloud deployment and DevOps concepts.
+
+PROJECT IDEAS:
+
+Beginner projects include hosting a static website on cloud storage.
+Intermediate projects include deploying a Flask application,
+creating a cloud database or deploying a containerized application.
+
+CAREER CONNECTION:
+
+Cloud knowledge is useful for careers such as Cloud Engineer,
+Cloud Developer, DevOps Engineer, Site Reliability Engineer and
+Cloud Architect.

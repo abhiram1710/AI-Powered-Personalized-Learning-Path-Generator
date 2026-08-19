@@ -1,0 +1,76 @@
+DATA SCIENCE LEARNING GUIDE
+
+Data Science is a field that combines statistics, programming,
+data analysis, machine learning and visualization to extract
+useful information and insights from data.
+
+PREREQUISITES:
+
+Students should have basic Python programming knowledge.
+Basic mathematics and statistics are also useful.
+
+IMPORTANT TOPICS:
+
+1. Python Programming
+2. NumPy
+3. Pandas
+4. Data Cleaning
+5. Data Preprocessing
+6. Exploratory Data Analysis
+7. Data Visualization
+8. Statistics
+9. Machine Learning
+10. SQL
+11. Data Communication
+
+NUMPY:
+
+NumPy is a Python library used for numerical computing.
+It provides arrays and mathematical operations that are useful
+for processing large amounts of numerical data.
+
+PANDAS:
+
+Pandas is used for loading, cleaning, transforming and analyzing
+structured data. DataFrame and Series are important Pandas
+data structures.
+
+DATA CLEANING:
+
+Data cleaning involves handling missing values, duplicate records,
+incorrect data types and inconsistent data.
+
+EXPLORATORY DATA ANALYSIS:
+
+EDA is the process of examining a dataset to understand patterns,
+relationships, distributions and unusual values.
+
+DATA VISUALIZATION:
+
+Matplotlib and Seaborn can be used to create charts and graphs.
+Visualization helps users understand data more easily.
+
+SQL:
+
+SQL is important for retrieving and managing data stored in
+relational databases. Data Scientists commonly use SQL to query
+and analyze datasets.
+
+LEARNING PATH:
+
+Students should first learn Python, NumPy and Pandas.
+Then they should learn data cleaning and exploratory data analysis.
+After that they should learn statistics, visualization and SQL.
+Finally, they can learn Machine Learning and advanced analytics.
+
+PROJECT IDEAS:
+
+Beginner projects include sales data analysis, student performance
+analysis and basic data visualization.
+Advanced projects include customer segmentation, recommendation
+systems and predictive analytics.
+
+CAREER CONNECTION:
+
+Data Science knowledge is useful for careers such as Data Scientist,
+Data Analyst, Business Analyst and Machine Learning Engineer.

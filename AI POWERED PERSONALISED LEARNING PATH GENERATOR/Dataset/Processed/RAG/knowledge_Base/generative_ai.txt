@@ -1,0 +1,100 @@
+GENERATIVE AI LEARNING GUIDE
+
+Generative AI is a branch of Artificial Intelligence that can
+create new content such as text, images, audio, video and code.
+
+PREREQUISITES:
+
+Students should have basic Python programming knowledge.
+Understanding of Machine Learning and Deep Learning fundamentals
+is helpful.
+
+IMPORTANT TOPICS:
+
+1. Artificial Intelligence Fundamentals
+2. Machine Learning
+3. Deep Learning
+4. Natural Language Processing
+5. Large Language Models
+6. Prompt Engineering
+7. Embeddings
+8. Vector Databases
+9. Retrieval-Augmented Generation
+10. AI Agents
+11. Model Evaluation
+12. LLM Application Development
+
+LARGE LANGUAGE MODELS:
+
+Large Language Models, or LLMs, are neural network models trained
+on large amounts of text data. They can understand and generate
+human-like text.
+
+Examples include models from OpenAI, Google, Meta and other
+AI companies.
+
+PROMPT ENGINEERING:
+
+Prompt engineering is the process of designing effective
+instructions for an AI model to obtain useful and accurate
+responses.
+
+EMBEDDINGS:
+
+Embeddings represent text or other information as numerical
+vectors. Similar meanings can be represented by vectors that
+are close to each other in vector space.
+
+VECTOR DATABASES:
+
+Vector databases store embeddings and allow applications to
+search for information based on semantic similarity.
+
+Examples include FAISS, Chroma and Pinecone.
+
+RAG:
+
+Retrieval-Augmented Generation combines information retrieval
+with a Large Language Model.
+
+The basic RAG process is:
+
+User Question
+→ Retrieve Relevant Information
+→ Provide Context to LLM
+→ Generate Answer
+
+RAG allows an application to use information from its own
+knowledge base without retraining the LLM.
+
+AI AGENTS:
+
+AI Agents are systems that can use an LLM together with tools,
+memory and reasoning to perform tasks.
+
+Agents can search information, call APIs, use tools and complete
+multi-step tasks.
+
+LEARNING PATH:
+
+Students should first understand Machine Learning and Deep
+Learning fundamentals.
+Then they can learn NLP and Large Language Models.
+After that they should learn prompt engineering and embeddings.
+Next they can learn vector databases and RAG.
+Finally, they can learn AI Agents, LangGraph, evaluation and
+advanced LLM application development.
+
+PROJECT IDEAS:
+
+Beginner projects include an AI chatbot and document question
+answering system.
+Intermediate projects include a RAG-based student assistant,
+resume analyzer and AI career assistant.
+Advanced projects include AI agents and multi-agent systems.
+
+CAREER CONNECTION:
+
+Generative AI knowledge is useful for careers such as
+Generative AI Engineer, AI Engineer, Machine Learning Engineer,
+LLM Application Developer and AI Solutions Engineer.

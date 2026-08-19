@@ -1,0 +1,77 @@
+DEEP LEARNING LEARNING GUIDE
+
+Deep Learning is a branch of Machine Learning that uses artificial
+neural networks with multiple layers to learn complex patterns from
+large amounts of data.
+
+PREREQUISITES:
+
+Students should understand basic Python, NumPy, Pandas and the
+fundamentals of Machine Learning before learning Deep Learning.
+Basic mathematics and statistics are also helpful.
+
+IMPORTANT TOPICS:
+
+1. Neural Networks
+2. Neurons and Layers
+3. Activation Functions
+4. Forward Propagation
+5. Backpropagation
+6. Loss Functions
+7. Optimizers
+8. Convolutional Neural Networks
+9. Recurrent Neural Networks
+10. Transfer Learning
+11. Model Evaluation
+12. Model Deployment
+
+NEURAL NETWORKS:
+
+A neural network consists of an input layer, one or more hidden
+layers and an output layer. Each neuron receives inputs, applies
+weights and an activation function, and produces an output.
+
+ACTIVATION FUNCTIONS:
+
+ReLU is commonly used in hidden layers.
+Sigmoid is useful for binary classification.
+Softmax is commonly used for multi-class classification.
+
+CONVOLUTIONAL NEURAL NETWORKS:
+
+CNNs are mainly used for image-related tasks. They can identify
+features such as edges, shapes and patterns in images.
+
+RECURRENT NEURAL NETWORKS:
+
+RNNs are designed for sequential data such as text, speech and
+time-series information.
+
+IMPORTANT FRAMEWORKS:
+
+TensorFlow is an open-source framework used for machine learning
+and deep learning.
+Keras is a high-level API that makes it easier to build neural
+network models.
+PyTorch is another popular deep learning framework.
+
+LEARNING PATH:
+
+Students should first learn Machine Learning fundamentals.
+Then they should learn neural networks and the training process.
+After understanding basic neural networks, they can learn CNNs,
+RNNs and transfer learning.
+Finally, they can learn model optimization and deployment.
+
+PROJECT IDEAS:
+
+Beginner projects include handwritten digit classification and
+image classification.
+Intermediate projects include face mask detection, object
+classification and image-based prediction systems.
+
+CAREER CONNECTION:
+
+Deep Learning is useful for careers such as AI Engineer,
+Deep Learning Engineer, Computer Vision Engineer and
+Machine Learning Engineer.
