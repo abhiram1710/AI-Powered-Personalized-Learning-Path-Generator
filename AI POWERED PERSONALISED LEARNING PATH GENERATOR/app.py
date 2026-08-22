@@ -182,8 +182,9 @@ def dashboard(user):
                 question_row = quiz_rows[question_index]
                 options = [question_row["option_a"], question_row["option_b"], question_row["option_c"], question_row["option_d"]]
                 answer_key = str(question_row["id"])
-                chosen = st.radio(question_row["question"], options, index=options.index(st.session_state.quiz_answers[answer_key]) if answer_key in st.session_state.quiz_answers else None, key=f"question_{quiz_key}_{question_row['id']}")
-                st.session_state.quiz_answers[answer_key] = chosen
+                chosen = st.radio(question_row["question"], options, index=options.index(st.session_state.quiz_answers[answer_key]) if answer_key in st.session_state.quiz_answers and st.session_state.quiz_answers[answer_key] in options else None, key=f"question_{quiz_key}_{question_row['id']}")
+                if chosen is not None:
+                    st.session_state.quiz_answers[answer_key] = chosen
                 navigation = st.columns(3)
                 with navigation[0]:
                     if st.button("Previous", disabled=question_index == 0):
