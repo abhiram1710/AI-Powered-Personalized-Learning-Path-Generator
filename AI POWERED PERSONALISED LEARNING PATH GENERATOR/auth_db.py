@@ -44,15 +44,20 @@ def init_db():
         CREATE TABLE IF NOT EXISTS skill_gaps (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS course_recommendations (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
-        CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Core concept', quiz_level TEXT NOT NULL DEFAULT 'Intermediate');
         CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
-        CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, submitted_at TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, concept TEXT NOT NULL DEFAULT 'Core concept', submitted_at TEXT NOT NULL);
         """)
         try:
             db.execute("ALTER TABLE quizzes ADD COLUMN quiz_level TEXT NOT NULL DEFAULT 'Intermediate'")
         except sqlite3.OperationalError:
             pass
+        for statement in ("ALTER TABLE quizzes ADD COLUMN concept TEXT NOT NULL DEFAULT 'Core concept'", "ALTER TABLE quiz_answers ADD COLUMN is_correct INTEGER NOT NULL DEFAULT 0", "ALTER TABLE quiz_answers ADD COLUMN concept TEXT NOT NULL DEFAULT 'Core concept'"):
+            try:
+                db.execute(statement)
+            except sqlite3.OperationalError:
+                pass
 
 
 def _password_hash(password):
@@ -220,13 +225,43 @@ QUIZ_BANK = {
 }
 
 
+CONCEPT_KEYWORDS = {
+    "Python": [("Variables and data types", ("type", "none")), ("Collections", ("mutable", "dictionary")), ("Functions", ("function",)), ("Exception handling", ("exception",)), ("Iteration", ("loop",)), ("Object-oriented programming", ("class",)), ("Modules", ("module",)), ("Comments", ("comment",))],
+    "Pandas": [("Series and DataFrame", ("series", "dataframe")), ("Indexing", ("accessor",)), ("Filtering", ("filter",)), ("GroupBy", ("groupby",)), ("Merge and join", ("merge",)), ("Missing values", ("missing",)), ("Sorting", ("sort",)), ("Pivot tables", ("pivot",)), ("Apply and map", ("function",)), ("Reading CSV", ("csv",))],
+    "Sql": [("WHERE filtering", ("filters",)), ("SELECT", ("reads",)), ("JOINs", ("combines",)), ("Aggregate functions", ("counts", "average")), ("GROUP BY", ("groups",)), ("HAVING", ("grouped",)), ("Primary keys", ("identifies",)), ("INSERT", ("new row",)), ("Subqueries", ("subquery",))],
+    "Machine Learning": [("Supervised learning", ("supervised",)), ("Regression", ("continuous",)), ("Classification", ("category",)), ("Train/test split", ("split",)), ("Overfitting", ("overfitting",)), ("Evaluation metrics", ("metric",)), ("Features", ("feature",)), ("Clustering", ("clustering",)), ("Feature scaling", ("scale",)), ("Predictions", ("prediction",))],
+}
+
+QUIZ_CONCEPTS = {
+    "Python": ["Variables and data types", "Collections", "Dictionaries", "Exception handling", "Built-in functions", "Iteration", "Object-oriented programming", "Comments", "Special values", "Modules"],
+    "Pandas": ["Series and DataFrame", "Indexing", "Filtering", "GroupBy", "Merge and join", "Missing values", "Sorting", "Pivot tables", "Apply and map", "Reading CSV"],
+    "Sql": ["WHERE filtering", "SELECT", "JOINs", "Aggregate functions", "GROUP BY", "HAVING", "Primary keys", "INSERT", "AVG function", "Subqueries"],
+    "Machine Learning": ["Supervised learning", "Regression", "Classification", "Train/test split", "Overfitting", "Evaluation metrics", "Features", "Clustering", "Feature scaling", "Predictions"],
+}
+
+
+def question_concept(skill, question):
+    bank = next((questions for name, questions in QUIZ_BANK.items() if _norm(name) == _norm(skill)), [])
+    concepts = next((concepts for name, concepts in QUIZ_CONCEPTS.items() if _norm(name) == _norm(skill)), [])
+    for index, item in enumerate(bank):
+        if item[0] == question and index < len(concepts):
+            return concepts[index]
+    question_key = question.lower()
+    concept_rows = next((rows for name, rows in CONCEPT_KEYWORDS.items() if _norm(name) == _norm(skill)), [])
+    for concept, keywords in concept_rows:
+        if any(keyword in question_key for keyword in keywords):
+            return concept
+    return "Core concept"
+
+
 def _quiz_count(preferred_level):
     return {"Beginner": 5, "Intermediate": 7, "Advanced": 10}.get(preferred_level, 7)
 
 
 def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questions=None):
     """Create a fresh randomized, skill-specific quiz attempt for one user."""
-    questions = list(QUIZ_BANK.get(skill, []))
+    bank = next((questions for name, questions in QUIZ_BANK.items() if _norm(name) == _norm(skill)), [])
+    questions = list(bank)
     if not questions:
         concepts = ["foundations", "workflow", "inputs", "outputs", "validation", "application", "troubleshooting", "comparison", "best practice", "interpretation"]
         questions = [(f"{skill} concept check: which action best supports {concept}?", [f"Apply {skill} through {concept}", "Skip the topic", "Ignore feedback", "Delete the notes"], f"Apply {skill} through {concept}") for concept in concepts]
@@ -240,7 +275,8 @@ def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questio
         rows = []
         for question, options, answer in questions[:required_count]:
             shuffled = list(options); randomizer.shuffle(shuffled)
-            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer, preferred_level))
+            concept = question_concept(skill, question)
+            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer, preferred_level, concept))
             rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (cursor.lastrowid,)).fetchone()))
     return rows
 
@@ -252,7 +288,7 @@ def submit_quiz_attempt(user_id, quiz_rows, answers):
         for row in quiz_rows:
             answer = answers.get(str(row["id"]), "")
             if answer == row["correct_answer"]: score += 1
-            db.execute("INSERT INTO quiz_answers(user_id, quiz_id, user_answer, submitted_at) VALUES (?, ?, ?, ?)", (user_id, row["id"], answer, datetime.now(timezone.utc).isoformat()))
+            db.execute("INSERT INTO quiz_answers(user_id, quiz_id, user_answer, is_correct, concept, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, row["id"], answer, int(answer == row["correct_answer"]), row.get("concept", "Core concept"), datetime.now(timezone.utc).isoformat()))
         percentage = score / len(quiz_rows) * 100
         db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, quiz_rows[0]["id"], score, len(quiz_rows), percentage, datetime.now(timezone.utc).isoformat()))
     return score, len(quiz_rows), percentage

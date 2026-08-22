@@ -27,6 +27,103 @@ QUESTIONS = {
     "Aws": [("Which AWS service provides object storage?", ["S3", "EC2", "IAM", "RDS"], "S3")],
 }
 
+CONCEPT_MATERIALS = {
+    "Python Variables and data types": ("Python data structures", "https://docs.python.org/3/tutorial/introduction.html"),
+    "Python Collections": ("Python data structures", "https://docs.python.org/3/tutorial/datastructures.html"),
+    "Python Dictionaries": ("Python dictionaries", "https://docs.python.org/3/tutorial/datastructures.html#dictionaries"),
+    "Python Functions": ("Python functions", "https://docs.python.org/3/tutorial/controlflow.html#defining-functions"),
+    "Python Exception handling": ("Python exceptions", "https://docs.python.org/3/tutorial/errors.html"),
+    "Python Iteration": ("Python control flow", "https://docs.python.org/3/tutorial/controlflow.html"),
+    "Python Object-oriented programming": ("Python classes", "https://docs.python.org/3/tutorial/classes.html"),
+    "Python Modules": ("Python modules", "https://docs.python.org/3/tutorial/modules.html"),
+    "Python Built-in functions": ("Python built-in functions", "https://docs.python.org/3/library/functions.html"),
+    "Python Special values": ("Python built-in constants", "https://docs.python.org/3/library/constants.html"),
+    "Python Comments": ("Python introduction", "https://docs.python.org/3/tutorial/introduction.html"),
+    "Pandas Series and DataFrame": ("Pandas intro to data structures", "https://pandas.pydata.org/docs/user_guide/dsintro.html"),
+    "Pandas Indexing": ("Pandas indexing", "https://pandas.pydata.org/docs/user_guide/indexing.html"),
+    "Pandas Filtering": ("Pandas indexing and selecting data", "https://pandas.pydata.org/docs/user_guide/indexing.html"),
+    "Pandas GroupBy": ("Pandas GroupBy", "https://pandas.pydata.org/docs/user_guide/groupby.html"),
+    "Pandas Merge and join": ("Pandas merge", "https://pandas.pydata.org/docs/user_guide/merging.html"),
+    "Pandas Missing values": ("Pandas missing data", "https://pandas.pydata.org/docs/user_guide/missing_data.html"),
+    "Pandas Sorting": ("Pandas sorting", "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html"),
+    "Pandas Pivot tables": ("Pandas pivot tables", "https://pandas.pydata.org/docs/user_guide/reshaping.html"),
+    "Pandas Apply and map": ("Pandas function application", "https://pandas.pydata.org/docs/user_guide/basics.html#function-application"),
+    "Pandas Reading CSV": ("Pandas read_csv", "https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"),
+    "Sql WHERE filtering": ("SQL WHERE", "https://www.postgresql.org/docs/current/tutorial-select.html"),
+    "Sql SELECT": ("SQL SELECT", "https://www.postgresql.org/docs/current/tutorial-select.html"),
+    "Sql JOINs": ("SQL joins", "https://www.postgresql.org/docs/current/tutorial-join.html"),
+    "Sql Aggregate functions": ("SQL aggregate functions", "https://www.postgresql.org/docs/current/functions-aggregate.html"),
+    "Sql AVG function": ("PostgreSQL aggregate functions", "https://www.postgresql.org/docs/current/functions-aggregate.html"),
+    "Sql GROUP BY": ("SQL GROUP BY", "https://www.postgresql.org/docs/current/tutorial-agg.html"),
+    "Sql HAVING": ("SQL HAVING", "https://www.postgresql.org/docs/current/tutorial-agg.html"),
+    "Sql Primary keys": ("PostgreSQL constraints", "https://www.postgresql.org/docs/current/ddl-constraints.html"),
+    "Sql INSERT": ("SQL INSERT", "https://www.postgresql.org/docs/current/dml-insert.html"),
+    "Sql Subqueries": ("SQL subqueries", "https://www.postgresql.org/docs/current/functions-subquery.html"),
+    "Machine Learning Supervised learning": ("Scikit-learn supervised learning", "https://scikit-learn.org/stable/supervised_learning.html"),
+    "Machine Learning Regression": ("Scikit-learn linear models", "https://scikit-learn.org/stable/modules/linear_model.html"),
+    "Machine Learning Classification": ("Scikit-learn classification", "https://scikit-learn.org/stable/supervised_learning.html"),
+    "Machine Learning Train/test split": ("Scikit-learn model selection", "https://scikit-learn.org/stable/model_selection.html"),
+    "Machine Learning Overfitting": ("Scikit-learn learning curves", "https://scikit-learn.org/stable/modules/learning_curve.html"),
+    "Machine Learning Evaluation metrics": ("Scikit-learn metrics", "https://scikit-learn.org/stable/modules/model_evaluation.html"),
+    "Machine Learning Features": ("Scikit-learn preprocessing", "https://scikit-learn.org/stable/modules/preprocessing.html"),
+    "Machine Learning Clustering": ("Scikit-learn clustering", "https://scikit-learn.org/stable/modules/clustering.html"),
+    "Machine Learning Feature scaling": ("Scikit-learn scaling", "https://scikit-learn.org/stable/modules/preprocessing.html"),
+    "Machine Learning Predictions": ("Scikit-learn model evaluation", "https://scikit-learn.org/stable/modules/model_evaluation.html"),
+}
+
+CONCEPT_EXPLANATIONS = {
+    "Variables and data types": "Variables refer to values, and data types describe what operations are valid for those values.",
+    "Collections": "Lists are ordered and mutable, while dictionaries map keys to values; choosing the right collection affects access and updates.",
+    "Dictionaries": "A dictionary stores key-value pairs and is useful when values should be retrieved by a meaningful key.",
+    "Functions": "Functions package reusable behavior behind a name and can receive arguments and return values.",
+    "Exception handling": "try/except catches expected runtime errors so a program can respond instead of stopping unexpectedly.",
+    "Iteration": "A for loop visits items in an iterable one at a time, making repeated work explicit and readable.",
+    "Object-oriented programming": "A class is a blueprint for objects that combines related data and behavior.",
+    "Modules": "import loads code from a module so related functionality can be reused without copying it.",
+    "Built-in functions": "Built-in functions such as len() are available without importing a module and provide common operations.",
+    "Special values": "None represents the absence of a value and is distinct from numeric zero or an empty collection.",
+    "Comments": "The # marker begins a Python comment, which documents code and is ignored by the interpreter.",
+    "Series and DataFrame": "A Series is one-dimensional; a DataFrame is a two-dimensional labeled table made from aligned Series.",
+    "Indexing": "loc selects by labels, while iloc selects by integer positions.",
+    "Filtering": "Boolean indexing keeps only rows whose condition evaluates to True.",
+    "GroupBy": "groupby divides rows into groups and lets you apply aggregations such as sum, mean, or count.",
+    "Merge and join": "merge combines DataFrames using matching keys; it is different from grouping rows for aggregation.",
+    "Missing values": "fillna replaces missing values using a chosen value or strategy, while dropna removes affected rows or columns.",
+    "Sorting": "sort_values orders rows by one or more columns without changing the meaning of the values.",
+    "Pivot tables": "pivot_table summarizes data across row and column dimensions using an aggregation function.",
+    "Apply and map": "map applies a function element-wise to a Series, while apply supports broader row, column, or element operations.",
+    "Reading CSV": "read_csv parses a CSV file into a DataFrame so its columns can be inspected and transformed.",
+    "WHERE filtering": "WHERE filters individual rows before grouping or aggregation.",
+    "SELECT": "SELECT specifies the columns and expressions returned from a query.",
+    "JOINs": "A JOIN combines rows from related tables using a matching relationship or key.",
+    "Aggregate functions": "COUNT, SUM, and AVG summarize multiple rows into a calculated result.",
+    "AVG function": "AVG calculates the arithmetic mean of non-null input values in a SQL query.",
+    "GROUP BY": "GROUP BY forms groups so aggregate functions can calculate one result per group.",
+    "HAVING": "HAVING filters grouped results after aggregation, unlike WHERE which filters rows first.",
+    "Primary keys": "A primary key uniquely identifies each row and prevents duplicate identity values.",
+    "INSERT": "INSERT adds new rows to a table and supplies values for its columns.",
+    "Subqueries": "A subquery is a query nested inside another query and can provide values or rows for the outer query.",
+    "Supervised learning": "Supervised learning learns a mapping from labeled examples to predict labels or numeric targets.",
+    "Regression": "Regression predicts continuous numeric values, such as a price or temperature.",
+    "Classification": "Classification predicts a discrete class, such as spam or not spam.",
+    "Train/test split": "A train/test split evaluates a model on held-out examples rather than only on data it saw during training.",
+    "Overfitting": "Overfitting happens when a model memorizes training detail and performs poorly on unseen data.",
+    "Evaluation metrics": "Metrics quantify model performance; the right metric depends on the task and its costs.",
+    "Features": "Features are input variables used by a model to produce a prediction.",
+    "Clustering": "Clustering groups similar unlabeled observations without requiring predefined target labels.",
+    "Feature scaling": "Scaling puts numeric features on comparable ranges so magnitude does not dominate some algorithms.",
+    "Predictions": "A prediction is the model output produced from input features after learning from training data.",
+}
+
+
+def review_details(skill, concept, question, user_answer, correct_answer):
+    material_title, material_url = CONCEPT_MATERIALS.get(
+        f"{skill} {concept}",
+        (f"Learn {skill}: {concept}", "https://scikit-learn.org/stable/user_guide.html" if skill == "Machine Learning" else "https://docs.python.org/3/tutorial/"),
+    )
+    explanation = CONCEPT_EXPLANATIONS.get(concept, f"Review the core ideas and practical application of {skill}.")
+    return explanation, material_title, material_url
+
 st.set_page_config(page_title="Personalised Learning Platform", page_icon="LP", layout="wide")
 auth_db.init_db()
 
@@ -203,6 +300,38 @@ def dashboard(user):
                     score, total, percentage = st.session_state.quiz_result
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
+                    incorrect_rows = [row for row in quiz_rows if st.session_state.quiz_answers.get(str(row["id"])) != row["correct_answer"]]
+                    if incorrect_rows:
+                        st.subheader("Topics to Review")
+                        for row in incorrect_rows:
+                            concept = row.get("concept", "Core concept")
+                            title, url = CONCEPT_MATERIALS.get(f"{selected_skill} {concept}", (f"Learn {selected_skill}", "https://docs.python.org/3/tutorial/"))
+                            st.markdown(f"- **{concept}** · [Learn Topic]({url})")
+                    st.subheader("Review Your Answers")
+                    for number, row in enumerate(quiz_rows, 1):
+                        answer = st.session_state.quiz_answers.get(str(row["id"]), "Not answered")
+                        correct = row["correct_answer"]
+                        is_correct = answer == correct
+                        concept = row.get("concept", "Core concept")
+                        explanation, title, url = review_details(selected_skill, concept, row["question"], answer, correct)
+                        with st.expander(f"{'✅' if is_correct else '❌'} Question {number} · {concept}"):
+                            st.write("**Question:**", row["question"])
+                            st.write("**Your Answer:**", answer)
+                            st.write("**Correct Answer:**", correct)
+                            st.write("**Result:**", "✅ Correct" if is_correct else "❌ Incorrect")
+                            if is_correct:
+                                st.write("**Explanation:**", explanation)
+                            else:
+                                st.write("**Why your answer is incorrect:** Your selected option does not match the concept tested.")
+                                st.write("**Why the correct answer is correct:**", explanation)
+                            st.write("**Topic:**", concept)
+                            st.markdown(f"**Study Material:** [{title}]({url})")
+                            with st.expander("Optional RAG context"):
+                                context_results = rag_search(f"{selected_skill} {concept}", user)
+                                if context_results and "error" not in context_results[0]:
+                                    st.write(context_results[0]["content"][:1200])
+                                else:
+                                    st.info("RAG context is unavailable; the predefined explanation above is still available.")
                     if st.button("Retry quiz"):
                         st.session_state.quiz_used_questions[quiz_key].update(row["question"] for row in quiz_rows)
                         st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key])
