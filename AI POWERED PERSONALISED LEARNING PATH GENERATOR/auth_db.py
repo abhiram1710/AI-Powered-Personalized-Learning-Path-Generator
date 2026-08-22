@@ -49,6 +49,10 @@ def init_db():
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
         CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, submitted_at TEXT NOT NULL);
         """)
+        try:
+            db.execute("ALTER TABLE quizzes ADD COLUMN quiz_level TEXT NOT NULL DEFAULT 'Intermediate'")
+        except sqlite3.OperationalError:
+            pass
 
 
 def _password_hash(password):
@@ -189,6 +193,18 @@ QUIZ_BANK = {
         ("Which function calculates an average?", ["MEAN", "AVG", "AVERAGE", "MID"], "AVG"),
         ("What is a subquery?", ["A query inside another query", "A deleted table", "A database user", "A column type"], "A query inside another query"),
     ],
+    "Pandas": [
+        ("What is the main difference between a Series and a DataFrame?", ["A Series is one-dimensional; a DataFrame is two-dimensional", "A Series is always text", "A DataFrame cannot have labels", "They are identical"], "A Series is one-dimensional; a DataFrame is two-dimensional"),
+        ("Which accessor selects rows and columns by labels?", ["iloc", "loc", "at only", "axis"], "loc"),
+        ("Which expression filters rows where age is greater than 18?", ["df[df['age'] > 18]", "df.filter(age > 18)", "df.rows(18)", "df.where('age')"], "df[df['age'] > 18]"),
+        ("What does groupby commonly enable?", ["Split-apply-combine analysis", "Password hashing", "File compression", "Plot rendering only"], "Split-apply-combine analysis"),
+        ("Which operation combines DataFrames using matching keys?", ["merge", "sort_values", "describe", "astype"], "merge"),
+        ("Which method replaces missing values?", ["fillna", "dropindex", "replaceall", "missing"], "fillna"),
+        ("Which method orders rows by a column?", ["sort_values", "order_rows", "arrange", "rank_table"], "sort_values"),
+        ("Which method creates a spreadsheet-style summary?", ["pivot_table", "reshape_only", "table_view", "summarize_file"], "pivot_table"),
+        ("Which function applies a Python function element-wise to a Series?", ["map", "merge", "concat", "join"], "map"),
+        ("Which function reads a CSV file into a DataFrame?", ["read_csv", "load_csv_data", "open_table", "csv_import"], "read_csv"),
+    ],
     "Machine Learning": [
         ("What does supervised learning use?", ["Labeled data", "No data", "Only rules", "Passwords"], "Labeled data"),
         ("Which task predicts a continuous value?", ["Regression", "Classification", "Clustering", "Sorting"], "Regression"),
@@ -208,23 +224,23 @@ def _quiz_count(preferred_level):
     return {"Beginner": 5, "Intermediate": 7, "Advanced": 10}.get(preferred_level, 7)
 
 
-def create_quiz_attempt(user_id, skill, stage, preferred_level):
+def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questions=None):
     """Create a fresh randomized, skill-specific quiz attempt for one user."""
-    questions = list(QUIZ_BANK.get(skill, [
-        (f"Which activity best develops {skill}?", ["Practice a focused example", "Skip the topic", "Delete the notes", "Avoid feedback"], "Practice a focused example"),
-        (f"What should you do when learning {skill}?", ["Apply it to a small problem", "Use no examples", "Ignore results", "Avoid practice"], "Apply it to a small problem"),
-    ]))
+    questions = list(QUIZ_BANK.get(skill, []))
+    if not questions:
+        concepts = ["foundations", "workflow", "inputs", "outputs", "validation", "application", "troubleshooting", "comparison", "best practice", "interpretation"]
+        questions = [(f"{skill} concept check: which action best supports {concept}?", [f"Apply {skill} through {concept}", "Skip the topic", "Ignore feedback", "Delete the notes"], f"Apply {skill} through {concept}") for concept in concepts]
     required_count = _quiz_count(preferred_level)
-    while len(questions) < required_count:
-        number = len(questions) + 1
-        questions.append((f"Practice check {number}: what supports progress in {skill}?", ["Review and apply the concept", "Skip practice", "Ignore feedback", "Remove the exercise"], "Review and apply the concept"))
+    excluded_questions = set(excluded_questions or [])
+    unused_questions = [question for question in questions if question[0] not in excluded_questions]
+    questions = unused_questions + [question for question in questions if question[0] in excluded_questions]
     randomizer = random.SystemRandom()
     randomizer.shuffle(questions)
     with connect() as db:
         rows = []
         for question, options, answer in questions[:required_count]:
             shuffled = list(options); randomizer.shuffle(shuffled)
-            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer))
+            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer, preferred_level))
             rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (cursor.lastrowid,)).fetchone()))
     return rows
 

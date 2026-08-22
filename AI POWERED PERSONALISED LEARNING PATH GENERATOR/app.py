@@ -170,7 +170,9 @@ def dashboard(user):
                 quiz_key = f"{user['id']}:{selected_skill}"
                 if st.session_state.get("active_quiz_skill") != quiz_key:
                     st.session_state.active_quiz_skill = quiz_key
-                    st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"])
+                    st.session_state.quiz_used_questions = st.session_state.get("quiz_used_questions", {})
+                    st.session_state.quiz_used_questions.setdefault(quiz_key, set())
+                    st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key])
                     st.session_state.quiz_index = 0
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
@@ -202,7 +204,8 @@ def dashboard(user):
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
                     if st.button("Retry quiz"):
-                        st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"])
+                        st.session_state.quiz_used_questions[quiz_key].update(row["question"] for row in quiz_rows)
+                        st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key])
                         st.session_state.quiz_index = 0
                         st.session_state.quiz_answers = {}
                         st.session_state.quiz_result = None
