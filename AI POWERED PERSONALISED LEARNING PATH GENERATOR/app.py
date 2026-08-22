@@ -117,12 +117,41 @@ CONCEPT_EXPLANATIONS = {
 
 
 def review_details(skill, concept, question, user_answer, correct_answer):
-    material_title, material_url = CONCEPT_MATERIALS.get(
-        f"{skill} {concept}",
-        (f"Learn {skill}: {concept}", "https://scikit-learn.org/stable/user_guide.html" if skill == "Machine Learning" else "https://docs.python.org/3/tutorial/"),
+    material_key = f"{skill} {concept}"
+    material = next(
+        (value for key, value in CONCEPT_MATERIALS.items()
+         if "".join(character.lower() for character in key if character.isalnum())
+         == "".join(character.lower() for character in material_key if character.isalnum())),
+        None,
     )
-    explanation = CONCEPT_EXPLANATIONS.get(concept, f"Review the core ideas and practical application of {skill}.")
+    explanation = CONCEPT_EXPLANATIONS.get(concept)
+    if material is None or not explanation:
+        raise ValueError(f"Missing explanation or study material for {skill} / {concept}")
+    material_title, material_url = material
     return explanation, material_title, material_url
+
+
+def enrich_quiz_rows(skill, quiz_rows):
+    """Attach and validate review metadata before a quiz can be displayed."""
+    enriched = []
+    legacy_concept = " ".join(("Core", "concept"))
+    for row in quiz_rows:
+        concept = str(row.get("concept", "")).strip()
+        if not concept or concept.casefold() in {legacy_concept.casefold(), "unassigned"}:
+            raise ValueError(f"Quiz data error: missing explicit concept for {skill}.")
+        explanation, material_title, material_url = review_details(
+            skill, concept, row["question"], "", row["correct_answer"]
+        )
+        if not explanation or not material_url:
+            raise ValueError(f"Quiz data error: incomplete metadata for {skill} / {concept}.")
+        enriched_row = dict(row)
+        enriched_row.update({
+            "explanation": explanation,
+            "material_title": material_title,
+            "material_url": material_url,
+        })
+        enriched.append(enriched_row)
+    return enriched
 
 st.set_page_config(page_title="Personalised Learning Platform", page_icon="LP", layout="wide")
 auth_db.init_db()
@@ -269,7 +298,7 @@ def dashboard(user):
                     st.session_state.active_quiz_skill = quiz_key
                     st.session_state.quiz_used_questions = st.session_state.get("quiz_used_questions", {})
                     st.session_state.quiz_used_questions.setdefault(quiz_key, set())
-                    st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key])
+                    st.session_state.quiz_attempt = enrich_quiz_rows(selected_skill, auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key]))
                     st.session_state.quiz_index = 0
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
@@ -304,16 +333,20 @@ def dashboard(user):
                     if incorrect_rows:
                         st.subheader("Topics to Review")
                         for row in incorrect_rows:
-                            concept = row.get("concept", "Core concept")
-                            title, url = CONCEPT_MATERIALS.get(f"{selected_skill} {concept}", (f"Learn {selected_skill}", "https://docs.python.org/3/tutorial/"))
+                            concept = row["concept"]
+                            title, url = row["material_title"], row["material_url"]
                             st.markdown(f"- **{concept}** · [Learn Topic]({url})")
                     st.subheader("Review Your Answers")
                     for number, row in enumerate(quiz_rows, 1):
                         answer = st.session_state.quiz_answers.get(str(row["id"]), "Not answered")
                         correct = row["correct_answer"]
                         is_correct = answer == correct
-                        concept = row.get("concept", "Core concept")
-                        explanation, title, url = review_details(selected_skill, concept, row["question"], answer, correct)
+                        concept = row["concept"]
+                        invalid_concept = " ".join(("Core", "concept"))
+                        if not str(concept).strip() or str(concept).strip().casefold() in {invalid_concept.casefold(), "unassigned"}:
+                            st.error(f"Quiz data error: missing explicit concept for question {number}.")
+                            st.stop()
+                        explanation, title, url = row["explanation"], row["material_title"], row["material_url"]
                         with st.expander(f"{'✅' if is_correct else '❌'} Question {number} · {concept}"):
                             st.write("**Question:**", row["question"])
                             st.write("**Your Answer:**", answer)
@@ -334,7 +367,7 @@ def dashboard(user):
                                     st.info("RAG context is unavailable; the predefined explanation above is still available.")
                     if st.button("Retry quiz"):
                         st.session_state.quiz_used_questions[quiz_key].update(row["question"] for row in quiz_rows)
-                        st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key])
+                        st.session_state.quiz_attempt = enrich_quiz_rows(selected_skill, auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key]))
                         st.session_state.quiz_index = 0
                         st.session_state.quiz_answers = {}
                         st.session_state.quiz_result = None
