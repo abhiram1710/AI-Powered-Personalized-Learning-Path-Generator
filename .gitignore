@@ -8,6 +8,7 @@ __pycache__/
 *.sqlite
 *.db
 .env
+.streamlit/secrets.toml
 .venv/
 !AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/faiss_index.index
 !AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/knowledge_chunks.pkl
