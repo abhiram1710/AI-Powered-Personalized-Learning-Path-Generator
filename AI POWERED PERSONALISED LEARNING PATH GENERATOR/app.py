@@ -325,6 +325,8 @@ def dashboard(user):
                 with navigation[2]:
                     if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
                         st.session_state.quiz_result = auth_db.submit_quiz_attempt(user["id"], quiz_rows, st.session_state.quiz_answers)
+                        auth_db.record_quiz_progress(user["id"], selected_skill, st.session_state.quiz_result[2])
+                        st.rerun()
                 if st.session_state.quiz_result:
                     score, total, percentage = st.session_state.quiz_result
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."

@@ -163,6 +163,28 @@ def update_progress(user_id, step_id, status):
         db.execute("UPDATE learning_path SET progress_status=? WHERE id=? AND user_id=?", (status, step_id, user_id))
 
 
+def record_quiz_progress(user_id, skill, percentage):
+    """Update only the logged-in user's learning step matching the quiz skill."""
+    status = "Completed" if percentage >= 70 else "In Progress"
+    with connect() as db:
+        step = db.execute(
+            "SELECT id FROM learning_path WHERE user_id=? AND skill=? ORDER BY sequence LIMIT 1",
+            (user_id, skill),
+        ).fetchone()
+        if step is None:
+            raise KeyError(f"No learning-path step found for skill '{skill}'.")
+        db.execute(
+            "INSERT INTO progress(user_id, learning_step_id, status, updated_at) VALUES (?, ?, ?, ?) "
+            "ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at",
+            (user_id, step["id"], status, datetime.now(timezone.utc).isoformat()),
+        )
+        db.execute(
+            "UPDATE learning_path SET progress_status=? WHERE id=? AND user_id=?",
+            (status, step["id"], user_id),
+        )
+    return status
+
+
 def save_quiz_result(user_id, quiz_id, score, total_questions):
     percentage = score / total_questions * 100
     with connect() as db: db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, quiz_id, score, total_questions, percentage, datetime.now(timezone.utc).isoformat()))
