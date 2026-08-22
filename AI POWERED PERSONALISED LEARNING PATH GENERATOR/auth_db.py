@@ -87,6 +87,12 @@ def authenticate(identifier, password):
     return dict(row)
 
 
+def get_user(user_id):
+    with connect() as db:
+        row = db.execute("SELECT * FROM users WHERE id=?", (user_id,)).fetchone()
+    return dict(row) if row is not None else None
+
+
 def _norm(value):
     return "".join(character.lower() for character in str(value) if character.isalnum())
 

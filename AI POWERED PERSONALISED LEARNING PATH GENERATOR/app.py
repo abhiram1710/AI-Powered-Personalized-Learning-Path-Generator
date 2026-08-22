@@ -86,7 +86,10 @@ def auth_page():
                 st.error("Passwords do not match.")
             else:
                 try:
-                    auth_db.register_user(full_name, username, email, password, career, interests, skills, level)
+                    user_id = auth_db.register_user(full_name, username, email, password, career, interests, skills, level)
+                    new_user = auth_db.get_user(user_id)
+                    ranked = read_csv(RANKED_PATH)
+                    auth_db.save_personalization(user_id, new_user, ranked, auth_db.build_user_path(new_user, ranked))
                     st.success("Account created. You can now log in.")
                 except ValueError as error:
                     st.error(str(error))
