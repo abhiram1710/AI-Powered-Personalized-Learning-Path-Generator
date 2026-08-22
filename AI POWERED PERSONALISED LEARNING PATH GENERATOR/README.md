@@ -30,6 +30,9 @@ Input datasets are under `Dataset/Processed/`, including student, career, employ
 ## Personalization
 Student ID selects the profile. Explicit current technical skills determine coverage; intelligence categories are not treated as technical skills. Required skills are staged, courses are selected by course score, no-course gaps remain visible, and practice intensity follows priority.
 
+## Authentication and database
+Registered learners use username/email login with salted PBKDF2 password hashes; plaintext passwords are never stored. SQLite stores users, profiles, skill gaps, recommendations, learning paths, quizzes, quiz results, and progress. Every personalized query is scoped by the authenticated user ID. The sample S1 CSV outputs remain available as a reference pipeline, while registered users receive career- and interest-specific paths. The database file is created locally at runtime and is excluded from Git; hosted multi-instance deployments should use a managed database for durable shared persistence.
+
 ## How to run
 From the project root:
 
@@ -39,6 +42,8 @@ streamlit run app.py
 ```
 
 Open the local URL shown by Streamlit, select a Student ID, and explore the profile, gaps, courses, path, quizzes, and RAG assistant.
+
+On first launch, create an account with a career goal, interests, current skills, and preferred level. Progress and quiz results are account-scoped. Streamlit Community Cloud's local filesystem is instance storage; use an external hosted database for multi-instance production persistence.
 
 ## Example workflow
 For S1, select the student, review the Astronomer profile, inspect the 31-step path, open unavailable skills, and ask the RAG assistant what to learn first or why a skill is recommended.
