@@ -1,5 +1,0 @@
-pandas>=2.0
-streamlit>=1.40
-numpy>=1.26
-faiss-cpu>=1.8
-sentence-transformers>=3.0
