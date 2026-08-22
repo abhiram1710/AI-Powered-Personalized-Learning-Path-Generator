@@ -1,0 +1,32 @@
+required_skill,matched_courses,status
+Data Integrity,0,Gap
+Communication,31,Covered
+Stakeholder Engagement,0,Gap
+Strategic Thinking,1,Covered
+Problem Solving,7,Covered
+Project Management,12,Covered
+Teamwork,1,Covered
+Business Acumen,0,Gap
+Transparency,0,Gap
+Python,71,Covered
+Sql,20,Covered
+Data Visualization,5,Covered
+Predictive Modeling,0,Gap
+Time Series Analysis,1,Covered
+Machine Learning,30,Covered
+Data Mining,1,Covered
+Tableau,4,Covered
+Cloud Platforms,1,Covered
+Big Data,6,Covered
+Statistical Software,1,Covered
+Causal-Model Approaches,0,Gap
+Data Preparation,0,Gap
+Regressions,1,Covered
+Text Mining,0,Gap
+Aws,41,Covered
+Hadoop,3,Covered
+Apache Spark,0,Gap
+Hive,9,Covered
+Pig,2,Covered
+Storytelling,5,Covered
+Iterative Development,0,Gap

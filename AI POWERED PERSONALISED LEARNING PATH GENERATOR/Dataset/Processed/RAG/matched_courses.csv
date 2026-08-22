@@ -1,0 +1,344 @@
+required_skill,course_id,course_name,institution,average_rating,review_count
+Python,accounting-data-analytics-python,accounting data analytics with python,university of illinois at urbana-champaign,3.2857142857142856,7
+Python,ai-for-medical-diagnosis,ai for medical diagnosis,deeplearning.ai,4.587982832618025,233
+Python,algorithmic-toolbox,algorithmic toolbox,university of california san diego,4.502676977989292,1681
+Python,aprendiendo-programar-python,introducción a la programación en python i: aprendiendo a programar con python,pontificia universidad católica de chile,4.164627363737486,899
+Python,basic-statistics,basic statistics,university of amsterdam,4.564979480164158,731
+Python,batch-data-pipelines-gcp,building batch data pipelines on gcp,google cloud,4.134615384615385,104
+Python,bioinformatics,biology meets programming: bioinformatics for beginners,university of california san diego,4.037037037037037,297
+Python,building-modern-python-applications-on-aws,building modern python applications on aws,amazon web services,5.0,1
+Python,c-plus-plus-white,основы разработки на c++: белый пояс,moscow institute of physics and technology,4.714754098360656,305
+Python,ciencia-computacao-python-conceitos,introdução à ciência da computação com python parte 1,universidade de são paulo,4.857371794871795,1248
+Python,classification-vector-spaces-in-nlp,natural language processing with classification and vector spaces,deeplearning.ai,4.368770764119601,301
+Python,cloud-infrastructure-design-process,reliable google cloud infrastructure: design and process,google cloud,4.567901234567901,405
+Python,computational-neuroscience,computational neuroscience,university of washington,4.543352601156069,173
+Python,computational-thinking-problem-solving,computational thinking for problem solving,university of pennsylvania,4.608870967741935,248
+Python,conversational-experiences-dialogflow,building conversational experiences with dialogflow,google cloud,4.13265306122449,196
+Python,convolutional-neural-networks,convolutional neural networks,deeplearning.ai,3.855784469096672,1262
+Python,cs-fundamentals-1,object-oriented data structures in c++,university of illinois at urbana-champaign,4.602816901408451,355
+Python,data-analysis-with-python,data analysis with python,ibm,4.365886287625418,1495
+Python,data-science-k-means-clustering-python,foundations of data science: k-means clustering in python,university of london,4.586666666666667,75
+Python,data-science-methodology,data science methodology,ibm,4.2706359945872805,1478
+Python,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162
+Python,data-visualization-tableau,fundamentals of visualization with tableau,"university of california, davis",4.244970414201183,845
+Python,django-database-web-apps,web application technologies and django,university of michigan,4.626086956521739,115
+Python,drug-development,drug development,university of california san diego,4.4765625,256
+Python,google-machine-learning,how google does machine learning,google cloud,4.430711610486892,801
+Python,ibm-penetration-testing-incident-response-forensics,"penetration testing, incident response and forensics",ibm,4.323529411764706,68
+Python,intro-self-driving-cars,introduction to self-driving cars,university of toronto,4.589090909090909,275
+Python,introduction-git-github,introduction to git and github,google,4.777777777777778,576
+Python,introduction-portfolio-construction-python,introduction to portfolio construction and analysis with python,edhec business school,4.780748663101604,187
+Python,introduction-programming-unity,introduction to c# programming and unity,university of colorado system,4.653739612188366,361
+Python,java-programming,java programming: solving problems with software,duke university,4.372736954206602,939
+Python,learn-to-program,learn to program: the fundamentals,university of toronto,4.7286512370311256,1253
+Python,linear-algebra-machine-learning,mathematics for machine learning: linear algebra,imperial college london,4.543050847457627,1475
+Python,machine-learning,machine learning,stanford university,4.751239405085559,12506
+Python,machine-learning-duke,introduction to machine learning,duke university,4.662650602409639,166
+Python,machine-learning-with-python,machine learning with python,ibm,4.443490701001431,1398
+Python,mathematics-and-python,математика и python для анализа данных,moscow institute of physics and technology,4.585597826086956,736
+Python,mcmc-bayesian-statistics,bayesian statistics: techniques and models,"university of california, santa cruz",4.729166666666667,96
+Python,ml-foundations,machine learning foundations: a case study approach,university of washington,4.442947368421053,2375
+Python,multivariate-calculus-machine-learning,mathematics for machine learning: multivariate calculus,imperial college london,4.609477124183006,612
+Python,nand2tetris2,build a modern computer from first principles: nand to tetris part ii (project-centered course),hebrew university of jerusalem,4.954022988505747,87
+Python,neural-networks-deep-learning,neural networks and deep learning,deeplearning.ai,4.78019541834305,12179
+Python,open-source-tools-for-data-science,tools for data science,ibm,3.911032028469751,2529
+Python,pca-machine-learning,mathematics for machine learning: pca,imperial college london,3.408817635270541,499
+Python,probability-intro,introduction to probability and data with r,duke university,4.579004329004329,924
+Python,progfun1,functional programming principles in scala,école polytechnique fédérale de lausanne,4.69751166407465,1286
+Python,programming-languages,"programming languages, part a",university of washington,4.915942028985508,345
+Python,python,programming for everybody (getting started with python),university of michigan,4.6374647887323945,14200
+Python,python-basics,python basics,university of michigan,4.799352750809062,1854
+Python,python-crash-course,crash course on python,google,4.706744868035191,2728
+Python,python-data,python data structures,university of michigan,4.862062121663193,10077
+Python,python-data-analysis,introduction to data science in python,university of michigan,4.1713238662391205,4366
+Python,python-data-visualization,"capstone: retrieving, processing, and visualizing data with python",university of michigan,4.377476538060479,959
+Python,python-databases,using databases with python,university of michigan,4.66049096804076,2159
+Python,python-for-applied-data-science-ai,python for data science and ai,ibm,4.232677165354331,2540
+Python,python-for-data-visualization,data visualization with python,ibm,3.9543197616683217,1007
+Python,python-functions-files-dictionaries,"python functions, files, and dictionaries",university of michigan,4.79764705882353,425
+Python,python-machine-learning,applied machine learning in python,university of michigan,4.436274509803922,1020
+Python,python-network-data,using python to access web data,university of michigan,4.679266895761741,5238
+Python,python-operating-system,using python to interact with the operating system,google,4.529953917050691,434
+Python,python-osnovy-programmirovaniya,основы программирования на python,national research university higher school of economics,4.284569138276553,499
+Python,python-plotting,"applied plotting, charting & data representation in python",university of michigan,4.2569060773480665,724
+Python,python-programming-introduction,python programming: a concise introduction,wesleyan university,4.666048237476809,1078
+Python,python-statistics-financial-analysis,python and statistics for financial analysis,the hong kong university of science and technology,4.237623762376238,404
+Python,r-programming,r programming,johns hopkins university,4.163108454312553,3513
+Python,sequence-models-in-nlp,natural language processing with sequence models,deeplearning.ai,3.875,56
+Python,sql-data-science,databases and sql for data science,ibm,4.300892857142857,1120
+Python,troubleshooting-debugging-techniques,troubleshooting and debugging techniques,google,4.1688311688311686,154
+Python,understanding-visualization-data,understanding and visualizing data with python,university of michigan,4.514598540145985,274
+Python,uol-machine-learning-for-all,machine learning for all,university of london,4.637387387387387,444
+Python,wharton-people-analytics,people analytics,university of pennsylvania,4.487745098039215,816
+Data Integrity,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36
+Data Preparation,convolutional-neural-networks-tensorflow,convolutional neural networks in tensorflow,deeplearning.ai,4.422594142259414,717
+Data Preparation,data-science-k-means-clustering-python,foundations of data science: k-means clustering in python,university of london,4.586666666666667,75
+Data Preparation,python-data-analysis,introduction to data science in python,university of michigan,4.1713238662391205,4366
+Data Mining,process-mining,process mining: data science in action,eindhoven university of technology,4.679558011049724,181
+Data Visualization,data-analysis-with-python,data analysis with python,ibm,4.365886287625418,1495
+Data Visualization,data-visualization-tableau,fundamentals of visualization with tableau,"university of california, davis",4.244970414201183,845
+Data Visualization,excellence-operationnelle,l'excellence opérationnelle en pratique,essec business school,4.735632183908046,87
+Data Visualization,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42
+Data Visualization,intro-business-analytics,introduction to business analytics: communicating with data,university of illinois at urbana-champaign,4.512195121951219,82
+Data Visualization,introduction-to-software-product-management,introduction to software product management,university of alberta,4.534685165421558,937
+Data Visualization,python-for-data-visualization,data visualization with python,ibm,3.9543197616683217,1007
+Data Visualization,python-plotting,"applied plotting, charting & data representation in python",university of michigan,4.2569060773480665,724
+Statistical Software,basic-statistics,basic statistics,university of amsterdam,4.564979480164158,731
+Statistical Software,cs-fundamentals-1,object-oriented data structures in c++,university of illinois at urbana-champaign,4.602816901408451,355
+Statistical Software,data-analytics-for-lean-six-sigma,data analytics for lean six sigma,university of amsterdam,4.87045813586098,633
+Statistical Software,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162
+Statistical Software,deep-neural-network,"improving deep neural networks: hyperparameter tuning, regularization and optimization",deeplearning.ai,4.772292682926829,5125
+Statistical Software,einstein-relativity,understanding einstein: the special theory of relativity,stanford university,4.913109756097561,656
+Statistical Software,golang-getting-started,getting started with go,"university of california, irvine",4.376271186440678,295
+Statistical Software,intro-data-science-programacion-estadistica-r,introducción a data science: programación estadística con r,universidad nacional autónoma de méxico,4.721559633027523,2180
+Statistical Software,intro-programming,code yourself! an introduction to programming,the university of edinburgh,4.794915254237288,590
+Statistical Software,introduction-statistics-data-analysis-public-health,introduction to statistics & data analysis in public health,imperial college london,4.655172413793103,145
+Statistical Software,introduction-to-computer-programming,introduction to computer programming,university of london,3.866141732283464,127
+Statistical Software,java-programming,java programming: solving problems with software,duke university,4.372736954206602,939
+Statistical Software,linear-algebra-machine-learning,mathematics for machine learning: linear algebra,imperial college london,4.543050847457627,1475
+Statistical Software,matlab,introduction to programming with matlab,vanderbilt university,4.806218365871295,2766
+Statistical Software,mcmc-bayesian-statistics,bayesian statistics: techniques and models,"university of california, santa cruz",4.729166666666667,96
+Statistical Software,python-basics,python basics,university of michigan,4.799352750809062,1854
+Statistical Software,python-for-applied-data-science-ai,python for data science and ai,ibm,4.232677165354331,2540
+Statistical Software,python-functions-files-dictionaries,"python functions, files, and dictionaries",university of michigan,4.79764705882353,425
+Statistical Software,r-programming,r programming,johns hopkins university,4.163108454312553,3513
+Statistical Software,uol-machine-learning-for-all,machine learning for all,university of london,4.637387387387387,444
+Regressions,accounting-analytics,accounting analytics,university of pennsylvania,4.3549160671462825,417
+Regressions,data-analytics-for-lean-six-sigma,data analytics for lean six sigma,university of amsterdam,4.87045813586098,633
+Regressions,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162
+Regressions,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42
+Regressions,machine-learning-with-python,machine learning with python,ibm,4.443490701001431,1398
+Regressions,model-thinking,model thinking,university of michigan,4.774390243902439,328
+Regressions,probability-statistics,probability and statistics: to p or not to p?,university of london,4.666666666666667,312
+Regressions,python-statistics-financial-analysis,python and statistics for financial analysis,the hong kong university of science and technology,4.237623762376238,404
+Regressions,sql-for-data-science,sql for data science,"university of california, davis",4.456495098039215,1632
+Regressions,systematic-review,introduction to systematic review and meta-analysis,johns hopkins university,4.750503018108652,497
+Regressions,wharton-introduction-spreadsheets-models,introduction to spreadsheets and models,university of pennsylvania,3.56007393715342,541
+Regressions,wharton-people-analytics,people analytics,university of pennsylvania,4.487745098039215,816
+Time Series Analysis,practical-time-series-analysis,practical time series analysis,the state university of new york,4.439862542955327,291
+Time Series Analysis,tensorflow-sequences-time-series-and-prediction,"sequences, time series and prediction",deeplearning.ai,4.4,440
+Machine Learning,ai-for-everyone,ai for everyone,deeplearning.ai,4.854166666666667,6144
+Machine Learning,ai-for-medical-prognosis,ai for medical prognosis,deeplearning.ai,4.7215189873417724,79
+Machine Learning,aws-machine-learning,getting started with aws machine learning,amazon web services,4.303592120509849,863
+Machine Learning,classification-vector-spaces-in-nlp,natural language processing with classification and vector spaces,deeplearning.ai,4.368770764119601,301
+Machine Learning,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162
+Machine Learning,fundamental-machine-learning-healthcare,fundamentals of machine learning for healthcare,stanford university,4.9,10
+Machine Learning,fundamentals-of-reinforcement-learning,fundamentals of reinforcement learning,alberta machine intelligence institute,4.681818181818182,352
+Machine Learning,gcp-big-data-ml-fundamentals,google cloud platform big data and machine learning fundamentals,google cloud,4.516201117318436,1790
+Machine Learning,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594
+Machine Learning,getting-started-with-tensor-flow2,getting started with tensorflow 2,imperial college london,4.877551020408164,49
+Machine Learning,google-machine-learning,how google does machine learning,google cloud,4.430711610486892,801
+Machine Learning,introduction-tensorflow,"introduction to tensorflow for artificial intelligence, machine learning, and deep learning",deeplearning.ai,4.6294547015886645,2329
+Machine Learning,introduction-trading-machine-learning-gcp,"introduction to trading, machine learning & gcp",new york institute of finance,3.4153846153846152,130
+Machine Learning,legaltech,el abogado del futuro: legaltech y la transformación digital del derecho,universidad austral,4.966666666666667,120
+Machine Learning,linear-algebra-machine-learning,mathematics for machine learning: linear algebra,imperial college london,4.543050847457627,1475
+Machine Learning,machine-learning,machine learning,stanford university,4.751239405085559,12506
+Machine Learning,machine-learning-business-professionals,machine learning for business professionals,google cloud,4.562416107382551,745
+Machine Learning,machine-learning-duke,introduction to machine learning,duke university,4.662650602409639,166
+Machine Learning,machine-learning-projects,structuring machine learning projects,deeplearning.ai,4.685741535526943,4194
+Machine Learning,machine-learning-with-python,machine learning with python,ibm,4.443490701001431,1398
+Machine Learning,mathematics-and-python,математика и python для анализа данных,moscow institute of physics and technology,4.585597826086956,736
+Machine Learning,ml-foundations,machine learning foundations: a case study approach,university of washington,4.442947368421053,2375
+Machine Learning,multivariate-calculus-machine-learning,mathematics for machine learning: multivariate calculus,imperial college london,4.609477124183006,612
+Machine Learning,neural-networks-deep-learning,neural networks and deep learning,deeplearning.ai,4.78019541834305,12179
+Machine Learning,pca-machine-learning,mathematics for machine learning: pca,imperial college london,3.408817635270541,499
+Machine Learning,practical-time-series-analysis,practical time series analysis,the state university of new york,4.439862542955327,291
+Machine Learning,process-mining,process mining: data science in action,eindhoven university of technology,4.679558011049724,181
+Machine Learning,python-data-analysis,introduction to data science in python,university of michigan,4.1713238662391205,4366
+Machine Learning,python-machine-learning,applied machine learning in python,university of michigan,4.436274509803922,1020
+Machine Learning,uol-machine-learning-for-all,machine learning for all,university of london,4.637387387387387,444
+Causal-Model Approaches,crash-course-in-causality,a crash course in causality: inferring causal effects from observational data,university of pennsylvania,4.622222222222222,90
+Text Mining,ai-for-medical-diagnosis,ai for medical diagnosis,deeplearning.ai,4.587982832618025,233
+Text Mining,attention-models-in-nlp,natural language processing with attention models,deeplearning.ai,3.1052631578947367,19
+Text Mining,classification-vector-spaces-in-nlp,natural language processing with classification and vector spaces,deeplearning.ai,4.368770764119601,301
+Text Mining,introduction-tensorflow,"introduction to tensorflow for artificial intelligence, machine learning, and deep learning",deeplearning.ai,4.6294547015886645,2329
+Text Mining,natural-language-processing-tensorflow,natural language processing in tensorflow,deeplearning.ai,4.190789473684211,608
+Text Mining,probabilistic-models-in-nlp,natural language processing with probabilistic models,deeplearning.ai,4.533333333333333,90
+Text Mining,sequence-models-in-nlp,natural language processing with sequence models,deeplearning.ai,3.875,56
+Text Mining,tensorflow-sequences-time-series-and-prediction,"sequences, time series and prediction",deeplearning.ai,4.4,440
+Sql,analytics-business-metrics,business metrics for data-driven companies,duke university,4.527413127413127,1295
+Sql,data-science-methodology,data science methodology,ibm,4.2706359945872805,1478
+Sql,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162
+Sql,database-management,database management essentials,university of colorado system,4.397674418604651,430
+Sql,django-database-web-apps,web application technologies and django,university of michigan,4.626086956521739,115
+Sql,excel-aplicado-negocios-avanzado,excel aplicado a los negocios (nivel avanzado),universidad austral,4.692748091603053,524
+Sql,foundations-big-data-analysis-sql,foundations for big data analysis with sql,cloudera,4.802919708029197,137
+Sql,gcp-exploring-preparing-data-bigquery,exploring ​and ​preparing ​your ​data with bigquery,google cloud,4.447272727272727,275
+Sql,gcp-infrastructure-core-services,essential google cloud infrastructure: core services,google cloud,4.537698412698413,504
+Sql,intro-sql,introduction to structured query language (sql),university of michigan,4.730831973898858,613
+Sql,introduction-to-data-analytics,introduction to data analytics,ibm,4.75,16
+Sql,introduction-to-software-product-management,introduction to software product management,university of alberta,4.534685165421558,937
+Sql,introduction-trading-machine-learning-gcp,"introduction to trading, machine learning & gcp",new york institute of finance,3.4153846153846152,130
+Sql,open-source-tools-for-data-science,tools for data science,ibm,3.911032028469751,2529
+Sql,python-data,python data structures,university of michigan,4.862062121663193,10077
+Sql,python-databases,using databases with python,university of michigan,4.66049096804076,2159
+Sql,r-programming,r programming,johns hopkins university,4.163108454312553,3513
+Sql,sas-programming-basics,getting started with sas programming,sas,4.886524822695035,282
+Sql,sql-data-science,databases and sql for data science,ibm,4.300892857142857,1120
+Sql,sql-for-data-science,sql for data science,"university of california, davis",4.456495098039215,1632
+Big Data,big-data-essentials,"big data essentials: hdfs, mapreduce and spark rdd",yandex,3.371681415929204,113
+Big Data,big-data-introduction,introduction to big data,university of california san diego,4.5324825986078885,1724
+Big Data,foundations-big-data-analysis-sql,foundations for big data analysis with sql,cloudera,4.802919708029197,137
+Big Data,gcp-big-data-ml-fundamentals,google cloud platform big data and machine learning fundamentals,google cloud,4.516201117318436,1790
+Big Data,positive-psychology-visionary-science,positive psychology: martin e. p. seligman’s visionary science,university of pennsylvania,4.855761482675262,1241
+Big Data,what-is-datascience,what is data science?,ibm,4.601100628930817,6360
+Hadoop,batch-data-pipelines-gcp,building batch data pipelines on gcp,google cloud,4.134615384615385,104
+Hadoop,big-data-essentials,"big data essentials: hdfs, mapreduce and spark rdd",yandex,3.371681415929204,113
+Hadoop,big-data-introduction,introduction to big data,university of california san diego,4.5324825986078885,1724
+Hadoop,what-is-datascience,what is data science?,ibm,4.601100628930817,6360
+Apache Spark,big-data-essentials,"big data essentials: hdfs, mapreduce and spark rdd",yandex,3.371681415929204,113
+Cloud Platforms,aws-fundamentals-addressing-security-risk,aws fundamentals: addressing security risk,amazon web services,4.103004291845494,233
+Cloud Platforms,aws-fundamentals-going-cloud-native,aws fundamentals: going cloud-native,amazon web services,4.6386494252873565,1392
+Cloud Platforms,aws-machine-learning,getting started with aws machine learning,amazon web services,4.303592120509849,863
+Cloud Platforms,batch-data-pipelines-gcp,building batch data pipelines on gcp,google cloud,4.134615384615385,104
+Cloud Platforms,building-modern-python-applications-on-aws,building modern python applications on aws,amazon web services,5.0,1
+Cloud Platforms,business-transformation-google-cloud,business transformation with google cloud,google cloud,4.709090909090909,165
+Cloud Platforms,cloud-azure-intro,getting started with azure,learnquest,4.239130434782608,46
+Cloud Platforms,cloud-infrastructure-design-process,reliable google cloud infrastructure: design and process,google cloud,4.567901234567901,405
+Cloud Platforms,containerized-apps-on-aws,building containerized applications on aws,amazon web services,4.216216216216216,37
+Cloud Platforms,conversational-experiences-dialogflow,building conversational experiences with dialogflow,google cloud,4.13265306122449,196
+Cloud Platforms,data-lakes-data-warehouses-gcp,modernizing data lakes and data warehouses with gcp,google cloud,4.576086956521739,184
+Cloud Platforms,gcp-big-data-ml-fundamentals,google cloud platform big data and machine learning fundamentals,google cloud,4.516201117318436,1790
+Cloud Platforms,gcp-exploring-preparing-data-bigquery,exploring ​and ​preparing ​your ​data with bigquery,google cloud,4.447272727272727,275
+Cloud Platforms,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594
+Cloud Platforms,gcp-infrastructure-core-services,essential google cloud infrastructure: core services,google cloud,4.537698412698413,504
+Cloud Platforms,gcp-infrastructure-foundation,essential google cloud infrastructure: foundation,google cloud,4.650808753568031,1051
+Cloud Platforms,gcp-infrastructure-scaling-automation,elastic google cloud infrastructure: scaling and automation,google cloud,4.456896551724138,464
+Cloud Platforms,getting-started-with-google-sheets,getting started with google sheets,google cloud,4.506329113924051,158
+Cloud Platforms,google-cloud-java-spring,building scalable java microservices with spring boot and spring cloud,google cloud,3.751552795031056,161
+Cloud Platforms,google-cloud-product-fundamentals,google cloud product fundamentals,google cloud,4.523809523809524,63
+Cloud Platforms,google-kubernetes-engine,getting started with google kubernetes engine,google cloud,4.150278293135436,539
+Cloud Platforms,google-machine-learning,how google does machine learning,google cloud,4.430711610486892,801
+Cloud Platforms,iiot-google-cloud-platform,industrial iot on google cloud platform,google cloud,4.476987447698745,478
+Cloud Platforms,introduction-g-suite,introduction to g suite,google cloud,4.5762081784386615,269
+Cloud Platforms,introduction-to-cloud,introduction to cloud computing,ibm,4.8,55
+Cloud Platforms,introduction-trading-machine-learning-gcp,"introduction to trading, machine learning & gcp",new york institute of finance,3.4153846153846152,130
+Cloud Platforms,machine-learning-business-professionals,machine learning for business professionals,google cloud,4.562416107382551,745
+Cloud Platforms,preparing-cloud-associate-cloud-engineer-exam,preparing for the google cloud associate cloud engineer exam,google cloud,4.431034482758621,174
+Cloud Platforms,preparing-cloud-professional-cloud-architect-exam,preparing for the google cloud professional cloud architect exam,google cloud,4.380952380952381,126
+Cloud Platforms,site-reliability-engineering-slos,site reliability engineering: measuring and managing reliability,google cloud,4.129496402877698,139
+Aws,american-law,an introduction to american law,university of pennsylvania,4.823529411764706,663
+Aws,arbitration-international-disputes,international law in action: the arbitration of international disputes,universiteit leiden,4.8478260869565215,92
+Aws,aws-fundamentals-addressing-security-risk,aws fundamentals: addressing security risk,amazon web services,4.103004291845494,233
+Aws,aws-fundamentals-going-cloud-native,aws fundamentals: going cloud-native,amazon web services,4.6386494252873565,1392
+Aws,aws-machine-learning,getting started with aws machine learning,amazon web services,4.303592120509849,863
+Aws,big-history,big history: connecting knowledge,macquarie university,4.778425655976676,343
+Aws,building-modern-python-applications-on-aws,building modern python applications on aws,amazon web services,5.0,1
+Aws,classification-vector-spaces-in-nlp,natural language processing with classification and vector spaces,deeplearning.ai,4.368770764119601,301
+Aws,clinical-research,understanding clinical research: behind the statistics,university of cape town,4.826013513513513,592
+Aws,containerized-apps-on-aws,building containerized applications on aws,amazon web services,4.216216216216216,37
+Aws,contracts-1,american contract law i,yale university,4.851063829787234,94
+Aws,corporate-commercial-law-part1,corporate & commercial law i: contracts & employment law,university of illinois at urbana-champaign,4.825581395348837,86
+Aws,cs-fundamentals-1,object-oriented data structures in c++,university of illinois at urbana-champaign,4.602816901408451,355
+Aws,diversity-inclusion-workplace,diversity and inclusion in the workplace,essec business school,4.640350877192983,114
+Aws,drug-commercialization,drug commercialization,university of california san diego,4.588235294117647,136
+Aws,engineering-mechanics-statics,introduction to engineering mechanics,georgia institute of technology,4.738983050847458,590
+Aws,environmental-law,introduction to environmental law and policy,the university of north carolina at chapel hill,4.865342163355408,453
+Aws,epidemic-pandemic-outbreak,"epidemics, pandemics and outbreaks",university of pittsburgh,4.728365384615385,416
+Aws,european-law-fundamentals,european business law: understanding the fundamentals,lund university,4.696,125
+Aws,finance-for-non-financial-managers,finance for non-financial managers,emory university,4.063492063492063,63
+Aws,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594
+Aws,gcp-infrastructure-foundation,essential google cloud infrastructure: foundation,google cloud,4.650808753568031,1051
+Aws,global-energy,politics and economics of international energy,sciences po,4.722408026755853,299
+Aws,how-things-work,how things work: an introduction to physics,university of virginia,4.808630393996248,533
+Aws,immunologyfundamentalsimmunitybcells,fundamentals of immunology: innate immunity and b-cell function,rice university,4.732954545454546,176
+Aws,international-humanitarian-law,international humanitarian law in theory and practice,universiteit leiden,4.850574712643678,174
+Aws,international-law-in-action,international law in action: a guide to the international courts and tribunals in the hague,universiteit leiden,4.736526946107785,167
+Aws,intro-common-law,introduction to english common law,university of london,4.823275862068965,232
+Aws,introduction-intellectual-property,introduction to intellectual property,university of pennsylvania,4.739130434782608,69
+Aws,japanese-1,japanese for beginners 1,saint petersburg state university,3.5294117647058822,34
+Aws,machine-learning,machine learning,stanford university,4.751239405085559,12506
+Aws,machine-learning-duke,introduction to machine learning,duke university,4.662650602409639,166
+Aws,mcmc-bayesian-statistics,bayesian statistics: techniques and models,"university of california, santa cruz",4.729166666666667,96
+Aws,ml-foundations,machine learning foundations: a case study approach,university of washington,4.442947368421053,2375
+Aws,probability-statistics,probability and statistics: to p or not to p?,university of london,4.666666666666667,312
+Aws,supply-chain-principles,supply chain principles,georgia institute of technology,4.522033898305085,295
+Aws,technology-of-music-production,the technology of music production,berklee college of music,4.84688995215311,209
+Aws,troubleshooting-debugging-techniques,troubleshooting and debugging techniques,google,4.1688311688311686,154
+Aws,uva-darden-agile-testing,hypothesis-driven development,university of virginia,4.454545454545454,88
+Aws,what-is-compliance,what is compliance?,university of pennsylvania,4.8,105
+Aws,writing-editing-words,writing and editing: word choice and word order,university of michigan,4.7368421052631575,95
+Tableau,data-visualization-tableau,fundamentals of visualization with tableau,"university of california, davis",4.244970414201183,845
+Tableau,excellence-operationnelle,l'excellence opérationnelle en pratique,essec business school,4.735632183908046,87
+Tableau,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42
+Tableau,python-for-data-visualization,data visualization with python,ibm,3.9543197616683217,1007
+Communication,ai-for-everyone,ai for everyone,deeplearning.ai,4.854166666666667,6144
+Communication,business-english-intro,business english: networking,university of washington,4.789823008849558,452
+Communication,communication-strategies-virtual-age,communication strategies for a virtual age,university of toronto,4.8573351278600265,743
+Communication,contracts-1,american contract law i,yale university,4.851063829787234,94
+Communication,django-database-web-apps,web application technologies and django,university of michigan,4.626086956521739,115
+Communication,english-principles,teach english now! foundational principles,arizona state university,4.914551607445008,2364
+Communication,food-beverage-management,food & beverage management,università bocconi,4.798711755233494,621
+Communication,global-financial-markets-instruments,global financial markets and instruments,rice university,4.222707423580786,229
+Communication,international-organizations-management,international organizations management,university of geneva,4.796153846153846,260
+Communication,international-security-management,international security management,erasmus university rotterdam,4.590909090909091,66
+Communication,intro-business-analytics,introduction to business analytics: communicating with data,university of illinois at urbana-champaign,4.512195121951219,82
+Communication,intro-economic-theories,introduction to economic theories,erasmus university rotterdam,4.135135135135135,37
+Communication,introcss,introduction to css3,university of michigan,4.784918594687232,1167
+Communication,introduction-to-computer-programming,introduction to computer programming,university of london,3.866141732283464,127
+Communication,legal-tech-startups,legal tech & startups,ie business school,4.35,40
+Communication,negotiation-skills,successful negotiation: essential strategies and skills,university of michigan,4.793810121288164,2391
+Communication,organizational-behavior,international leadership and organizational behavior,università bocconi,4.819070904645477,409
+Communication,project-risk-management,managing project risks and changes,"university of california, irvine",4.749152542372881,590
+Communication,reussir-le-changement,réussir le changement,essec business school,4.38,400
+Communication,spanish-in-healthcare-settings,spanish for successful communication in healthcare settings,rice university,4.0,6
+Communication,strategic-management,strategic management,copenhagen business school,4.773993808049536,646
+Communication,success,the science of success: what researchers know that you should know,university of michigan,4.841648590021692,461
+Communication,supply-chain-logistics,supply chain logistics,rutgers the state university of new jersey,4.69313482216708,1209
+Communication,teamwork-skills-effective-communication,teamwork skills: communicating effectively in groups,university of colorado boulder,4.770114942528736,435
+Communication,tricky-american-english-pronunciation,tricky american english pronunciation,"university of california, irvine",4.743589743589744,507
+Communication,uva-darden-bcg-pricing-strategy-cost-economics,cost and economics in pricing strategy,bcg,4.798165137614679,109
+Communication,uva-darden-market-analytics,marketing analytics,university of virginia,4.62570281124498,1245
+Communication,wharton-communication-skills,improving communication skills,university of pennsylvania,4.673469387755102,294
+Communication,what-is-a-proof,mathematical thinking in computer science,university of california san diego,4.2097264437689965,329
+Communication,writing-editing-words,writing and editing: word choice and word order,university of michigan,4.7368421052631575,95
+Communication,writing-for-business,business writing,university of colorado boulder,4.819484240687679,698
+Strategic Thinking,design-strategy,design-led strategy: design thinking for business strategy and entrepreneurship,the university of sydney,4.603174603174603,126
+Strategic Thinking,essentials-global-health,essentials of global health,yale university,4.834782608695652,230
+Strategic Thinking,strategic-management,strategic management,copenhagen business school,4.773993808049536,646
+Strategic Thinking,uva-darden-foundations-business-strategy,foundations of business strategy,university of virginia,4.7825,400
+Problem Solving,computational-thinking-problem-solving,computational thinking for problem solving,university of pennsylvania,4.608870967741935,248
+Problem Solving,creative-problem-solving,creative problem solving,university of minnesota,4.407058823529412,425
+Problem Solving,creative-thinking-techniques-and-tools-for-success,creative thinking: techniques and tools for success,imperial college london,4.737410071942446,556
+Problem Solving,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36
+Problem Solving,excel-vba-for-creative-problem-solving-part-1,"excel/vba for creative problem solving, part 1",university of colorado boulder,4.815634218289086,678
+Problem Solving,investment-management,investment management in an evolving and volatile world by hec paris and axa investment managers,hec paris,4.4495412844036695,109
+Problem Solving,mathematical-thinking,introduction to mathematical thinking,stanford university,4.774358974358974,390
+Problem Solving,principles-of-microeconomics,the power of microeconomics: economic principles in the real world,"university of california, irvine",4.615384615384615,234
+Problem Solving,python-data-visualization,"capstone: retrieving, processing, and visualizing data with python",university of michigan,4.377476538060479,959
+Project Management,agile-atlassian-jira,agile with atlassian jira,atlassian,4.649532710280374,642
+Project Management,business-transformation-google-cloud,business transformation with google cloud,google cloud,4.709090909090909,165
+Project Management,construction-project-management,construction project management,columbia university,4.738666666666667,750
+Project Management,corporate-commercial-law-part1,corporate & commercial law i: contracts & employment law,university of illinois at urbana-champaign,4.825581395348837,86
+Project Management,initiating-planning,engineering project management: initiating and planning,rice university,4.72972972972973,370
+Project Management,project-execution,project execution,"university of california, irvine",3.647058823529412,17
+Project Management,project-management,project launch,"university of california, irvine",4.361111111111111,36
+Project Management,project-planning,initiating and planning projects,"university of california, irvine",4.6835128417564205,2414
+Project Management,project-planning-1,project planning,"university of california, irvine",4.315789473684211,19
+Project Management,project-risk-management,managing project risks and changes,"university of california, irvine",4.749152542372881,590
+Project Management,schedule-projects,budgeting and scheduling projects,"university of california, irvine",4.689450222882615,673
+Project Management,uva-darden-project-management,fundamentals of project planning and management,university of virginia,4.7606330365974285,1011
+Teamwork,drug-commercialization,drug commercialization,university of california san diego,4.588235294117647,136
+Teamwork,finance-for-non-finance,finance for non-finance professionals,rice university,4.805921052631579,304
+Teamwork,introduction-blockchain-technologies,introduction to blockchain technologies,insead,4.699275362318841,276
+Teamwork,oilandgas,oil & gas industry operations and markets,duke university,4.811860940695296,978
+Teamwork,teamwork-skills-effective-communication,teamwork skills: communicating effectively in groups,university of colorado boulder,4.770114942528736,435
+Business Acumen,accounting-analytics,accounting analytics,university of pennsylvania,4.3549160671462825,417
+Business Acumen,brand,"brand management: aligning business, brand and behaviour",london business school,4.895055499495459,991
+Business Acumen,company-future-management,managing the company of the future,london business school,4.849791376912378,719
+Business Acumen,design-strategy,design-led strategy: design thinking for business strategy and entrepreneurship,the university of sydney,4.603174603174603,126
+Business Acumen,duke-behavioral-finance,behavioral finance,duke university,4.092198581560283,564
+Business Acumen,intro-business-analytics,introduction to business analytics: communicating with data,university of illinois at urbana-champaign,4.512195121951219,82
+Business Acumen,organizational-behavior,international leadership and organizational behavior,università bocconi,4.819070904645477,409
+Business Acumen,strategic-business-management-microeconomics,strategic business management - microeconomics,"university of california, irvine",4.7407407407407405,27
+Business Acumen,uva-darden-foundations-business-strategy,foundations of business strategy,university of virginia,4.7825,400
+Business Acumen,wharton-financial-accounting,more introduction to financial accounting,university of pennsylvania,4.8,85
+Business Acumen,wharton-people-analytics,people analytics,university of pennsylvania,4.487745098039215,816
+Storytelling,classical-sociological-theory,classical sociological theory,university of amsterdam,4.8604651162790695,473
+Storytelling,sleep,"sleep: neurobiology, medicine, and society",university of michigan,4.701492537313433,67
+Storytelling,transmedia-storytelling,"transmedia storytelling: narrative worlds, emerging technologies, and global audiences",unsw sydney (the university of new south wales),4.701863354037267,161
+Storytelling,vlsi-cad-logic,vlsi cad part i: logic,university of illinois at urbana-champaign,4.712121212121212,66
+Storytelling,wharton-success,success,university of pennsylvania,4.900826446280992,242
+Iterative Development,agile-atlassian-jira,agile with atlassian jira,atlassian,4.649532710280374,642
+Iterative Development,uva-darden-agile-testing,hypothesis-driven development,university of virginia,4.454545454545454,88
+Iterative Development,uva-darden-getting-started-agile,agile meets design thinking,university of virginia,4.7473867595818815,574

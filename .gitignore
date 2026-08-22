@@ -2,3 +2,10 @@ AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/Employment ski
 AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/Employment skills/eda_courses.csv
 AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/*.pkl
 AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/*.index
+__pycache__/
+*.py[cod]
+*.tmp
+.env
+.venv/
+!AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/faiss_index.index
+!AI POWERED PERSONALISED LEARNING PATH GENERATOR/Dataset/Processed/RAG/knowledge_chunks.pkl

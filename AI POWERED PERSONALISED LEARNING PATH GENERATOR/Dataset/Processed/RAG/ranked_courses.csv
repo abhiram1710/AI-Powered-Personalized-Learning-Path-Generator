@@ -1,0 +1,70 @@
+required_skill,course_id,course_name,institution,average_rating,review_count,course_score
+Apache Spark,big-data-essentials,"big data essentials: hdfs, mapreduce and spark rdd",yandex,3.371681415929204,113,0.47442272217375053
+Aws,machine-learning,machine learning,stanford university,4.751239405085559,12506,0.929384784317612
+Aws,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594,0.7486627812149343
+Aws,building-modern-python-applications-on-aws,building modern python applications on aws,amazon web services,5.0,1,0.7000211267605634
+Big Data,what-is-datascience,what is data science?,ibm,4.601100628930817,6360,0.778520285233413
+Big Data,positive-psychology-visionary-science,positive psychology: martin e. p. seligman’s visionary science,university of pennsylvania,4.855761482675262,1241,0.7060249174336916
+Big Data,foundations-big-data-analysis-sql,foundations for big data analysis with sql,cloudera,4.802919708029197,137,0.6753031253212707
+Business Acumen,brand,"brand management: aligning business, brand and behaviour",london business school,4.895055499495459,991,0.7062443896476741
+Business Acumen,company-future-management,managing the company of the future,london business school,4.849791376912378,719,0.6941609336128034
+Business Acumen,organizational-behavior,international leadership and organizational behavior,università bocconi,4.819070904645477,409,0.6833107717207892
+Causal-Model Approaches,crash-course-in-causality,a crash course in causality: inferring causal effects from observational data,university of pennsylvania,4.622222222222222,90,0.6490125195618153
+Cloud Platforms,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594,0.7486627812149343
+Cloud Platforms,building-modern-python-applications-on-aws,building modern python applications on aws,amazon web services,5.0,1,0.7000211267605634
+Cloud Platforms,aws-fundamentals-going-cloud-native,aws fundamentals: going cloud-native,amazon web services,4.6386494252873565,1392,0.6788193702444553
+Communication,ai-for-everyone,ai for everyone,deeplearning.ai,4.854166666666667,6144,0.8093861502347418
+Communication,english-principles,teach english now! foundational principles,arizona state university,4.914551607445008,2364,0.7379808870141321
+Communication,negotiation-skills,successful negotiation: essential strategies and skills,university of michigan,4.793810121288164,2391,0.7216475014873851
+Data Integrity,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36,0.6929827856025039
+Data Mining,process-mining,process mining: data science in action,eindhoven university of technology,4.679558011049724,181,0.6589620652089331
+Data Preparation,python-data-analysis,introduction to data science in python,university of michigan,4.1713238662391205,4366,0.6762247778931951
+Data Preparation,data-science-k-means-clustering-python,foundations of data science: k-means clustering in python,university of london,4.586666666666667,75,0.6437178403755869
+Data Preparation,convolutional-neural-networks-tensorflow,convolutional neural networks in tensorflow,deeplearning.ai,4.422594142259414,717,0.6343110672402615
+Data Visualization,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42,0.6842206572769953
+Data Visualization,excellence-operationnelle,l'excellence opérationnelle en pratique,essec business school,4.735632183908046,87,0.6648265339161405
+Data Visualization,introduction-to-software-product-management,introduction to software product management,university of alberta,4.534685165421558,937,0.6546516978069054
+Hadoop,what-is-datascience,what is data science?,ibm,4.601100628930817,6360,0.778520285233413
+Hadoop,big-data-introduction,introduction to big data,university of california san diego,4.5324825986078885,1724,0.670970099016372
+Hadoop,batch-data-pipelines-gcp,building batch data pipelines on gcp,google cloud,4.134615384615385,104,0.5810433369447454
+Iterative Development,uva-darden-getting-started-agile,agile meets design thinking,university of virginia,4.7473867595818815,574,0.6767609069048436
+Iterative Development,agile-atlassian-jira,agile with atlassian jira,atlassian,4.649532710280374,642,0.6644979597209425
+Iterative Development,uva-darden-agile-testing,hypothesis-driven development,university of virginia,4.454545454545454,88,0.625495518565941
+Machine Learning,machine-learning,machine learning,stanford university,4.751239405085559,12506,0.929384784317612
+Machine Learning,neural-networks-deep-learning,neural networks and deep learning,deeplearning.ai,4.78019541834305,12179,0.9265301754694354
+Machine Learning,ai-for-everyone,ai for everyone,deeplearning.ai,4.854166666666667,6144,0.8093861502347418
+Problem Solving,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36,0.6929827856025039
+Problem Solving,excel-vba-for-creative-problem-solving-part-1,"excel/vba for creative problem solving, part 1",university of colorado boulder,4.815634218289086,678,0.6885127342224437
+Problem Solving,mathematical-thinking,introduction to mathematical thinking,stanford university,4.774358974358974,390,0.6766496930299746
+Project Management,project-planning,initiating and planning projects,"university of california, irvine",4.6835128417564205,2414,0.7066917978458989
+Project Management,uva-darden-project-management,fundamentals of project planning and management,university of virginia,4.7606330365974285,1011,0.6878477800532175
+Project Management,construction-project-management,construction project management,columbia university,4.738666666666667,750,0.6792584037558687
+Python,python,programming for everybody (getting started with python),university of michigan,4.6374647887323945,14200,0.9492450704225353
+Python,machine-learning,machine learning,stanford university,4.751239405085559,12506,0.929384784317612
+Python,neural-networks-deep-learning,neural networks and deep learning,deeplearning.ai,4.78019541834305,12179,0.9265301754694354
+Regressions,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162,0.730757229155639
+Regressions,data-analytics-for-lean-six-sigma,data analytics for lean six sigma,university of amsterdam,4.87045813586098,633,0.6952373784571569
+Regressions,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42,0.6842206572769953
+Sql,python-data,python data structures,university of michigan,4.862062121663193,10077,0.8935830632300301
+Sql,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162,0.730757229155639
+Sql,python-databases,using databases with python,university of michigan,4.66049096804076,2159,0.6980814115820443
+Statistical Software,deep-neural-network,"improving deep neural networks: hyperparameter tuning, regularization and optimization",deeplearning.ai,4.772292682926829,5125,0.77639562349708
+Statistical Software,matlab,introduction to programming with matlab,vanderbilt university,4.806218365871295,2766,0.7313071909402912
+Statistical Software,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162,0.730757229155639
+Storytelling,wharton-success,success,university of pennsylvania,4.900826446280992,242,0.6912283785356769
+Storytelling,classical-sociological-theory,classical sociological theory,university of amsterdam,4.8604651162790695,473,0.6904580740255486
+Storytelling,transmedia-storytelling,"transmedia storytelling: narrative worlds, emerging technologies, and global audiences",unsw sydney (the university of new south wales),4.701863354037267,161,0.6616622780159216
+Strategic Thinking,strategic-management,strategic management,copenhagen business school,4.773993808049536,646,0.6820070204508786
+Strategic Thinking,essentials-global-health,essentials of global health,yale university,4.834782608695652,230,0.6817287201469687
+Strategic Thinking,uva-darden-foundations-business-strategy,foundations of business strategy,university of virginia,4.7825,400,0.678000704225352
+Tableau,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42,0.6842206572769953
+Tableau,excellence-operationnelle,l'excellence opérationnelle en pratique,essec business school,4.735632183908046,87,0.6648265339161405
+Tableau,data-visualization-tableau,fundamentals of visualization with tableau,"university of california, davis",4.244970414201183,845,0.6121479706642219
+Teamwork,oilandgas,oil & gas industry operations and markets,duke university,4.811860940695296,978,0.6943225035283274
+Teamwork,finance-for-non-finance,finance for non-finance professionals,rice university,4.805921052631579,304,0.6792514825796886
+Teamwork,teamwork-skills-effective-communication,teamwork skills: communicating effectively in groups,university of colorado boulder,4.770114942528736,435,0.6770062327990934
+Text Mining,introduction-tensorflow,"introduction to tensorflow for artificial intelligence, machine learning, and deep learning",deeplearning.ai,4.6294547015886645,2329,0.6973278835745257
+Text Mining,ai-for-medical-diagnosis,ai for medical diagnosis,deeplearning.ai,4.587982832618025,233,0.6472401317777912
+Text Mining,probabilistic-models-in-nlp,natural language processing with probabilistic models,deeplearning.ai,4.533333333333333,90,0.6365680751173708
+Time Series Analysis,practical-time-series-analysis,practical time series analysis,the state university of new york,4.439862542955327,291,0.6277286433376894
+Time Series Analysis,tensorflow-sequences-time-series-and-prediction,"sequences, time series and prediction",deeplearning.ai,4.4,440,0.6252957746478873

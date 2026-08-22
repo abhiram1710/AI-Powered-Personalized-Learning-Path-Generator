@@ -1,0 +1,32 @@
+Student ID,Skill,Priority,Course ID,Course Name,Institution,Average Rating,Review Count,Course Score,Course Status
+S1,Data Integrity,Medium,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36,0.6929827856025039,Course Recommended
+S1,Communication,Medium,ai-for-everyone,ai for everyone,deeplearning.ai,4.854166666666667,6144,0.8093861502347418,Course Recommended
+S1,Stakeholder Engagement,Medium,,,,,,,No Course Available
+S1,Strategic Thinking,Medium,strategic-management,strategic management,copenhagen business school,4.773993808049536,646,0.6820070204508786,Course Recommended
+S1,Problem Solving,Medium,everyday-excel-part-2,"everyday excel, part 2",university of colorado boulder,4.944444444444445,36,0.6929827856025039,Course Recommended
+S1,Project Management,Medium,project-planning,initiating and planning projects,"university of california, irvine",4.6835128417564205,2414,0.7066917978458989,Course Recommended
+S1,Teamwork,Medium,oilandgas,oil & gas industry operations and markets,duke university,4.811860940695296,978,0.6943225035283274,Course Recommended
+S1,Business Acumen,Medium,brand,"brand management: aligning business, brand and behaviour",london business school,4.895055499495459,991,0.7062443896476741,Course Recommended
+S1,Transparency,Medium,,,,,,,No Course Available
+S1,Python,Medium,python,programming for everybody (getting started with python),university of michigan,4.6374647887323945,14200,0.9492450704225353,Course Recommended
+S1,Sql,Medium,python-data,python data structures,university of michigan,4.862062121663193,10077,0.8935830632300301,Course Recommended
+S1,Data Visualization,Medium,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42,0.6842206572769953,Course Recommended
+S1,Predictive Modeling,Medium,,,,,,,No Course Available
+S1,Time Series Analysis,Medium,practical-time-series-analysis,practical time series analysis,the state university of new york,4.439862542955327,291,0.6277286433376894,Course Recommended
+S1,Machine Learning,Medium,machine-learning,machine learning,stanford university,4.751239405085559,12506,0.929384784317612,Course Recommended
+S1,Data Mining,Medium,process-mining,process mining: data science in action,eindhoven university of technology,4.679558011049724,181,0.6589620652089331,Course Recommended
+S1,Tableau,Medium,intro-accounting-data-analytics-visual,introduction to accounting data analytics and visualization,university of illinois at urbana-champaign,4.880952380952381,42,0.6842206572769953,Course Recommended
+S1,Cloud Platforms,Medium,gcp-fundamentals,google cloud platform fundamentals: core infrastructure,google cloud,4.654331737048324,4594,0.7486627812149343,Course Recommended
+S1,Big Data,Medium,what-is-datascience,what is data science?,ibm,4.601100628930817,6360,0.778520285233413,Course Recommended
+S1,Statistical Software,Medium,deep-neural-network,"improving deep neural networks: hyperparameter tuning, regularization and optimization",deeplearning.ai,4.772292682926829,5125,0.77639562349708,Course Recommended
+S1,Causal-Model Approaches,Medium,crash-course-in-causality,a crash course in causality: inferring causal effects from observational data,university of pennsylvania,4.622222222222222,90,0.6490125195618153,Course Recommended
+S1,Data Preparation,Medium,python-data-analysis,introduction to data science in python,university of michigan,4.1713238662391205,4366,0.6762247778931951,Course Recommended
+S1,Regressions,Medium,data-scientists-tools,the data scientist’s toolbox,johns hopkins university,4.4407206509105,5162,0.730757229155639,Course Recommended
+S1,Text Mining,Medium,introduction-tensorflow,"introduction to tensorflow for artificial intelligence, machine learning, and deep learning",deeplearning.ai,4.6294547015886645,2329,0.6973278835745257,Course Recommended
+S1,Aws,Medium,machine-learning,machine learning,stanford university,4.751239405085559,12506,0.929384784317612,Course Recommended
+S1,Hadoop,Medium,what-is-datascience,what is data science?,ibm,4.601100628930817,6360,0.778520285233413,Course Recommended
+S1,Apache Spark,Medium,big-data-essentials,"big data essentials: hdfs, mapreduce and spark rdd",yandex,3.371681415929204,113,0.4744227221737505,Course Recommended
+S1,Hive,Medium,,,,,,,No Course Available
+S1,Pig,Medium,,,,,,,No Course Available
+S1,Storytelling,Medium,wharton-success,success,university of pennsylvania,4.900826446280992,242,0.6912283785356769,Course Recommended
+S1,Iterative Development,Medium,uva-darden-getting-started-agile,agile meets design thinking,university of virginia,4.7473867595818815,574,0.6767609069048436,Course Recommended
