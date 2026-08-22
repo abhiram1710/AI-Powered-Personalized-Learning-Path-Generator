@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import hashlib
 import hmac
 import json
+import random
 import secrets
 import sqlite3
 from pathlib import Path
@@ -46,6 +47,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
+        CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, submitted_at TEXT NOT NULL);
         """)
 
 
@@ -147,7 +149,7 @@ def save_personalization(user_id, user, ranked_courses, recommendation):
 
 def user_data(user_id):
     with connect() as db:
-        return {table: [dict(row) for row in db.execute(f"SELECT * FROM {table} WHERE user_id=? ORDER BY id", (user_id,))] for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes", "quiz_results", "progress")}
+        return {table: [dict(row) for row in db.execute(f"SELECT * FROM {table} WHERE user_id=? ORDER BY id", (user_id,))] for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes", "quiz_results", "quiz_answers", "progress")}
 
 
 def update_progress(user_id, step_id, status):
@@ -160,3 +162,81 @@ def save_quiz_result(user_id, quiz_id, score, total_questions):
     percentage = score / total_questions * 100
     with connect() as db: db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, quiz_id, score, total_questions, percentage, datetime.now(timezone.utc).isoformat()))
     return percentage
+
+
+QUIZ_BANK = {
+    "Python": [
+        ("Which keyword defines a function?", ["func", "def", "lambda", "method"], "def"),
+        ("Which type is mutable and ordered?", ["Tuple", "List", "Set", "String"], "List"),
+        ("Which structure stores key-value pairs?", ["List", "Tuple", "Dictionary", "Set"], "Dictionary"),
+        ("Which statement handles an exception?", ["try/except", "if/else", "for/in", "with/as"], "try/except"),
+        ("What does len() return?", ["An object address", "The number of items", "A data type", "A loop"], "The number of items"),
+        ("Which loop iterates over items in a sequence?", ["for", "switch", "repeat", "iterate"], "for"),
+        ("What does a class define?", ["A blueprint for objects", "Only a loop", "A package installer", "A comment"], "A blueprint for objects"),
+        ("Which symbol starts a comment?", ["//", "#", "<!--", "**"], "#"),
+        ("What is None?", ["The absence of a value", "A number", "A loop", "A module"], "The absence of a value"),
+        ("Which keyword imports a module?", ["include", "using", "import", "require"], "import"),
+    ],
+    "Sql": [
+        ("Which clause filters rows?", ["WHERE", "ORDER BY", "JOIN", "GROUP BY"], "WHERE"),
+        ("Which command reads rows?", ["SELECT", "INSERT", "UPDATE", "DELETE"], "SELECT"),
+        ("Which keyword combines related tables?", ["JOIN", "LINK", "MERGE", "ATTACH"], "JOIN"),
+        ("Which function counts rows?", ["SUM", "COUNT", "TOTAL", "ROWS"], "COUNT"),
+        ("Which clause groups rows for aggregation?", ["GROUP BY", "ORDER BY", "WHERE", "HAVING"], "GROUP BY"),
+        ("Which clause filters grouped results?", ["HAVING", "WHERE", "FILTER", "GROUP"], "HAVING"),
+        ("What uniquely identifies a row?", ["Primary key", "View", "Alias", "Index page"], "Primary key"),
+        ("Which command adds a new row?", ["INSERT", "CREATE", "ALTER", "APPEND"], "INSERT"),
+        ("Which function calculates an average?", ["MEAN", "AVG", "AVERAGE", "MID"], "AVG"),
+        ("What is a subquery?", ["A query inside another query", "A deleted table", "A database user", "A column type"], "A query inside another query"),
+    ],
+    "Machine Learning": [
+        ("What does supervised learning use?", ["Labeled data", "No data", "Only rules", "Passwords"], "Labeled data"),
+        ("Which task predicts a continuous value?", ["Regression", "Classification", "Clustering", "Sorting"], "Regression"),
+        ("Which task predicts a category?", ["Classification", "Regression", "Sampling", "Aggregation"], "Classification"),
+        ("Why split train and test data?", ["Evaluate generalization", "Increase file size", "Remove labels", "Avoid features"], "Evaluate generalization"),
+        ("What is overfitting?", ["Memorizing training data", "Having no data", "Using a test set", "Scaling features"], "Memorizing training data"),
+        ("Which metric is common for classification?", ["Accuracy", "Mean only", "Variance only", "File size"], "Accuracy"),
+        ("What does a feature represent?", ["An input variable", "A password", "A prediction only", "A database server"], "An input variable"),
+        ("What does clustering do?", ["Groups similar items", "Predicts labels only", "Deletes outliers", "Sorts columns"], "Groups similar items"),
+        ("Why scale numeric features?", ["Put values on comparable ranges", "Remove the target", "Create labels", "Encrypt data"], "Put values on comparable ranges"),
+        ("What is a model's prediction?", ["Its output for input data", "Its training file", "A feature name", "A database key"], "Its output for input data"),
+    ],
+}
+
+
+def _quiz_count(preferred_level):
+    return {"Beginner": 5, "Intermediate": 7, "Advanced": 10}.get(preferred_level, 7)
+
+
+def create_quiz_attempt(user_id, skill, stage, preferred_level):
+    """Create a fresh randomized, skill-specific quiz attempt for one user."""
+    questions = list(QUIZ_BANK.get(skill, [
+        (f"Which activity best develops {skill}?", ["Practice a focused example", "Skip the topic", "Delete the notes", "Avoid feedback"], "Practice a focused example"),
+        (f"What should you do when learning {skill}?", ["Apply it to a small problem", "Use no examples", "Ignore results", "Avoid practice"], "Apply it to a small problem"),
+    ]))
+    required_count = _quiz_count(preferred_level)
+    while len(questions) < required_count:
+        number = len(questions) + 1
+        questions.append((f"Practice check {number}: what supports progress in {skill}?", ["Review and apply the concept", "Skip practice", "Ignore feedback", "Remove the exercise"], "Review and apply the concept"))
+    randomizer = random.SystemRandom()
+    randomizer.shuffle(questions)
+    with connect() as db:
+        rows = []
+        for question, options, answer in questions[:required_count]:
+            shuffled = list(options); randomizer.shuffle(shuffled)
+            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer))
+            rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (cursor.lastrowid,)).fetchone()))
+    return rows
+
+
+def submit_quiz_attempt(user_id, quiz_rows, answers):
+    """Persist answers and one immutable result for a quiz attempt."""
+    score = 0
+    with connect() as db:
+        for row in quiz_rows:
+            answer = answers.get(str(row["id"]), "")
+            if answer == row["correct_answer"]: score += 1
+            db.execute("INSERT INTO quiz_answers(user_id, quiz_id, user_answer, submitted_at) VALUES (?, ?, ?, ?)", (user_id, row["id"], answer, datetime.now(timezone.utc).isoformat()))
+        percentage = score / len(quiz_rows) * 100
+        db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, quiz_rows[0]["id"], score, len(quiz_rows), percentage, datetime.now(timezone.utc).isoformat()))
+    return score, len(quiz_rows), percentage

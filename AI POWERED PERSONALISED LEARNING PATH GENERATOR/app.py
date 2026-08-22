@@ -163,20 +163,49 @@ def dashboard(user):
             step = path[path[skill_column] == selected_skill].iloc[0]
             stage = step.get("stage", step.get("Stage", ""))
             priority = step.get("priority", step.get("Priority", ""))
-            st.write(f"**{selected_skill}** · {stage} · {priority} priority")
-            questions = QUESTIONS.get(selected_skill, [(f"What is a useful first step for {selected_skill}?", ["Practice the skill", "Skip practice", "Ignore feedback", "Use no resources"], "Practice the skill")])
-            with st.form(f"quiz_{user.get('id', 0)}_{selected_skill}"):
-                answers = [st.radio(question, options) for question, options, _ in questions]
-                submit = st.form_submit_button("Submit quiz")
-            if submit:
-                score = sum(answer == correct for answer, (_, _, correct) in zip(answers, questions)); percentage = score / len(questions) * 100
-                if dynamic:
-                    with auth_db.connect() as db:
-                        quiz = db.execute("SELECT id FROM quizzes WHERE user_id=? AND skill=? ORDER BY id LIMIT 1", (user["id"], selected_skill)).fetchone()
-                    if quiz is not None:
-                        auth_db.save_quiz_result(user["id"], quiz["id"], score, len(questions))
-                    st.write(f"Quiz result saved: {score}/{len(questions)} ({percentage:.0f}%)")
-                else: st.success(f"Score: {score}/{len(questions)} ({percentage:.0f}%)")
+            st.write(f"**Quiz: {selected_skill}** · {stage} · {priority} priority")
+            if not dynamic:
+                st.info("Log in with a registered account to start a personalized quiz attempt.")
+            else:
+                quiz_key = f"{user['id']}:{selected_skill}"
+                if st.session_state.get("active_quiz_skill") != quiz_key:
+                    st.session_state.active_quiz_skill = quiz_key
+                    st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"])
+                    st.session_state.quiz_index = 0
+                    st.session_state.quiz_answers = {}
+                    st.session_state.quiz_result = None
+                quiz_rows = st.session_state.quiz_attempt
+                question_index = st.session_state.quiz_index
+                total_questions = len(quiz_rows)
+                st.write(f"Question {question_index + 1} of {total_questions}")
+                st.progress((question_index + 1) / total_questions, text=f"Question {question_index + 1} / {total_questions}")
+                question_row = quiz_rows[question_index]
+                options = [question_row["option_a"], question_row["option_b"], question_row["option_c"], question_row["option_d"]]
+                answer_key = str(question_row["id"])
+                chosen = st.radio(question_row["question"], options, index=options.index(st.session_state.quiz_answers[answer_key]) if answer_key in st.session_state.quiz_answers else None, key=f"question_{quiz_key}_{question_row['id']}")
+                st.session_state.quiz_answers[answer_key] = chosen
+                navigation = st.columns(3)
+                with navigation[0]:
+                    if st.button("Previous", disabled=question_index == 0):
+                        st.session_state.quiz_index -= 1
+                        st.rerun()
+                with navigation[1]:
+                    if st.button("Next", disabled=question_index >= total_questions - 1):
+                        st.session_state.quiz_index += 1
+                        st.rerun()
+                with navigation[2]:
+                    if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
+                        st.session_state.quiz_result = auth_db.submit_quiz_attempt(user["id"], quiz_rows, st.session_state.quiz_answers)
+                if st.session_state.quiz_result:
+                    score, total, percentage = st.session_state.quiz_result
+                    feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
+                    st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
+                    if st.button("Retry quiz"):
+                        st.session_state.quiz_attempt = auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"])
+                        st.session_state.quiz_index = 0
+                        st.session_state.quiz_answers = {}
+                        st.session_state.quiz_result = None
+                        st.rerun()
     with rag_tab:
         question = st.text_input("Ask about your learning path", placeholder="What should I learn next?")
         if question:
