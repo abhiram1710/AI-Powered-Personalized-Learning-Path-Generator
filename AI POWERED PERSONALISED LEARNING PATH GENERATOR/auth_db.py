@@ -1,39 +1,87 @@
 """SQLite persistence and deterministic personalization for registered learners."""
 
 from datetime import datetime, timezone
+from email.message import EmailMessage
+from contextlib import contextmanager
 import hashlib
 import hmac
+import smtplib
 import json
+import os
 import random
 import secrets
 import sqlite3
+import time
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DB_PATH = PROJECT_ROOT / "learning_platform.db"
+def _smtp_config():
+    """Read SMTP configuration from environment variables."""
+    config = {
+        "host": os.getenv("SMTP_HOST", "smtp.gmail.com"),
+        "port": int(os.getenv("SMTP_PORT", "587")),
+        "username": os.getenv("SMTP_USERNAME", ""),
+        "password": os.getenv("SMTP_PASSWORD", ""),
+        "from_email": os.getenv("SMTP_FROM_EMAIL", ""),
+    }
+
+    if not config["username"] or not config["password"]:
+        raise RuntimeError(
+            "SMTP is not configured. Set SMTP_USERNAME, SMTP_PASSWORD, "
+            "and SMTP_FROM_EMAIL."
+        )
+
+    return config
 STAGE_ORDER = ["Programming", "Data", "Statistics", "Machine Learning", "Databases and Big Data", "Cloud and Tools", "Professional Skills"]
 STAGE_SKILLS = {
     "Programming": ["Python", "JavaScript", "React"],
     "Data": ["Data Integrity", "Data Preparation", "Data Mining", "Data Visualization", "Pandas"],
     "Statistics": ["Statistical Software", "Regressions", "Time Series Analysis", "Statistics"],
-    "Machine Learning": ["Machine Learning", "Predictive Modeling", "Causal-Model Approaches", "Text Mining"],
+    "Machine Learning": ["Machine Learning", "Predictive Modeling", "Deep Learning", "Neural Networks", "Model Deployment", "Causal-Model Approaches", "Text Mining"],
     "Databases and Big Data": ["Sql", "Big Data", "Hadoop", "Apache Spark", "Hive", "Pig", "MongoDB"],
-    "Cloud and Tools": ["Cloud Platforms", "Aws", "Tableau", "Docker", "Kubernetes", "Node.js"],
+    "Cloud and Tools": ["Cloud Platforms", "Aws", "Tableau", "TensorFlow", "Docker", "Kubernetes", "Node.js"],
     "Professional Skills": ["Communication", "Stakeholder Engagement", "Strategic Thinking", "Problem Solving", "Project Management", "Teamwork"],
 }
 CAREER_SKILLS = {
+    "data analyst": ["Python", "Pandas", "Data Preparation", "Statistics", "Data Visualization", "Sql", "Tableau"],
     "data scientist": ["Python", "Sql", "Pandas", "Data Preparation", "Data Visualization", "Statistics", "Machine Learning", "Predictive Modeling", "Tableau"],
+    "machine learning engineer": ["Python", "Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"],
+    "ml engineer": ["Python", "Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"],
     "web developer": ["JavaScript", "Python", "Data Preparation", "Sql", "Node.js", "Communication", "Problem Solving"],
     "cloud engineer": ["Python", "Cloud Platforms", "Aws", "Docker", "Kubernetes", "Sql", "Big Data", "Communication"],
 }
 
+CURATED_COURSES = [
+    ("python", "Python for Everybody", "Python", "Coursera", "University of Michigan", "Beginner", 4.8, 180000, "https://www.coursera.org/specializations/python", "Learn Python programming fundamentals.", "8 months", "None"),
+    ("python-crash", "Python 3 Tutorial", "Python", "Official documentation", "Python Software Foundation", "Beginner", 5.0, 1, "https://docs.python.org/3/tutorial/", "The official Python language tutorial.", "Self-paced", "None"),
+    ("pandas-docs", "Pandas User Guide", "Pandas", "Official documentation", "Pandas", "Intermediate", 5.0, 1, "https://pandas.pydata.org/docs/user_guide/", "Practical data manipulation with pandas.", "Self-paced", "Python"),
+    ("data-analysis-python", "Data Analysis with Python", "Data Preparation", "Coursera", "IBM", "Intermediate", 4.7, 50000, "https://www.coursera.org/learn/data-analysis-with-python", "Analyze and visualize data using Python.", "5 weeks", "Python"),
+    ("statistics-python", "Statistics with Python", "Statistics", "Coursera", "University of Michigan", "Intermediate", 4.7, 20000, "https://www.coursera.org/specializations/statistics-with-python", "Statistical analysis and inference with Python.", "4 months", "Python, Pandas"),
+    ("sql-khan", "Intro to SQL", "Sql", "Khan Academy", "Khan Academy", "Beginner", 4.8, 10000, "https://www.khanacademy.org/computing/computer-programming/sql", "Query and analyze relational data.", "Self-paced", "None"),
+    ("sql-coursera", "SQL for Data Science", "Sql", "Coursera", "University of California, Davis", "Beginner", 4.7, 30000, "https://www.coursera.org/learn/sql-for-data-science", "Use SQL to answer data science questions.", "4 weeks", "None"),
+    ("visualization-tableau", "Fundamentals of Visualization with Tableau", "Data Visualization", "Coursera", "University of California, Davis", "Beginner", 4.6, 12000, "https://www.coursera.org/learn/communicating-data-insights", "Build clear visual data stories.", "4 weeks", "Data Preparation"),
+    ("tableau-training", "Tableau Training", "Tableau", "Official documentation", "Salesforce", "Beginner", 5.0, 1, "https://www.tableau.com/learn/training", "Official Tableau learning paths.", "Self-paced", "Data Visualization"),
+    ("ml-coursera", "Machine Learning", "Machine Learning", "Coursera", "Stanford University", "Intermediate", 4.9, 180000, "https://www.coursera.org/learn/machine-learning", "Foundations of machine learning.", "3 months", "Python, Statistics"),
+    ("ml-google", "Machine Learning Crash Course", "Machine Learning", "Google", "Google", "Intermediate", 4.8, 1, "https://developers.google.com/machine-learning/crash-course", "Practical introduction to ML concepts.", "15 hours", "Python, Statistics"),
+    ("deep-learning", "Deep Learning Specialization", "Deep Learning", "Coursera", "DeepLearning.AI", "Advanced", 4.9, 130000, "https://www.coursera.org/specializations/deep-learning", "Neural networks and deep learning.", "5 months", "Machine Learning"),
+    ("tensorflow", "TensorFlow Core", "TensorFlow", "Official documentation", "Google", "Intermediate", 5.0, 1, "https://www.tensorflow.org/learn", "Official TensorFlow tutorials and guides.", "Self-paced", "Python, Machine Learning"),
+    ("model-deployment", "Deploying Machine Learning Models", "Model Deployment", "Google Cloud Skills Boost", "Google Cloud", "Advanced", 4.7, 1, "https://www.cloudskillsboost.google/paths/17", "Deploy and operate ML workloads.", "Self-paced", "Machine Learning, Python"),
+    ("aws-training", "AWS Skill Builder", "Aws", "AWS Skill Builder", "Amazon Web Services", "Beginner", 4.8, 1, "https://skillbuilder.aws/", "Official AWS training and learning plans.", "Self-paced", "None"),
+]
 
+
+@contextmanager
 def connect():
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys = ON")
-    return connection
+    try:
+        yield connection
+        connection.commit()
+    finally:
+        connection.close()
 
 
 def init_db():
@@ -48,6 +96,9 @@ def init_db():
         CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
         CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, concept TEXT NOT NULL DEFAULT 'Unassigned', submitted_at TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS password_reset_tokens (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, token_hash TEXT NOT NULL UNIQUE, expires_at REAL NOT NULL, used_at TEXT);
+        CREATE TABLE IF NOT EXISTS completed_courses (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, course_id TEXT NOT NULL, course_name TEXT NOT NULL, completed_at TEXT NOT NULL, UNIQUE(user_id, course_id));
+        CREATE TABLE IF NOT EXISTS courses (course_id TEXT PRIMARY KEY, course_name TEXT NOT NULL, skill TEXT NOT NULL, topic TEXT NOT NULL, provider TEXT NOT NULL, institution TEXT NOT NULL, level TEXT NOT NULL, rating REAL, review_count INTEGER, course_url TEXT NOT NULL, description TEXT NOT NULL, duration TEXT NOT NULL, prerequisites TEXT NOT NULL);
         """)
         try:
             db.execute("ALTER TABLE quizzes ADD COLUMN quiz_level TEXT NOT NULL DEFAULT 'Intermediate'")
@@ -58,6 +109,30 @@ def init_db():
                 db.execute(statement)
             except sqlite3.OperationalError:
                 pass
+        for statement in (
+            "ALTER TABLE course_recommendations ADD COLUMN topic TEXT",
+            "ALTER TABLE course_recommendations ADD COLUMN provider TEXT",
+            "ALTER TABLE course_recommendations ADD COLUMN level TEXT",
+            "ALTER TABLE course_recommendations ADD COLUMN rating REAL",
+            "ALTER TABLE course_recommendations ADD COLUMN review_count INTEGER",
+            "ALTER TABLE course_recommendations ADD COLUMN course_url TEXT",
+            "ALTER TABLE course_recommendations ADD COLUMN duration TEXT",
+            "ALTER TABLE course_recommendations ADD COLUMN prerequisites TEXT",
+            "ALTER TABLE learning_path ADD COLUMN started_at TEXT",
+            "ALTER TABLE learning_path ADD COLUMN completed_at TEXT",
+            "ALTER TABLE learning_path ADD COLUMN course_id TEXT",
+            "ALTER TABLE progress ADD COLUMN started_at TEXT",
+            "ALTER TABLE progress ADD COLUMN completed_at TEXT",
+            "ALTER TABLE progress ADD COLUMN quiz_score INTEGER",
+            "ALTER TABLE progress ADD COLUMN quiz_percentage REAL",
+        ):
+            try:
+                db.execute(statement)
+            except sqlite3.OperationalError:
+                pass
+        db.execute("CREATE INDEX IF NOT EXISTS idx_skill_gaps_user ON skill_gaps(user_id)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_learning_path_user_sequence ON learning_path(user_id, sequence)")
+        db.execute("CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id)")
 
 
 def _password_hash(password):
@@ -98,6 +173,128 @@ def authenticate(identifier, password):
     return dict(row)
 
 
+def request_password_reset(identifier, ttl_seconds=900):
+    """Create a one-time password reset token and email it to the user."""
+    identifier = str(identifier).strip()
+
+    with connect() as db:
+        row = db.execute(
+            """
+            SELECT id, email, full_name
+            FROM users
+            WHERE lower(username)=lower(?) OR lower(email)=lower(?)
+            """,
+            (identifier, identifier),
+        ).fetchone()
+
+        # Do not reveal whether an account exists.
+        if row is None:
+            return None
+
+        raw_token = secrets.token_urlsafe(32)
+        token_hash = hashlib.sha256(raw_token.encode()).hexdigest()
+        expires_at = time.time() + ttl_seconds
+
+        # Remove previous reset tokens for this user and expired tokens.
+        db.execute(
+            "DELETE FROM password_reset_tokens WHERE user_id=? OR expires_at<?",
+            (row["id"], time.time()),
+        )
+
+        db.execute(
+            """
+            INSERT INTO password_reset_tokens(user_id, token_hash, expires_at)
+            VALUES (?, ?, ?)
+            """,
+            (row["id"], token_hash, expires_at),
+        )
+
+    config = _smtp_config()
+
+    message = EmailMessage()
+    message["Subject"] = "Password Reset - AI Personalized Learning Path Generator"
+    message["From"] = config["from_email"] or config["username"]
+    message["To"] = row["email"]
+
+    reset_link = (
+        os.getenv(
+            "APP_BASE_URL",
+            "https://ai-powered-personalized-learning-path-generator-tzgwtbiahmtgth.streamlit.app/",
+        ).rstrip("/")
+        + "/?reset_token="
+        + raw_token
+    )
+
+    message.set_content(
+        f"""Hello {row["full_name"] or "there"},
+
+We received a request to reset your password for the AI Personalized Learning Path Generator.
+
+Use the following link to reset your password:
+
+{reset_link}
+
+This link expires in 15 minutes and can only be used once.
+
+If you did not request a password reset, you can safely ignore this email.
+
+Regards,
+AI Personalized Learning Path Generator
+"""
+    )
+
+    try:
+        with smtplib.SMTP(config["host"], config["port"], timeout=20) as server:
+            server.starttls()
+            server.login(config["username"], config["password"])
+            server.send_message(message)
+    except Exception as exc:
+        # Remove the token if the email could not be sent.
+        with connect() as db:
+            db.execute(
+                "DELETE FROM password_reset_tokens WHERE token_hash=?",
+                (token_hash,),
+            )
+        raise RuntimeError(
+            "Password reset email could not be sent. Please try again later."
+        ) from exc
+
+    # Never return the raw token to the application.
+    return True
+    """Return a one-time development token without revealing account existence."""
+    with connect() as db:
+        row = db.execute(
+            "SELECT id FROM users WHERE lower(username)=lower(?) OR lower(email)=lower(?)",
+            (str(identifier).strip(), str(identifier).strip()),
+        ).fetchone()
+        if row is None:
+            return None
+        raw_token = secrets.token_urlsafe(32)
+        token_hash = hashlib.sha256(raw_token.encode()).hexdigest()
+        db.execute("DELETE FROM password_reset_tokens WHERE user_id=? OR expires_at<?", (row["id"], time.time()))
+        db.execute(
+            "INSERT INTO password_reset_tokens(user_id, token_hash, expires_at) VALUES (?, ?, ?)",
+            (row["id"], token_hash, time.time() + ttl_seconds),
+        )
+    return raw_token
+
+
+def reset_password(token, new_password):
+    if new_password != str(new_password).strip() or len(new_password) < 8:
+        raise ValueError("Password must be at least 8 characters and must not begin or end with spaces.")
+    token_hash = hashlib.sha256(str(token).encode()).hexdigest()
+    with connect() as db:
+        row = db.execute(
+            "SELECT id, user_id FROM password_reset_tokens WHERE token_hash=? AND used_at IS NULL AND expires_at>?",
+            (token_hash, time.time()),
+        ).fetchone()
+        if row is None:
+            raise ValueError("This reset token is invalid or expired.")
+        db.execute("UPDATE users SET password_hash=? WHERE id=?", (_password_hash(new_password), row["user_id"]))
+        db.execute("UPDATE password_reset_tokens SET used_at=? WHERE id=?", (datetime.now(timezone.utc).isoformat(), row["id"]))
+    return True
+
+
 def get_user(user_id):
     with connect() as db:
         row = db.execute("SELECT * FROM users WHERE id=?", (user_id,)).fetchone()
@@ -119,13 +316,31 @@ def _requirements(career_goal, interests):
     return result
 
 
-def build_user_path(user, ranked_courses):
+def _catalog_frame(ranked_courses):
+    import pandas as pd
+    rows = [{"course_id": course[0], "course_name": course[1], "required_skill": course[2], "topic": course[2], "provider": course[3], "institution": course[4], "level": course[5], "average_rating": course[6], "review_count": course[7], "course_url": course[8], "description": course[9], "duration": course[10], "prerequisites": course[11], "course_score": course[6] / 5 + min(course[7], 100000) / 1000000} for course in CURATED_COURSES]
+    if ranked_courses is not None and not ranked_courses.empty:
+        for _, row in ranked_courses.iterrows():
+            if not any(item["course_id"] == row.get("course_id") for item in rows):
+                rows.append({"course_id": row.get("course_id", ""), "course_name": row.get("course_name", ""), "required_skill": row.get("required_skill", ""), "topic": row.get("required_skill", ""), "provider": row.get("institution", ""), "institution": row.get("institution", ""), "level": "Intermediate", "average_rating": row.get("average_rating", 0), "review_count": row.get("review_count", 0), "course_url": "", "description": "Generated course recommendation.", "duration": "Self-paced", "prerequisites": "", "course_score": row.get("course_score", 0)})
+    return pd.DataFrame(rows)
+
+
+def _completed_course_ids(db, user_id):
+    return {row["course_id"] for row in db.execute("SELECT course_id FROM completed_courses WHERE user_id=?", (user_id,)).fetchall()}
+
+
+def build_user_path(user, ranked_courses, completed_skills=None, completed_course_ids=None):
     required = _requirements(user["career_goal"], user["interests"])
     current = {_norm(item.strip()) for item in user["current_skills"].split(",") if item.strip()}
+    current.update(_norm(item) for item in completed_skills or [])
+    catalog = _catalog_frame(ranked_courses)
+    completed_course_ids = completed_course_ids or set()
     skill_rows = []
     for skill in required:
         covered = _norm(skill) in current
-        matches = ranked_courses[ranked_courses["required_skill"].map(_norm) == _norm(skill)].copy()
+        matches = catalog[catalog["required_skill"].map(_norm) == _norm(skill)].copy()
+        matches = matches[~matches["course_id"].isin(completed_course_ids)]
         matches["course_score"] = __import__("pandas").to_numeric(matches["course_score"], errors="coerce")
         matches = matches.dropna(subset=["course_score"]).sort_values("course_score", ascending=False)
         course = matches.iloc[0] if not matches.empty else None
@@ -133,13 +348,16 @@ def build_user_path(user, ranked_courses):
     ordered = []
     for stage in STAGE_ORDER:
         for skill, covered, course in skill_rows:
-            if not covered and _norm(skill) in {_norm(item) for item in STAGE_SKILLS[stage]}:
+            if _norm(skill) in {_norm(item) for item in STAGE_SKILLS[stage]}:
                 ordered.append((stage, skill, covered, course))
     return ordered
 
 
 def save_personalization(user_id, user, ranked_courses, recommendation):
     with connect() as db:
+        catalog = _catalog_frame(ranked_courses)
+        for _, course in catalog.iterrows():
+            db.execute("INSERT OR REPLACE INTO courses(course_id, course_name, skill, topic, provider, institution, level, rating, review_count, course_url, description, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(course.get(column, "") for column in ("course_id", "course_name", "required_skill", "topic", "provider", "institution", "level", "average_rating", "review_count", "course_url", "description", "duration", "prerequisites")))
         db.execute("DELETE FROM skill_gaps WHERE user_id=?", (user_id,)); db.execute("DELETE FROM course_recommendations WHERE user_id=?", (user_id,)); db.execute("DELETE FROM learning_path WHERE user_id=?", (user_id,)); db.execute("DELETE FROM quizzes WHERE user_id=?", (user_id,))
         for sequence, (stage, skill, covered, course) in enumerate(recommendation, 1):
             priority = "High" if not covered else "Low"
@@ -147,9 +365,9 @@ def save_personalization(user_id, user, ranked_courses, recommendation):
             db.execute("INSERT INTO skill_gaps(user_id, skill, current_level, required_level, gap, priority) VALUES (?, ?, ?, ?, ?, ?)", (user_id, skill, "Available" if covered else "Not Available", "Required", gap, priority))
             status = "Course Available" if course is not None and not covered else "No Course Available" if not covered else "Covered"
             if course is not None and not covered:
-                db.execute("INSERT INTO course_recommendations(user_id, skill, course_id, course_name, institution, course_score, course_status) VALUES (?, ?, ?, ?, ?, ?, ?)", (user_id, skill, course["course_id"], course["course_name"], course["institution"], float(course["course_score"]), status))
+                db.execute("INSERT INTO course_recommendations(user_id, skill, course_id, course_name, institution, course_score, course_status, topic, provider, level, rating, review_count, course_url, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, course["course_id"], course["course_name"], course["institution"], float(course["course_score"]), status, course["topic"], course["provider"], course["level"], float(course["average_rating"]), int(course["review_count"]), course["course_url"], course["duration"], course["prerequisites"]))
             recommendation_text = "Use examples, categorization, comparisons and pattern recognition." if user["preferred_level"] == "Beginner" else "Apply the concept through progressively challenging projects."
-            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, priority, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, priority, course["course_name"] if course is not None and not covered else "", status, recommendation_text))
+            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, priority, course_id, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, priority, course["course_id"] if course is not None and not covered else "", course["course_name"] if course is not None and not covered else "", status, recommendation_text))
 
 
 def user_data(user_id):
@@ -159,8 +377,17 @@ def user_data(user_id):
 
 def update_progress(user_id, step_id, status):
     with connect() as db:
-        db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at", (user_id, step_id, status, datetime.now(timezone.utc).isoformat()))
-        db.execute("UPDATE learning_path SET progress_status=? WHERE id=? AND user_id=?", (status, step_id, user_id))
+        now = datetime.now(timezone.utc).isoformat()
+        step = db.execute("SELECT course_id, course_name FROM learning_path WHERE id=? AND user_id=?", (step_id, user_id)).fetchone()
+        if step is None:
+            raise KeyError("Learning step does not belong to this account.")
+        started_at = now if status in ("In Progress", "Completed") else None
+        completed_at = now if status == "Completed" else None
+        db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at, started_at, completed_at) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at, started_at=COALESCE(progress.started_at, excluded.started_at), completed_at=excluded.completed_at", (user_id, step_id, status, now, started_at, completed_at))
+        db.execute("UPDATE learning_path SET progress_status=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE id=? AND user_id=?", (status, started_at, completed_at, step_id, user_id))
+        if status == "Completed" and step["course_id"]:
+            db.execute("INSERT OR IGNORE INTO completed_courses(user_id, course_id, course_name, completed_at) VALUES (?, ?, ?, ?)", (user_id, step["course_id"], step["course_name"], now))
+            db.execute("UPDATE course_recommendations SET course_status='Completed' WHERE user_id=? AND course_id=?", (user_id, step["course_id"]))
 
 
 def record_quiz_progress(user_id, skill, percentage):
@@ -173,14 +400,17 @@ def record_quiz_progress(user_id, skill, percentage):
         ).fetchone()
         if step is None:
             raise KeyError(f"No learning-path step found for skill '{skill}'.")
+        score = round(percentage / 100 * 7)
+        now = datetime.now(timezone.utc).isoformat()
         db.execute(
             "INSERT INTO progress(user_id, learning_step_id, status, updated_at) VALUES (?, ?, ?, ?) "
-            "ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at",
-            (user_id, step["id"], status, datetime.now(timezone.utc).isoformat()),
+            "ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at, quiz_score=excluded.quiz_score, quiz_percentage=excluded.quiz_percentage",
+            (user_id, step["id"], status, now),
         )
+        db.execute("UPDATE progress SET quiz_score=?, quiz_percentage=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE user_id=? AND learning_step_id=?", (score, percentage, now, now if status == "Completed" else None, user_id, step["id"]))
         db.execute(
-            "UPDATE learning_path SET progress_status=? WHERE id=? AND user_id=?",
-            (status, step["id"], user_id),
+            "UPDATE learning_path SET progress_status=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE id=? AND user_id=?",
+            (status, now, now if status == "Completed" else None, step["id"], user_id),
         )
     return status
 

@@ -125,8 +125,15 @@ def review_details(skill, concept, question, user_answer, correct_answer):
         None,
     )
     explanation = CONCEPT_EXPLANATIONS.get(concept)
-    if material is None or not explanation:
-        raise ValueError(f"Missing explanation or study material for {skill} / {concept}")
+    if material is None:
+        material = (f"{skill} official learning material", {
+            "Python": "https://docs.python.org/3/tutorial/",
+            "Pandas": "https://pandas.pydata.org/docs/user_guide/",
+            "Sql": "https://www.postgresql.org/docs/current/tutorial-sql.html",
+            "Machine Learning": "https://developers.google.com/machine-learning/crash-course",
+        }.get(skill, "https://www.khanacademy.org/"))
+    if not explanation:
+        explanation = f"Review the core {skill} concept and apply it in a small practical exercise."
     material_title, material_url = material
     return explanation, material_title, material_url
 
@@ -182,44 +189,251 @@ def rag_search(query, user):
     except Exception as error:
         return [{"error": str(error)}]
 
-
 def auth_page():
     st.title("Personalised Learning Platform")
-    login_tab, register_tab = st.tabs(["Login", "Create account"])
+
+    # Get reset token from email link
+    url_reset_token = st.query_params.get("reset_token", "")
+
+    # ---------------------------------------------------------
+    # PASSWORD RESET PAGE
+    # ---------------------------------------------------------
+    if url_reset_token:
+        st.subheader("Reset your password")
+        st.info("Create a new password for your account.")
+
+        new_password = st.text_input(
+            "New password",
+            type="password",
+            key="reset_password"
+        )
+
+        confirm_reset = st.text_input(
+            "Confirm new password",
+            type="password",
+            key="reset_password_confirm"
+        )
+
+        if st.button(
+            "Reset password",
+            type="primary",
+            key="reset_password_button"
+        ):
+            if not new_password:
+                st.error("Please enter a new password.")
+
+            elif len(new_password) < 8:
+                st.error("Password must be at least 8 characters.")
+
+            elif new_password != confirm_reset:
+                st.error("Passwords do not match.")
+
+            else:
+                try:
+                    auth_db.reset_password(
+                        url_reset_token,
+                        new_password
+                    )
+
+                    st.query_params.clear()
+
+                    st.success(
+                        "Password reset successfully. You can now log in."
+                    )
+
+                except ValueError:
+                    st.error(
+                        "The reset link is invalid or has expired."
+                    )
+
+        return
+
+    # ---------------------------------------------------------
+    # LOGIN / CREATE ACCOUNT
+    # ---------------------------------------------------------
+    login_tab, register_tab = st.tabs(
+        ["Login", "Create account"]
+    )
+
+    # =========================================================
+    # LOGIN TAB
+    # =========================================================
     with login_tab:
-        identifier = st.text_input("Username or email", key="login_identifier")
-        password = st.text_input("Password", type="password", key="login_password")
-        if st.button("Login", type="primary"):
-            user = auth_db.authenticate(identifier, password)
+
+        identifier = st.text_input(
+            "Username or email",
+            key="login_identifier"
+        )
+
+        password = st.text_input(
+            "Password",
+            type="password",
+            key="login_password"
+        )
+
+        if st.button("Login", type="primary", key="login_button"):
+
+            user = auth_db.authenticate(
+                identifier,
+                password
+            )
+
             if user:
                 st.session_state.user_id = user["id"]
                 st.rerun()
-            st.error("Invalid username/email or password.")
-    with register_tab:
-        with st.form("register_form"):
-            full_name = st.text_input("Full name")
-            username = st.text_input("Username")
-            email = st.text_input("Email")
-            password = st.text_input("Password", type="password")
-            confirm = st.text_input("Confirm password", type="password")
-            career = st.text_input("Career goal", placeholder="Data Scientist")
-            interests = st.text_input("Areas of interest", placeholder="Python, SQL, Machine Learning")
-            skills = st.text_input("Current skills", placeholder="Python")
-            level = st.selectbox("Preferred learning level", ["Beginner", "Intermediate", "Advanced"])
-            submitted = st.form_submit_button("Create account", type="primary")
-        if submitted:
-            if password != confirm:
-                st.error("Passwords do not match.")
+
             else:
+                st.error(
+                    "Invalid username/email or password."
+                )
+
+        # -----------------------------------------------------
+        # FORGOT PASSWORD
+        # -----------------------------------------------------
+        with st.expander("Forgot Password?"):
+
+            reset_identifier = st.text_input(
+                "Username or email",
+                key="reset_identifier"
+            )
+
+            if st.button(
+                "Send reset email",
+                key="generate_reset"
+            ):
+
                 try:
-                    user_id = auth_db.register_user(full_name, username, email, password, career, interests, skills, level)
+                    auth_db.request_password_reset(
+                        reset_identifier
+                    )
+
+                    st.success(
+                        "If the account exists, password reset "
+                        "instructions have been sent to the "
+                        "registered email address."
+                    )
+
+                except (ValueError, RuntimeError) as exc:
+                    st.error(str(exc))
+
+    # =========================================================
+    # CREATE ACCOUNT TAB
+    # =========================================================
+    with register_tab:
+
+        with st.form("register_form"):
+
+            full_name = st.text_input(
+                "Full name"
+            )
+
+            username = st.text_input(
+                "Username"
+            )
+
+            email = st.text_input(
+                "Email"
+            )
+
+            password = st.text_input(
+                "Password",
+                type="password"
+            )
+
+            confirm = st.text_input(
+                "Confirm password",
+                type="password"
+            )
+
+            career = st.text_input(
+                "Career goal",
+                placeholder="Data Scientist"
+            )
+
+            interests = st.text_input(
+                "Areas of interest",
+                placeholder="Python, SQL, Machine Learning"
+            )
+
+            skills = st.text_input(
+                "Current skills",
+                placeholder="Python"
+            )
+
+            level = st.selectbox(
+                "Preferred learning level",
+                [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                ]
+            )
+
+            submitted = st.form_submit_button(
+                "Create account",
+                type="primary"
+            )
+
+        if submitted:
+
+            if not full_name:
+                st.error("Please enter your full name.")
+
+            elif not username:
+                st.error("Please enter a username.")
+
+            elif not email:
+                st.error("Please enter your email.")
+
+            elif not password:
+                st.error("Please enter a password.")
+
+            elif len(password) < 8:
+                st.error(
+                    "Password must be at least 8 characters."
+                )
+
+            elif password != confirm:
+                st.error(
+                    "Passwords do not match."
+                )
+
+            else:
+
+                try:
+
+                    user_id = auth_db.register_user(
+                        full_name,
+                        username,
+                        email,
+                        password,
+                        career,
+                        interests,
+                        skills,
+                        level
+                    )
+
                     new_user = auth_db.get_user(user_id)
+
                     ranked = read_csv(RANKED_PATH)
-                    auth_db.save_personalization(user_id, new_user, ranked, auth_db.build_user_path(new_user, ranked))
-                    st.success("Account created. You can now log in.")
+
+                    auth_db.save_personalization(
+                        user_id,
+                        new_user,
+                        ranked,
+                        auth_db.build_user_path(
+                            new_user,
+                            ranked
+                        )
+                    )
+
+                    st.success(
+                        "Account created successfully. "
+                        "You can now log in."
+                    )
+
                 except ValueError as error:
                     st.error(str(error))
-
 
 def sample_dashboard():
     profile = read_csv(PROFILE_PATH)
@@ -235,7 +449,9 @@ def user_dashboard(user):
     path = pd.DataFrame(data["learning_path"])
     gaps = pd.DataFrame(data["skill_gaps"])
     courses = pd.DataFrame(data["course_recommendations"])
-    return {"Student ID": user["username"], "Student": user["full_name"], "Job Profession": user["career_goal"], "Dominant Intelligence": "Personalized", "Career Goal": user["career_goal"], "Interests": user["interests"]}, path, gaps, courses
+    completed_skills = path.loc[path.get("progress_status", pd.Series(dtype=str)) == "Completed", "skill"].tolist() if not path.empty else []
+    profile = {"Student ID": user["username"], "Student": user["full_name"], "Career Goal": user["career_goal"], "Interests": user["interests"], "Current Skills": user["current_skills"], "Completed Skills": ", ".join(completed_skills) or "None yet", "Learning Progress": f"{sum(path['progress_status'] == 'Completed')}/{len(path)}"}
+    return profile, path, gaps, courses
 
 
 def dashboard(user):
@@ -249,7 +465,7 @@ def dashboard(user):
     st.caption(f"Career goal: {profile.get('Career Goal', profile.get('Job Profession', 'Not specified'))}  ·  Interests: {profile.get('Interests', 'Project reference profile')}")
     if dynamic:
         st.info("Your registered profile is isolated to your account. Progress and quiz results are stored in SQLite.")
-    available = int((path["course_status"] == "Course Available").sum()) if dynamic and not path.empty else int((path["Course Status"] == "Course Available").sum())
+    available = int((courses["course_status"].isin(["Course Available", "Recommended"])).sum()) if dynamic and not courses.empty else int((path["Course Status"] == "Course Available").sum())
     total = len(path)
     completed = int((path["progress_status"] == "Completed").sum()) if dynamic and not path.empty else 0
     metrics = st.columns(4)
@@ -263,16 +479,24 @@ def dashboard(user):
     with profile_tab:
         left, right = st.columns([1, 2])
         with left:
-            for key in ("Student", "Student ID", "Job Profession", "Career Goal", "Dominant Intelligence", "Intelligence Score"):
+            for key in ("Student", "Student ID", "Career Goal", "Interests", "Current Skills", "Completed Skills", "Learning Progress", "Job Profession", "Dominant Intelligence", "Intelligence Score"):
                 if key in profile: st.write(f"**{key}:** {profile[key]}")
         with right:
             intelligence = [column for column in ("Linguistic", "Musical", "Bodily", "Logical Mathematical", "Spatial Visualization", "Interpersonal", "Intrapersonal", "Naturalist") if column in profile]
             if intelligence: st.bar_chart(pd.DataFrame({"Intelligence": intelligence, "Score": [profile[column] for column in intelligence]}).set_index("Intelligence"), horizontal=True)
     with gap_tab:
-        st.metric("Total skill gaps", len(gaps))
+        if dynamic and not gaps.empty:
+            gaps = gaps.assign(status=gaps["skill"].map(dict(zip(path["skill"], path["progress_status"]))))
+            gaps["gap"] = gaps["status"].map(lambda status: "No Gap" if status == "Completed" else "Gap")
+        st.metric("Total skill gaps", int((gaps.get("gap", pd.Series(dtype=str)) == "Gap").sum()))
         st.dataframe(gaps, use_container_width=True, hide_index=True)
     with course_tab:
-        st.dataframe(courses, use_container_width=True, hide_index=True)
+        if dynamic and not courses.empty:
+            courses = courses[courses["course_status"] != "Completed"]
+            visible_columns = [column for column in ("skill", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url") if column in courses]
+            st.dataframe(courses[visible_columns], column_config={"course_url": st.column_config.LinkColumn("Course Link")}, use_container_width=True, hide_index=True)
+        else:
+            st.dataframe(courses, use_container_width=True, hide_index=True)
         if dynamic and courses.empty: st.info("No course recommendations are available yet.")
     with path_tab:
         if dynamic and not path.empty:
@@ -380,8 +604,16 @@ def dashboard(user):
             results = rag_search(question, user)
             if results and "error" not in results[0]:
                 for result in results: st.expander(f"{result['source']} · {result['score']:.3f}").write(result["content"])
-                next_skill = path.iloc[0].get("skill", path.iloc[0].get("Skill", "your next skill")) if not path.empty else "your next skill"
-                st.info(f"Based on your profile and path, focus next on **{next_skill}**.")
+                remaining = path[path["progress_status"] != "Completed"] if dynamic and not path.empty else path
+                next_row = remaining.iloc[0] if not remaining.empty else None
+                if next_row is not None:
+                    next_skill = next_row.get("skill", "your next skill")
+                    reason = f"It is the next incomplete step for your {user['career_goal']} goal and follows your completed skills: {profile.get('Completed Skills', 'none')}."
+                    st.info(f"Based on your profile and learning history, your next recommended skill is **{next_skill}**. {reason}")
+                    course = courses[courses["skill"] == next_skill].iloc[0] if not courses.empty and "skill" in courses and not courses[courses["skill"] == next_skill].empty else None
+                    if course is not None:
+                        st.markdown(f"Recommended course: **{course['course_name']}**")
+                        if course.get("course_url"): st.markdown(f"[Open course]({course['course_url']})")
             else: st.warning(f"RAG assistant unavailable: {results[0].get('error', 'No results') if results else 'No results'}")
 
 
