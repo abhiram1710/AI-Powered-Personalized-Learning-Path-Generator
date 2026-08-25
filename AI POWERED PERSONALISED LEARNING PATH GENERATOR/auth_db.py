@@ -1,5 +1,5 @@
 """SQLite persistence and deterministic personalization for registered learners."""
-
+import streamlit as st
 from datetime import datetime, timezone
 from email.message import EmailMessage
 from contextlib import contextmanager
@@ -18,19 +18,41 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent
 DB_PATH = PROJECT_ROOT / "learning_platform.db"
 def _smtp_config():
-    """Read SMTP configuration from environment variables."""
+    """Read SMTP configuration from Streamlit secrets or environment variables."""
+
+    try:
+        secrets_config = st.secrets.get("smtp", {})
+    except Exception:
+        secrets_config = {}
+
     config = {
-        "host": os.getenv("SMTP_HOST", "smtp.gmail.com"),
-        "port": int(os.getenv("SMTP_PORT", "587")),
-        "username": os.getenv("SMTP_USERNAME", ""),
-        "password": os.getenv("SMTP_PASSWORD", ""),
-        "from_email": os.getenv("SMTP_FROM_EMAIL", ""),
+        "host": secrets_config.get(
+            "host",
+            os.getenv("SMTP_HOST", "smtp.gmail.com")
+        ),
+        "port": int(
+            secrets_config.get(
+                "port",
+                os.getenv("SMTP_PORT", "587")
+            )
+        ),
+        "username": secrets_config.get(
+            "username",
+            os.getenv("SMTP_USERNAME", "")
+        ),
+        "password": secrets_config.get(
+            "password",
+            os.getenv("SMTP_PASSWORD", "")
+        ),
+        "from_email": secrets_config.get(
+            "from_email",
+            os.getenv("SMTP_FROM_EMAIL", "")
+        ),
     }
 
     if not config["username"] or not config["password"]:
         raise RuntimeError(
-            "SMTP is not configured. Set SMTP_USERNAME, SMTP_PASSWORD, "
-            "and SMTP_FROM_EMAIL."
+            "SMTP is not configured. Add SMTP credentials in Streamlit Cloud Secrets."
         )
 
     return config
