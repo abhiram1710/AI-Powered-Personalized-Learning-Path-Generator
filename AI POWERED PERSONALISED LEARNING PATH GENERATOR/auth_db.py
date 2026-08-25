@@ -175,6 +175,7 @@ def authenticate(identifier, password):
 
 def request_password_reset(identifier, ttl_seconds=900):
     """Create a one-time password reset token and email it to the user."""
+    print("PASSWORD RESET FUNCTION CALLED FOR:", identifier)
     identifier = str(identifier).strip()
 
     with connect() as db:
