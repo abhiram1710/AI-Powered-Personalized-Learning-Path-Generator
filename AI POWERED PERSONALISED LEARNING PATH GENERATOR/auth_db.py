@@ -284,23 +284,6 @@ AI Personalized Learning Path Generator
 
     # Never return the raw token to the application.
     return True
-    """Return a one-time development token without revealing account existence."""
-    with connect() as db:
-        row = db.execute(
-            "SELECT id FROM users WHERE lower(username)=lower(?) OR lower(email)=lower(?)",
-            (str(identifier).strip(), str(identifier).strip()),
-        ).fetchone()
-        if row is None:
-            return None
-        raw_token = secrets.token_urlsafe(32)
-        token_hash = hashlib.sha256(raw_token.encode()).hexdigest()
-        db.execute("DELETE FROM password_reset_tokens WHERE user_id=? OR expires_at<?", (row["id"], time.time()))
-        db.execute(
-            "INSERT INTO password_reset_tokens(user_id, token_hash, expires_at) VALUES (?, ?, ?)",
-            (row["id"], token_hash, time.time() + ttl_seconds),
-        )
-    return raw_token
-
 
 def reset_password(token, new_password):
     if new_password != str(new_password).strip() or len(new_password) < 8:
