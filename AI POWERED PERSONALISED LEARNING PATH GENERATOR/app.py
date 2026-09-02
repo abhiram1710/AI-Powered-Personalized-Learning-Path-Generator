@@ -511,7 +511,7 @@ def dashboard(user):
     else:
         available = int((path["Course Status"] == "Course Available").sum()) if "Course Status" in path else 0
     total = len(path)
-    completed = int((path["progress_status"] == "Completed").sum()) if dynamic and not path.empty else 0
+    completed = int((path["progress_status"] == "Completed").sum()) if dynamic and "progress_status" in path else 0
     metrics = st.columns(4)
     metrics[0].metric("Learning steps", total)
     metrics[1].metric("Courses", available)
@@ -582,7 +582,12 @@ def dashboard(user):
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
                     st.session_state.quiz_submitted = False
-                submitted_for_skill = st.session_state.get("quiz_submitted", False) and st.session_state.get("active_quiz_skill") == quiz_key
+                submitted_for_skill = (
+                    st.session_state.get("quiz_submitted", False)
+                    and st.session_state.get("active_quiz_skill") == quiz_key
+                    and bool(st.session_state.get("submitted_quiz"))
+                    and bool(st.session_state.get("quiz_result"))
+                )
                 quiz_rows = st.session_state.get("submitted_quiz", st.session_state.quiz_attempt) if submitted_for_skill else st.session_state.quiz_attempt
                 total_questions = len(quiz_rows)
                 if not quiz_rows:
