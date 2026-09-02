@@ -465,15 +465,16 @@ def user_dashboard(user):
     courses = pd.DataFrame(data["course_recommendations"])
     completed_skills = path.loc[path.get("progress_status", pd.Series(dtype=str)) == "Completed", "skill"].tolist() if not path.empty else []
     profile = {"Student ID": user["username"], "Student": user["full_name"], "Career Goal": user["career_goal"], "Interests": user["interests"], "Current Skills": user["current_skills"], "Completed Skills": ", ".join(completed_skills) or "None yet", "Learning Progress": f"{sum(path['progress_status'] == 'Completed')}/{len(path)}"}
-    return profile, path, gaps, courses
+    return profile, path, gaps, courses, data
 
 
 def dashboard(user):
     if user.get("id") == 0:
         profile, path, gaps, courses = sample_dashboard()
+        data = {}
         dynamic = False
     else:
-        profile, path, gaps, courses = user_dashboard(user)
+        profile, path, gaps, courses, data = user_dashboard(user)
         dynamic = True
     st.title(f"Welcome, {profile.get('Student', user['full_name'])}")
     st.caption(f"Career goal: {profile.get('Career Goal', profile.get('Job Profession', 'Not specified'))}  ·  Interests: {profile.get('Interests', 'Project reference profile')}")
@@ -612,13 +613,17 @@ def dashboard(user):
                         st.session_state.quiz_answers = {}
                         st.session_state.quiz_result = None
                         st.rerun()
-            if dynamic and data["quiz_results"]:
+            quiz_results = data.get("quiz_results", [])
+            if quiz_results:
                 st.subheader("Quiz Results")
-                results = pd.DataFrame(data["quiz_results"])
-                results = results.merge(pd.DataFrame(data["quizzes"])[["id", "skill"]], left_on="quiz_id", right_on="id", how="left")
+                results = pd.DataFrame(quiz_results)
                 results["pass_fail"] = results["percentage"].map(lambda value: "Pass" if value >= 70 else "Fail")
-                results["learning_path_status"] = results["skill"].map(dict(zip(path["skill"], path["progress_status"])))
+                path_keys = path.get("skill_key", path.get("skill", pd.Series(dtype=str)))
+                result_keys = results.get("skill_key", results.get("skill", pd.Series(dtype=str)))
+                results["learning_path_status"] = result_keys.map(dict(zip(path_keys, path["progress_status"])))
                 st.dataframe(results[["skill", "score", "total_questions", "percentage", "pass_fail", "submitted_at", "learning_path_status"]], use_container_width=True, hide_index=True)
+            else:
+                st.info("No quiz attempts yet.")
     with rag_tab:
         question = st.text_input("Ask about your learning path", placeholder="What should I learn next?")
         debug_rag = st.checkbox("Show retrieval diagnostics", value=False)

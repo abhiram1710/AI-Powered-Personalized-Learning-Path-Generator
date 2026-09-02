@@ -391,7 +391,9 @@ def save_personalization(user_id, user, ranked_courses, recommendation):
 
 def user_data(user_id):
     with connect() as db:
-        return {table: [dict(row) for row in db.execute(f"SELECT * FROM {table} WHERE user_id=? ORDER BY id", (user_id,))] for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes", "quiz_results", "quiz_answers", "progress")}
+        data = {table: [dict(row) for row in db.execute(f"SELECT * FROM {table} WHERE user_id=? ORDER BY id", (user_id,))] for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes", "quiz_answers", "progress")}
+        data["quiz_results"] = [dict(row) for row in db.execute("SELECT quiz_results.*, quizzes.skill, quizzes.skill_key FROM quiz_results JOIN quizzes ON quizzes.id=quiz_results.quiz_id AND quizzes.user_id=quiz_results.user_id WHERE quiz_results.user_id=? ORDER BY quiz_results.id", (user_id,))]
+        return data
 
 
 def update_progress(user_id, step_id, status):
