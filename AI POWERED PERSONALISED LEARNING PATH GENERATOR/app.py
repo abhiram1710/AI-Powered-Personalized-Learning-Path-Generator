@@ -577,6 +577,7 @@ def dashboard(user):
                     st.session_state.quiz_index = 0
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
+                    st.session_state.quiz_submitted = False
                 quiz_rows = st.session_state.quiz_attempt
                 total_questions = len(quiz_rows)
                 if not quiz_rows:
@@ -605,8 +606,9 @@ def dashboard(user):
                     if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
                         st.session_state.quiz_result = auth_db.submit_quiz_attempt(user["id"], quiz_rows, st.session_state.quiz_answers)
                         auth_db.record_quiz_progress(user["id"], selected_skill, st.session_state.quiz_result[2])
+                        st.session_state.quiz_submitted = True
                         st.rerun()
-                if st.session_state.quiz_result:
+                if st.session_state.get("quiz_submitted", False) and st.session_state.get("quiz_result"):
                     score, total, percentage = st.session_state.quiz_result
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
@@ -640,18 +642,13 @@ def dashboard(user):
                                 st.write("**Why the correct answer is correct:**", explanation)
                             st.write("**Topic:**", concept)
                             st.markdown(f"**Study Material:** [{title}]({url})")
-                            with st.expander("Optional RAG context"):
-                                context_results = rag_search(f"{selected_skill} {concept}", user)
-                                if context_results and "error" not in context_results[0]:
-                                    st.write(context_results[0]["content"][:1200])
-                                else:
-                                    st.info("RAG context is unavailable; the predefined explanation above is still available.")
                     if st.button("Retry quiz"):
                         st.session_state.quiz_used_questions[quiz_key].update(row["question"] for row in quiz_rows)
                         st.session_state.quiz_attempt = enrich_quiz_rows(selected_skill, auth_db.create_quiz_attempt(user["id"], selected_skill, stage, user["preferred_level"], st.session_state.quiz_used_questions[quiz_key]))
                         st.session_state.quiz_index = 0
                         st.session_state.quiz_answers = {}
                         st.session_state.quiz_result = None
+                        st.session_state.quiz_submitted = False
                         st.rerun()
             quiz_results = data.get("quiz_results", [])
             if quiz_results:
