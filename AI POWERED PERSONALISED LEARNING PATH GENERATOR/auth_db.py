@@ -66,14 +66,15 @@ STAGE_SKILLS = {
     "Cloud and Tools": ["Cloud Platforms", "Aws", "Tableau", "TensorFlow", "Docker", "Kubernetes", "Node.js"],
     "Professional Skills": ["Communication", "Stakeholder Engagement", "Strategic Thinking", "Problem Solving", "Project Management", "Teamwork"],
 }
-CAREER_SKILLS = {
-    "data analyst": ["Python", "Pandas", "Data Preparation", "Statistics", "Data Visualization", "Sql", "Tableau"],
-    "data scientist": ["Python", "Sql", "Pandas", "Data Preparation", "Data Visualization", "Statistics", "Machine Learning", "Predictive Modeling", "Tableau"],
-    "machine learning engineer": ["Python", "Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"],
-    "ml engineer": ["Python", "Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"],
-    "web developer": ["JavaScript", "Python", "Data Preparation", "Sql", "Node.js", "Communication", "Problem Solving"],
-    "cloud engineer": ["Python", "Cloud Platforms", "Aws", "Docker", "Kubernetes", "Sql", "Big Data", "Communication"],
+CAREER_REQUIREMENTS = {
+    "data analyst": {"foundation": ["Python", "Sql"], "role": ["Pandas", "Data Preparation", "Statistics", "Data Visualization", "Tableau"]},
+    "data scientist": {"foundation": ["Python", "Sql"], "role": ["Pandas", "Data Preparation", "Data Visualization", "Statistics", "Machine Learning", "Predictive Modeling", "Tableau"]},
+    "machine learning engineer": {"foundation": ["Python"], "role": ["Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"]},
+    "ml engineer": {"foundation": ["Python"], "role": ["Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"]},
+    "web developer": {"foundation": ["JavaScript"], "role": ["React", "Node.js", "Communication", "Problem Solving"]},
+    "cloud engineer": {"foundation": ["Python", "Sql"], "role": ["Cloud Platforms", "Aws", "Docker", "Kubernetes", "Big Data", "Communication"]},
 }
+CAREER_SKILLS = {name: requirements["foundation"] + requirements["role"] for name, requirements in CAREER_REQUIREMENTS.items()}
 
 CURATED_COURSES = [
     ("python", "Python for Everybody", "Python", "Coursera", "University of Michigan", "Beginner", 4.8, 180000, "https://www.coursera.org/specializations/python", "Learn Python programming fundamentals.", "8 months", "None"),
@@ -111,9 +112,9 @@ def init_db():
         db.executescript("""
         CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, full_name TEXT NOT NULL, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL, career_goal TEXT NOT NULL, interests TEXT NOT NULL, current_skills TEXT NOT NULL, preferred_level TEXT NOT NULL, created_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS user_profiles (id INTEGER PRIMARY KEY, user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE, dominant_intelligence TEXT, intelligence_score REAL, profile_data TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS skill_gaps (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS skill_gaps (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', skill_category TEXT NOT NULL DEFAULT 'Role-specific', current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS course_recommendations (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
+        CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', skill_category TEXT NOT NULL DEFAULT 'Role-specific', priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
         CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Unassigned', quiz_level TEXT NOT NULL DEFAULT 'Intermediate');
         CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
@@ -144,8 +145,10 @@ def init_db():
             "ALTER TABLE learning_path ADD COLUMN completed_at TEXT",
             "ALTER TABLE learning_path ADD COLUMN course_id TEXT",
             "ALTER TABLE skill_gaps ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE skill_gaps ADD COLUMN skill_category TEXT NOT NULL DEFAULT 'Role-specific'",
             "ALTER TABLE course_recommendations ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE learning_path ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE learning_path ADD COLUMN skill_category TEXT NOT NULL DEFAULT 'Role-specific'",
             "ALTER TABLE quizzes ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE progress ADD COLUMN started_at TEXT",
             "ALTER TABLE progress ADD COLUMN completed_at TEXT",
@@ -158,6 +161,8 @@ def init_db():
                 pass
         for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes"):
             db.execute(f"UPDATE {table} SET skill_key='' WHERE skill_key IS NULL")
+            for row in db.execute(f"SELECT id, skill FROM {table} WHERE skill_key='' AND skill IS NOT NULL"):
+                db.execute(f"UPDATE {table} SET skill_key=? WHERE id=?", (_norm(row["skill"]), row["id"]))
         db.execute("CREATE INDEX IF NOT EXISTS idx_skill_gaps_user ON skill_gaps(user_id)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_learning_path_user_sequence ON learning_path(user_id, sequence)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id)")
@@ -328,6 +333,12 @@ def _requirements(career_goal, interests):
     return result
 
 
+def skill_category(career_goal, skill):
+    goal = career_goal.lower()
+    requirements = next((value for name, value in CAREER_REQUIREMENTS.items() if name in goal), CAREER_REQUIREMENTS["data scientist"])
+    return "Foundation" if _norm(skill) in {_norm(item) for item in requirements["foundation"]} else "Role-specific"
+
+
 def _catalog_frame(ranked_courses):
     import pandas as pd
     rows = [{"course_id": course[0], "course_name": course[1], "required_skill": course[2], "topic": course[2], "provider": course[3], "institution": course[4], "level": course[5], "average_rating": course[6], "review_count": course[7], "course_url": course[8], "description": course[9], "duration": course[10], "prerequisites": course[11], "course_score": course[6] / 5 + min(course[7], 100000) / 1000000} for course in CURATED_COURSES]
@@ -381,12 +392,13 @@ def save_personalization(user_id, user, ranked_courses, recommendation):
             priority = "High" if not covered else "Low"
             gap = "Covered" if covered else "Gap"
             skill_key = _norm(skill)
-            db.execute("INSERT INTO skill_gaps(user_id, skill, skill_key, current_level, required_level, gap, priority) VALUES (?, ?, ?, ?, ?, ?, ?)", (user_id, skill, skill_key, "Available" if covered else "Not Available", "Required", gap, priority))
+            category = skill_category(user["career_goal"], skill)
+            db.execute("INSERT INTO skill_gaps(user_id, skill, skill_key, skill_category, current_level, required_level, gap, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, skill_key, category, "Available" if covered else "Not Available", "Required", gap, priority))
             status = "Course Available" if course is not None and not covered else "No Course Available" if not covered else "Covered"
             if course is not None and not covered:
                 db.execute("INSERT INTO course_recommendations(user_id, skill, skill_key, course_id, course_name, institution, course_score, course_status, topic, provider, level, rating, review_count, course_url, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, skill_key, course["course_id"], course["course_name"], course["institution"], float(course["course_score"]), status, course["topic"], course["provider"], course["level"], float(course["average_rating"]), int(course["review_count"]), course["course_url"], course["duration"], course["prerequisites"]))
             recommendation_text = "Use examples, categorization, comparisons and pattern recognition." if user["preferred_level"] == "Beginner" else "Apply the concept through progressively challenging projects."
-            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, skill_key, priority, course_id, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, skill_key, priority, course["course_id"] if course is not None and not covered else "", course["course_name"] if course is not None and not covered else "", status, recommendation_text))
+            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, skill_key, skill_category, priority, course_id, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, skill_key, category, priority, course["course_id"] if course is not None and not covered else "", course["course_name"] if course is not None and not covered else "", status, recommendation_text))
 
 
 def user_data(user_id):
@@ -399,9 +411,12 @@ def user_data(user_id):
 def update_progress(user_id, step_id, status):
     with connect() as db:
         now = datetime.now(timezone.utc).isoformat()
-        step = db.execute("SELECT course_id, course_name FROM learning_path WHERE id=? AND user_id=?", (step_id, user_id)).fetchone()
+        step = db.execute("SELECT course_id, course_name, progress_status FROM learning_path WHERE id=? AND user_id=?", (step_id, user_id)).fetchone()
         if step is None:
             raise KeyError("Learning step does not belong to this account.")
+        passed_quiz = db.execute("SELECT 1 FROM progress WHERE user_id=? AND learning_step_id=? AND quiz_percentage>=70", (user_id, step_id)).fetchone()
+        if passed_quiz:
+            status = "Completed"
         started_at = now if status in ("In Progress", "Completed") else None
         completed_at = now if status == "Completed" else None
         db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at, started_at, completed_at) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at, started_at=COALESCE(progress.started_at, excluded.started_at), completed_at=excluded.completed_at", (user_id, step_id, status, now, started_at, completed_at))
