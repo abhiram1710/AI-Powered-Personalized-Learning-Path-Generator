@@ -172,18 +172,24 @@ def read_csv(path):
 
 
 @st.cache_resource
-def rag_assets():
+def rag_index_and_chunks():
     import faiss
-    from sentence_transformers import SentenceTransformer
     index = faiss.read_index(str(INDEX_PATH))
     with CHUNKS_PATH.open("rb") as handle:
         chunks = pickle.load(handle)
-    return index, chunks, SentenceTransformer("all-MiniLM-L6-v2")
+    return index, chunks
+
+
+@st.cache_resource
+def rag_embedding_model():
+    from sentence_transformers import SentenceTransformer
+    return SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def rag_search(query, user):
     try:
-        index, chunks, model = rag_assets()
+        index, chunks = rag_index_and_chunks()
+        model = rag_embedding_model()
         context = f"Career goal: {user['career_goal']}. Current skills: {user['current_skills']}. Interests: {user['interests']}. Question: {query}"
         vector = model.encode([context], convert_to_numpy=True).astype("float32")
         distances, indices = index.search(vector, 4)
@@ -212,7 +218,7 @@ def grounded_answer(question, results, path, user):
     if api_key:
         try:
             from openai import OpenAI
-            response = OpenAI(api_key=api_key).chat.completions.create(model=model_name, messages=[{"role": "user", "content": prompt}], temperature=0.1)
+            response = OpenAI(api_key=api_key, timeout=15.0, max_retries=0).chat.completions.create(model=model_name, messages=[{"role": "user", "content": prompt}], temperature=0.1)
             return response.choices[0].message.content.strip()
         except Exception as error:
             return f"The grounded language model could not answer this question: {error}"

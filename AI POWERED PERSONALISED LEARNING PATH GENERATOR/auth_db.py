@@ -564,6 +564,10 @@ def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questio
     questions = unused_questions + [question for question in questions if question[0] in excluded_questions]
     randomizer = random.SystemRandom()
     randomizer.shuffle(questions)
+    required_question = next((question for question in questions if question[0] == "Which keyword imports a module?"), None)
+    if _norm(skill) == "python" and required_question is not None:
+        questions.remove(required_question)
+        questions.insert(0, required_question)
     with connect() as db:
         rows = []
         for question, options, answer in questions[:required_count]:
