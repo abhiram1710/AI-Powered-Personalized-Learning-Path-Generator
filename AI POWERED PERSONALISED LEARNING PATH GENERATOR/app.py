@@ -216,10 +216,11 @@ def grounded_answer(question, results, path, user):
             return response.choices[0].message.content.strip()
         except Exception as error:
             return f"The grounded language model could not answer this question: {error}"
-    if path_context:
+    is_learning_path_question = any(keyword in question.casefold() for keyword in ("learn", "learning", "skill", "course", "path", "next", "start", "career"))
+    if path_context and is_learning_path_question:
         next_step = path_context[0]
         return f"Your next incomplete learning step is **{next_step['skill']}**. The knowledge base context supports this path position, but no language-model API key is configured for a synthesized explanation."
-    return "Your learning path is complete, and no additional incomplete step is available."
+    return "I couldn't find relevant information in the knowledge base for this question."
 
 def auth_page():
     st.title("Personalised Learning Platform")
