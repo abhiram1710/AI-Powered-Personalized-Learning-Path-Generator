@@ -31,14 +31,14 @@ Input datasets are under `Dataset/Processed/`, including student, career, employ
 Student ID selects the profile. Explicit current technical skills determine coverage; intelligence categories are not treated as technical skills. Required skills are staged, courses are selected by course score, no-course gaps remain visible, and practice intensity follows priority.
 
 ## Authentication and database
-Registered learners use username/email login with salted PBKDF2 password hashes; plaintext passwords are never stored. SQLite stores users, profiles, skill gaps, recommendations, learning paths, quizzes, quiz results, and progress. Every personalized query is scoped by the authenticated user ID. The sample S1 CSV outputs remain available as a reference pipeline, while registered users receive career- and interest-specific paths. The database file is created locally at runtime and is excluded from Git; hosted multi-instance deployments should use a managed database for durable shared persistence.
+Registered learners use username/email login with salted PBKDF2 password hashes; plaintext passwords are never stored. Local SQLite uses `learning.db` and stores users, profiles, skill gaps, recommendations, learning paths, quizzes, quiz results, and progress. Every personalized query is scoped by the authenticated user ID. If an older local `learning_platform.db` exists and `learning.db` does not, startup copies it once without deleting either file, then applies safe schema migrations. Both database files are excluded from Git. Streamlit Cloud deployments must use a managed PostgreSQL/Supabase database for durable shared persistence; SQLite on Cloud is instance-local and can disappear after rebuilds.
 
 ## How to run
 From the project root:
 
 ```powershell
 py -m pip install -r requirements.txt
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 ## Streamlit Cloud deployment
@@ -49,7 +49,7 @@ Push `streamlit_app.py`, `requirements.txt`, `.streamlit/config.toml`, the compl
 
 In Streamlit Cloud, choose the repository, branch, and `streamlit_app.py` as the main file. Add the SMTP values from the example file in App settings > Secrets. Password reset also needs `APP_BASE_URL` set to the deployed app URL. The embedding model `all-MiniLM-L6-v2` is downloaded by Sentence Transformers on first RAG use and cached by the app.
 
-SQLite is suitable for local testing and a single temporary Streamlit instance, but Streamlit Cloud local storage is not a durable multi-user database. For production persistence, replace `auth_db.connect()` with a managed PostgreSQL or hosted SQLite-compatible service and store its connection details in Streamlit Secrets; otherwise users and progress can be lost when the app instance is recycled.
+`auth_db.py` is the current database layer used by the application. The current code intentionally keeps SQLite as the working local backend and warns when it is running with instance-local storage, rather than silently claiming that Cloud SQLite is durable. A managed PostgreSQL/Supabase adapter is the recommended next production step; this version rejects a non-SQLite setting instead of silently falling back to an ephemeral local file. Store the eventual connection URL in Streamlit Secrets, never in Git.
 
 Deployment smoke test: register and log in, submit a profile, confirm Skill Analysis and Courses match by skill, update a Learning Path status, complete a quiz, verify the persisted Quiz Results row and progress count after rerun, then ask the RAG Assistant and enable retrieval diagnostics. Confirm a second account cannot see the first account's rows.
 

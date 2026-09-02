@@ -694,4 +694,6 @@ else:
         st.write(f"Signed in as **{user['full_name']}**")
         if st.button("Logout"): st.session_state.clear(); st.rerun()
         st.caption("Progress is stored per account in SQLite.")
+        if auth_db.database_is_ephemeral():
+            st.warning("SQLite data is local to this app instance. Use managed PostgreSQL/Supabase for durable cloud accounts.")
     dashboard(user)

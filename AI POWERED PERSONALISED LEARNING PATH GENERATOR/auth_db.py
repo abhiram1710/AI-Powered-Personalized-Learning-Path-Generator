@@ -12,11 +12,34 @@ import random
 import secrets
 import sqlite3
 import time
+import shutil
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DB_PATH = PROJECT_ROOT / "learning_platform.db"
+LEGACY_DB_PATH = PROJECT_ROOT / "learning_platform.db"
+DB_PATH = Path(os.getenv("LEARNING_DB_PATH", PROJECT_ROOT / "learning.db"))
+
+
+def _prepare_local_database():
+    """Adopt the old local filename once without deleting or recreating data."""
+    if DB_PATH.exists() or not LEGACY_DB_PATH.exists():
+        return
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(LEGACY_DB_PATH, DB_PATH)
+
+
+def database_backend():
+    """Return the configured backend; SQLite remains the local default."""
+    try:
+        database_config = st.secrets.get("database", {})
+    except Exception:
+        database_config = {}
+    return str(database_config.get("backend", os.getenv("DATABASE_BACKEND", "sqlite"))).strip().lower()
+
+
+def database_is_ephemeral():
+    return database_backend() == "sqlite"
 def _smtp_config():
     """Read SMTP configuration from Streamlit secrets or environment variables."""
 
@@ -99,6 +122,9 @@ CURATED_COURSES = [
 
 @contextmanager
 def connect():
+    if database_backend() != "sqlite":
+        raise RuntimeError("A managed PostgreSQL/Supabase backend is configured, but its adapter is not enabled in this version. SQLite remains the only supported backend.")
+    _prepare_local_database()
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys = ON")
