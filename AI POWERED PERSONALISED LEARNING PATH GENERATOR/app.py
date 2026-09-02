@@ -604,12 +604,20 @@ def dashboard(user):
                         st.rerun()
                 with navigation[2]:
                     if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
-                        st.session_state.quiz_result = auth_db.submit_quiz_attempt(user["id"], quiz_rows, st.session_state.quiz_answers)
-                        auth_db.record_quiz_progress(user["id"], selected_skill, st.session_state.quiz_result[2])
+                        submitted_answers = dict(st.session_state.quiz_answers)
+                        submitted_quiz = [dict(row) for row in quiz_rows]
+                        quiz_result = auth_db.submit_quiz_attempt(user["id"], submitted_quiz, submitted_answers)
+                        auth_db.record_quiz_progress(user["id"], selected_skill, quiz_result[2])
+                        st.session_state.submitted_quiz = submitted_quiz
+                        st.session_state.submitted_answers = submitted_answers
+                        st.session_state.quiz_result = quiz_result
                         st.session_state.quiz_submitted = True
+                        st.session_state.quiz_index = total_questions - 1
                         st.rerun()
                 if st.session_state.get("quiz_submitted", False) and st.session_state.get("quiz_result"):
                     score, total, percentage = st.session_state.quiz_result
+                    quiz_rows = st.session_state.get("submitted_quiz", quiz_rows)
+                    submitted_answers = st.session_state.get("submitted_answers", st.session_state.quiz_answers)
                     st.subheader("Quiz Result")
                     st.write(f"**Skill:** {selected_skill}")
                     st.write(f"**Score:** {score} / {total}")
@@ -619,7 +627,7 @@ def dashboard(user):
                     st.write(f"**Status:** {'Passed' if percentage >= 70 else 'Failed'}")
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
-                    incorrect_rows = [row for row in quiz_rows if str(st.session_state.quiz_answers.get(str(row["id"]), "")).strip().casefold() != str(row["correct_answer"]).strip().casefold()]
+                    incorrect_rows = [row for row in quiz_rows if str(submitted_answers.get(str(row["id"]), "")).strip().casefold() != str(row["correct_answer"]).strip().casefold()]
                     if incorrect_rows:
                         st.subheader("Topics to Review")
                         for row in incorrect_rows:
@@ -628,7 +636,7 @@ def dashboard(user):
                             st.markdown(f"- **{concept}** · [Learn Topic]({url})")
                     st.subheader("Answer Review")
                     for number, row in enumerate(quiz_rows, 1):
-                        answer = st.session_state.quiz_answers.get(str(row["id"]), "Not answered")
+                        answer = submitted_answers.get(str(row["id"]), "Not answered")
                         correct = row["correct_answer"]
                         is_correct = str(answer).strip().casefold() == str(correct).strip().casefold()
                         concept = row["concept"]
