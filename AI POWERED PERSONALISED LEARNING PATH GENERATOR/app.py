@@ -187,21 +187,39 @@ def rag_search(query, user):
         context = f"Career goal: {user['career_goal']}. Current skills: {user['current_skills']}. Interests: {user['interests']}. Question: {query}"
         vector = model.encode([context], convert_to_numpy=True).astype("float32")
         distances, indices = index.search(vector, 4)
-        return [{"score": float(score), "content": chunks[index]["content"], "source": chunks[index].get("source", "knowledge base")} for score, index in zip(distances[0], indices[0]) if 0 <= index < len(chunks)]
+        results = [{"score": float(score), "content": chunks[index]["content"], "source": chunks[index].get("source", "knowledge base")} for score, index in zip(distances[0], indices[0]) if 0 <= index < len(chunks) and str(chunks[index].get("content", "")).strip()]
+        return results
     except Exception as error:
         return [{"error": f"RAG assets are unavailable: {error}"}]
 
 
-def grounded_answer(question, results, path):
-    """Answer from retrieved text and the user's actual incomplete path only."""
-    if not results or "error" in results[0]:
-        return "The knowledge base is unavailable, so I cannot answer this question right now."
-    snippets = " ".join(result["content"].replace("\n", " ") for result in results[:3])
+def grounded_answer(question, results, path, user):
+    """Generate only from retrieved context and the current user's path."""
+    if not results:
+        return "I couldn't find relevant information in the knowledge base for this question."
+    if "error" in results[0]:
+        return results[0]["error"]
     remaining = path[path["progress_status"] != "Completed"] if not path.empty and "progress_status" in path else path
-    next_skill = remaining.iloc[0]["skill"] if not remaining.empty else None
-    if any(word in question.casefold() for word in ("first", "next", "start")) and next_skill:
-        return f"Based on your learning path, start with **{next_skill}**. Retrieved guidance: {snippets[:900]}"
-    return f"According to the retrieved knowledge base: {snippets[:1200]}"
+    path_context = remaining[[column for column in ("sequence", "skill", "skill_category", "course_name", "course_status", "progress_status") if column in remaining]].to_dict("records") if not remaining.empty else []
+    retrieved_context = "\n\n".join(result["content"] for result in results)
+    prompt = f"""User Question:\n{question}\n\nRetrieved Context:\n{retrieved_context}\n\nUser Learning Path:\n{path_context}\n\nInstructions:\n- Answer using the retrieved context and the user's learning path.\n- Do not invent information.\n- Keep the answer relevant and concise.\n- If the retrieved context does not contain the answer, say that the information was not found.\n- For learning-order questions, use the first incomplete path step and its prerequisite order, not unrelated skills."""
+    try:
+        secret_config = st.secrets.get("rag", {})
+        api_key = secret_config.get("api_key", "")
+        model_name = secret_config.get("model", "gpt-4o-mini")
+    except Exception:
+        api_key, model_name = "", "gpt-4o-mini"
+    if api_key:
+        try:
+            from openai import OpenAI
+            response = OpenAI(api_key=api_key).chat.completions.create(model=model_name, messages=[{"role": "user", "content": prompt}], temperature=0.1)
+            return response.choices[0].message.content.strip()
+        except Exception as error:
+            return f"The grounded language model could not answer this question: {error}"
+    if path_context:
+        next_step = path_context[0]
+        return f"Your next incomplete learning step is **{next_step['skill']}**. The knowledge base context supports this path position, but no language-model API key is configured for a synthesized explanation."
+    return "Your learning path is complete, and no additional incomplete step is available."
 
 def auth_page():
     st.title("Personalised Learning Platform")
@@ -506,10 +524,21 @@ def dashboard(user):
         st.metric("Total skill gaps", int((gaps.get("gap", pd.Series(dtype=str)) == "Gap").sum()))
         st.dataframe(gaps, use_container_width=True, hide_index=True)
     with course_tab:
-        if dynamic and not courses.empty:
-            courses = courses[courses["course_status"] != "Completed"]
-            visible_columns = [column for column in ("skill", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url") if column in courses]
-            st.dataframe(courses[visible_columns], column_config={"course_url": st.column_config.LinkColumn("Course Link")}, use_container_width=True, hide_index=True)
+        if dynamic and not path.empty:
+            available_courses = courses[courses["course_status"] != "Completed"].copy() if not courses.empty else pd.DataFrame()
+            available_keys = set(available_courses.get("skill_key", pd.Series(dtype=str)))
+            unavailable = path[~path["skill_key"].isin(available_keys)].copy()
+            if not unavailable.empty:
+                unavailable["course_name"] = "Course Not Available"
+                unavailable["course_status"] = "Course Not Available"
+                unavailable["provider"] = ""
+                unavailable["level"] = ""
+                unavailable["rating"] = None
+                unavailable["duration"] = ""
+                unavailable["course_url"] = ""
+                available_courses = pd.concat([available_courses, unavailable[["skill", "skill_key", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url"]]], ignore_index=True)
+            visible_columns = [column for column in ("skill", "skill_category", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url") if column in available_courses]
+            st.dataframe(available_courses[visible_columns], column_config={"course_url": st.column_config.LinkColumn("Course Link")}, use_container_width=True, hide_index=True)
         else:
             st.dataframe(courses, use_container_width=True, hide_index=True)
         if dynamic and courses.empty: st.info("No course recommendations are available yet.")
@@ -542,8 +571,12 @@ def dashboard(user):
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
                 quiz_rows = st.session_state.quiz_attempt
-                question_index = st.session_state.quiz_index
                 total_questions = len(quiz_rows)
+                if not quiz_rows:
+                    st.warning("No quiz questions are available for this skill.")
+                    st.stop()
+                question_index = max(0, min(st.session_state.get("quiz_index", 0), total_questions - 1))
+                st.session_state.quiz_index = question_index
                 st.write(f"Question {question_index + 1} of {total_questions}")
                 st.progress((question_index + 1) / total_questions, text=f"Question {question_index + 1} / {total_questions}")
                 question_row = quiz_rows[question_index]
@@ -570,7 +603,7 @@ def dashboard(user):
                     score, total, percentage = st.session_state.quiz_result
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
-                    incorrect_rows = [row for row in quiz_rows if st.session_state.quiz_answers.get(str(row["id"])) != row["correct_answer"]]
+                    incorrect_rows = [row for row in quiz_rows if str(st.session_state.quiz_answers.get(str(row["id"]), "")).strip().casefold() != str(row["correct_answer"]).strip().casefold()]
                     if incorrect_rows:
                         st.subheader("Topics to Review")
                         for row in incorrect_rows:
@@ -581,7 +614,7 @@ def dashboard(user):
                     for number, row in enumerate(quiz_rows, 1):
                         answer = st.session_state.quiz_answers.get(str(row["id"]), "Not answered")
                         correct = row["correct_answer"]
-                        is_correct = answer == correct
+                        is_correct = str(answer).strip().casefold() == str(correct).strip().casefold()
                         concept = row["concept"]
                         invalid_concept = " ".join(("Core", "concept"))
                         if not str(concept).strip() or str(concept).strip().casefold() in {invalid_concept.casefold(), "unassigned"}:
@@ -625,18 +658,23 @@ def dashboard(user):
             else:
                 st.info("No quiz attempts yet.")
     with rag_tab:
-        question = st.text_input("Ask about your learning path", placeholder="What should I learn next?")
+        question = st.text_input("Ask about your learning path", placeholder="What should I learn next?", key="rag_question")
         debug_rag = st.checkbox("Show retrieval diagnostics", value=False)
-        if question:
-            results = rag_search(question, user)
-            if results and "error" not in results[0]:
-                st.markdown(grounded_answer(question, results, path))
-                if debug_rag:
-                    st.subheader("Retrieved Chunks")
-                    for result in results:
-                        st.expander(f"{result['source']} · {result['score']:.3f}").write(result["content"])
-                    st.caption("Final context is the retrieved text above plus the user's incomplete learning path.")
-            else: st.warning(f"RAG assistant unavailable: {results[0].get('error', 'No results') if results else 'No results'}")
+        if st.button("Ask / Generate Answer", type="primary"):
+            if not question.strip():
+                st.warning("Enter a question first.")
+            else:
+                st.session_state.rag_results = rag_search(question.strip(), user)
+                st.session_state.rag_answer = grounded_answer(question.strip(), st.session_state.rag_results, path, user)
+        if st.session_state.get("rag_answer"):
+            st.subheader("Answer")
+            st.markdown(st.session_state.rag_answer)
+            results = st.session_state.get("rag_results", [])
+            if debug_rag and results and "error" not in results[0]:
+                st.subheader("Retrieved Chunks")
+                for result in results:
+                    st.expander(f"{result['source']} · {result['score']:.3f}").write(result["content"])
+                st.caption("Final context includes the retrieved chunks and the user's incomplete learning path.")
 
 
 if "user_id" not in st.session_state:

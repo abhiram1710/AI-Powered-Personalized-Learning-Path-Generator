@@ -32,7 +32,7 @@ def retrieve(query, top_k=5):
 
     for distance, idx in zip(distances[0], indices[0]):
 
-        if idx == -1:
+        if idx < 0 or idx >= len(chunks):
             continue
 
         results.append({

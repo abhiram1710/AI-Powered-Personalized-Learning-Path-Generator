@@ -63,7 +63,7 @@ STAGE_SKILLS = {
     "Statistics": ["Statistical Software", "Regressions", "Time Series Analysis", "Statistics"],
     "Machine Learning": ["Machine Learning", "Predictive Modeling", "Deep Learning", "Neural Networks", "Model Deployment", "Causal-Model Approaches", "Text Mining"],
     "Databases and Big Data": ["Sql", "Big Data", "Hadoop", "Apache Spark", "Hive", "Pig", "MongoDB"],
-    "Cloud and Tools": ["Cloud Platforms", "Aws", "Tableau", "TensorFlow", "Docker", "Kubernetes", "Node.js"],
+    "Cloud and Tools": ["Cloud Platforms", "Aws", "Docker", "Kubernetes", "Linux", "Networking", "Terraform", "Tableau", "TensorFlow", "Node.js"],
     "Professional Skills": ["Communication", "Stakeholder Engagement", "Strategic Thinking", "Problem Solving", "Project Management", "Teamwork"],
 }
 CAREER_REQUIREMENTS = {
@@ -72,7 +72,7 @@ CAREER_REQUIREMENTS = {
     "machine learning engineer": {"foundation": ["Python"], "role": ["Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"]},
     "ml engineer": {"foundation": ["Python"], "role": ["Pandas", "Statistics", "Machine Learning", "Deep Learning", "Neural Networks", "TensorFlow", "Model Deployment"]},
     "web developer": {"foundation": ["JavaScript"], "role": ["React", "Node.js", "Communication", "Problem Solving"]},
-    "cloud engineer": {"foundation": ["Python", "Sql"], "role": ["Cloud Platforms", "Aws", "Docker", "Kubernetes", "Big Data", "Communication"]},
+    "cloud engineer": {"foundation": [], "role": ["Cloud Platforms", "Aws", "Docker", "Kubernetes", "Linux", "Networking", "Terraform"]},
 }
 CAREER_SKILLS = {name: requirements["foundation"] + requirements["role"] for name, requirements in CAREER_REQUIREMENTS.items()}
 
@@ -92,6 +92,8 @@ CURATED_COURSES = [
     ("tensorflow", "TensorFlow Core", "TensorFlow", "Official documentation", "Google", "Intermediate", 5.0, 1, "https://www.tensorflow.org/learn", "Official TensorFlow tutorials and guides.", "Self-paced", "Python, Machine Learning"),
     ("model-deployment", "Deploying Machine Learning Models", "Model Deployment", "Google Cloud Skills Boost", "Google Cloud", "Advanced", 4.7, 1, "https://www.cloudskillsboost.google/paths/17", "Deploy and operate ML workloads.", "Self-paced", "Machine Learning, Python"),
     ("aws-training", "AWS Skill Builder", "Aws", "AWS Skill Builder", "Amazon Web Services", "Beginner", 4.8, 1, "https://skillbuilder.aws/", "Official AWS training and learning plans.", "Self-paced", "None"),
+    ("docker-training", "Docker getting started", "Docker", "Docker", "Docker", "Beginner", 5.0, 1, "https://docs.docker.com/get-started/", "Container fundamentals and Docker workflows.", "Self-paced", "None"),
+    ("kubernetes-training", "Kubernetes Basics", "Kubernetes", "Kubernetes", "Cloud Native Computing Foundation", "Intermediate", 4.9, 1, "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "Deploy and manage containerized applications.", "Self-paced", "Docker"),
 ]
 
 
@@ -116,7 +118,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS course_recommendations (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', skill_category TEXT NOT NULL DEFAULT 'Role-specific', priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
         CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Unassigned', quiz_level TEXT NOT NULL DEFAULT 'Intermediate');
-        CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, passed INTEGER NOT NULL DEFAULT 0, submitted_at TEXT NOT NULL, attempted_at TEXT NOT NULL DEFAULT '');
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
         CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, concept TEXT NOT NULL DEFAULT 'Unassigned', submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS password_reset_tokens (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, token_hash TEXT NOT NULL UNIQUE, expires_at REAL NOT NULL, used_at TEXT);
@@ -150,6 +152,8 @@ def init_db():
             "ALTER TABLE learning_path ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE learning_path ADD COLUMN skill_category TEXT NOT NULL DEFAULT 'Role-specific'",
             "ALTER TABLE quizzes ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE quiz_results ADD COLUMN passed INTEGER NOT NULL DEFAULT 0",
+            "ALTER TABLE quiz_results ADD COLUMN attempted_at TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE progress ADD COLUMN started_at TEXT",
             "ALTER TABLE progress ADD COLUMN completed_at TEXT",
             "ALTER TABLE progress ADD COLUMN quiz_score INTEGER",
@@ -166,6 +170,8 @@ def init_db():
         db.execute("CREATE INDEX IF NOT EXISTS idx_skill_gaps_user ON skill_gaps(user_id)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_learning_path_user_sequence ON learning_path(user_id, sequence)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id)")
+        db.execute("UPDATE quiz_results SET attempted_at=submitted_at WHERE attempted_at='' OR attempted_at IS NULL")
+        db.execute("UPDATE quiz_results SET passed=CASE WHEN percentage >= 70 THEN 1 ELSE 0 END")
 
 
 def _password_hash(password):
@@ -324,8 +330,10 @@ def _norm(value):
 
 def _requirements(career_goal, interests):
     goal = career_goal.lower()
-    selected = next((skills for name, skills in CAREER_SKILLS.items() if name in goal), CAREER_SKILLS["data scientist"])
-    extra = [item.strip() for item in interests.split(",") if item.strip()]
+    selected = next((skills for name, skills in CAREER_SKILLS.items() if name in goal), None)
+    if selected is None:
+        raise ValueError("Unsupported career goal. Choose a supported role such as Cloud Engineer, Data Scientist, ML Engineer, Data Analyst, or Web Developer.")
+    extra = []
     result = []
     for skill in selected + extra:
         if _norm(skill) not in {_norm(item) for item in result}:
@@ -335,18 +343,19 @@ def _requirements(career_goal, interests):
 
 def skill_category(career_goal, skill):
     goal = career_goal.lower()
-    requirements = next((value for name, value in CAREER_REQUIREMENTS.items() if name in goal), CAREER_REQUIREMENTS["data scientist"])
+    requirements = next((value for name, value in CAREER_REQUIREMENTS.items() if name in goal), None)
+    if requirements is None:
+        raise ValueError("Unsupported career goal.")
     return "Foundation" if _norm(skill) in {_norm(item) for item in requirements["foundation"]} else "Role-specific"
 
 
 def _catalog_frame(ranked_courses):
     import pandas as pd
     rows = [{"course_id": course[0], "course_name": course[1], "required_skill": course[2], "topic": course[2], "provider": course[3], "institution": course[4], "level": course[5], "average_rating": course[6], "review_count": course[7], "course_url": course[8], "description": course[9], "duration": course[10], "prerequisites": course[11], "course_score": course[6] / 5 + min(course[7], 100000) / 1000000} for course in CURATED_COURSES]
-    if ranked_courses is not None and not ranked_courses.empty:
-        for _, row in ranked_courses.iterrows():
-            if not any(item["course_id"] == row.get("course_id") for item in rows):
-                rows.append({"course_id": row.get("course_id", ""), "course_name": row.get("course_name", ""), "required_skill": row.get("required_skill", ""), "topic": row.get("required_skill", ""), "provider": row.get("institution", ""), "institution": row.get("institution", ""), "level": "Intermediate", "average_rating": row.get("average_rating", 0), "review_count": row.get("review_count", 0), "course_url": "", "description": "Generated course recommendation.", "duration": "Self-paced", "prerequisites": "", "course_score": row.get("course_score", 0)})
-    return pd.DataFrame(rows)
+    catalog = pd.DataFrame(rows)
+    if not catalog.empty:
+        catalog["skill_key"] = catalog["required_skill"].map(_norm)
+    return catalog
 
 
 def _completed_course_ids(db, user_id):
@@ -362,12 +371,13 @@ def build_user_path(user, ranked_courses, completed_skills=None, completed_cours
     skill_rows = []
     for skill in required:
         covered = _norm(skill) in current
-        matches = catalog[catalog["required_skill"].map(_norm) == _norm(skill)].copy()
+        matches = catalog[catalog["skill_key"] == _norm(skill)].copy()
         matches = matches[~matches["course_id"].isin(completed_course_ids)]
         matches["course_score"] = __import__("pandas").to_numeric(matches["course_score"], errors="coerce")
         matches = matches.dropna(subset=["course_score"]).sort_values("course_score", ascending=False)
         course = matches.iloc[0] if not matches.empty else None
-        skill_rows.append((skill, covered, course))
+        if not covered:
+            skill_rows.append((skill, covered, course))
     ordered = []
     for stage in STAGE_ORDER:
         for skill, covered, course in skill_rows:
@@ -438,7 +448,8 @@ def record_quiz_progress(user_id, skill, percentage):
             raise KeyError(f"No learning-path step found for skill '{skill}'.")
         if step["progress_status"] == "Completed" and status != "Completed":
             status = "Completed"
-        score = round(percentage / 100 * 7)
+        latest_result = db.execute("SELECT score, total_questions FROM quiz_results WHERE user_id=? AND quiz_id IN (SELECT id FROM quizzes WHERE user_id=? AND skill_key=?) ORDER BY id DESC LIMIT 1", (user_id, user_id, _norm(skill))).fetchone()
+        score = latest_result["score"] if latest_result else round(percentage / 100 * 7)
         now = datetime.now(timezone.utc).isoformat()
         db.execute(
             "INSERT INTO progress(user_id, learning_step_id, status, updated_at) VALUES (?, ?, ?, ?) "
@@ -565,12 +576,21 @@ def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questio
 
 def submit_quiz_attempt(user_id, quiz_rows, answers):
     """Persist answers and one immutable result for a quiz attempt."""
+    if not quiz_rows:
+        raise ValueError("This quiz has no questions.")
     score = 0
     with connect() as db:
+        question_ids = [row["id"] for row in quiz_rows]
+        placeholders = ",".join("?" for _ in question_ids)
+        owned = db.execute(f"SELECT id FROM quizzes WHERE user_id=? AND id IN ({placeholders})", [user_id, *question_ids]).fetchall()
+        if len(owned) != len(question_ids):
+            raise ValueError("Quiz questions do not belong to this account.")
         for row in quiz_rows:
             answer = answers.get(str(row["id"]), "")
-            if answer == row["correct_answer"]: score += 1
-            db.execute("INSERT INTO quiz_answers(user_id, quiz_id, user_answer, is_correct, concept, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, row["id"], answer, int(answer == row["correct_answer"]), row["concept"], datetime.now(timezone.utc).isoformat()))
+            is_correct = str(answer).strip().casefold() == str(row["correct_answer"]).strip().casefold()
+            if is_correct: score += 1
+            db.execute("INSERT INTO quiz_answers(user_id, quiz_id, user_answer, is_correct, concept, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, row["id"], answer, int(is_correct), row["concept"], datetime.now(timezone.utc).isoformat()))
         percentage = score / len(quiz_rows) * 100
-        db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, submitted_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, quiz_rows[0]["id"], score, len(quiz_rows), percentage, datetime.now(timezone.utc).isoformat()))
+        submitted_at = datetime.now(timezone.utc).isoformat()
+        db.execute("INSERT INTO quiz_results(user_id, quiz_id, score, total_questions, percentage, passed, submitted_at, attempted_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (user_id, quiz_rows[0]["id"], score, len(quiz_rows), percentage, int(percentage >= 70), submitted_at, submitted_at))
     return score, len(quiz_rows), percentage
