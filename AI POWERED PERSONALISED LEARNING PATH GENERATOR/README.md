@@ -41,6 +41,18 @@ py -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## Streamlit Cloud deployment
+
+The deployment entry point is `streamlit_app.py` at the repository root. It runs the same authenticated dashboard in `AI POWERED PERSONALISED LEARNING PATH GENERATOR/app.py`; it is not a demo or landing page.
+
+Push `streamlit_app.py`, `requirements.txt`, `.streamlit/config.toml`, the complete `AI POWERED PERSONALISED LEARNING PATH GENERATOR/` directory, and its tracked `Dataset/Processed/RAG/faiss_index.index` and `knowledge_chunks.pkl` assets. Do not push `.streamlit/secrets.toml`, `streamlit/secrets.toml`, `*.db`, or `*.sqlite`; use `.streamlit/secrets.toml.example` as the safe template.
+
+In Streamlit Cloud, choose the repository, branch, and `streamlit_app.py` as the main file. Add the SMTP values from the example file in App settings > Secrets. Password reset also needs `APP_BASE_URL` set to the deployed app URL. The embedding model `all-MiniLM-L6-v2` is downloaded by Sentence Transformers on first RAG use and cached by the app.
+
+SQLite is suitable for local testing and a single temporary Streamlit instance, but Streamlit Cloud local storage is not a durable multi-user database. For production persistence, replace `auth_db.connect()` with a managed PostgreSQL or hosted SQLite-compatible service and store its connection details in Streamlit Secrets; otherwise users and progress can be lost when the app instance is recycled.
+
+Deployment smoke test: register and log in, submit a profile, confirm Skill Analysis and Courses match by skill, update a Learning Path status, complete a quiz, verify the persisted Quiz Results row and progress count after rerun, then ask the RAG Assistant and enable retrieval diagnostics. Confirm a second account cannot see the first account's rows.
+
 Open the local URL shown by Streamlit, select a Student ID, and explore the profile, gaps, courses, path, quizzes, and RAG assistant.
 
 On first launch, create an account with a career goal, interests, current skills, and preferred level. Progress and quiz results are account-scoped. Streamlit Community Cloud's local filesystem is instance storage; use an external hosted database for multi-instance production persistence.

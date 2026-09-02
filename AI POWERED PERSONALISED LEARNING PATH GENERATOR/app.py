@@ -166,6 +166,8 @@ auth_db.init_db()
 
 @st.cache_data
 def read_csv(path):
+    if not Path(path).exists():
+        return pd.DataFrame()
     return pd.read_csv(path)
 
 
@@ -182,12 +184,24 @@ def rag_assets():
 def rag_search(query, user):
     try:
         index, chunks, model = rag_assets()
-        context = f"Career goal: {user['career_goal']}. Current skills: {user['current_skills']}. Interests: {user['interests']}. {query}"
+        context = f"Career goal: {user['career_goal']}. Current skills: {user['current_skills']}. Interests: {user['interests']}. Question: {query}"
         vector = model.encode([context], convert_to_numpy=True).astype("float32")
         distances, indices = index.search(vector, 4)
         return [{"score": float(score), "content": chunks[index]["content"], "source": chunks[index].get("source", "knowledge base")} for score, index in zip(distances[0], indices[0]) if 0 <= index < len(chunks)]
     except Exception as error:
-        return [{"error": str(error)}]
+        return [{"error": f"RAG assets are unavailable: {error}"}]
+
+
+def grounded_answer(question, results, path):
+    """Answer from retrieved text and the user's actual incomplete path only."""
+    if not results or "error" in results[0]:
+        return "The knowledge base is unavailable, so I cannot answer this question right now."
+    snippets = " ".join(result["content"].replace("\n", " ") for result in results[:3])
+    remaining = path[path["progress_status"] != "Completed"] if not path.empty and "progress_status" in path else path
+    next_skill = remaining.iloc[0]["skill"] if not remaining.empty else None
+    if any(word in question.casefold() for word in ("first", "next", "start")) and next_skill:
+        return f"Based on your learning path, start with **{next_skill}**. Retrieved guidance: {snippets[:900]}"
+    return f"According to the retrieved knowledge base: {snippets[:1200]}"
 
 def auth_page():
     st.title("Personalised Learning Platform")
@@ -598,22 +612,25 @@ def dashboard(user):
                         st.session_state.quiz_answers = {}
                         st.session_state.quiz_result = None
                         st.rerun()
+            if dynamic and data["quiz_results"]:
+                st.subheader("Quiz Results")
+                results = pd.DataFrame(data["quiz_results"])
+                results = results.merge(pd.DataFrame(data["quizzes"])[["id", "skill"]], left_on="quiz_id", right_on="id", how="left")
+                results["pass_fail"] = results["percentage"].map(lambda value: "Pass" if value >= 70 else "Fail")
+                results["learning_path_status"] = results["skill"].map(dict(zip(path["skill"], path["progress_status"])))
+                st.dataframe(results[["skill", "score", "total_questions", "percentage", "pass_fail", "submitted_at", "learning_path_status"]], use_container_width=True, hide_index=True)
     with rag_tab:
         question = st.text_input("Ask about your learning path", placeholder="What should I learn next?")
+        debug_rag = st.checkbox("Show retrieval diagnostics", value=False)
         if question:
             results = rag_search(question, user)
             if results and "error" not in results[0]:
-                for result in results: st.expander(f"{result['source']} · {result['score']:.3f}").write(result["content"])
-                remaining = path[path["progress_status"] != "Completed"] if dynamic and not path.empty else path
-                next_row = remaining.iloc[0] if not remaining.empty else None
-                if next_row is not None:
-                    next_skill = next_row.get("skill", "your next skill")
-                    reason = f"It is the next incomplete step for your {user['career_goal']} goal and follows your completed skills: {profile.get('Completed Skills', 'none')}."
-                    st.info(f"Based on your profile and learning history, your next recommended skill is **{next_skill}**. {reason}")
-                    course = courses[courses["skill"] == next_skill].iloc[0] if not courses.empty and "skill" in courses and not courses[courses["skill"] == next_skill].empty else None
-                    if course is not None:
-                        st.markdown(f"Recommended course: **{course['course_name']}**")
-                        if course.get("course_url"): st.markdown(f"[Open course]({course['course_url']})")
+                st.markdown(grounded_answer(question, results, path))
+                if debug_rag:
+                    st.subheader("Retrieved Chunks")
+                    for result in results:
+                        st.expander(f"{result['source']} · {result['score']:.3f}").write(result["content"])
+                    st.caption("Final context is the retrieved text above plus the user's incomplete learning path.")
             else: st.warning(f"RAG assistant unavailable: {results[0].get('error', 'No results') if results else 'No results'}")
 
 

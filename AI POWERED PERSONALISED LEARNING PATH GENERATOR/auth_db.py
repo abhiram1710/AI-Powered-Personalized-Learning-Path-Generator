@@ -111,10 +111,10 @@ def init_db():
         db.executescript("""
         CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, full_name TEXT NOT NULL, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL, career_goal TEXT NOT NULL, interests TEXT NOT NULL, current_skills TEXT NOT NULL, preferred_level TEXT NOT NULL, created_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS user_profiles (id INTEGER PRIMARY KEY, user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE, dominant_intelligence TEXT, intelligence_score REAL, profile_data TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS skill_gaps (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS course_recommendations (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
-        CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Unassigned', quiz_level TEXT NOT NULL DEFAULT 'Intermediate');
+        CREATE TABLE IF NOT EXISTS skill_gaps (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS course_recommendations (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS learning_path (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started');
+        CREATE TABLE IF NOT EXISTS quizzes (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Unassigned', quiz_level TEXT NOT NULL DEFAULT 'Intermediate');
         CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, submitted_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS progress (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, UNIQUE(user_id, learning_step_id));
         CREATE TABLE IF NOT EXISTS quiz_answers (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, concept TEXT NOT NULL DEFAULT 'Unassigned', submitted_at TEXT NOT NULL);
@@ -143,6 +143,10 @@ def init_db():
             "ALTER TABLE learning_path ADD COLUMN started_at TEXT",
             "ALTER TABLE learning_path ADD COLUMN completed_at TEXT",
             "ALTER TABLE learning_path ADD COLUMN course_id TEXT",
+            "ALTER TABLE skill_gaps ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE course_recommendations ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE learning_path ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE quizzes ADD COLUMN skill_key TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE progress ADD COLUMN started_at TEXT",
             "ALTER TABLE progress ADD COLUMN completed_at TEXT",
             "ALTER TABLE progress ADD COLUMN quiz_score INTEGER",
@@ -152,6 +156,8 @@ def init_db():
                 db.execute(statement)
             except sqlite3.OperationalError:
                 pass
+        for table in ("skill_gaps", "course_recommendations", "learning_path", "quizzes"):
+            db.execute(f"UPDATE {table} SET skill_key='' WHERE skill_key IS NULL")
         db.execute("CREATE INDEX IF NOT EXISTS idx_skill_gaps_user ON skill_gaps(user_id)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_learning_path_user_sequence ON learning_path(user_id, sequence)")
         db.execute("CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id)")
@@ -364,16 +370,23 @@ def save_personalization(user_id, user, ranked_courses, recommendation):
         catalog = _catalog_frame(ranked_courses)
         for _, course in catalog.iterrows():
             db.execute("INSERT OR REPLACE INTO courses(course_id, course_name, skill, topic, provider, institution, level, rating, review_count, course_url, description, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(course.get(column, "") for column in ("course_id", "course_name", "required_skill", "topic", "provider", "institution", "level", "average_rating", "review_count", "course_url", "description", "duration", "prerequisites")))
-        db.execute("DELETE FROM skill_gaps WHERE user_id=?", (user_id,)); db.execute("DELETE FROM course_recommendations WHERE user_id=?", (user_id,)); db.execute("DELETE FROM learning_path WHERE user_id=?", (user_id,)); db.execute("DELETE FROM quizzes WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM quiz_answers WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM quiz_results WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM progress WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM quizzes WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM skill_gaps WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM course_recommendations WHERE user_id=?", (user_id,))
+        db.execute("DELETE FROM learning_path WHERE user_id=?", (user_id,))
         for sequence, (stage, skill, covered, course) in enumerate(recommendation, 1):
             priority = "High" if not covered else "Low"
             gap = "Covered" if covered else "Gap"
-            db.execute("INSERT INTO skill_gaps(user_id, skill, current_level, required_level, gap, priority) VALUES (?, ?, ?, ?, ?, ?)", (user_id, skill, "Available" if covered else "Not Available", "Required", gap, priority))
+            skill_key = _norm(skill)
+            db.execute("INSERT INTO skill_gaps(user_id, skill, skill_key, current_level, required_level, gap, priority) VALUES (?, ?, ?, ?, ?, ?, ?)", (user_id, skill, skill_key, "Available" if covered else "Not Available", "Required", gap, priority))
             status = "Course Available" if course is not None and not covered else "No Course Available" if not covered else "Covered"
             if course is not None and not covered:
-                db.execute("INSERT INTO course_recommendations(user_id, skill, course_id, course_name, institution, course_score, course_status, topic, provider, level, rating, review_count, course_url, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, course["course_id"], course["course_name"], course["institution"], float(course["course_score"]), status, course["topic"], course["provider"], course["level"], float(course["average_rating"]), int(course["review_count"]), course["course_url"], course["duration"], course["prerequisites"]))
+                db.execute("INSERT INTO course_recommendations(user_id, skill, skill_key, course_id, course_name, institution, course_score, course_status, topic, provider, level, rating, review_count, course_url, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, skill_key, course["course_id"], course["course_name"], course["institution"], float(course["course_score"]), status, course["topic"], course["provider"], course["level"], float(course["average_rating"]), int(course["review_count"]), course["course_url"], course["duration"], course["prerequisites"]))
             recommendation_text = "Use examples, categorization, comparisons and pattern recognition." if user["preferred_level"] == "Beginner" else "Apply the concept through progressively challenging projects."
-            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, priority, course_id, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, priority, course["course_id"] if course is not None and not covered else "", course["course_name"] if course is not None and not covered else "", status, recommendation_text))
+            db.execute("INSERT INTO learning_path(user_id, sequence, stage, skill, skill_key, priority, course_id, course_name, course_status, learning_recommendation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, sequence, stage, skill, skill_key, priority, course["course_id"] if course is not None and not covered else "", course["course_name"] if course is not None and not covered else "", status, recommendation_text))
 
 
 def user_data(user_id):
@@ -401,11 +414,13 @@ def record_quiz_progress(user_id, skill, percentage):
     status = "Completed" if percentage >= 70 else "In Progress"
     with connect() as db:
         step = db.execute(
-            "SELECT id FROM learning_path WHERE user_id=? AND skill=? ORDER BY sequence LIMIT 1",
-            (user_id, skill),
+            "SELECT id, progress_status FROM learning_path WHERE user_id=? AND skill_key=? ORDER BY sequence LIMIT 1",
+            (user_id, _norm(skill)),
         ).fetchone()
         if step is None:
             raise KeyError(f"No learning-path step found for skill '{skill}'.")
+        if step["progress_status"] == "Completed" and status != "Completed":
+            status = "Completed"
         score = round(percentage / 100 * 7)
         now = datetime.now(timezone.utc).isoformat()
         db.execute(
@@ -526,7 +541,7 @@ def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questio
         for question, options, answer in questions[:required_count]:
             shuffled = list(options); randomizer.shuffle(shuffled)
             concept = question_concept(skill, question) if not generated_fallback else f"{skill} {question.split('supports progress in ')[-1].rstrip('?').title()}"
-            cursor = db.execute("INSERT INTO quizzes(user_id, skill, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, stage, question, *shuffled, answer, preferred_level, concept))
+            cursor = db.execute("INSERT INTO quizzes(user_id, skill, skill_key, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, _norm(skill), stage, question, *shuffled, answer, preferred_level, concept))
             rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (cursor.lastrowid,)).fetchone()))
     return rows
 

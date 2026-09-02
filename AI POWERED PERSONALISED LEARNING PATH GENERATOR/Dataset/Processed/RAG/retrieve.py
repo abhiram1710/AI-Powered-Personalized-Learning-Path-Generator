@@ -2,25 +2,22 @@ import faiss
 import pickle
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from pathlib import Path
 
-# -----------------------------
-# Load FAISS index
-# -----------------------------
-index = faiss.read_index("faiss_index.index")
+RAG_DIR = Path(__file__).resolve().parent
+INDEX_PATH = RAG_DIR / "faiss_index.index"
+CHUNKS_PATH = RAG_DIR / "knowledge_chunks.pkl"
 
-# -----------------------------
-# Load knowledge chunks
-# -----------------------------
-with open("knowledge_chunks.pkl", "rb") as f:
-    chunks = pickle.load(f)
 
-# -----------------------------
-# Load embedding model
-# -----------------------------
-embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+def load_assets():
+    index = faiss.read_index(str(INDEX_PATH))
+    with CHUNKS_PATH.open("rb") as handle:
+        chunks = pickle.load(handle)
+    return index, chunks, SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def retrieve(query, top_k=5):
+    index, chunks, embedding_model = load_assets()
 
     # Convert query into embedding
     query_embedding = embedding_model.encode(
@@ -44,30 +41,3 @@ def retrieve(query, top_k=5):
         })
 
     return results
-
-
-# -----------------------------
-# Test retrieval
-# -----------------------------
-query = """
-I need to learn Python, SQL, Data Science, Machine Learning,
-Data Mining, Predictive Modeling, Data Visualization,
-Big Data, Apache Spark, Hadoop, AWS and Tableau
-for a Data Scientist career.
-"""
-results = retrieve(query, top_k=5)
-
-print("=" * 60)
-print("QUERY:")
-print(query)
-
-print("\nRETRIEVED KNOWLEDGE:")
-print("=" * 60)
-
-for i, result in enumerate(results, 1):
-
-    print(f"\nResult {i}")
-    print("Score:", result["score"])
-    print("Content:")
-    print(result["content"][:1000])
-    print("-" * 60)
