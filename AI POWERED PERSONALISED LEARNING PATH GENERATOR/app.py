@@ -533,7 +533,7 @@ def dashboard(user):
             gaps = gaps.assign(status=gaps["skill"].map(dict(zip(path["skill"], path["progress_status"]))))
             gaps["gap"] = gaps["status"].map(lambda status: "No Gap" if status == "Completed" else "Gap")
         st.metric("Total skill gaps", int((gaps.get("gap", pd.Series(dtype=str)) == "Gap").sum()))
-        st.dataframe(gaps, use_container_width=True, hide_index=True)
+        st.dataframe(gaps, width="stretch", hide_index=True)
     with course_tab:
         if dynamic and not path.empty:
             available_courses = courses[courses["course_status"] != "Completed"].copy() if not courses.empty else pd.DataFrame()
@@ -542,24 +542,25 @@ def dashboard(user):
             if not unavailable.empty:
                 unavailable["course_name"] = "Course Not Available"
                 unavailable["course_status"] = "Course Not Available"
-                unavailable["provider"] = ""
-                unavailable["level"] = ""
-                unavailable["rating"] = None
-                unavailable["duration"] = ""
+                unavailable["provider"] = "Not Available"
+                unavailable["level"] = "Not Available"
+                unavailable["rating"] = 0.0
+                unavailable["duration"] = "Not Available"
                 unavailable["course_url"] = ""
-                available_courses = pd.concat([available_courses, unavailable[["skill", "skill_key", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url"]]], ignore_index=True)
+                unavailable_courses = unavailable[["skill", "skill_key", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url"]]
+                available_courses = unavailable_courses if available_courses.empty else pd.concat([available_courses, unavailable_courses], ignore_index=True)
             visible_columns = [column for column in ("skill", "skill_category", "course_name", "provider", "level", "rating", "duration", "course_status", "course_url") if column in available_courses]
-            st.dataframe(available_courses[visible_columns], column_config={"course_url": st.column_config.LinkColumn("Course Link")}, use_container_width=True, hide_index=True)
+            st.dataframe(available_courses[visible_columns], column_config={"course_url": st.column_config.LinkColumn("Course Link")}, width="stretch", hide_index=True)
         else:
-            st.dataframe(courses, use_container_width=True, hide_index=True)
+            st.dataframe(courses, width="stretch", hide_index=True)
         if dynamic and courses.empty: st.info("No course recommendations are available yet.")
     with path_tab:
         if dynamic and not path.empty:
             for _, step in path.iterrows():
                 status = st.selectbox(f"Step {step['sequence']}: {step['skill']}", ["Not Started", "In Progress", "Completed"], index=["Not Started", "In Progress", "Completed"].index(step["progress_status"]), key=f"status_{step['id']}")
                 if status != step["progress_status"]: auth_db.update_progress(user["id"], step["id"], status); st.rerun()
-            st.dataframe(path, use_container_width=True, hide_index=True)
-        else: st.dataframe(path, use_container_width=True, hide_index=True)
+            st.dataframe(path, width="stretch", hide_index=True)
+        else: st.dataframe(path, width="stretch", hide_index=True)
     with quiz_tab:
         if path.empty: st.info("No learning steps available.")
         else:
@@ -684,7 +685,7 @@ def dashboard(user):
                 path_keys = path.get("skill_key", path.get("skill", pd.Series(dtype=str)))
                 result_keys = results.get("skill_key", results.get("skill", pd.Series(dtype=str)))
                 results["learning_path_status"] = result_keys.map(dict(zip(path_keys, path["progress_status"])))
-                st.dataframe(results[["skill", "score", "total_questions", "percentage", "pass_fail", "submitted_at", "learning_path_status"]], use_container_width=True, hide_index=True)
+                st.dataframe(results[["skill", "score", "total_questions", "percentage", "pass_fail", "submitted_at", "learning_path_status"]], width="stretch", hide_index=True)
             elif not active_quiz:
                 st.info("No quiz attempts yet.")
     with rag_tab:
