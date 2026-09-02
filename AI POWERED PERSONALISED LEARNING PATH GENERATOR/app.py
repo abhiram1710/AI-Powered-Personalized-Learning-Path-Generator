@@ -504,7 +504,7 @@ def dashboard(user):
     st.title(f"Welcome, {profile.get('Student', user['full_name'])}")
     st.caption(f"Career goal: {profile.get('Career Goal', profile.get('Job Profession', 'Not specified'))}  ·  Interests: {profile.get('Interests', 'Project reference profile')}")
     if dynamic:
-        st.info("Your registered profile is isolated to your account. Progress and quiz results are stored in SQLite.")
+        st.info("Your registered profile is isolated to your account.")
     available = int((courses["course_status"].isin(["Course Available", "Recommended"])).sum()) if dynamic and not courses.empty else int((path["Course Status"] == "Course Available").sum())
     total = len(path)
     completed = int((path["progress_status"] == "Completed").sum()) if dynamic and not path.empty else 0
@@ -610,6 +610,13 @@ def dashboard(user):
                         st.rerun()
                 if st.session_state.get("quiz_submitted", False) and st.session_state.get("quiz_result"):
                     score, total, percentage = st.session_state.quiz_result
+                    st.subheader("Quiz Result")
+                    st.write(f"**Skill:** {selected_skill}")
+                    st.write(f"**Score:** {score} / {total}")
+                    st.write(f"**Correct Answers:** {score}")
+                    st.write(f"**Incorrect Answers:** {total - score}")
+                    st.write(f"**Percentage:** {percentage:.2f}%")
+                    st.write(f"**Status:** {'Passed' if percentage >= 70 else 'Failed'}")
                     feedback = "Excellent! Strong understanding." if percentage >= 90 else "Good job! Review the incorrect concepts." if percentage >= 70 else "Needs improvement. Practice this skill again." if percentage >= 50 else "Review the learning material and retry."
                     st.success(f"Score: {score} / {total}\n\nPercentage: {percentage:.1f}%\n\nCorrect Answers: {score}\n\nIncorrect Answers: {total - score}\n\n{feedback}")
                     incorrect_rows = [row for row in quiz_rows if str(st.session_state.quiz_answers.get(str(row["id"]), "")).strip().casefold() != str(row["correct_answer"]).strip().casefold()]
@@ -619,7 +626,7 @@ def dashboard(user):
                             concept = row["concept"]
                             title, url = row["material_title"], row["material_url"]
                             st.markdown(f"- **{concept}** · [Learn Topic]({url})")
-                    st.subheader("Review Your Answers")
+                    st.subheader("Answer Review")
                     for number, row in enumerate(quiz_rows, 1):
                         answer = st.session_state.quiz_answers.get(str(row["id"]), "Not answered")
                         correct = row["correct_answer"]
@@ -635,9 +642,8 @@ def dashboard(user):
                             st.write("**Your Answer:**", answer)
                             st.write("**Correct Answer:**", correct)
                             st.write("**Result:**", "✅ Correct" if is_correct else "❌ Incorrect")
-                            if is_correct:
-                                st.write("**Explanation:**", explanation)
-                            else:
+                            st.write("**Explanation:**", explanation)
+                            if not is_correct:
                                 st.write("**Why your answer is incorrect:** Your selected option does not match the concept tested.")
                                 st.write("**Why the correct answer is correct:**", explanation)
                             st.write("**Topic:**", concept)
@@ -651,7 +657,8 @@ def dashboard(user):
                         st.session_state.quiz_submitted = False
                         st.rerun()
             quiz_results = data.get("quiz_results", [])
-            if quiz_results:
+            active_quiz = st.session_state.get("active_quiz_skill") == f"{user['id']}:{selected_skill}" if dynamic else False
+            if quiz_results and not active_quiz:
                 st.subheader("Quiz Results")
                 results = pd.DataFrame(quiz_results)
                 results["pass_fail"] = results["percentage"].map(lambda value: "Pass" if value >= 70 else "Fail")
@@ -659,7 +666,7 @@ def dashboard(user):
                 result_keys = results.get("skill_key", results.get("skill", pd.Series(dtype=str)))
                 results["learning_path_status"] = result_keys.map(dict(zip(path_keys, path["progress_status"])))
                 st.dataframe(results[["skill", "score", "total_questions", "percentage", "pass_fail", "submitted_at", "learning_path_status"]], use_container_width=True, hide_index=True)
-            else:
+            elif not active_quiz:
                 st.info("No quiz attempts yet.")
     with rag_tab:
         question = st.text_input("Ask about your learning path", placeholder="What should I learn next?", key="rag_question")

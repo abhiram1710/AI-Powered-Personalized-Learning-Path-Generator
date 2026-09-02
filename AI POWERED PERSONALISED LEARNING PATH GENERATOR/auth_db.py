@@ -13,6 +13,7 @@ import secrets
 import sqlite3
 import time
 import shutil
+import re
 from pathlib import Path
 
 
@@ -40,6 +41,73 @@ def database_backend():
 
 def database_is_ephemeral():
     return database_backend() == "sqlite"
+
+
+def _database_url():
+    try:
+        database_config = st.secrets.get("database", {})
+    except Exception:
+        database_config = {}
+    return database_config.get("url") or os.getenv("DATABASE_URL", "")
+
+
+class _PostgresConnection:
+    """Small compatibility wrapper for the existing SQLite-style data layer."""
+
+    def __init__(self, url):
+        import psycopg
+        from psycopg.rows import dict_row
+        self.connection = psycopg.connect(url, row_factory=dict_row)
+
+    def execute(self, query, parameters=()):
+        if query.lstrip().upper().startswith("CREATE TABLE"):
+            query = re.sub(r"\bid INTEGER PRIMARY KEY\b", "id SERIAL PRIMARY KEY", query, flags=re.IGNORECASE)
+        if query.lstrip().upper().startswith("ALTER TABLE"):
+            self.connection.execute("SAVEPOINT schema_migration")
+            try:
+                cursor = self.connection.execute(query.replace("?", "%s"), parameters)
+                self.connection.execute("RELEASE SAVEPOINT schema_migration")
+                return cursor
+            except Exception as error:
+                self.connection.execute("ROLLBACK TO SAVEPOINT schema_migration")
+                self.connection.execute("RELEASE SAVEPOINT schema_migration")
+                if getattr(error, "sqlstate", "") == "42701":
+                    return self.connection.execute("SELECT 1")
+                raise
+        replace_match = re.match(r"INSERT OR REPLACE INTO (\w+)\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+        if replace_match:
+            table, columns, values = replace_match.groups()
+            column_names = [column.strip() for column in columns.split(",")]
+            query = f"INSERT INTO {table} ({columns}) VALUES ({values}) ON CONFLICT ({column_names[0]}) DO UPDATE SET " + ", ".join(f"{column}=EXCLUDED.{column}" for column in column_names[1:])
+        query = query.replace("INSERT OR IGNORE INTO", "INSERT INTO")
+        if "INSERT INTO completed_courses" in query and "ON CONFLICT" not in query:
+            query += " ON CONFLICT DO NOTHING"
+        query = query.replace("?", "%s")
+        return self.connection.execute(query, parameters)
+
+    def executescript(self, script):
+        for statement in script.split(";"):
+            if statement.strip():
+                self.execute(statement)
+
+    def commit(self):
+        self.connection.commit()
+
+    def rollback(self):
+        self.connection.rollback()
+
+    def close(self):
+        self.connection.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type:
+            self.rollback()
+        else:
+            self.commit()
+        self.close()
 def _smtp_config():
     """Read SMTP configuration from Streamlit secrets or environment variables."""
 
@@ -122,8 +190,22 @@ CURATED_COURSES = [
 
 @contextmanager
 def connect():
+    if database_backend() in {"postgres", "postgresql", "supabase"}:
+        url = _database_url()
+        if not url:
+            raise RuntimeError("Production database is not configured. Add database.url to Streamlit Secrets.")
+        connection = _PostgresConnection(url)
+        try:
+            yield connection
+            connection.commit()
+        except Exception:
+            connection.rollback()
+            raise
+        finally:
+            connection.close()
+        return
     if database_backend() != "sqlite":
-        raise RuntimeError("A managed PostgreSQL/Supabase backend is configured, but its adapter is not enabled in this version. SQLite remains the only supported backend.")
+        raise RuntimeError("Unsupported database backend. Use sqlite or postgresql.")
     _prepare_local_database()
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
@@ -153,13 +235,15 @@ def init_db():
         """)
         try:
             db.execute("ALTER TABLE quizzes ADD COLUMN quiz_level TEXT NOT NULL DEFAULT 'Intermediate'")
-        except sqlite3.OperationalError:
-            pass
+        except Exception as error:
+            if database_backend() == "sqlite" and not isinstance(error, sqlite3.OperationalError):
+                raise
         for statement in ("ALTER TABLE quizzes ADD COLUMN concept TEXT NOT NULL DEFAULT 'Unassigned'", "ALTER TABLE quiz_answers ADD COLUMN is_correct INTEGER NOT NULL DEFAULT 0", "ALTER TABLE quiz_answers ADD COLUMN concept TEXT NOT NULL DEFAULT 'Unassigned'"):
             try:
                 db.execute(statement)
-            except sqlite3.OperationalError:
-                pass
+            except Exception as error:
+                if database_backend() == "sqlite" and not isinstance(error, sqlite3.OperationalError):
+                    raise
         for statement in (
             "ALTER TABLE course_recommendations ADD COLUMN topic TEXT",
             "ALTER TABLE course_recommendations ADD COLUMN provider TEXT",
