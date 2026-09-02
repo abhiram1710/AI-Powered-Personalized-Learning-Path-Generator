@@ -489,7 +489,8 @@ def user_dashboard(user):
     gaps = pd.DataFrame(data["skill_gaps"])
     courses = pd.DataFrame(data["course_recommendations"])
     completed_skills = path.loc[path.get("progress_status", pd.Series(dtype=str)) == "Completed", "skill"].tolist() if not path.empty else []
-    profile = {"Student ID": user["username"], "Student": user["full_name"], "Career Goal": user["career_goal"], "Interests": user["interests"], "Current Skills": user["current_skills"], "Completed Skills": ", ".join(completed_skills) or "None yet", "Learning Progress": f"{sum(path['progress_status'] == 'Completed')}/{len(path)}"}
+    completed_count = int((path["progress_status"] == "Completed").sum()) if "progress_status" in path else 0
+    profile = {"Student ID": user["username"], "Student": user["full_name"], "Career Goal": user["career_goal"], "Interests": user["interests"], "Current Skills": user["current_skills"], "Completed Skills": ", ".join(completed_skills) or "None yet", "Learning Progress": f"{completed_count}/{len(path)}"}
     return profile, path, gaps, courses, data
 
 
@@ -505,7 +506,10 @@ def dashboard(user):
     st.caption(f"Career goal: {profile.get('Career Goal', profile.get('Job Profession', 'Not specified'))}  ·  Interests: {profile.get('Interests', 'Project reference profile')}")
     if dynamic:
         st.info("Your registered profile is isolated to your account.")
-    available = int((courses["course_status"].isin(["Course Available", "Recommended"])).sum()) if dynamic and not courses.empty else int((path["Course Status"] == "Course Available").sum())
+    if dynamic:
+        available = int(courses["course_status"].isin(["Course Available", "Recommended"]).sum()) if "course_status" in courses else 0
+    else:
+        available = int((path["Course Status"] == "Course Available").sum()) if "Course Status" in path else 0
     total = len(path)
     completed = int((path["progress_status"] == "Completed").sum()) if dynamic and not path.empty else 0
     metrics = st.columns(4)
@@ -578,42 +582,44 @@ def dashboard(user):
                     st.session_state.quiz_answers = {}
                     st.session_state.quiz_result = None
                     st.session_state.quiz_submitted = False
-                quiz_rows = st.session_state.quiz_attempt
+                submitted_for_skill = st.session_state.get("quiz_submitted", False) and st.session_state.get("active_quiz_skill") == quiz_key
+                quiz_rows = st.session_state.get("submitted_quiz", st.session_state.quiz_attempt) if submitted_for_skill else st.session_state.quiz_attempt
                 total_questions = len(quiz_rows)
                 if not quiz_rows:
                     st.warning("No quiz questions are available for this skill.")
                     st.stop()
                 question_index = max(0, min(st.session_state.get("quiz_index", 0), total_questions - 1))
                 st.session_state.quiz_index = question_index
-                st.write(f"Question {question_index + 1} of {total_questions}")
-                st.progress((question_index + 1) / total_questions, text=f"Question {question_index + 1} / {total_questions}")
-                question_row = quiz_rows[question_index]
-                options = [question_row["option_a"], question_row["option_b"], question_row["option_c"], question_row["option_d"]]
-                answer_key = str(question_row["id"])
-                chosen = st.radio(question_row["question"], options, index=options.index(st.session_state.quiz_answers[answer_key]) if answer_key in st.session_state.quiz_answers and st.session_state.quiz_answers[answer_key] in options else None, key=f"question_{quiz_key}_{question_row['id']}")
-                if chosen is not None:
-                    st.session_state.quiz_answers[answer_key] = chosen
-                navigation = st.columns(3)
-                with navigation[0]:
-                    if st.button("Previous", disabled=question_index == 0):
-                        st.session_state.quiz_index -= 1
-                        st.rerun()
-                with navigation[1]:
-                    if st.button("Next", disabled=question_index >= total_questions - 1):
-                        st.session_state.quiz_index += 1
-                        st.rerun()
-                with navigation[2]:
-                    if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
-                        submitted_answers = dict(st.session_state.quiz_answers)
-                        submitted_quiz = [dict(row) for row in quiz_rows]
-                        quiz_result = auth_db.submit_quiz_attempt(user["id"], submitted_quiz, submitted_answers)
-                        auth_db.record_quiz_progress(user["id"], selected_skill, quiz_result[2])
-                        st.session_state.submitted_quiz = submitted_quiz
-                        st.session_state.submitted_answers = submitted_answers
-                        st.session_state.quiz_result = quiz_result
-                        st.session_state.quiz_submitted = True
-                        st.session_state.quiz_index = total_questions - 1
-                        st.rerun()
+                if not submitted_for_skill:
+                    st.write(f"Question {question_index + 1} of {total_questions}")
+                    st.progress((question_index + 1) / total_questions, text=f"Question {question_index + 1} / {total_questions}")
+                    question_row = quiz_rows[question_index]
+                    options = [question_row["option_a"], question_row["option_b"], question_row["option_c"], question_row["option_d"]]
+                    answer_key = str(question_row["id"])
+                    chosen = st.radio(question_row["question"], options, index=options.index(st.session_state.quiz_answers[answer_key]) if answer_key in st.session_state.quiz_answers and st.session_state.quiz_answers[answer_key] in options else None, key=f"question_{quiz_key}_{question_row['id']}")
+                    if chosen is not None:
+                        st.session_state.quiz_answers[answer_key] = chosen
+                    navigation = st.columns(3)
+                    with navigation[0]:
+                        if st.button("Previous", disabled=question_index == 0):
+                            st.session_state.quiz_index -= 1
+                            st.rerun()
+                    with navigation[1]:
+                        if st.button("Next", disabled=question_index >= total_questions - 1):
+                            st.session_state.quiz_index += 1
+                            st.rerun()
+                    with navigation[2]:
+                        if st.button("Submit Quiz", disabled=len(st.session_state.quiz_answers) != total_questions, type="primary"):
+                            submitted_answers = dict(st.session_state.quiz_answers)
+                            submitted_quiz = [dict(row) for row in quiz_rows]
+                            quiz_result = auth_db.submit_quiz_attempt(user["id"], submitted_quiz, submitted_answers)
+                            auth_db.record_quiz_progress(user["id"], selected_skill, quiz_result[2])
+                            st.session_state.submitted_quiz = submitted_quiz
+                            st.session_state.submitted_answers = submitted_answers
+                            st.session_state.quiz_result = quiz_result
+                            st.session_state.quiz_submitted = True
+                            st.session_state.quiz_index = total_questions - 1
+                            st.rerun()
                 if st.session_state.get("quiz_submitted", False) and st.session_state.get("quiz_result"):
                     score, total, percentage = st.session_state.quiz_result
                     quiz_rows = st.session_state.get("submitted_quiz", quiz_rows)
