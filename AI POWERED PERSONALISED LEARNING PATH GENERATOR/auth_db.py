@@ -107,13 +107,6 @@ class _PostgresConnection:
                 normalized = f"{normalized} RETURNING id"
 
         cursor = self.connection.execute(normalized, parameters)
-        if "RETURNING id" in normalized.upper():
-            try:
-                row = cursor.fetchone()
-                if row is not None:
-                    cursor.lastrowid = row[0] if isinstance(row, tuple) else row.get("id")
-            except Exception:
-                pass
         return cursor
 
     def executescript(self, script):
@@ -786,8 +779,19 @@ def create_quiz_attempt(user_id, skill, stage, preferred_level, excluded_questio
         for question, options, answer in questions[:required_count]:
             shuffled = list(options); randomizer.shuffle(shuffled)
             concept = question_concept(skill, question) if not generated_fallback else f"{skill} {question.split('supports progress in ')[-1].rstrip('?').title()}"
-            cursor = db.execute("INSERT INTO quizzes(user_id, skill, skill_key, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (user_id, skill, _norm(skill), stage, question, *shuffled, answer, preferred_level, concept))
-            rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (cursor.lastrowid,)).fetchone()))
+            if database_backend() in {"postgres", "postgresql", "supabase"}:
+                cursor = db.execute(
+                    "INSERT INTO quizzes(user_id, skill, skill_key, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
+                    (user_id, skill, _norm(skill), stage, question, *shuffled, answer, preferred_level, concept),
+                )
+                quiz_id = cursor.fetchone()["id"]
+            else:
+                cursor = db.execute(
+                    "INSERT INTO quizzes(user_id, skill, skill_key, stage, question, option_a, option_b, option_c, option_d, correct_answer, quiz_level, concept) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (user_id, skill, _norm(skill), stage, question, *shuffled, answer, preferred_level, concept),
+                )
+                quiz_id = cursor.lastrowid
+            rows.append(dict(db.execute("SELECT * FROM quizzes WHERE id=?", (quiz_id,)).fetchone()))
     return rows
 
 
