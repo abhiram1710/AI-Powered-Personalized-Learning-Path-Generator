@@ -1,4 +1,4 @@
-"""SQLite persistence and deterministic personalization for registered learners."""
+"""PostgreSQL-first persistence with a safe SQLite fallback for local development."""
 import streamlit as st
 from datetime import datetime, timezone
 from email.message import EmailMessage
@@ -31,12 +31,16 @@ def _prepare_local_database():
 
 
 def database_backend():
-    """Return the configured backend; SQLite remains the local default."""
+    """Prefer PostgreSQL when a configured URL is present; SQLite remains the local fallback."""
     try:
         database_config = st.secrets.get("database", {})
     except Exception:
         database_config = {}
-    return str(database_config.get("backend", os.getenv("DATABASE_BACKEND", "sqlite"))).strip().lower()
+    configured_url = str(database_config.get("url") or os.getenv("DATABASE_URL", "")).strip()
+    configured_backend = str(database_config.get("backend", os.getenv("DATABASE_BACKEND", "sqlite"))).strip().lower()
+    if configured_url:
+        return "postgresql" if configured_backend in {"", "sqlite", "postgres", "postgresql", "supabase"} else configured_backend
+    return configured_backend or "sqlite"
 
 
 def database_is_ephemeral():
@@ -48,47 +52,74 @@ def _database_url():
         database_config = st.secrets.get("database", {})
     except Exception:
         database_config = {}
-    return database_config.get("url") or os.getenv("DATABASE_URL", "")
+    return str(database_config.get("url") or os.getenv("DATABASE_URL", "")).strip()
 
 
 class _PostgresConnection:
-    """Small compatibility wrapper for the existing SQLite-style data layer."""
+    """SQLite-compatible wrapper for the existing data layer using psycopg."""
 
     def __init__(self, url):
         import psycopg
         from psycopg.rows import dict_row
-        self.connection = psycopg.connect(url, row_factory=dict_row)
+        self.connection = psycopg.connect(url, autocommit=False, row_factory=dict_row)
+
+    @staticmethod
+    def _rewrite_create_table(query):
+        return re.sub(r"\bINTEGER PRIMARY KEY\b", "SERIAL PRIMARY KEY", query, flags=re.IGNORECASE)
+
+    @staticmethod
+    def _rewrite_insert_or_replace(query):
+        match = re.match(r"INSERT\s+OR\s+REPLACE\s+INTO\s+(\w+)\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+        if not match:
+            return query
+        table, columns, values = match.groups()
+        column_names = [column.strip() for column in columns.split(",")]
+        conflict_target = column_names[0] if column_names else "id"
+        assignments = ", ".join(f"{column}=EXCLUDED.{column}" for column in column_names)
+        return f"INSERT INTO {table} ({columns}) VALUES ({values}) ON CONFLICT ({conflict_target}) DO UPDATE SET {assignments}"
+
+    @staticmethod
+    def _rewrite_insert_or_ignore(query):
+        match = re.match(r"INSERT\s+OR\s+IGNORE\s+INTO\s+(\w+)\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+        if not match:
+            return query.replace("INSERT OR IGNORE INTO", "INSERT INTO")
+        table, columns, values = match.groups()
+        return f"INSERT INTO {table} ({columns}) VALUES ({values}) ON CONFLICT DO NOTHING"
 
     def execute(self, query, parameters=()):
-        if query.lstrip().upper().startswith("CREATE TABLE"):
-            query = re.sub(r"\bid INTEGER PRIMARY KEY\b", "id SERIAL PRIMARY KEY", query, flags=re.IGNORECASE)
-        if query.lstrip().upper().startswith("ALTER TABLE"):
-            self.connection.execute("SAVEPOINT schema_migration")
+        if not query:
+            return self.connection.execute(query, parameters)
+
+        normalized = query.strip()
+        if normalized.upper().startswith("CREATE TABLE"):
+            normalized = self._rewrite_create_table(normalized)
+        if normalized.upper().startswith("INSERT OR REPLACE INTO"):
+            normalized = self._rewrite_insert_or_replace(normalized)
+        if normalized.upper().startswith("INSERT OR IGNORE INTO"):
+            normalized = self._rewrite_insert_or_ignore(normalized)
+        if normalized.upper().startswith("ALTER TABLE") and "ADD COLUMN" in normalized.upper() and "IF NOT EXISTS" not in normalized.upper():
+            normalized = re.sub(r"ADD COLUMN\s+([A-Za-z0-9_]+)", r"ADD COLUMN IF NOT EXISTS \1", normalized, flags=re.IGNORECASE)
+        if "?" in normalized:
+            normalized = normalized.replace("?", "%s")
+        if re.match(r"^INSERT\s+INTO\s+([A-Za-z0-9_]+)\b", normalized, re.IGNORECASE) and "RETURNING" not in normalized.upper() and "ON CONFLICT" not in normalized.upper():
+            table = re.match(r"^INSERT\s+INTO\s+([A-Za-z0-9_]+)\b", normalized, re.IGNORECASE).group(1)
+            if table.lower() in {"users", "user_profiles", "skill_gaps", "course_recommendations", "learning_path", "quizzes", "quiz_results", "progress", "quiz_answers", "password_reset_tokens", "completed_courses"}:
+                normalized = f"{normalized} RETURNING id"
+
+        cursor = self.connection.execute(normalized, parameters)
+        if "RETURNING id" in normalized.upper():
             try:
-                cursor = self.connection.execute(query.replace("?", "%s"), parameters)
-                self.connection.execute("RELEASE SAVEPOINT schema_migration")
-                return cursor
-            except Exception as error:
-                self.connection.execute("ROLLBACK TO SAVEPOINT schema_migration")
-                self.connection.execute("RELEASE SAVEPOINT schema_migration")
-                if getattr(error, "sqlstate", "") == "42701":
-                    return self.connection.execute("SELECT 1")
-                raise
-        replace_match = re.match(r"INSERT OR REPLACE INTO (\w+)\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
-        if replace_match:
-            table, columns, values = replace_match.groups()
-            column_names = [column.strip() for column in columns.split(",")]
-            query = f"INSERT INTO {table} ({columns}) VALUES ({values}) ON CONFLICT ({column_names[0]}) DO UPDATE SET " + ", ".join(f"{column}=EXCLUDED.{column}" for column in column_names[1:])
-        query = query.replace("INSERT OR IGNORE INTO", "INSERT INTO")
-        if "INSERT INTO completed_courses" in query and "ON CONFLICT" not in query:
-            query += " ON CONFLICT DO NOTHING"
-        query = query.replace("?", "%s")
-        return self.connection.execute(query, parameters)
+                row = cursor.fetchone()
+                if row is not None:
+                    cursor.lastrowid = row[0] if isinstance(row, tuple) else row.get("id")
+            except Exception:
+                pass
+        return cursor
 
     def executescript(self, script):
-        for statement in script.split(";"):
-            if statement.strip():
-                self.execute(statement)
+        statements = [part.strip() for part in script.split(";") if part.strip()]
+        for statement in statements:
+            self.execute(statement)
 
     def commit(self):
         self.connection.commit()
@@ -182,9 +213,21 @@ CURATED_COURSES = [
     ("deep-learning", "Deep Learning Specialization", "Deep Learning", "Coursera", "DeepLearning.AI", "Advanced", 4.9, 130000, "https://www.coursera.org/specializations/deep-learning", "Neural networks and deep learning.", "5 months", "Machine Learning"),
     ("tensorflow", "TensorFlow Core", "TensorFlow", "Official documentation", "Google", "Intermediate", 5.0, 1, "https://www.tensorflow.org/learn", "Official TensorFlow tutorials and guides.", "Self-paced", "Python, Machine Learning"),
     ("model-deployment", "Deploying Machine Learning Models", "Model Deployment", "Google Cloud Skills Boost", "Google Cloud", "Advanced", 4.7, 1, "https://www.cloudskillsboost.google/paths/17", "Deploy and operate ML workloads.", "Self-paced", "Machine Learning, Python"),
-    ("aws-training", "AWS Skill Builder", "Aws", "AWS Skill Builder", "Amazon Web Services", "Beginner", 4.8, 1, "https://skillbuilder.aws/", "Official AWS training and learning plans.", "Self-paced", "None"),
-    ("docker-training", "Docker getting started", "Docker", "Docker", "Docker", "Beginner", 5.0, 1, "https://docs.docker.com/get-started/", "Container fundamentals and Docker workflows.", "Self-paced", "None"),
-    ("kubernetes-training", "Kubernetes Basics", "Kubernetes", "Kubernetes", "Cloud Native Computing Foundation", "Intermediate", 4.9, 1, "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "Deploy and manage containerized applications.", "Self-paced", "Docker"),
+    ("cloud-platforms-google", "Google Cloud Skills Boost: Cloud Fundamentals", "Cloud Platforms", "Google Cloud Skills Boost", "Google Cloud", "Beginner", 4.8, 1, "https://www.cloudskillsboost.google/paths/17", "Foundations for cloud architecture, networking, and managed services.", "Self-paced", "None"),
+    ("cloud-platforms-azure", "Microsoft Learn: Azure Fundamentals", "Cloud Platforms", "Microsoft Learn", "Microsoft", "Beginner", 4.7, 1, "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/", "Learn cloud concepts, services, pricing, and architecture on Azure.", "Self-paced", "None"),
+    ("aws-skill-builder", "AWS Skill Builder", "Aws", "AWS Skill Builder", "Amazon Web Services", "Beginner", 4.8, 1, "https://skillbuilder.aws/", "Official AWS training and learning plans for cloud services and architecture.", "Self-paced", "None"),
+    ("aws-docs", "AWS Documentation", "Aws", "Official documentation", "Amazon Web Services", "Beginner", 5.0, 1, "https://docs.aws.amazon.com/", "Reference documentation for AWS services, IAM, EC2, networking, and infrastructure.", "Self-paced", "None"),
+    ("docker-docs", "Docker Docs: Get Started", "Docker", "Official documentation", "Docker", "Beginner", 5.0, 1, "https://docs.docker.com/get-started/", "Container fundamentals and Docker workflows for application packaging and deployment.", "Self-paced", "None"),
+    ("docker-hub", "Docker Learn", "Docker", "Docker", "Docker", "Beginner", 5.0, 1, "https://docs.docker.com/learn/", "Hands-on lessons for container images, networking, and orchestration.", "Self-paced", "None"),
+    ("kubernetes-basics", "Kubernetes Basics", "Kubernetes", "Kubernetes", "Cloud Native Computing Foundation", "Intermediate", 4.9, 1, "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "Deploy and manage containerized applications with Kubernetes.", "Self-paced", "Docker"),
+    ("kubernetes-docs", "Kubernetes Documentation", "Kubernetes", "Official documentation", "Kubernetes", "Intermediate", 5.0, 1, "https://kubernetes.io/docs/home/", "Core Kubernetes concepts, API objects, workloads, and cluster operations.", "Self-paced", "Docker"),
+    ("linux-foundation", "Linux Foundation Training", "Linux", "Linux Foundation", "Linux Foundation", "Beginner", 4.7, 1, "https://training.linuxfoundation.org/", "Learn Linux essentials, shell usage, file systems, and administration.", "Self-paced", "None"),
+    ("ubuntu-docs", "Ubuntu Tutorials", "Linux", "Official documentation", "Canonical", "Beginner", 4.8, 1, "https://ubuntu.com/tutorials", "Official Ubuntu tutorials for Linux command line, package management, and operations.", "Self-paced", "None"),
+    ("networking-cisco", "Cisco Networking Academy: Networking Basics", "Networking", "Cisco Networking Academy", "Cisco", "Beginner", 4.8, 1, "https://www.netacad.com/courses/networking",
+     "Learn core networking concepts, TCP/IP, addressing, and routing fundamentals.", "Self-paced", "None"),
+    ("networking-docs", "Cisco Learning & Certifications", "Networking", "Cisco", "Cisco", "Intermediate", 4.8, 1, "https://www.cisco.com/site/us/en/learn/training-certifications/index.html", "Structured networking training for architecture, switching, routing, and troubleshooting.", "Self-paced", "None"),
+    ("terraform-docs", "HashiCorp Learn: Terraform", "Terraform", "HashiCorp Learn", "HashiCorp", "Intermediate", 4.8, 1, "https://learn.hashicorp.com/collections/terraform/cloud-get-started", "Provision and manage infrastructure with Terraform using real configuration examples.", "Self-paced", "Cloud Platforms, Aws"),
+    ("terraform-docs-core", "Terraform Documentation", "Terraform", "Official documentation", "HashiCorp", "Intermediate", 5.0, 1, "https://developer.hashicorp.com/terraform/docs", "Reference documentation for infrastructure as code, state, providers, and modules.", "Self-paced", "Cloud Platforms, Aws"),
 ]
 
 
@@ -219,6 +262,33 @@ def connect():
 
 def init_db():
     with connect() as db:
+        if database_backend() in {"postgres", "postgresql", "supabase"}:
+            statements = [
+                "CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, full_name TEXT NOT NULL, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL, career_goal TEXT NOT NULL, interests TEXT NOT NULL, current_skills TEXT NOT NULL, preferred_level TEXT NOT NULL, created_at TEXT NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS user_profiles (id SERIAL PRIMARY KEY, user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE, dominant_intelligence TEXT, intelligence_score REAL, profile_data TEXT NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS skill_gaps (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', skill_category TEXT NOT NULL DEFAULT 'Role-specific', current_level TEXT NOT NULL, required_level TEXT NOT NULL, gap TEXT NOT NULL, priority TEXT NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS course_recommendations (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', course_id TEXT, course_name TEXT, institution TEXT, course_score REAL, course_status TEXT NOT NULL, topic TEXT, provider TEXT, level TEXT, rating REAL, review_count INTEGER, course_url TEXT, duration TEXT, prerequisites TEXT)",
+                "CREATE TABLE IF NOT EXISTS learning_path (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, sequence INTEGER NOT NULL, stage TEXT NOT NULL, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', skill_category TEXT NOT NULL DEFAULT 'Role-specific', priority TEXT NOT NULL, course_name TEXT, course_status TEXT NOT NULL, learning_recommendation TEXT NOT NULL, progress_status TEXT NOT NULL DEFAULT 'Not Started', started_at TEXT, completed_at TEXT, course_id TEXT)",
+                "CREATE TABLE IF NOT EXISTS quizzes (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, skill TEXT NOT NULL, skill_key TEXT NOT NULL DEFAULT '', stage TEXT NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_answer TEXT NOT NULL, concept TEXT NOT NULL DEFAULT 'Unassigned', quiz_level TEXT NOT NULL DEFAULT 'Intermediate')",
+                "CREATE TABLE IF NOT EXISTS quiz_results (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id), score INTEGER NOT NULL, total_questions INTEGER NOT NULL, percentage REAL NOT NULL, passed INTEGER NOT NULL DEFAULT 0, submitted_at TEXT NOT NULL, attempted_at TEXT NOT NULL DEFAULT '')",
+                "CREATE TABLE IF NOT EXISTS progress (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, learning_step_id INTEGER NOT NULL REFERENCES learning_path(id), status TEXT NOT NULL, updated_at TEXT NOT NULL, started_at TEXT, completed_at TEXT, quiz_score INTEGER, quiz_percentage REAL, UNIQUE(user_id, learning_step_id))",
+                "CREATE TABLE IF NOT EXISTS quiz_answers (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE, user_answer TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, concept TEXT NOT NULL DEFAULT 'Unassigned', submitted_at TEXT NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS password_reset_tokens (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, token_hash TEXT NOT NULL UNIQUE, expires_at REAL NOT NULL, used_at TEXT)",
+                "CREATE TABLE IF NOT EXISTS completed_courses (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, course_id TEXT NOT NULL, course_name TEXT NOT NULL, completed_at TEXT NOT NULL, UNIQUE(user_id, course_id))",
+                "CREATE TABLE IF NOT EXISTS courses (course_id TEXT PRIMARY KEY, course_name TEXT NOT NULL, skill TEXT NOT NULL, topic TEXT NOT NULL, provider TEXT NOT NULL, institution TEXT NOT NULL, level TEXT NOT NULL, rating REAL, review_count INTEGER, course_url TEXT NOT NULL, description TEXT NOT NULL, duration TEXT NOT NULL, prerequisites TEXT NOT NULL)",
+                "CREATE INDEX IF NOT EXISTS idx_skill_gaps_user ON skill_gaps(user_id)",
+                "CREATE INDEX IF NOT EXISTS idx_learning_path_user_sequence ON learning_path(user_id, sequence)",
+                "CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id)",
+                "CREATE INDEX IF NOT EXISTS idx_quiz_results_user ON quiz_results(user_id)",
+                "CREATE INDEX IF NOT EXISTS idx_quiz_answers_user ON quiz_answers(user_id)",
+                "CREATE INDEX IF NOT EXISTS idx_password_reset_expiry ON password_reset_tokens(expires_at)",
+            ]
+            for statement in statements:
+                db.execute(statement)
+            db.execute("UPDATE quiz_results SET attempted_at=submitted_at WHERE attempted_at='' OR attempted_at IS NULL")
+            db.execute("UPDATE quiz_results SET passed=CASE WHEN percentage >= 70 THEN 1 ELSE 0 END WHERE passed IS NULL")
+            return
+
         db.executescript("""
         CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, full_name TEXT NOT NULL, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL, career_goal TEXT NOT NULL, interests TEXT NOT NULL, current_skills TEXT NOT NULL, preferred_level TEXT NOT NULL, created_at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS user_profiles (id INTEGER PRIMARY KEY, user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE, dominant_intelligence TEXT, intelligence_score REAL, profile_data TEXT NOT NULL);
@@ -306,10 +376,20 @@ def register_user(full_name, username, email, password, career_goal, interests, 
         raise ValueError("Password must be at least 8 characters and must not begin or end with spaces.")
     with connect() as db:
         try:
-            cursor = db.execute("INSERT INTO users(full_name, username, email, password_hash, career_goal, interests, current_skills, preferred_level, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (full_name.strip(), username.strip(), email.strip().lower(), _password_hash(password), career_goal.strip(), interests.strip(), current_skills.strip(), preferred_level, datetime.now(timezone.utc).isoformat()))
+            if database_backend() in {"postgres", "postgresql", "supabase"}:
+                cursor = db.execute(
+                    "INSERT INTO users(full_name, username, email, password_hash, career_goal, interests, current_skills, preferred_level, created_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
+                    (full_name.strip(), username.strip(), email.strip().lower(), _password_hash(password), career_goal.strip(), interests.strip(), current_skills.strip(), preferred_level, datetime.now(timezone.utc).isoformat()),
+                )
+                user_id = cursor.fetchone()["id"]
+            else:
+                cursor = db.execute(
+                    "INSERT INTO users(full_name, username, email, password_hash, career_goal, interests, current_skills, preferred_level, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (full_name.strip(), username.strip(), email.strip().lower(), _password_hash(password), career_goal.strip(), interests.strip(), current_skills.strip(), preferred_level, datetime.now(timezone.utc).isoformat()),
+                )
+                user_id = cursor.lastrowid
         except sqlite3.IntegrityError as error:
             raise ValueError("Username or email is already registered.") from error
-        user_id = cursor.lastrowid
         db.execute("INSERT INTO user_profiles(user_id, profile_data) VALUES (?, ?)", (user_id, json.dumps({"interests": interests, "preferred_level": preferred_level})))
     return user_id
 
@@ -324,7 +404,6 @@ def authenticate(identifier, password):
 
 def request_password_reset(identifier, ttl_seconds=900):
     """Create a one-time password reset token and email it to the user."""
-    print("PASSWORD RESET FUNCTION CALLED FOR:", identifier)
     identifier = str(identifier).strip()
 
     with connect() as db:
@@ -438,6 +517,27 @@ def _norm(value):
     return "".join(character.lower() for character in str(value) if character.isalnum())
 
 
+def _normalize_skill_key(skill):
+    value = str(skill or "").strip()
+    aliases = {
+        "aws": "aws",
+        "sql": "sql",
+        "postgresql": "sql",
+        "pandas": "pandas",
+        "kubernetes": "kubernetes",
+        "docker": "docker",
+        "linux": "linux",
+        "networking": "networking",
+        "terraform": "terraform",
+        "cloudplatforms": "cloud platforms",
+        "cloudplatform": "cloud platforms",
+        "cloud platforms": "cloud platforms",
+        "cloud": "cloud platforms",
+    }
+    normalized = _norm(value)
+    return aliases.get(normalized, normalized)
+
+
 def _requirements(career_goal, interests):
     goal = career_goal.lower()
     selected = next((skills for name, skills in CAREER_SKILLS.items() if name in goal), None)
@@ -456,7 +556,7 @@ def skill_category(career_goal, skill):
     requirements = next((value for name, value in CAREER_REQUIREMENTS.items() if name in goal), None)
     if requirements is None:
         raise ValueError("Unsupported career goal.")
-    return "Foundation" if _norm(skill) in {_norm(item) for item in requirements["foundation"]} else "Role-specific"
+    return "Foundation" if _normalize_skill_key(skill) in {_normalize_skill_key(item) for item in requirements["foundation"]} else "Role-specific"
 
 
 def _catalog_frame(ranked_courses):
@@ -464,7 +564,7 @@ def _catalog_frame(ranked_courses):
     rows = [{"course_id": course[0], "course_name": course[1], "required_skill": course[2], "topic": course[2], "provider": course[3], "institution": course[4], "level": course[5], "average_rating": course[6], "review_count": course[7], "course_url": course[8], "description": course[9], "duration": course[10], "prerequisites": course[11], "course_score": course[6] / 5 + min(course[7], 100000) / 1000000} for course in CURATED_COURSES]
     catalog = pd.DataFrame(rows)
     if not catalog.empty:
-        catalog["skill_key"] = catalog["required_skill"].map(_norm)
+        catalog["skill_key"] = catalog["required_skill"].map(_normalize_skill_key)
     return catalog
 
 
@@ -474,14 +574,14 @@ def _completed_course_ids(db, user_id):
 
 def build_user_path(user, ranked_courses, completed_skills=None, completed_course_ids=None):
     required = _requirements(user["career_goal"], user["interests"])
-    current = {_norm(item.strip()) for item in user["current_skills"].split(",") if item.strip()}
-    current.update(_norm(item) for item in completed_skills or [])
+    current = {_normalize_skill_key(item.strip()) for item in user["current_skills"].split(",") if item.strip()}
+    current.update(_normalize_skill_key(item) for item in completed_skills or [])
     catalog = _catalog_frame(ranked_courses)
     completed_course_ids = completed_course_ids or set()
     skill_rows = []
     for skill in required:
-        covered = _norm(skill) in current
-        matches = catalog[catalog["skill_key"] == _norm(skill)].copy()
+        covered = _normalize_skill_key(skill) in current
+        matches = catalog[catalog["skill_key"] == _normalize_skill_key(skill)].copy()
         matches = matches[~matches["course_id"].isin(completed_course_ids)]
         matches["course_score"] = __import__("pandas").to_numeric(matches["course_score"], errors="coerce")
         matches = matches.dropna(subset=["course_score"]).sort_values("course_score", ascending=False)
@@ -497,14 +597,14 @@ def build_user_path(user, ranked_courses, completed_skills=None, completed_cours
 
 
 def save_personalization(user_id, user, ranked_courses, recommendation):
+    """Replace the generated learning-path rows for this user without deleting historical quiz results."""
     with connect() as db:
         catalog = _catalog_frame(ranked_courses)
         for _, course in catalog.iterrows():
-            db.execute("INSERT OR REPLACE INTO courses(course_id, course_name, skill, topic, provider, institution, level, rating, review_count, course_url, description, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", tuple(course.get(column, "") for column in ("course_id", "course_name", "required_skill", "topic", "provider", "institution", "level", "average_rating", "review_count", "course_url", "description", "duration", "prerequisites")))
-        db.execute("DELETE FROM quiz_answers WHERE user_id=?", (user_id,))
-        db.execute("DELETE FROM quiz_results WHERE user_id=?", (user_id,))
-        db.execute("DELETE FROM progress WHERE user_id=?", (user_id,))
-        db.execute("DELETE FROM quizzes WHERE user_id=?", (user_id,))
+            db.execute(
+                "INSERT INTO courses(course_id, course_name, skill, topic, provider, institution, level, rating, review_count, course_url, description, duration, prerequisites) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(course_id) DO UPDATE SET course_name=EXCLUDED.course_name, skill=EXCLUDED.skill, topic=EXCLUDED.topic, provider=EXCLUDED.provider, institution=EXCLUDED.institution, level=EXCLUDED.level, rating=EXCLUDED.rating, review_count=EXCLUDED.review_count, course_url=EXCLUDED.course_url, description=EXCLUDED.description, duration=EXCLUDED.duration, prerequisites=EXCLUDED.prerequisites",
+                tuple(course.get(column, "") for column in ("course_id", "course_name", "required_skill", "topic", "provider", "institution", "level", "average_rating", "review_count", "course_url", "description", "duration", "prerequisites")),
+            )
         db.execute("DELETE FROM skill_gaps WHERE user_id=?", (user_id,))
         db.execute("DELETE FROM course_recommendations WHERE user_id=?", (user_id,))
         db.execute("DELETE FROM learning_path WHERE user_id=?", (user_id,))
@@ -539,10 +639,14 @@ def update_progress(user_id, step_id, status):
             status = "Completed"
         started_at = now if status in ("In Progress", "Completed") else None
         completed_at = now if status == "Completed" else None
-        db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at, started_at, completed_at) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at, started_at=COALESCE(progress.started_at, excluded.started_at), completed_at=excluded.completed_at", (user_id, step_id, status, now, started_at, completed_at))
+        existing = db.execute("SELECT id FROM progress WHERE user_id=? AND learning_step_id=?", (user_id, step_id)).fetchone()
+        if existing is None:
+            db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at, started_at, completed_at) VALUES (?, ?, ?, ?, ?, ?)", (user_id, step_id, status, now, started_at, completed_at))
+        else:
+            db.execute("UPDATE progress SET status=?, updated_at=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE user_id=? AND learning_step_id=?", (status, now, started_at, completed_at, user_id, step_id))
         db.execute("UPDATE learning_path SET progress_status=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE id=? AND user_id=?", (status, started_at, completed_at, step_id, user_id))
         if status == "Completed" and step["course_id"]:
-            db.execute("INSERT OR IGNORE INTO completed_courses(user_id, course_id, course_name, completed_at) VALUES (?, ?, ?, ?)", (user_id, step["course_id"], step["course_name"], now))
+            db.execute("INSERT INTO completed_courses(user_id, course_id, course_name, completed_at) VALUES (?, ?, ?, ?) ON CONFLICT(user_id, course_id) DO NOTHING", (user_id, step["course_id"], step["course_name"], now))
             db.execute("UPDATE course_recommendations SET course_status='Completed' WHERE user_id=? AND course_id=?", (user_id, step["course_id"]))
 
 
@@ -561,12 +665,11 @@ def record_quiz_progress(user_id, skill, percentage):
         latest_result = db.execute("SELECT score, total_questions FROM quiz_results WHERE user_id=? AND quiz_id IN (SELECT id FROM quizzes WHERE user_id=? AND skill_key=?) ORDER BY id DESC LIMIT 1", (user_id, user_id, _norm(skill))).fetchone()
         score = latest_result["score"] if latest_result else round(percentage / 100 * 7)
         now = datetime.now(timezone.utc).isoformat()
-        db.execute(
-            "INSERT INTO progress(user_id, learning_step_id, status, updated_at) VALUES (?, ?, ?, ?) "
-            "ON CONFLICT(user_id, learning_step_id) DO UPDATE SET status=excluded.status, updated_at=excluded.updated_at, quiz_score=excluded.quiz_score, quiz_percentage=excluded.quiz_percentage",
-            (user_id, step["id"], status, now),
-        )
-        db.execute("UPDATE progress SET quiz_score=?, quiz_percentage=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE user_id=? AND learning_step_id=?", (score, percentage, now, now if status == "Completed" else None, user_id, step["id"]))
+        existing = db.execute("SELECT id FROM progress WHERE user_id=? AND learning_step_id=?", (user_id, step["id"])).fetchone()
+        if existing is None:
+            db.execute("INSERT INTO progress(user_id, learning_step_id, status, updated_at, quiz_score, quiz_percentage, started_at, completed_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (user_id, step["id"], status, now, score, percentage, now, now if status == "Completed" else None))
+        else:
+            db.execute("UPDATE progress SET status=?, updated_at=?, quiz_score=?, quiz_percentage=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE user_id=? AND learning_step_id=?", (status, now, score, percentage, now, now if status == "Completed" else None, user_id, step["id"]))
         db.execute(
             "UPDATE learning_path SET progress_status=?, started_at=COALESCE(started_at, ?), completed_at=? WHERE id=? AND user_id=?",
             (status, now, now if status == "Completed" else None, step["id"], user_id),
