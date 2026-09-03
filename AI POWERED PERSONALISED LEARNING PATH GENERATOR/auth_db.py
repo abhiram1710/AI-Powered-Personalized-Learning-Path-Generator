@@ -278,8 +278,6 @@ def init_db():
             ]
             for statement in statements:
                 db.execute(statement)
-            db.execute("UPDATE quiz_results SET attempted_at=submitted_at WHERE attempted_at='' OR attempted_at IS NULL")
-            db.execute("UPDATE quiz_results SET passed=CASE WHEN percentage >= 70 THEN 1 ELSE 0 END WHERE passed IS NULL")
             return
 
         db.executescript("""
